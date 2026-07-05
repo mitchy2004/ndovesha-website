@@ -1,0 +1,1386 @@
+/* ============================================================
+   VARIABLES (shared across both sections)
+============================================================ */
+:root {
+  --primary: #0A2A66;
+  --primary-dark: #061a42;
+  --primary-light: #1a3d80;
+  --gold: #FEBF0F;
+  --white: #FFFFFF;
+  --light-grey: #F7F8FA;   /* hero background */
+  --bg-alt: #E9EAEE;       /* Hire AI Coworkers background — slightly darker light-grey */
+  --text: #111827;
+  --text-light: #6B7280;
+  --border: #E5E7EB;
+  --green-glow: 0 0 18px rgba(34, 197, 94, 0.45);
+  --shadow: 0 4px 24px rgba(10,42,102,0.10);
+  --shadow-lg: 0 8px 40px rgba(10,42,102,0.14);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+/* ============================================================
+   RESET
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+ul { list-style: none; padding: 0; margin: 0; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+/* ============================================================
+   NAV
+============================================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  height: 68px;
+  display: flex;
+  align-items: center;
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+}
+.logo-img { height: 52px; width: auto; max-width: 200px; object-fit: contain; }
+
+/* Center nav */
+.nav-center { display: flex; align-items: center; gap: 4px; list-style: none; }
+.nav-center > li { position: relative; }
+.nav-center > li > a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-center > li > a:hover { color: var(--gold); }
+.nav-arrow { font-size: 0.8rem; margin-left: 2px; transition: transform 0.2s; display: inline-block; }
+.nav-center > li:hover .nav-arrow { transform: rotate(180deg); }
+
+/* Dropdown */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  min-width: 200px;
+  z-index: 2000;
+  overflow: hidden;
+}
+/* Invisible bridge so the mouse never "leaves" the hoverable area
+   while crossing the gap between the nav link and the dropdown */
+.dropdown-menu::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
+.nav-center > li:hover .dropdown-menu,
+.dropdown-menu.show { display: block; }
+.dropdown-menu li a {
+  display: block;
+  padding: 13px 20px;
+  font-size: 0.97rem;
+  font-weight: 400;
+  color: var(--text);
+  transition: color 0.18s, background 0.18s;
+  white-space: nowrap;
+}
+.dropdown-menu li a:hover { color: var(--gold); background: var(--light-grey); }
+.dropdown-divider { height: 1px; background: var(--border); margin: 0; }
+
+/* Nav Right */
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.btn-login {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 500;
+  padding: 9px 20px;
+  border-radius: 50px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.22s, color 0.22s, transform 0.18s, box-shadow 0.22s, border-radius 0.22s;
+  display: inline-block;
+  white-space: nowrap;
+}
+.btn-login:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: var(--green-glow);
+  border-radius: 10px;
+  border-color: var(--primary);
+}
+.btn-cta {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 50px;
+  border: none;
+  background: var(--primary);
+  color: var(--white);
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.22s, border-radius 0.22s;
+  display: inline-block;
+  white-space: nowrap;
+}
+.btn-cta:hover { transform: translateY(-3px); box-shadow: var(--green-glow); border-radius: 10px; }
+
+/* Mobile nav */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--text);
+}
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 999;
+  border-top: 1px solid var(--border);
+}
+.mobile-nav.active { display: flex; }
+.mobile-nav a {
+  padding: 12px 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  display: block;
+}
+.mobile-nav a:hover { color: var(--gold); }
+.mobile-nav .btn-cta, .mobile-nav .btn-login {
+  margin-top: 8px;
+  text-align: center;
+  width: 100%;
+  border-bottom: none;
+  display: block;
+  border-radius: 50px;
+}
+.mobile-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+.mobile-fold { display: none; flex-direction: column; padding-left: 12px; }
+.mobile-fold.open { display: flex; }
+.mobile-fold a { border-bottom: none; padding: 10px 8px; }
+
+@media (max-width: 968px) {
+  .nav-center { display: none; }
+  .nav-right { display: none; }
+  .mobile-menu-btn { display: block; }
+}
+
+/* ============================================================
+   HERO SECTION
+============================================================ */
+.hero-section {
+  min-height: calc(100vh - 68px);
+  background: var(--light-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 80px;
+  text-align: center;
+  position: relative;
+}
+.hero-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+  color: var(--primary);
+  margin-bottom: 18px;
+  white-space: nowrap;
+  word-spacing: -2px;
+  font-stretch: expanded;
+}
+.hero-heading .golden { color: var(--gold); }
+.hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  color: var(--text-light);
+  font-weight: 400;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+/* Search Bar */
+.search-bar-wrap { width: 100%; max-width: 720px; position: relative; margin-bottom: 32px; }
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border-radius: 14px;
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  padding: 10px 14px;
+  gap: 10px;
+  box-shadow: 0 2px 20px rgba(10,42,102,0.08);
+}
+.search-bar::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 15px;
+  padding: 1.5px;
+  background: linear-gradient(90deg, var(--primary), var(--gold));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.search-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  color: var(--text-light);
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.search-icon-btn:hover { color: var(--primary); }
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+  background: transparent;
+  padding: 4px 0;
+  min-width: 0;
+}
+.search-input::placeholder { color: #9CA3AF; }
+.send-icon {
+  background: var(--primary);
+  border: none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.18s;
+}
+.send-icon:hover { background: var(--primary-dark); transform: scale(1.05); }
+.send-icon svg { color: white; }
+
+/* Capability Icons */
+.capability-icons { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 24px; }
+.cap-icon-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.22s; }
+.cap-icon-item:hover { transform: translateY(-6px); }
+.cap-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  transition: border-color 0.22s, box-shadow 0.22s;
+}
+.cap-icon-item:hover .cap-icon-circle { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(254,191,15,0.18); }
+.cap-icon-circle svg { color: var(--primary); }
+.cap-icon-label { font-size: 0.82rem; font-weight: 700; color: var(--text); letter-spacing: 0.01em; }
+
+@media (max-width: 968px) {
+  .hero-heading { font-size: clamp(2rem, 7vw, 3.5rem); white-space: normal; }
+}
+@media (max-width: 640px) {
+  .hero-section { padding: 40px 16px 60px; }
+  .capability-icons { gap: 24px; }
+  .hero-heading { white-space: normal; font-size: 2rem; }
+  .search-bar-wrap { max-width: 100%; }
+}
+
+/* ============================================================
+   SECTION 2 — HIRE AI COWORKERS
+============================================================ */
+.hire-section {
+  padding: 100px 0 80px;
+  background: var(--bg-alt);
+}
+
+.hire-heading-wrap {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.hire-main-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+  color: var(--primary);
+  line-height: 1.1;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.hire-ai-text {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+/* The word "Coworkers" — gently enlarges on a repeating 2-second cycle */
+.gold-coworkers {
+  color: var(--gold);
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 8px;   /* small gap so the word and divider don't crowd the line */
+  vertical-align: baseline;
+  animation: growCoworkers 2s ease-in-out infinite;
+}
+
+@keyframes growCoworkers {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+
+/* Clipping wrapper for the divider — kept separate from the text itself so it
+   doesn't affect "Coworkers"' baseline / vertical alignment with "Hire AI" */
+.coworkers-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+/* Glowing segment that continuously sweeps left to right and restarts seamlessly
+   — this is the only part of the divider that's visible; there is no static track */
+.coworkers-divider::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -45%;
+  width: 45%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(254,191,15,0.25) 20%,
+    rgba(254,191,15,1) 50%,
+    rgba(254,191,15,0.25) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px 2px rgba(254,191,15,0.55), 0 0 4px 1px rgba(254,191,15,0.7);
+  will-change: transform;
+  animation: dividerTravel 0.6s linear infinite;
+}
+
+@keyframes dividerTravel {
+  0%   { left: -45%; }
+  100% { left: 100%; }
+}
+
+/* AI Cards */
+.ai-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 52px;
+}
+
+@media (max-width: 1100px) { .ai-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 580px)  { .ai-cards-grid { grid-template-columns: 1fr; } }
+
+.ai-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 38px 26px 34px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(10,42,102,0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ai-card:hover {
+  transform: translateY(-9px);
+  box-shadow:
+    0 20px 60px rgba(254,191,15,0.16),
+    0 8px 32px rgba(10,42,102,0.09),
+    0 0 0 1.5px rgba(254,191,15,0.28);
+  border-color: rgba(254,191,15,0.3);
+}
+
+/* Icon box — navy background, static (no spin/bounce/pulse of its own) */
+.ai-card-icon {
+  width: 66px;
+  height: 66px;
+  border-radius: 16px;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+  transition: background 0.28s;
+}
+
+.ai-card:hover .ai-card-icon {
+  background: var(--primary-light);
+}
+
+.ai-card-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--white);
+  color: var(--white);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ai-card h3 {
+  font-size: 1.04rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.ai-card p {
+  font-size: 0.89rem;
+  color: var(--text-light);
+  line-height: 1.72;
+}
+
+/* CTA button */
+.ai-cta-center { text-align: center;
+margin-top: 50px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 32px;
+  border-radius: 50px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.01em;
+  border: 2px solid transparent;
+}
+
+/* Navy CTA */
+.btn-navy {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.btn-navy:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(10,42,102,0.25);
+}
+
+@media (max-width: 768px) {
+  .hire-section { padding: 72px 0 60px; }
+}
+
+/* ─── SECTION THREE ─── */
+.section-three {
+    padding: 120px 32px;
+    background: var(--light-grey);
+    text-align: center;
+}
+
+.section-three-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.section-three h2 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    color: var(--primary);
+    line-height: 1.15;
+    margin-bottom: 22px;
+}
+
+.section-three h2 span {
+    color: var(--gold);
+}
+
+.section-three p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 560px;
+    margin: 0 auto 40px;
+}
+
+.section-three .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 36px;
+    border-radius: 50px;
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+.section-three .btn .arrow {
+    color: var(--white);
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+.section-three .btn:hover {
+    transform: translateY(-4px);
+    background: var(--primary-dark);
+  box-shadow: 0 12px 30px rgba(10,42,102,0.25)
+}
+
+@media (max-width:768px) {
+    .section-three {
+        padding: 80px 24px;
+    }
+
+    .section-three h2 {
+        font-size: 2.3rem;
+    }
+    .gold-text {
+    color: var(--gold); /* #FEBF0F */
+    font-weight: 700;
+}
+
+    .section-three p {
+        font-size: 1rem;
+    }
+  }
+  
+/* ============================================================
+   SECTION 4 — WHAT WILL YOU BUILD?
+============================================================ */
+.build-section {
+  padding: 100px 0 80px;
+  background: var(--bg-alt, #E9EAEE); /* same dark light-grey background used in Section 2 */
+}
+
+.build-heading-wrap {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.build-main-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+  color: var(--primary);
+  line-height: 1.1;
+  margin-bottom: 14px;
+  white-space: nowrap;
+}
+
+/* The word "Build?" — gently enlarges on a repeating 2-second cycle */
+.gold-build {
+  color: var(--gold);
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 8px;   /* small gap so the word and divider don't crowd the line */
+  vertical-align: baseline;
+  animation: growBuild 2s ease-in-out infinite;
+}
+
+@keyframes growBuild {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+
+/* Clipping wrapper for the divider — same premium animated divider used
+   under "Coworkers" in Section 2, reused here under "Build?" */
+.build-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.build-divider::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -45%;
+  width: 45%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(254,191,15,0.25) 20%,
+    rgba(254,191,15,1) 50%,
+    rgba(254,191,15,0.25) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px 2px rgba(254,191,15,0.55), 0 0 4px 1px rgba(254,191,15,0.7);
+  will-change: transform;
+  animation: dividerTravel 0.6s linear infinite;
+}
+
+.build-sub-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 56px;
+}
+
+/* Six rounded buttons, 2 rows x 3 columns */
+.build-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 860px) { .build-buttons-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .build-buttons-grid { grid-template-columns: 1fr; } }
+
+.build-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  min-height: 68px;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 18px 24px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--primary);
+  border: 0.5px solid var(--border);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.build-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(254,191,15,0.35);
+}
+
+.build-check {
+  color: var(--gold);
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .build-section { padding: 72px 0 60px; }
+}
+
+.build-cta-center {
+  text-align: center;
+  margin-top: 100px;
+}
+
+
+/* ============================================================
+   SECTION 5 — WATCH THE TUTORIAL
+============================================================ */
+.tutorial-section {
+  padding: 100px 0 90px;
+  background: var(--light-grey); /* same background as the hero/home section */
+}
+
+.tutorial-heading-wrap {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.tutorial-main-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 400;
+  color: var(--primary);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  white-space: nowrap;
+}
+
+/* The word "Tutorial" — gently enlarges on a repeating 2-second cycle */
+.gold-tutorial {
+  color: var(--gold);
+  font-weight: 700;
+  display: inline-block;
+  animation: growTutorial 2s ease-in-out infinite;
+}
+
+@keyframes growTutorial {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+
+.tutorial-sub-heading {
+  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  color: var(--text-light);
+  font-weight: 400;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Responsive 16:9 video embed */
+.tutorial-video-wrap {
+  max-width: 860px;
+  margin: 44px auto 0;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tutorial-video-wrap:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 48px rgba(10,42,102,0.22);
+}
+
+.tutorial-video-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 640px) {
+  .tutorial-section { padding: 64px 0 56px; }
+}
+
+/* ============================================================
+   FOOTER LINKS SECTION (sits above the icon/copyright footer)
+============================================================ */
+.footer-links-section {
+  background: var(--light-grey); /* same light-grey used in Section 1 / hero */
+  padding: 72px 0 48px;
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 1024px) { .footer-links-grid { grid-template-columns: repeat(3, 1fr); gap: 36px 28px; } }
+@media (max-width: 640px)  { .footer-links-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; } }
+
+.footer-links-col h4 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+}
+
+.footer-links-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-links-col ul li a {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links-col ul li a:hover {
+  color: var(--gold);
+}
+
+
+/* ============================================================
+   SECTION 6 — SEE AI TEAMS IN ACTION
+============================================================ */
+.case-studies-section {
+  padding: 100px 0 90px;
+  background: linear-gradient(
+    135deg,
+    #FFF8DD 0%,
+    #F8FBF8 50%,
+    #E7F8F0 100%
+  );
+}
+
+.case-studies-heading-wrap {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.case-studies-main-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+  font-weight: 400;
+  color: var(--primary);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.gold-action {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.case-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.case-card-image {
+  width: 100%;
+  height: 180px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.case-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.case-card-content {
+  width: 100%;
+  flex: 1;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-card-content h3 {
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.case-card-content p {
+  color: var(--text-light);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+.case-card-btn-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.case-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: 50px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.case-card-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.case-studies-cta-center {
+  text-align: center;
+  margin-top: 56px;
+}
+
+@media (max-width: 900px) {
+  .case-studies-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .case-studies-grid { grid-template-columns: 1fr; }
+  .case-studies-main-heading { white-space: normal; }
+}
+
+/* ============================================================
+   SECTION 7 — THE FUTURE OF WORK
+============================================================ */
+.future-section {
+  padding: 100px 0 90px;
+  background: var(--light-grey);
+}
+
+.future-heading-wrap {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.future-main-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 400;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.gold-future {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.future-steps-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.future-step {
+  text-align: center;
+}
+
+.future-step-label {
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.future-step-value {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.future-arrow {
+  color: var(--gold);
+  font-size: 1.9rem;
+  line-height: 1;
+  flex-shrink: 0;
+  transform: rotate(90deg);
+}
+
+.future-cta-center {
+  text-align: center;
+  margin-top: 60px;
+}
+
+@media (max-width: 700px) {
+  .future-main-heading { white-space: normal; }
+}
+
+@media (max-width: 900px) {
+  .case-studies-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .case-studies-grid { grid-template-columns: 1fr; }
+  .case-studies-main-heading { white-space: normal; }
+}
+
+/* ============================================================
+   SECTION 8 — FAQ
+============================================================ */
+.faq-section {
+  padding: 100px 0 90px;
+  background: var(--bg-alt);
+}
+
+.faq-heading-wrap {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.faq-main-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+  font-weight: 400;
+  color: var(--primary);
+  line-height: 1.2;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* "AI workers" — gently enlarges on a repeating 2-second cycle */
+.gold-ai-workers {
+  color: var(--gold);
+  font-weight: 700;
+  display: inline-block;
+  animation: growAiWorkers 2s ease-in-out infinite;
+}
+
+@keyframes growAiWorkers {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 22px 0;
+}
+
+.faq-question-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.faq-question-row h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+}
+
+/* Plus/minus toggle — no border or outline, just a gold icon */
+.faq-toggle-btn {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--gold);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.faq-toggle-btn::before {
+  content: '+';
+}
+
+.faq-item.open .faq-toggle-btn::before {
+  content: '\2212'; /* minus sign */
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: var(--text-light);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 14px;
+}
+
+.faq-answer p { margin-bottom: 10px; }
+.faq-answer p:last-child { margin-bottom: 0; }
+.faq-answer a { color: var(--primary); text-decoration: underline; }
+.faq-answer a:hover { color: var(--gold); }
+
+.faq-cta-center {
+  text-align: center;
+  margin-top: 56px;
+}
+
+@media (max-width: 900px) {
+  .case-studies-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .case-studies-grid { grid-template-columns: 1fr; }
+  .case-studies-main-heading { white-space: normal; }
+}
+
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer {
+  background: var(--bg-alt); /* same light-grey used in Section 2 */
+  padding: 60px 0 32px;
+}
+
+.footer-social-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+.footer-social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-social-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(254,191,15,0.35), var(--shadow-lg);
+}
+
+.footer-social-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Outline-style icons (Instagram, Reddit) need fill turned off so their
+   shapes render as outlines instead of solid, unrecognizable blobs */
+.footer-social-btn svg.icon-outline {
+  fill: none;
+}
+
+.footer-bottom-row {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+
+/* ============================================================
+   FLOATING WHATSAPP BUTTON (bottom-right)
+============================================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  width: 200px;
+  height: 54px;
+  border-radius: 27px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: var(--shadow); /* soft neutral shadow — no permanent green glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.whatsapp-icon-part {
+  width: 25%;
+  flex-shrink: 0;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-icon-part svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--white);
+}
+
+.whatsapp-text-part {
+  width: 75%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   FLOATING SCROLL-TO-TOP / HOME ARROW BUTTON (bottom-left)
+============================================================ */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 9999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  outline: #061a42;
+}
+
+.scroll-top-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float { width: 170px; height: 48px; bottom: 20px; right: 20px; }
+  .whatsapp-text-part { font-size: 0.8rem; }
+  .scroll-top-btn { width: 46px; height: 46px; bottom: 20px; left: 20px; }
+}
+
+@media (max-width: 900px) {
+  .case-studies-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .case-studies-grid { grid-template-columns: 1fr; }
+  .case-studies-main-heading { white-space: normal; }
+}
+

@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ndovesha AI</title>
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png">
+<link rel="apple-touch-icon" href="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" href="favicon-32x32.png">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-container">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <img src="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png" class="logo-img" alt="Ndovesha AI">
+    </a>
+
+    
+    <!-- Center Nav -->
+    <ul class="nav-center">
+      <li>
+        <a href="https://ndovesha.ai/who">Who is it for <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="https://ndovesha.ai/founders.html">Founders</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/agencies.html">Agencies</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/designers.html">Designers</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/marketers.html">Marketers</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://ndovesha.ai/capabilities">Capabilities <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="https://ndovesha.ai/web-design.html">Web Design</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/graphic-design.html">Graphic Design</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/copywriting.html">Writing</a></li>
+        </ul>
+      </li>
+      <li><a href="https://ndovesha.ai/how-to-prompt-ndovesha.html">How to Prompt</a></li>
+      <li><a href="https://ndovesha.ai/pricing.html">Pricing</a></li>
+      <li>
+        <a href="https://ndovesha.ai/resources">Resources <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/webinars.html">Webinars</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/join-our-community.html">Join our Community</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/faq.html">FAQs</a></li>
+        </ul>
+      </li>
+    </ul>
+     <!-- Right Buttons -->
+    <div class="nav-right">
+    <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
+      <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-section-title" data-fold="who">Who is it for <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-who">
+        <a href="https://ndovesha.ai/founders.html">Founders</a>
+        <a href="https://ndovesha.ai/agencies.html">Agencies</a>
+        <a href="https://ndovesha.ai/designers.html">Designers</a>
+        <a href="https://ndovesha.ai/marketers.html">Marketers</a>
+      </div>
+
+      <div class="mobile-section-title" data-fold="capabilities">Capabilities <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-capabilities">
+        <a href="https://ndovesha.ai/web-design.html">Web Design</a>
+        <a href="https://ndovesha.ai/graphic-design.html">Graphic Design</a>
+        <a href="https://ndovesha.ai/copywriting.html">Writing</a>
+      </div>
+
+      <a href="https://ndovesha.ai/how-to-prompt-ndovesha.html">How to Prompt</a>
+      <a href="https://ndovesha.ai/pricing.html">Pricing</a>
+
+      <div class="mobile-section-title" data-fold="resources">Resources <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-resources">
+        <a href="/blog">Blog</a>
+        <a href="/webinars">Webinars</a>
+        <a href="/community">Join our Community</a>
+        <a href="/tutorials">Tutorials</a>
+        <a href="/faqs">FAQs</a>
+      </div>
+
+      <a href="/login" class="btn-login">Log In</a>
+      <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+    </div>
+  </div>
+</nav>
+<!-- Hero -->
+<section class="hero-section">
+  <h1 class="hero-heading">What do you need done <span class="golden">today</span>?</h1>
+  <p class="hero-sub">Describe your project. Your AI coworkers will take it from there.</p>
+
+  <div class="search-bar-wrap">
+    <div class="search-bar">
+      <!-- Upload Icon -->
+      <button class="search-icon-btn" title="Upload file" type="button" id="uploadBtn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+      </button>
+      <input type="file" id="fileInput" style="display:none;">
+
+      <!-- Input -->
+      <input type="text" class="search-input" id="heroInput" placeholder="Design a logo and flyer for my restaurant" autocomplete="off">
+
+      <!-- Send Icon -->
+      <button class="send-icon" type="button" title="Send" id="sendBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+
+    
+    <!-- Capability Icons -->
+    <div class="capability-icons">
+      <a href="https://ndovesha.ai/web-design.html" class="cap-icon-item">
+        <div class="cap-icon-circle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </div>
+        <span class="cap-icon-label">Web Design</span>
+      </a>
+      <a href="https://ndovesha.ai/graphic-design.html" class="cap-icon-item">
+        <div class="cap-icon-circle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+        </div>
+        <span class="cap-icon-label">Graphic Design</span>
+      </a>
+      <a href="https://ndovesha.ai/copywriting.html" class="cap-icon-item">
+        <div class="cap-icon-circle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+        </div>
+        <span class="cap-icon-label">Writing</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Section 2: Hire AI Coworkers -->
+<section class="hire-section">
+  <div class="container">
+
+    <div class="hire-heading-wrap">
+      <h2 class="hire-main-heading">
+        <span class="hire-ai-text">Hire AI</span> <span class="gold-coworkers">Coworkers<span class="coworkers-divider"></span></span>
+      </h2>
+    </div>
+
+    <!-- Cards -->
+    <div class="ai-cards-grid">
+      <div class="ai-card">
+        <div class="ai-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="2"></rect><circle cx="9" cy="14" r="1.2" fill="currentColor" stroke="none"></circle><circle cx="15" cy="14" r="1.2" fill="currentColor" stroke="none"></circle><path d="M12 9V5"></path><circle cx="12" cy="3.5" r="1.5"></circle><path d="M4 13H2M22 13h-2"></path></svg>
+        </div>
+        <h3>AI Web App Developer</h3>
+        <p>Build systems and software your team runs on, including CRMs, booking tools, dashboards and management platforms with logins, data and workflows.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14.5 14.5 0 0 1 3.5 9 14.5 14.5 0 0 1-3.5 9 14.5 14.5 0 0 1-3.5-9A14.5 14.5 0 0 1 12 3z"></path></svg>
+        </div>
+        <h3>AI Website Developer</h3>
+        <p>Build information websites that showcase your business, from company pages and landing pages to online brochures designed to inform visitors and generate leads.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"></circle><path d="M21 15l-5-5-4 4-3-3-5 5"></path></svg>
+        </div>
+        <h3>AI Graphic Designer</h3>
+        <p>Design logos, flyers, banners and social media graphics that give your brand a polished, professional look.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        </div>
+        <h3>AI Writer</h3>
+        <p>Write blog posts, social media captions and marketing copy that communicates your message clearly and engages your audience.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="ai-cta-center">
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span aria-hidden="true">→</span></a>
+    </div>
+
+  </div>
+</section>
+<!-- ─── Section Three: You Deserve An AI Team ─── -->
+  <section class="section-three">
+    <div class="container">
+     <h2>
+    You Deserve An <span class="gold-text">AI Team</span>
+</h2>
+      <p>AI coworkers that help your people build, create and grow.</p>
+       <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span aria-hidden="true">→</span></a>
+</a>
+    </div>
+  </section>
+  <!-- Section 4: What Will You Build? -->
+<section class="build-section">
+  <div class="container">
+
+    <div class="build-heading-wrap">
+      <h2 class="build-main-heading">What Will You <span class="gold-build">Build?</span></h2>
+      <p class="build-sub-heading">AI Web App Developer</p>
+    </div>
+
+    <div class="build-buttons-grid">
+      <button type="button" class="build-btn"><span class="build-check">&#10003;</span>School Management System</button>
+      <button type="button" class="build-btn"><span class="build-check">&#10003;</span>Sales CRM</button>
+      <button type="button" class="build-btn"><span class="build-check">&#10003;</span>Salon &amp; Spa</button>
+      <button type="button" class="build-btn"><span class="build-check">&#10003;</span>Clinic Appointment</button>
+      <button type="button" class="build-btn"><span class="build-check">&#10003;</span>Customer Helpdesk</button>
+      <button type="button" class="build-btn"><span class="build-check">&#10003;</span>Restaurant Reservations</button>
+    </div>
+   <!-- CTA -->
+    <div class="ai-cta-center">
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span aria-hidden="true">→</span></a>
+    </div>
+</section>
+
+<!-- Section 5: Watch the Tutorial -->
+<section class="tutorial-section">
+  <div class="container">
+
+    <div class="tutorial-heading-wrap">
+      <h2 class="tutorial-main-heading">Watch the <span class="gold-tutorial">Tutorial</span></h2>
+      <p class="tutorial-sub-heading">See how to build web apps with your AI Web App Developer.</p>
+    </div>
+
+    <div class="tutorial-video-wrap">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/j8F5dqp-bqE?si=ruxh3YQR3eBm8BYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- Section 6: See AI Teams In Action -->
+<section class="case-studies-section">
+  <div class="container">
+
+    <div class="case-studies-heading-wrap">
+      <h2 class="case-studies-main-heading">See AI Teams In <span class="gold-action">Action</span></h2>
+    </div>
+
+    <div class="case-studies-grid">
+
+      <!-- Card 1 -->
+      <div class="case-card">
+        <div class="case-card-image">
+          <img src="Jane.png" alt="Jane Kuria Coaching website">
+        </div>
+        <div class="case-card-content">
+          <h3>Jane Kuria Coaching</h3>
+          <p>Website Worker deployed a full coaching presence, live in minutes, no agency required.</p>
+          <div class="case-card-btn-wrap">
+            <a href="https://janekuriacoaching.com/" target="_blank" rel="noopener noreferrer" class="case-card-btn">Website Worker</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="case-card">
+        <div class="case-card-image">
+          <img src="Royalty.png" alt="House of Royalty website">
+        </div>
+        <div class="case-card-content">
+          <h3>House of Royalty</h3>
+          <p>Website Worker deployed a full brand presence, live in minutes, no agency required.</p>
+          <div class="case-card-btn-wrap">
+            <a href="https://houseofroyalty254.com/" target="_blank" rel="noopener noreferrer" class="case-card-btn">Website Worker</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="case-card">
+        <div class="case-card-image">
+          <img src="Spatial.png" alt="Spatial Group Networks website">
+        </div>
+        <div class="case-card-content">
+          <h3>Spatial Group Networks</h3>
+          <p>Website Worker deployed a multi-county surveying firm across 47 counties, one department.</p>
+          <div class="case-card-btn-wrap">
+            <a href="https://spatialgroupnetworks.co.ke/" target="_blank" rel="noopener noreferrer" class="case-card-btn">Website Worker</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="case-studies-cta-center">
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span aria-hidden="true">→</span></a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Section 7: The Future of Work -->
+<section class="future-section">
+  <div class="container">
+
+    <div class="future-heading-wrap">
+      <h2 class="future-main-heading">The Future <span class="gold-future">of Work</span></h2>
+    </div>
+
+    <div class="future-steps-row">
+      <div class="future-step">
+        <div class="future-step-label">Yesterday</div>
+        <div class="future-step-value">Human + Tools</div>
+      </div>
+      <div class="future-arrow" aria-hidden="true">→</div>
+      <div class="future-step">
+        <div class="future-step-label">Today</div>
+        <div class="future-step-value">Human + AI Coworkers</div>
+      </div>
+      <div class="future-arrow" aria-hidden="true">→</div>
+      <div class="future-step">
+        <div class="future-step-label">Tomorrow</div>
+        <div class="future-step-value">Human + AI Workforces</div>
+      </div>
+    </div>
+
+    <div class="future-cta-center">
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span aria-hidden="true">→</span></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Section 8: FAQ -->
+<section class="faq-section">
+  <div class="container">
+
+    <div class="faq-heading-wrap">
+      <h2 class="faq-main-heading">What you need to know about <span class="gold-ai-workers">AI workers</span></h2>
+    </div>
+
+    <div class="faq-container">
+
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <h3>Do I need to download an app to deploy AI Workers?</h3>
+          <button type="button" class="faq-toggle-btn" aria-label="Toggle answer"></button>
+        </div>
+        <div class="faq-answer">
+          <p>No. Ndovesha runs in your browser on desktop or mobile. Deploy your AI department from anywhere, with no app store required.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <h3>How do credits work across AI workers?</h3>
+          <button type="button" class="faq-toggle-btn" aria-label="Toggle answer"></button>
+        </div>
+        <div class="faq-answer">
+          <p>Each AI Worker consumes credits based on the capability you deploy. A Copy Worker executing a caption uses fewer credits than a Web App Worker deploying a full application. See our <a href="https://ndovesha.ai/pricing.html">pricing page</a> for operational costs across your department.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <h3>Do my department credits reset every month?</h3>
+          <button type="button" class="faq-toggle-btn" aria-label="Toggle answer"></button>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. Credits included in your plan reset monthly, like operational budget for your AI department. Extra credits you purchase separately never expire, so you can scale capability anytime. On the Starter plan, 1,000 credits reset each month; any additional 500 you buy stay available until used.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <h3>Does my Website Worker's output stay live after my plan expires?</h3>
+          <button type="button" class="faq-toggle-btn" aria-label="Toggle answer"></button>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. Sites deployed by your Website Worker remain live even after your plan expires.</p>
+          <p>If you connected a custom domain during your active subscription, the site switches back to a free Ndovesha subdomain once the plan expires.</p>
+          <p><strong>Example:</strong><br>While your plan is active: <a href="https://voltdriveke.co.ke/" target="_blank" rel="noopener noreferrer">https://voltdriveke.co.ke/</a><br>After your plan expires: <a href="https://volt-drive.sites.ndovesha.ai/" target="_blank" rel="noopener noreferrer">https://volt-drive.sites.ndovesha.ai/</a></p>
+          <p>Your capability stays online. Custom domain features require an active plan.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="faq-cta-center">
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span aria-hidden="true">→</span></a>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Footer Links -->
+<section class="footer-links-section">
+  <div class="container">
+    <div class="footer-links-grid">
+
+      <div class="footer-links-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="https://ndovesha.ai/pricing.html">Pricing</a></li>
+          <li><a href="https://chat.ndovesha.ai/signup" target="_blank" rel="noopener noreferrer">AI Agents</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+          <li><a href="https://ndovesha.ai/webinars.html">Webinars</a></li>
+          <li><a href="https://ndovesha.ai/comparison.html">Ndovesha vs ChatGPT vs Gemini</a></li>
+          <li><a href="https://ndovesha.ai/how-to-prompt-ndovesha.html">How to Prompt Ndovesha</a></li>
+          <li><a href="https://blog.ndovesha.ai/lovable-vs-replit-vs-manus-vs-ndovesha-the-ultimate-ai-website-builder-comparison-2026/" target="_blank" rel="noopener noreferrer">Ndovesha vs Manus vs Lovable</a></li>
+          <li><a href="https://ndovesha.ai/join-our-community.html">Join community</a></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
+          <li><a href="https://ndovesha.ai/faq.html">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Ask AI About Us</h4>
+        <ul>
+          <li><a href="https://chat.openai.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">ChatGPT</a></li>
+          <li><a href="https://claude.ai/new?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Claude</a></li>
+          <li><a href="https://gemini.google.com/app?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Gemini</a></li>
+          <li><a href="https://www.perplexity.ai/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Perplexity</a></li>
+          <li><a href="https://copilot.microsoft.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Copilot</a></li>
+          <li><a href="https://x.com/i/grok?text=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Grok</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Who Is It For</h4>
+        <ul>
+          <li><a href="https://ndovesha.ai/founders.html">Founders</a></li>
+          <li><a href="https://ndovesha.ai/agencies.html">Agencies</a></li>
+          <li><a href="https://ndovesha.ai/designers.html">Designers</a></li>
+          <li><a href="https://ndovesha.ai/marketers.html">Marketers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Capabilities</h4>
+        <ul>
+          <li><a href="https://ndovesha.ai/web-design.html">Web design</a></li>
+          <li><a href="https://ndovesha.ai/graphic-design.html">Graphic design</a></li>
+          <li><a href="https://ndovesha.ai/copywriting.html">Writing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://ndovesha.ai/contacts.html">Contact</a></li>
+          <li><a href="https://ndovesha.ai/terms-of-service.html">Terms of service</a></li>
+          <li><a href="https://ndovesha.ai/privacy-policy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-social-row">
+      <a class="footer-social-btn" href="https://www.linkedin.com/company/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.5 8.65 23 10.9 23 14.2V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.58-2.33 3.2V21h-4V9z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://x.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.2 8.2L23 22h-6.8l-5.3-6.9L4.9 22H2l7.7-8.8L1.5 2h6.9l4.8 6.3L18.9 2z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.youtube.com/@ndovesha" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7c-.2-.9-.9-1.6-1.8-1.8C19 5 12 5 12 5s-7 0-8.8.5c-.9.2-1.6.9-1.8 1.8C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.9.9 1.6 1.8 1.8C5 19 12 19 12 19s7 0 8.8-.5c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.instagram.com/ndovesha.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.tiktok.com/@ndovesha.ai?lang=en" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M16.5 3c.3 2 1.7 3.4 3.5 3.7v2.9c-1.4-.1-2.6-.6-3.5-1.4v6.6a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3a2.3 2.3 0 1 0 1.6 2.2V3h2.8z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.facebook.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.4c0-.9.3-1.5 1.6-1.5h1.5V4.2C15.9 4.1 14.8 4 13.6 4 11 4 9.5 5.6 9.5 8.2v2.3H7v3h2.5V21h4z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.reddit.com/user/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+        <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"></circle><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"></circle><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"></circle><path d="M8.5 16.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"></path><circle cx="18.5" cy="8.5" r="1.3"></circle><path d="M12 10V6.5a1.3 1.3 0 1 1 2-1.1"></path></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom-row">
+      <p class="footer-copyright">&copy; 2026 Ndovesha. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- Floating WhatsApp Button -->
+<a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=254112480181&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+  <span class="whatsapp-icon-part">
+    <svg viewBox="0 0 32 32"><path d="M16.001 3C9.106 3 3.5 8.606 3.5 15.5c0 2.53.744 4.885 2.024 6.86L3 29l6.822-2.463A12.44 12.44 0 0 0 16 28c6.895 0 12.5-5.606 12.5-12.5S22.896 3 16.001 3zm7.24 17.634c-.31.874-1.53 1.61-2.114 1.702-.54.084-1.222.12-1.972-.123-.455-.146-1.036-.34-1.782-.664-3.14-1.356-5.19-4.51-5.35-4.72-.16-.21-1.29-1.71-1.29-3.26 0-1.55.813-2.31 1.1-2.63.29-.32.63-.4.84-.4.21 0 .42.002.6.01.19.008.45-.072.702.535.26.63.885 2.166.965 2.324.08.16.133.347.027.556-.107.21-.16.34-.32.523-.16.183-.335.41-.478.55-.16.16-.327.334-.14.653.187.32.83 1.373 1.783 2.223 1.223 1.09 2.256 1.428 2.577 1.588.32.16.507.133.694-.08.187-.213.8-.933 1.014-1.253.213-.32.427-.267.72-.16.293.107 1.86.877 2.18 1.037.32.16.533.24.613.373.08.133.08.77-.23 1.646z"/></svg>
+  </span>
+  <span class="whatsapp-text-part">Chat with us</span>
+</a>
+
+<!-- Floating Home / Scroll-to-Top Arrow Button -->
+<a class="scroll-top-btn" href="#top" aria-label="Back to home">
+  <svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+</a>
+
+
+<script>
+  // Dropdown menus open on hover or click, and now STAY open even after the
+  // mouse leaves the nav bar. They only close when you click elsewhere on
+  // the page, click the trigger again, or open a different dropdown.
+  document.querySelectorAll('.nav-center > li').forEach(function (li) {
+    var menu = li.querySelector('.dropdown-menu');
+    var trigger = li.querySelector('a');
+    if (!menu || !trigger) return;
+
+    function closeAllExcept(exceptMenu) {
+      document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
+        if (m !== exceptMenu) m.classList.remove('show');
+      });
+    }
+
+    function openMenu() {
+      closeAllExcept(menu);
+      menu.classList.add('show');
+    }
+
+    // Hovering the trigger or the menu opens it (no close-on-leave anymore)
+    li.addEventListener('mouseenter', openMenu);
+    menu.addEventListener('mouseenter', openMenu);
+
+    // Clicking the trigger toggles it open/closed — useful for touch and
+    // for keeping it open without needing to hover at all
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      var isOpen = menu.classList.contains('show');
+      closeAllExcept(menu);
+      menu.classList.toggle('show', !isOpen);
+    });
+  });
+
+  // Clicking anywhere outside the nav closes any open dropdown
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-center')) {
+      document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
+        m.classList.remove('show');
+      });
+    }
+  });
+
+  // Mobile menu toggle
+  var mobileBtn = document.getElementById('mobileMenuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  mobileBtn.addEventListener('click', function () {
+    mobileNav.classList.toggle('active');
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', function (e) {
+    if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
+      mobileNav.classList.remove('active');
+    }
+  });
+
+  // Mobile accordion fold sections (Who is it for / Capabilities / Resources)
+  document.querySelectorAll('.mobile-section-title').forEach(function (title) {
+    title.addEventListener('click', function () {
+      var fold = document.getElementById('fold-' + title.dataset.fold);
+      var isOpen = fold.classList.contains('open');
+      document.querySelectorAll('.mobile-fold').forEach(function (f) { f.classList.remove('open'); });
+      if (!isOpen) fold.classList.add('open');
+    });
+  });
+
+  // Upload button opens file picker
+  document.getElementById('uploadBtn').addEventListener('click', function () {
+    document.getElementById('fileInput').click();
+  });
+
+  // Send button (enable/disable + example action)
+  var heroInput = document.getElementById('heroInput');
+  var sendBtn = document.getElementById('sendBtn');
+  sendBtn.addEventListener('click', function () {
+    var value = heroInput.value.trim();
+    if (value) {
+      // Replace with real submit logic (e.g. redirect to signup with the prompt)
+      window.location.href = 'https://chat.ndovesha.ai/signup';
+    }
+  });
+
+  // Rotating placeholder examples (every 5 seconds, pauses while typing/focused)
+  var placeholders = [
+    'Design a logo and a flyer for my restaurant',
+    'Write social media captions for my clothing brand',
+    'Create a salon management system with bookings and client records',
+    'Design banners and social graphics for a product launch',
+    'Build a school management system with student and staff records',
+    'Build a company website for my real estate business',
+    'Create a restaurant reservation app with table management',
+    'Build a CRM to track leads, deals, and customer follow-ups'
+  ];
+  var placeholderIndex = 0;
+  var placeholderTimer = null;
+
+  function canRotatePlaceholder() {
+    return document.activeElement !== heroInput && !heroInput.value.trim();
+  }
+
+  function rotatePlaceholder() {
+    if (!canRotatePlaceholder()) return;
+    placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+    heroInput.placeholder = placeholders[placeholderIndex];
+  }
+
+  function startPlaceholderRotation() {
+    if (placeholderTimer) return;
+    placeholderTimer = setInterval(rotatePlaceholder, 5000);
+  }
+
+  function stopPlaceholderRotation() {
+    if (placeholderTimer) {
+      clearInterval(placeholderTimer);
+      placeholderTimer = null;
+    }
+  }
+
+  heroInput.addEventListener('focus', stopPlaceholderRotation);
+  heroInput.addEventListener('blur', function () {
+    if (canRotatePlaceholder()) startPlaceholderRotation();
+  });
+  heroInput.addEventListener('input', function () {
+    if (this.value.trim()) {
+      stopPlaceholderRotation();
+    } else if (document.activeElement !== heroInput) {
+      startPlaceholderRotation();
+    }
+  });
+
+  startPlaceholderRotation();
+
+  // FAQ accordion — clicking a question toggles it open/closed; opening one
+  // closes any other that was open (only one answer visible at a time)
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var row = item.querySelector('.faq-question-row');
+    row.addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+        openItem.classList.remove('open');
+      });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
