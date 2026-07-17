@@ -432,14 +432,24 @@ img { max-width: 100%; display: block; }
 
 /* AI Cards */
 .ai-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
   margin-bottom: 52px;
 }
 
-@media (max-width: 900px) { .ai-cards-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px)  { .ai-cards-grid { grid-template-columns: 1fr; } }
+.ai-card {
+  flex: 0 1 calc((100% - 48px) / 3); /* 3 per row, accounts for 2 gaps */
+  min-width: 240px;
+}
+
+@media (max-width: 900px) {
+  .ai-card { flex: 0 1 calc((100% - 24px) / 2); } /* 2 per row */
+}
+@media (max-width: 560px) {
+  .ai-card { flex: 0 1 100%; } /* 1 per row */
+}
 
 .ai-card {
   background: var(--white);
