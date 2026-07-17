@@ -1,0 +1,1233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K2HTVGXV');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/favicon-32x32.png">
+  <title>Ndovesha FAQ | AI Agents, Websites, Credits & Support</title>
+  <meta name="description" content="Explore Ndovesha FAQs by category: AI Agents, Websites, Credits & Pricing, Content, Ownership, and Support.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --bg: #f5f7ff;
+      --card: #ffffff;
+      --text: #141926;
+      --muted: #5f6b85;
+      --primary: #003366;
+      --gold: #febf0f;
+      --white: #ffffff;
+      --faq-accent: #2c5fff;
+      --primary-soft: #eaf0ff;
+      --border: #dbe3ff;
+      --shadow: 0 12px 30px rgba(18, 36, 92, 0.08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 132px 0 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--primary-soft);
+      color: var(--faq-accent);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 42px) !important;
+      line-height: 1.15;
+      margin-top: 1rem;
+      margin-bottom: 1.25rem;
+      color: #003366;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 1.02rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      padding: 18px 0 52px;
+    }
+
+    .faq-card {
+      background: #fff;
+      border: 1px solid #e7e7e7;
+      border-radius: 14px;
+      box-shadow: none;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .faq-card:hover {
+      border-color: #d8d8d8;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    @media (max-width: 1100px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card-header {
+      padding: 20px 20px 12px;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .card-description {
+      color: #5f6368;
+      font-size: 0.92rem;
+    }
+
+    .qa-list {
+      padding: 0;
+      border-top: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .qa-item {
+      margin: 0;
+      background: var(--white);
+      border-bottom: 1px solid #efefef;
+      transition: background 0.25s ease;
+    }
+
+    .qa-item:last-child {
+      border-bottom: none;
+    }
+
+    .qa-item.is-hidden {
+      display: none;
+    }
+
+    .qa-button {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 14px 20px;
+      text-align: left;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 500;
+      color: #2b2f33;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+
+    .qa-button:hover {
+      background: #fafafa;
+    }
+
+    .qa-button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: -2px;
+    }
+
+    .icon {
+      flex-shrink: 0;
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--gold);
+      transition: color 0.25s ease;
+    }
+
+    .qa-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+
+    .qa-answer {
+      margin: 0;
+      padding: 0 1.25rem;
+      color: #5f6368;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 0.94rem;
+      font-weight: 400;
+      line-height: 1.65;
+      opacity: 0;
+      transition: padding 0.25s ease, opacity 0.25s ease;
+    }
+
+    .qa-panel.is-open .qa-answer {
+      padding: 0 1.25rem 1.5rem;
+      opacity: 1;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding: 12px 20px 16px;
+      border-top: 1px solid #f1f1f1;
+    }
+
+    .view-more-link {
+      color: #222;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .view-more-link:hover {
+      border-color: #222;
+    }
+
+    /* Homepage footer styles */
+    footer {
+      background: var(--white);
+      color: var(--primary);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid #e5e7eb;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-column {
+      flex: 0 1 auto;
+    }
+
+    .footer-column h4 {
+      color: var(--primary);
+      font-size: 1rem !important;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.875rem;
+    }
+
+    .footer-column a {
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s ease;
+      display: inline-block;
+    }
+
+    .footer-column a:hover {
+      color: var(--gold);
+    }
+
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 32px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .social-links a {
+      width: 24px;
+      height: 24px;
+      color: #0f2a44;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    .social-links i {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 2rem;
+    }
+
+    .footer-copyright {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      left: 15px;
+      width: 40px;
+      height: 40px;
+      background-color: #febf0f;
+      color: #003366;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .scroll-to-top:hover {
+      background-color: #e6ac00;
+      transform: translateY(-2px);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 24px;
+      z-index: 9999;
+      display: block;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-icon {
+      width: 50px;
+      height: 50px;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .whatsapp-icon i {
+      font-size: 1.6rem;
+      color: white;
+    }
+
+    .whatsapp-text {
+      background: #f5f5f5;
+      padding: 0 20px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      color: #333;
+      font-weight: 500;
+      font-size: 0.95rem;
+      font-family: 'Ubuntu', sans-serif;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 12px 0 !important;
+      }
+
+      nav .nav-container {
+        padding: 0 16px;
+      }
+
+      nav .nav-center,
+      nav .nav-right {
+        display: none !important;
+      }
+
+      .mobile-hamburger {
+        display: flex !important;
+      }
+
+      .logo img {
+        height: 28px !important;
+      }
+
+      .hero {
+        padding-top: 100px;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .footer-column {
+        width: 100%;
+      }
+
+      .whatsapp-float {
+        bottom: 20px;
+        right: 15px;
+      }
+
+      .whatsapp-icon {
+        width: 45px;
+        height: 45px;
+      }
+
+      .whatsapp-text {
+        height: 45px;
+        padding: 0 15px;
+        font-size: 0.85rem;
+      }
+
+      .scroll-to-top {
+        width: 35px;
+        height: 35px;
+        bottom: 20px;
+        left: 10px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-dropdown-menu {
+        display: none;
+      }
+    }
+
+
+
+    
+
+    /* Footer (matches agencies layout) */
+
+    .site-footer .footer-grid {
+
+        display: flex;
+
+        flex-wrap: nowrap;
+
+        justify-content: space-between;
+
+        align-items: flex-start;
+
+        gap: clamp(1rem, 2vw, 2rem);
+
+        margin-bottom: 2.5rem;
+
+        max-width: 1280px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+        width: 100%;
+
+    }
+
+    
+
+    .site-footer .footer-column {
+
+        flex: 1 1 0;
+
+        min-width: 0;
+
+    }
+
+    
+
+    .site-footer .footer-column h4 {
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.5px;
+
+    }
+
+    
+
+    .site-footer .footer-social-section {
+
+        border-top: 1px solid rgba(0, 51, 102, 0.1);
+
+        padding: 1.35rem 0 0.25rem;
+
+        max-width: 1280px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+    
+
+    .site-footer .footer-social-icons {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 0.65rem;
+
+        flex-wrap: wrap;
+
+    }
+
+    
+
+    .site-footer .footer-social-icon {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 12px;
+
+        background: #f4f6f8;
+
+        border: 1px solid rgba(0, 51, 102, 0.08);
+
+        color: var(--primary);
+
+        text-decoration: none;
+
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+    }
+
+    
+
+    .site-footer .footer-social-icon:hover {
+
+        transform: translateY(-3px);
+
+        background: #fffbeb;
+
+        border-color: rgba(254, 191, 15, 0.45);
+
+        box-shadow: 0 6px 20px rgba(254, 191, 15, 0.28);
+
+    }
+
+    
+
+    .site-footer .footer-social-icon i {
+
+        font-size: 1.2rem;
+
+        line-height: 1;
+
+        color: var(--primary);
+
+    }
+
+    
+
+    .site-footer .footer-social-icon:hover i {
+
+        color: var(--primary);
+
+    }
+
+    
+
+    .site-footer .footer-social-icon--x .footer-social-x {
+
+        font-size: 1.15rem;
+
+        font-weight: 800;
+
+        line-height: 1;
+
+        color: var(--primary);
+
+        font-family: 'Ubuntu', sans-serif;
+
+        letter-spacing: -0.02em;
+
+    }
+
+    
+
+    .site-footer .footer-bottom {
+
+        margin-top: 1.5rem;
+
+        padding-top: 1.25rem;
+
+        border-top: none;
+
+    }
+
+    
+
+    @media (max-width: 1100px) {
+
+        .site-footer .footer-grid {
+
+            flex-wrap: wrap;
+
+        }
+
+    
+
+        .site-footer .footer-column {
+
+            flex: 1 1 calc(33.333% - 1rem);
+
+            min-width: 140px;
+
+        }
+
+    }
+
+    
+
+    @media (max-width: 768px) {
+
+        .site-footer .footer-grid {
+
+            flex-direction: column;
+
+        }
+
+    
+
+        .site-footer .footer-column {
+
+            flex: 1 1 100%;
+
+        }
+
+    }
+    </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2HTVGXV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+   
+    <!-- Center Nav -->
+    <ul class="nav-center">
+      <li>
+        <a href="https://ndovesha.ai/who">Who is it for <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="owner.html">Business Owners</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="agency.html">Agencies</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https:designer.html">Designers</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="marketers.html">Marketers</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://ndovesha.ai/capabilities">Capabilities <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="web.html">Web Design</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="graphic.html">Graphic Design</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="writing.html">Writing</a></li>
+        </ul>
+      </li>
+      <li><a href="https://ndovesha.ai/how-to-prompt-ndovesha.html">How to Prompt</a></li>
+      <li><a href="https://ndovesha.ai/pricing.html">Pricing</a></li>
+      <li>
+        <a href="https://ndovesha.ai/resources">Resources <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/webinars.html">Webinars</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/join-our-community.html">Join our Community</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/faq.html">FAQs</a></li>
+        </ul>
+      </li>
+    </ul>
+     <!-- Right Buttons -->
+    <div class="nav-right">
+    <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
+      <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-section-title" data-fold="who">Who is it for <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-who">
+        <a href="owner.html">Business Owners</a>
+        <a href="agency.html">Agencies</a>
+        <a href="designers.html">Designers</a>
+        <a href="marketers.html">Marketers</a>
+      </div>
+
+      <div class="mobile-section-title" data-fold="capabilities">Capabilities <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-capabilities">
+        <a href="web.html">Web Design</a>
+        <a href="graphic.html">Graphic Design</a>
+        <a href="writing.html">Writing</a>
+      </div>
+
+      <a href="https://ndovesha.ai/how-to-prompt-ndovesha.html">How to Prompt</a>
+      <a href="https://ndovesha.ai/pricing.html">Pricing</a>
+
+      <div class="mobile-section-title" data-fold="resources">Resources <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-resources">
+        <a href="/blog">Blog</a>
+        <a href="/webinars">Webinars</a>
+        <a href="/community">Join our Community</a>
+        <a href="/tutorials">Tutorials</a>
+        <a href="/faqs">FAQs</a>
+      </div>
+
+      <a href="/login" class="btn-login">Log In</a>
+      <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+    </div>
+  </div>
+</nav>
+  <main class="container">
+    <section class="hero">
+      <h1>Frequently Asked Questions</h1>
+      <p class="subtitle">
+        Find answers by category. Each card groups related questions so you can quickly understand how Ndovesha works, what you own, and how to scale.
+      </p>
+    </section>
+    <section class="grid" id="faqGrid" aria-label="FAQ categories"></section>
+  </main>
+
+  
+  <footer class="site-footer">
+
+      <div class="footer-container">
+
+          <div class="footer-grid" role="navigation" aria-label="Footer navigation">
+
+              <div class="footer-column">
+
+                  <h4>Product</h4>
+
+                  <ul>
+
+                      <li><a href="pricing.html">Pricing</a></li>
+
+                      <li><a href="https://chat.ndovesha.ai/signup">AI Agents</a></li>
+
+                  </ul>
+
+              </div>
+
+              <div class="footer-column">
+
+                  <h4>Resources</h4>
+
+                  <ul>
+
+                      <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+
+                      <li><a href="webinars.html">Webinars</a></li>
+
+                      <li><a href="comparison.html">Ndovesha vs ChatGPT vs Gemini</a></li>
+
+                      <li><a href="https://blog.ndovesha.ai/lovable-vs-replit-vs-manus-vs-ndovesha-the-ultimate-ai-website-builder-comparison-2026/" target="_blank" rel="noopener noreferrer">Ndovesha vs Manus vs Lovable</a></li>
+
+                      <li><a href="join-our-community.html">Join community</a></li>
+
+                      <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
+
+                      <li><a href="faq.html" aria-current="page">FAQs</a></li>
+
+                  </ul>
+
+              </div>
+
+              <div class="footer-column">
+
+                  <h4>Ask AI About Us</h4>
+
+                  <ul>
+
+                      <li><a href="https://chat.openai.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">ChatGPT</a></li>
+
+                      <li><a href="https://claude.ai/new?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Claude</a></li>
+
+                      <li><a href="https://gemini.google.com/app?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Gemini</a></li>
+
+                      <li><a href="https://www.perplexity.ai/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Perplexity</a></li>
+
+                      <li><a href="https://copilot.microsoft.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Copilot</a></li>
+
+                      <li><a href="https://x.com/i/grok?text=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Grok</a></li>
+
+                  </ul>
+
+              </div>
+
+              <div class="footer-column">
+
+                  <h4>Who Is It For</h4>
+
+                  <ul>
+
+                      <li><a href="founders.html">Founders</a></li>
+
+                      <li><a href="agencies.html">Agencies</a></li>
+
+                      <li><a href="designers.html">Designers</a></li>
+
+                      <li><a href="marketers.html">Marketers</a></li>
+
+                  </ul>
+
+              </div>
+
+              <div class="footer-column">
+
+                  <h4>How People Use It</h4>
+
+                  <ul>
+
+                      <li><a href="web-design.html">Web design</a></li>
+
+                      <li><a href="graphic-design.html">Graphic design</a></li>
+
+                      <li><a href="content-creation.html">Content creation</a></li>
+
+                      <li><a href="copywriting.html">Copywriting</a></li>
+
+                  </ul>
+
+              </div>
+
+              <div class="footer-column">
+
+                  <h4>Company</h4>
+
+                  <ul>
+
+                      <li><a href="contacts.html">Contact</a></li>
+
+                      <li><a href="terms-of-service.html">Terms of service</a></li>
+
+                      <li><a href="privacy-policy.html">Privacy policy</a></li>
+
+                  </ul>
+
+              </div>
+
+          </div>
+
+
+          <div class="footer-social-section" aria-label="Social media">
+
+              <div class="footer-social-icons">
+
+                  <a class="footer-social-icon" href="https://www.linkedin.com/company/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+
+                  <a class="footer-social-icon footer-social-icon--x" href="https://x.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="X"><span class="footer-social-x" aria-hidden="true">X</span></a>
+
+                  <a class="footer-social-icon" href="https://www.youtube.com/@ndovesha" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+
+                  <a class="footer-social-icon" href="https://www.instagram.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+
+                  <a class="footer-social-icon" href="https://www.tiktok.com/@ndovesha" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+
+                  <a class="footer-social-icon" href="https://www.facebook.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+
+                  <a class="footer-social-icon" href="https://www.reddit.com/u/ndovesha/s/fIjU5rtZ1j" target="_blank" rel="noopener noreferrer" aria-label="Reddit"><i class="fab fa-reddit"></i></a>
+
+              </div>
+
+          </div>
+
+
+          <div class="footer-bottom">
+
+              <p class="footer-copyright">&copy; 2026 Ndovesha</p>
+
+          </div>
+
+      </div>
+
+  </footer>
+
+  <button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <div class="whatsapp-float">
+    <a href="https://wa.me/254112480181" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+      <div class="whatsapp-icon">
+        <i class="fab fa-whatsapp"></i>
+      </div>
+      <span class="whatsapp-text">Chat with us</span>
+    </a>
+  </div>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById("mobileMenuToggle");
+      const menu = document.getElementById("mobileDropdownMenu");
+
+      function wire(idBtn, idSub) {
+        const b = document.getElementById(idBtn);
+        const s = document.getElementById(idSub);
+        if (!b || !s) return;
+        function t(e) {
+          if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+          b.classList.toggle("open");
+          s.classList.toggle("open");
+        }
+        b.addEventListener("click", t);
+        b.addEventListener("touchend", function(e) {
+          e.preventDefault();
+          t(e);
+        }, { passive: false });
+      }
+
+      function closeMenu() {
+        if (!toggle || !menu) return;
+        toggle.classList.remove("active");
+        menu.classList.remove("menu-open");
+        document.body.style.overflow = "";
+      }
+
+      function toggleMenu(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        if (menu.classList.contains("menu-open")) {
+          closeMenu();
+        } else {
+          toggle.classList.add("active");
+          menu.classList.add("menu-open");
+          document.body.style.overflow = "hidden";
+        }
+      }
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", toggleMenu, { passive: false });
+        toggle.addEventListener("touchend", function(e) {
+          e.preventDefault();
+          toggleMenu(e);
+        }, { passive: false });
+
+        menu.querySelectorAll("a").forEach(function(link) {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("click", function(e) {
+          if (menu.classList.contains("menu-open") && !menu.contains(e.target) && !toggle.contains(e.target)) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener("keydown", function(e) {
+          if (e.key === "Escape" && menu.classList.contains("menu-open")) {
+            closeMenu();
+          }
+        });
+      }
+
+      wire("mobileWhoToggle", "mobileWhoSub");
+      wire("mobileHowToggle", "mobileHowSub");
+      wire("mobileResToggle", "mobileResSub");
+
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener("click", function() {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    })();
+  </script>
+
+  <script>
+    const VISIBLE_FAQ_COUNT = 4;
+    const faqCategories = [
+      {
+        title: "AI Agents",
+        description: "Learn how Ndovesha's AI agents work together to create websites, content, ads, and more.",
+        items: [
+          ["What are AI agents?", "AI agents are specialized systems designed to handle specific tasks. Each agent focuses on one job - like creating social media posts, building websites, designing visuals, or generating ads. They are not general-purpose tools. Each one is built to do its task properly."],
+          ["How many AI agents does Ndovesha have?", "Ndovesha uses multiple specialized AI agents depending on what you want to create. Current agents include: Social Media Post Image, Social Media Carousels, Ad Image, Caption, Landing Page, Website, Presentations, Social Media Post Video, Logo, Blog Articles, Flyers. New agents and capabilities are continuously added as the platform evolves."],
+          ["What does each AI agent do?", "Each agent is designed for a specific type of output. The Social Media Post Image agent creates branded social visuals, the Social Media Carousels agent generates carousel-style content, the Ad Image agent creates marketing creatives, the Caption agent writes captions and copy, the Landing Page and Website agents build web experiences, the Presentations agent creates slides and decks, the Social Media Post Video agent generates video content, the Logo agent creates 3 logo concepts together with matching colour palettes, the Blog Articles agent writes long-form content, and the Flyers agent designs promotional materials. Each output is handled by an agent specifically built for that task."],
+          ["Will my content still feel human?", "Yes. Outputs are generated based on your input and can be edited at any time, allowing your final content to remain natural, authentic, and aligned with your brand voice."]
+        ]
+      },
+      {
+        title: "Websites",
+        description: "Everything about building and managing websites using Ndovesha.",
+        items: [
+          ["How does the website agent work?", "You describe the type of website you want, and the agent generates layouts, sections, content structure, branding, and visuals based on your business needs. The website can then be edited, customized, and published directly inside Ndovesha."],
+          ["How long does it take to build a website?", "Most first website versions are generated in less than 5 minutes, then improved through edits and iterations."],
+          ["Can I customize my website?", "Yes. You can adjust layout, copy, branding, sections, media, SEO settings, and overall structure to match your exact business needs using either canvas editing or chat-based editing."],
+          ["Will my website be unique?", "Yes. Website outputs are based on your inputs, brand context, goals, and business information - not generic one-size-fits-all templates."],
+          ["Do I need coding skills?", "No. Ndovesha is designed so non-technical users can build and manage websites without writing code."],
+          ["Can I edit my website after it's created?", "Yes. You can edit with AI, edit directly on canvas, regenerate sections, update content, and continue optimizing your website over time."],
+          ["What website features does Ndovesha support?", "Ndovesha websites support features including brand settings, AI editing, canvas editing, hosting, custom domains, chat sharing, file uploads, traffic count, instant publish, SEO settings, sitemap export, logo saving, chat history, and chat history search."],
+          ["Can I connect a custom domain?", "Yes. Custom domains are supported, allowing you to publish your website using your own branded domain."],
+          ["Will my website or landing page still be accessible after my plan expires?", "Yes. Your website will remain live and accessible even after your plan expires.<br><br>If you connected a custom domain during your active subscription, the website will automatically switch back to a free Ndovesha subdomain once the plan expires.<br><br><strong>Example:</strong><br>While your plan is active: <a href=\"https://voltdriveke.co.ke/\" target=\"_blank\" rel=\"noopener noreferrer\">https://voltdriveke.co.ke/</a><br>After your plan expires: <a href=\"https://volt-drive.sites.ndovesha.ai/\" target=\"_blank\" rel=\"noopener noreferrer\">https://volt-drive.sites.ndovesha.ai/</a><br><br>This means your website content stays online, but custom domain features require an active plan."],
+          ["Does Ndovesha provide hosting?", "Yes. Hosting is included, allowing you to publish and manage your website directly through Ndovesha."],
+          ["Does Ndovesha support SEO settings?", "Yes. You can manage SEO settings and export your sitemap to help optimize your website for search engines."],
+          ["Can Ndovesha create landing pages too?", "Yes. You can generate focused landing pages for offers, campaigns, launches, lead generation, and marketing funnels."],
+          ["Do I own my website?", "Yes. You keep ownership of your website assets, branding, and content created for your business."]
+        ]
+      },
+      {
+        title: "Credits & Pricing",
+        description: "Understand how Ndovesha's credit system works and how you pay for what you create.",
+        items: [
+          ["How does the credit system work?", "Ndovesha uses a credit-based system where each action uses credits based on what you create. Simple outputs like text use fewer credits, while advanced outputs like websites or videos use more credits."],
+          ["What are credits?", "Credits are the internal currency used to generate content on Ndovesha. Every time you create something - from a caption to a full website - credits are used based on output complexity."],
+          ["How many credits does each task use?", "Typical usage is:<br>Text / Chat - 3 credits<br>Captions - 3 credits<br>Images - 40 credits<br>Presentations - 100 credits<br>Landing Pages - 100 credits<br>Full Website - 150 credits<br>Videos - 600 credits<br><br>This means you spend more only when creating more advanced assets."],
+          ["Do credits get used for every message?", "No. Credits are charged when actual content is generated. Clarifying system questions use minimal credits (3 credits), while full usage happens when a final asset is created."],
+          ["Do credits expire?", "Credits included in your subscription reset every month. Extra credits purchased separately do not expire and roll over for future use."],
+          ["What happens if I run out of credits?", "You can top up credits anytime so you can continue creating without interruptions, especially during active campaigns or multi-asset production."],
+          ["Can I buy more credits anytime?", "Yes. Ndovesha allows you to purchase additional credits whenever needed, so your marketing workflow is never blocked."],
+          ["Why is this better than paying per service?", "Traditional services charge separately for websites, design, content, and ads. With Ndovesha, you use one system, pay based on what you create, and scale usage to your needs. You are paying for results, not time."],
+          ["Do different agents use different credits?", "Yes. Each agent uses credits based on its output type. A content agent (like captions) uses fewer credits, while website or video agents use more. This keeps pricing flexible and aligned with value."]
+        ]
+      },
+      {
+        title: "Content & Creation",
+        description: "Learn what you can create with Ndovesha - from posts to videos to branding.",
+        items: [
+          ["What kind of content can I create?", "You can create website copy, social posts, ad creatives, campaigns, videos, and brand assets."],
+          ["Can Ndovesha generate social media posts?", "Yes. It can generate platform-ready post ideas, captions, and creative directions."],
+          ["Can it create ads and marketing campaigns?", "Yes. Ndovesha can help produce campaign concepts, ad copy, visuals, and structured messaging."],
+          ["Can it create videos?", "Yes. Depending on your workflow, Ndovesha supports video-related content and creative assets."],
+          ["Can it design logos and branding?", "Yes. You can generate branding concepts and visual directions aligned with your business identity."],
+          ["Can I regenerate or edit content?", "Yes. You can iterate quickly, regenerate options, and edit outputs until they match your goals."]
+        ]
+      },
+      {
+        title: "How It Works",
+        description: "Step-by-step explanation of how Ndovesha turns your ideas into results.",
+        items: [
+          ["How do I get started?", "Create an account, define your business goals, and choose what you want to build first."],
+          ["What happens after I sign up?", "You enter your core context, then Ndovesha guides you into creating websites, content, and campaigns."],
+          ["Do I need technical skills?", "No. The platform is designed to be beginner-friendly while still powerful for advanced users."],
+          ["How long does it take to create something?", "Simple outputs can be generated quickly, while broader projects are built through rapid iterations."],
+          ["What do I need to provide?", "Provide business context, target audience, goals, and brand preferences for the best results."]
+        ]
+      },
+      {
+        title: "Ownership & Access",
+        description: "Understand what you own and how much control you have.",
+        items: [
+          ["Do I own everything created?", "Yes. Assets produced for your brand are intended for your business use and control."],
+          ["Can I download my assets?", "Yes. You can export and download your generated assets where supported."],
+          ["Can I move my website elsewhere?", "Yes. Portability options depend on deployment setup, but ownership and control remain with you."],
+          ["Will I have full access?", "Yes. You maintain access to your project assets, edits, and management controls."]
+        ]
+      }
+    ];
+
+    function createCard(category, cardIndex) {
+      const card = document.createElement("article");
+      card.className = "faq-card";
+      const header = document.createElement("div");
+      header.className = "card-header";
+      header.innerHTML = `<h2 class="card-title">${category.title}</h2><p class="card-description">${category.description}</p>`;
+      const list = document.createElement("div");
+      list.className = "qa-list";
+
+      category.items.forEach((item, questionIndex) => {
+        const [question, answer] = item;
+        const id = `faq-${cardIndex}-${questionIndex}`;
+        const qaItem = document.createElement("div");
+        qaItem.className = "qa-item";
+        if (questionIndex >= VISIBLE_FAQ_COUNT) {
+          qaItem.classList.add("is-hidden");
+        }
+        qaItem.innerHTML = `<button class="qa-button" aria-expanded="false" aria-controls="${id}" id="${id}-btn"><span>${question}</span><span class="icon" aria-hidden="true">+</span></button><div class="qa-panel" id="${id}" role="region" aria-labelledby="${id}-btn"><p class="qa-answer">${answer}</p></div>`;
+        list.appendChild(qaItem);
+      });
+
+      card.appendChild(header);
+      card.appendChild(list);
+      if (category.items.length > VISIBLE_FAQ_COUNT) {
+        const footer = document.createElement("div");
+        footer.className = "card-footer";
+        footer.innerHTML = `<a href="#" class="view-more-link" data-expanded="false">View all ${category.items.length} topics</a>`;
+        card.appendChild(footer);
+      }
+      return card;
+    }
+
+    function initFaq() {
+      const grid = document.getElementById("faqGrid");
+      faqCategories.slice(0, 3).forEach((category, i) => grid.appendChild(createCard(category, i)));
+      grid.addEventListener("click", (event) => {
+        const viewMoreLink = event.target.closest(".view-more-link");
+        if (viewMoreLink) {
+          event.preventDefault();
+          const card = viewMoreLink.closest(".faq-card");
+          const hiddenItems = card.querySelectorAll(".qa-item.is-hidden");
+          const isExpanded = viewMoreLink.getAttribute("data-expanded") === "true";
+          hiddenItems.forEach((item) => item.style.display = isExpanded ? "none" : "block");
+          viewMoreLink.setAttribute("data-expanded", String(!isExpanded));
+          viewMoreLink.textContent = isExpanded
+            ? `View all ${card.querySelectorAll(".qa-item").length} topics`
+            : "Show fewer topics";
+          return;
+        }
+
+        const button = event.target.closest(".qa-button");
+        if (!button) return;
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        const panel = document.getElementById(button.getAttribute("aria-controls"));
+        const icon = button.querySelector(".icon");
+        if (!isExpanded) {
+          const openButtons = grid.querySelectorAll('.qa-button[aria-expanded="true"]');
+          openButtons.forEach((openButton) => {
+            if (openButton === button) return;
+            const openPanel = document.getElementById(openButton.getAttribute("aria-controls"));
+            const openIcon = openButton.querySelector(".icon");
+            openButton.setAttribute("aria-expanded", "false");
+            if (openIcon) openIcon.textContent = "+";
+            if (openPanel) {
+              openPanel.style.maxHeight = "0px";
+              openPanel.classList.remove("is-open");
+            }
+          });
+        }
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        if (icon) icon.textContent = isExpanded ? "+" : "â€“";
+        if (isExpanded) {
+          panel.style.maxHeight = "0px";
+          panel.classList.remove("is-open");
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+          panel.classList.add("is-open");
+        }
+      });
+    }
+
+    initFaq();
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"6892ca8ffd3b4ad7b1737418d2724ac1","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

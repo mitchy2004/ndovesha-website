@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Ndovesha for Agencies — Scale Your Output, Not Your Headcount</title>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" href="favicon-32x32.png">
+<style>
+:root {
+  --primary: #003366;
+  --primary-light: #0d4c94;
+  --gold: #febf0f;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --muted: #5a6280;
+  --border: #e5e7eb;
+  --light-gray: #f8f9fb;
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+  --green: #16a34a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.center { text-align: center; }
+.dev-note { background: var(--primary); color: rgba(255,255,255,0.85); text-align: center; padding: 12px 20px; font-size: 0.85rem; }
+.dev-note strong { color: var(--gold); }
+
+.section-title { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 800; color: var(--primary); line-height: 1.22; margin-bottom: 12px; }
+.section-title .gold { color: var(--gold); }
+.section-title .navy { color: var(--primary); }
+.section-sub { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1.02rem; }
+.btn-gold {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--primary); color: var(--white); font-weight: 700; font-size: 1rem;
+  padding: 15px 30px; border-radius: 12px; text-decoration: none; border: none; cursor: pointer;
+  margin: 16px;
+  box-shadow: 0 8px 24px rgba(0,51,102,0.35); transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,51,102,0.45); }
+
+/* ===================== HERO: THE WEIGHT OF EVERY HAT ===================== */
+.hero-weight { padding: 60px 5% 50px; background: var(--white); }
+.hero-weight .container { text-align: center; max-width: 1080px; }
+
+.hero-weight h1 {
+  font-size: clamp(2.9rem, 4.8vw, 3.5rem);
+  font-weight: 800; line-height: 1.25; color: var(--primary);
+  max-width: 940px; margin: 0 auto 40px;
+}
+.hero-weight h1 .gold { color: var(--gold); }
+
+.hero-weight-sub {
+  font-size: 1.05rem; font-weight: 0; color: var(--muted);
+  max-width: 720px; margin: 0 auto 32px;
+}
+
+/* Team row — coworkers and the owner shown side by side,
+   connected by a line to communicate a team standing together
+   rather than a stack of burdens on one person */
+.team-row {
+  position: relative;
+  display: flex; justify-content: center; align-items: flex-start;
+  gap: 22px; margin-bottom: 40px; flex-wrap: wrap; row-gap: 22px;
+}
+.team-node {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.team-badge {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--border);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem; color: var(--primary);
+}
+.team-badge.you {
+  background: var(--primary); color: var(--white);
+  width: 68px; height: 68px; font-weight: 800; font-size: 0.82rem;
+  border: 3px solid var(--gold);
+  box-shadow: 0 10px 24px rgba(0,51,102,0.3);
+}
+.team-plus {
+  position: relative; z-index: 1; align-self: center;
+  color: var(--gold); font-size: 0.9rem; font-weight: 800;
+  margin-top: 32px;
+}
+.team-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); }
+.team-node.owner .team-label { color: var(--primary); font-weight: 800; }
+
+.hero-weight-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--primary); color: var(--white); font-weight: 800; font-size: 1.02rem;
+  padding: 17px 34px; border-radius: 50px; text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 10px 26px rgba(0,51,102,0.32); transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.hero-weight-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,51,102,0.42); }
+
+@media (max-width: 640px) {
+  .team-plus { display: none; }
+}
+
+/* ===================== SECTION: DAY IN THE LIFE ===================== */
+.day-section { padding: 20px 5% 50px; background: var(--white); }
+
+/* Column headers */
+.day-headers {
+  display: grid; grid-template-columns: 1fr 90px 1fr;
+  max-width: 900px; margin: 24px auto 8px; align-items: center;
+}
+.day-header {
+  text-align: center; font-weight: 800; font-size: 0.95rem;
+  padding: 12px 16px; border-radius: 50px;
+}
+.day-header.without { background: var(--red-bg); color: var(--red); }
+.day-header.with { background: rgba(254,191,15,0.15); color: var(--primary); }
+.day-header-spacer {}
+
+/* Timeline grid */
+.day-timeline { max-width: 900px; margin: 0 auto; position: relative; }
+.day-row {
+  display: grid; grid-template-columns: 1fr 90px 1fr;
+  align-items: center; gap: 0;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.day-row.revealed { opacity: 1; transform: translateY(0); }
+
+.day-cell {
+  padding: 18px 20px; margin: 8px 10px;
+  border-radius: 12px; font-size: 0.92rem; line-height: 1.5;
+  display: flex; align-items: center; gap: 10px;
+}
+.day-cell.without { background: var(--red-bg); color: #7f1d1d; border: 1px solid rgba(220,38,38,0.15); justify-content: flex-end; text-align: right; }
+.day-cell.with { background: #fffbeb; color: var(--primary); border: 1px solid rgba(254,191,15,0.3); font-weight: 600; }
+.day-cell i { flex-shrink: 0; font-size: 0.85rem; }
+.day-cell.without i { color: var(--red); order: 2; }
+.day-cell.with i { color: var(--gold); }
+
+.day-time-col { display: flex; flex-direction: column; align-items: center; position: relative; }
+.day-time-dot {
+  width: 12px; height: 12px; border-radius: 50%; background: var(--border);
+  border: 2px solid var(--white); box-shadow: 0 0 0 2px var(--border);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+.day-row.revealed .day-time-dot { background: var(--primary); box-shadow: 0 0 0 2px var(--primary); }
+.day-time-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); margin-top: 6px; white-space: nowrap; }
+.day-time-line {
+  position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+  width: 2px; height: 100%; background: var(--border); z-index: -1;
+}
+.day-row:first-child .day-time-line { top: 50%; height: 50%; }
+.day-row:last-child .day-time-line { height: 50%; }
+
+/* Closing line */
+.day-closer {
+  max-width: 640px; margin: 30px auto 0; text-align: center;
+}
+.day-closer p {
+  font-size: 1.15rem; font-weight: 700; color: var(--primary); line-height: 1.5; margin-bottom: 12px;
+}
+.day-closer p .gold { color: var(--gold); }
+
+@media (max-width: 680px) {
+  .day-headers, .day-row { grid-template-columns: 1fr; gap: 10px; }
+  .day-header-spacer { display: none; }
+  .day-time-col { flex-direction: row; gap: 8px; justify-content: center; margin: 6px 0; }
+  .day-time-line { display: none; }
+  .day-cell.without, .day-cell.with { justify-content: flex-start; text-align: left; margin: 4px 0; }
+  .day-cell.without i { order: 0; }
+}
+
+/* ===================== SECTION 3: MEET YOUR AI TEAM ===================== */
+.team-section { padding: 70px 5%; background: var(--light-gray); }
+
+.team-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  max-width: 1080px; margin: 40px auto 44px;
+}
+.coworker-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  padding: 32px 26px; text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.coworker-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 34px rgba(254,191,15,0.32);
+  border-color: rgba(254,191,15,0.5);
+}
+.coworker-icon {
+  width: 54px; height: 54px; border-radius: 12px;
+  background: rgba(0,51,102,0.06);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--primary); font-size: 1.3rem; margin-bottom: 18px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.coworker-card:hover .coworker-icon { background: var(--gold); color: var(--primary); }
+.coworker-card h3 { font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
+.coworker-card p { font-size: 0.94rem; color: var(--muted); line-height: 1.55; }
+
+.team-cta-wrap { text-align: center; }
+.btn-navy {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--primary); color: var(--white); font-weight: 700; font-size: 1rem;
+  padding: 16px 32px; border-radius: 12px; text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 8px 22px rgba(0,51,102,0.3); transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-top: 35px;
+}
+.btn-navy i { color: var(--white); }
+.btn-navy:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(13,76,148,0.55); }
+
+@media (max-width: 900px) { .team-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .team-grid { grid-template-columns: 1fr; } }
+
+/* ===================== SECTION 4: SEE AI COWORKERS IN ACTION ===================== */
+.showcase-section { padding: 70px 5%; background: var(--white); }
+.showcase-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  max-width: 1080px; margin: 40px auto 0;
+}
+.showcase-card {
+  border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--white);
+}
+.showcase-card:hover { transform: translateY(-8px); box-shadow: 0 16px 30px rgba(0,0,0,0.14); }
+.showcase-card .video-wrap { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
+.showcase-card .video-wrap iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+}
+
+@media (max-width: 900px) { .showcase-grid { grid-template-columns: 1fr; } }
+
+/* ===================== SECTION 5: WHY BUSINESS OWNERS CHOOSE NDOVESHA ===================== */
+.why-section { padding: 70px 5%; background: var(--white); }
+.why-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px;
+  max-width: 1080px; margin: 40px auto 0;
+}
+.why-item { display: flex; gap: 16px; align-items: flex-start; text-align: left; }
+.why-icon {
+  flex-shrink: 0; width: 46px; height: 46px; border-radius: 50%;
+  background: var(--primary); color: var(--gold);
+  display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
+}
+.why-item h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
+.why-item p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+
+@media (max-width: 900px) { .why-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .why-grid { grid-template-columns: 1fr; } }
+
+/* ===================== SECTION 6: FAQ ===================== */
+.faq-section { padding: 70px 5% 80px; background: var(--white); }
+.faq-list { max-width: 760px; margin: 40px auto 0; }
+.faq-question {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 22px 4px; cursor: pointer; user-select: none;
+}
+.faq-question h3 {
+  font-size: 1.02rem; font-weight: 700; color: var(--primary); line-height: 1.4;
+}
+.faq-toggle {
+  flex-shrink: 0; width: 28px; height: 28px;
+  background: none; color: var(--gold);
+  display: flex; align-items: center; justify-content: center; font-size: 0.95rem;
+  transition: transform 0.25s ease;
+}
+.faq-item.open .faq-toggle { transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 4px;
+}
+.faq-item.open .faq-answer { max-height: 260px; padding: 0 4px 22px; }
+.faq-answer p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+
+/* ===================== AGENCY: HERO ===================== */
+.agency-hero { padding: 70px 5% 60px; background: var(--white); }
+.agency-hero .container { text-align: center; max-width: 880px; }
+.agency-hero h1 {
+  font-size: clamp(2.6rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.25;
+  color: var(--primary); margin-bottom: 24px;
+}
+.agency-hero h1 .gold { color: var(--gold); }
+.agency-hero-sub { font-size: 1.08rem; color: var(--muted); max-width: 680px; margin: 0 auto 34px; }
+
+/* ===================== AGENCY: SCALING CHALLENGES ===================== */
+.challenges-section { padding: 70px 5%; background: var(--light-gray); }
+.challenge-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
+  max-width: 1200px; margin: 40px auto 32px;
+}
+.challenge-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  padding: 26px 20px; text-align: left;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.challenge-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold), 0 12px 28px rgba(254,191,15,0.28);
+}
+.challenge-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: rgba(0,51,102,0.06); color: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; margin-bottom: 16px;
+}
+.challenge-tag {
+  display: block; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+}
+.challenge-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+.challenge-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+
+.challenge-closing {
+  max-width: 680px; margin: 0 auto 30px; text-align: center;
+  font-size: 1.08rem; font-weight: 700; color: var(--primary); line-height: 1.5;
+}
+
+@media (max-width: 1100px) { .challenge-grid { grid-template-columns: repeat(3, 1fr); max-width: 760px; } }
+@media (max-width: 640px) { .challenge-grid { grid-template-columns: 1fr; max-width: 420px; } }
+
+/* ===================== AGENCY: COWORKERS FOR AGENCIES ===================== */
+.agency-team-section { padding: 70px 5%; background: var(--white); }
+.agency-team-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
+  max-width: 1200px; margin: 40px auto 44px;
+}
+.agency-team-grid .coworker-card { padding: 26px 20px; }
+.agency-team-grid .coworker-card h3 { font-size: 1.05rem; }
+.agency-team-grid .coworker-card p { font-size: 0.88rem; }
+
+@media (max-width: 1100px) { .agency-team-grid { grid-template-columns: repeat(3, 1fr); max-width: 760px; } }
+@media (max-width: 640px) { .agency-team-grid { grid-template-columns: 1fr; max-width: 420px; } }
+
+/* ===================== AGENCY: VIDEO SHOWCASE ===================== */
+.agency-showcase-section { padding: 70px 5%; background: var(--light-gray); }
+.agency-showcase-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+  max-width: 920px; margin: 40px auto 0;
+}
+.agency-showcase-card {
+  border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--white);
+}
+.agency-showcase-card:hover { transform: scale(1.035); box-shadow: 0 16px 30px rgba(0,0,0,0.14); }
+.agency-showcase-card .video-wrap { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
+.agency-showcase-card .video-wrap iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+}
+
+@media (max-width: 720px) { .agency-showcase-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-container">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <img src="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png" class="logo-img" alt="Ndovesha AI">
+    </a>
+
+    <!-- Center Nav -->
+    <ul class="nav-center">
+      <li>
+        <a href="https://ndovesha.ai/who">Who is it for <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="owner.html">Business Owners</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="agency.html">Agencies</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="designer.html">Designers</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="marketers.html">Marketers</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://ndovesha.ai/capabilities">Capabilities <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="web.html">Web Design</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="graphic.html">Graphic Design</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="writing.html">Writing</a></li>
+        </ul>
+      </li>
+      <li><a href="how-to-prompt.html">How to Prompt</a></li>
+      <li><a href="https://ndovesha.ai/pricing.html">Pricing</a></li>
+      <li>
+        <a href="https://ndovesha.ai/resources">Resources <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/webinars.html">Webinars</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/join-our-community.html">Join our Community</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://ndovesha.ai/faq.html">FAQs</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Right Buttons -->
+    <div class="nav-right">
+      <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
+      <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-section-title" data-fold="who">Who is it for <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-who">
+        <a href="owner.html">Founders</a>
+        <a href="agency.html">Agencies</a>
+        <a href="designer.html">Designers</a>
+        <a href="marketers.html">Marketers</a>
+      </div>
+
+      <div class="mobile-section-title" data-fold="capabilities">Capabilities <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-capabilities">
+        <a href="web.html">Web Design</a>
+        <a href="graphic.html">Graphic Design</a>
+        <a href="writing.html">Writing</a>
+      </div>
+
+      <a href="how-to-prompt.html">How to Prompt</a>
+      <a href="https://ndovesha.ai/pricing.html">Pricing</a>
+
+      <div class="mobile-section-title" data-fold="resources">Resources <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-resources">
+        <a href="/blog">Blog</a>
+        <a href="/webinars">Webinars</a>
+        <a href="/community">Join our Community</a>
+        <a href="/tutorials">Tutorials</a>
+        <a href="/faqs">FAQs</a>
+      </div>
+
+      <a href="/login" class="btn-login">Log In</a>
+      <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO: Scale Your Output, Not Your Headcount ===== -->
+<section class="agency-hero">
+  <div class="container">
+    <h1>Scale your output. <span class="gold">Not your headcount.</span></h1>
+    <p>Deliver exceptional client work with AI coworkers that help your agency create content, manage projects, support clients, and accelerate delivery.</p>
+
+    <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: GROWING AN AGENCY ISN'T THE HARD PART. SCALING IT IS. ===== -->
+<section class="challenges-section">
+  <div class="container center">
+    <h2 class="section-title">Growing an Agency Isn't the Hard Part. <span class="gold">Scaling It Is.</span></h2>
+  </div>
+
+  <div class="challenge-grid">
+    <div class="challenge-card">
+      <div class="challenge-icon"><i class="fas fa-ban"></i></div>
+      <span class="challenge-tag">Capacity Limits</span>
+      <h3>Turning Away New Clients</h3>
+      <p>Your team is already fully booked, forcing you to decline new opportunities or delay onboarding.</p>
+    </div>
+
+    <div class="challenge-card">
+      <div class="challenge-icon"><i class="fas fa-clock"></i></div>
+      <span class="challenge-tag">Deadline Pressure</span>
+      <h3>Missing Deadlines</h3>
+      <p>Busy weeks and overlapping projects make it difficult to deliver work on time without burning out your team.</p>
+    </div>
+
+    <div class="challenge-card">
+      <div class="challenge-icon"><i class="fas fa-sack-dollar"></i></div>
+      <span class="challenge-tag">Shrinking Margins</span>
+      <h3>Rising Delivery Costs</h3>
+      <p>Freelancers and subcontractors help fill the gaps—but every invoice reduces your profit margins.</p>
+    </div>
+
+    <div class="challenge-card">
+      <div class="challenge-icon"><i class="fas fa-hourglass-half"></i></div>
+      <span class="challenge-tag">Approval Bottlenecks</span>
+      <h3>Work Waiting for Review</h3>
+      <p>Junior team members depend on senior approvals, slowing delivery and creating unnecessary bottlenecks.</p>
+    </div>
+
+    <div class="challenge-card">
+      <div class="challenge-icon"><i class="fas fa-arrows-up-down-left-right"></i></div>
+      <span class="challenge-tag">Scope Creep</span>
+      <h3>Projects That Keep Growing</h3>
+      <p>Small client requests add up over time, consuming valuable hours without increasing revenue.</p>
+    </div>
+  </div>
+
+  <p class="challenge-closing">Every challenge above has one thing in common and that is they're caused by teams running out of capacity, not ambition. That's where AI coworkers make the difference.</p>
+
+  <div class="team-cta-wrap">
+    <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: EVERYTHING YOUR AGENCY NEEDS TO DELIVER FASTER ===== -->
+<section class="agency-team-section">
+  <div class="container center">
+    <h2 class="section-title">Everything Your Agency Needs to <span class="gold">Deliver Faster</span></h2>
+    <p class="section-sub">Give every project the support it needs. Ndovesha AI coworkers work alongside your agency, helping your team deliver more without sacrificing quality or hiring more staff.</p>
+  </div>
+
+  <div class="why-grid agency-why-grid">
+    <div class="why-item">
+      <div class="why-icon"><i class="fas fa-globe"></i></div>
+      <div>
+        <h3>Website Coworker</h3>
+        <p>Build client websites and landing pages faster, so your team can launch projects without long development cycles.</p>
+      </div>
+    </div>
+
+    <div class="why-item">
+      <div class="why-icon"><i class="fas fa-pen-nib"></i></div>
+      <div>
+        <h3>Content Coworker</h3>
+        <p>Create blogs, social posts, and campaign copy that keeps every client account active.</p>
+      </div>
+    </div>
+
+    <div class="why-item">
+      <div class="why-icon"><i class="fas fa-bullhorn"></i></div>
+      <div>
+        <h3>Advertising Coworker</h3>
+        <p>Produce high-converting ad creatives for multiple client campaigns simultaneously.</p>
+      </div>
+    </div>
+
+    <div class="why-item">
+      <div class="why-icon"><i class="fas fa-palette"></i></div>
+      <div>
+        <h3>Design Coworker</h3>
+        <p>Design on-brand visuals, social graphics, and marketing assets without waiting on freelancers.</p>
+      </div>
+    </div>
+
+    <div class="why-item">
+      <div class="why-icon"><i class="fas fa-file-invoice"></i></div>
+      <div>
+        <h3>Sales Materials Coworker</h3>
+        <p>Prepare polished proposals, presentations, and sales collateral that help your agency win new business.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-cta-wrap">
+    <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Build Your AI Team <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: SEE AI COWORKERS IN ACTION ===== -->
+<section class="agency-showcase-section">
+  <div class="container center">
+    <h2 class="section-title">See AI Coworkers <span class="gold">in Action</span></h2>
+    <p class="section-sub">Learn how successful agencies attract clients, deliver exceptional services, grow and discover how AI coworkers can support every stage of the journey.</p>
+  </div>
+
+  <div class="agency-showcase-grid">
+    <div class="agency-showcase-card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/Y8tc9f8iMIM?si=WEV1AV7G3BH1iP08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="agency-showcase-card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/ddDxX-_tBiY?si=l4LLCzRsg8hGe-mE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: FAQ ===== -->
+<section class="faq-section">
+  <div class="container center">
+    <h2 class="section-title">Frequently Asked <span class="gold">Questions</span></h2>
+  </div>
+
+  <div class="faq-list" id="faqList">
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>How can AI coworkers help my agency?</h3>
+        <div class="faq-toggle"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer">
+        <p>AI coworkers support your agency by handling repetitive and time-consuming tasks such as content creation, website development, graphic design, marketing materials, research, and reporting. This allows your team to focus on strategy, creativity, and building stronger client relationships.</p>
+      </div>
+      <div class="faq-divider"></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Will AI coworkers replace my team?</h3>
+        <div class="faq-toggle"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer">
+        <p>No. Ndovesha AI coworkers are designed to work alongside your team—not replace them. They take care of routine execution so your employees can spend more time on high-value work that requires human expertise, creativity, and decision-making.</p>
+      </div>
+      <div class="faq-divider"></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Can AI coworkers handle multiple client projects at the same time?</h3>
+        <div class="faq-toggle"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer">
+        <p>Yes. AI coworkers can assist with multiple client projects simultaneously, helping your agency manage increasing workloads, meet deadlines, and maintain consistent quality as your client base grows.</p>
+      </div>
+      <div class="faq-divider"></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Can AI coworkers help us scale without hiring more staff?</h3>
+        <div class="faq-toggle"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer">
+        <p>Yes. By taking on repetitive tasks and supporting project delivery, AI coworkers enable your agency to serve more clients and complete more work without immediately increasing your headcount or relying heavily on freelancers.</p>
+      </div>
+      <div class="faq-divider"></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What makes Ndovesha different from other AI tools?</h3>
+        <div class="faq-toggle"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer">
+        <p>Unlike general-purpose AI assistants, Ndovesha provides specialized AI coworkers, each designed for a specific role such as content creation, website development, design, advertising, and sales materials. They work together like members of a real agency team, helping you streamline workflows and deliver projects more efficiently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Links -->
+<section class="footer-links-section">
+  <div class="container">
+    <div class="footer-links-grid">
+
+      <div class="footer-links-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="https://ndovesha.ai/pricing.html">Pricing</a></li>
+          <li><a href="https://chat.ndovesha.ai/signup" target="_blank" rel="noopener noreferrer">AI Agents</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+          <li><a href="https://ndovesha.ai/webinars.html">Webinars</a></li>
+          <li><a href="https://ndovesha.ai/comparison.html">Ndovesha vs ChatGPT vs Gemini</a></li>
+          <li><a href="how-to-prompt.html">How to Prompt Ndovesha</a></li>
+          <li><a href="https://blog.ndovesha.ai/lovable-vs-replit-vs-manus-vs-ndovesha-the-ultimate-ai-website-builder-comparison-2026/" target="_blank" rel="noopener noreferrer">Ndovesha vs Manus vs Lovable</a></li>
+          <li><a href="https://ndovesha.ai/join-our-community.html">Join community</a></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
+          <li><a href="https://ndovesha.ai/faq.html">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Ask AI About Us</h4>
+        <ul>
+          <li><a href="https://chat.openai.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">ChatGPT</a></li>
+          <li><a href="https://claude.ai/new?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Claude</a></li>
+          <li><a href="https://gemini.google.com/app?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Gemini</a></li>
+          <li><a href="https://www.perplexity.ai/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Perplexity</a></li>
+          <li><a href="https://copilot.microsoft.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Copilot</a></li>
+          <li><a href="https://x.com/i/grok?text=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Grok</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Who Is It For</h4>
+        <ul>
+          <li><a href="owner.html">Business Owners</a></li>
+          <li><a href="agency.html">Agencies</a></li>
+          <li><a href="designer.html">Designers</a></li>
+          <li><a href="marketers.html">Marketers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Capabilities</h4>
+        <ul>
+          <li><a href="web.html">Web design</a></li>
+          <li><a href="graphic.html">Graphic design</a></li>
+          <li><a href="writing.html">Writing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://ndovesha.ai/contacts.html">Contact</a></li>
+          <li><a href="https://ndovesha.ai/terms-of-service.html">Terms of service</a></li>
+          <li><a href="https://ndovesha.ai/privacy-policy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-social-row">
+      <a class="footer-social-btn" href="https://www.linkedin.com/company/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.5 8.65 23 10.9 23 14.2V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.58-2.33 3.2V21h-4V9z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://x.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.2 8.2L23 22h-6.8l-5.3-6.9L4.9 22H2l7.7-8.8L1.5 2h6.9l4.8 6.3L18.9 2z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.youtube.com/@ndovesha" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7c-.2-.9-.9-1.6-1.8-1.8C19 5 12 5 12 5s-7 0-8.8.5c-.9.2-1.6.9-1.8 1.8C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.9.9 1.6 1.8 1.8C5 19 12 19 12 19s7 0 8.8-.5c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.instagram.com/ndovesha.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.tiktok.com/@ndovesha.ai?lang=en" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M16.5 3c.3 2 1.7 3.4 3.5 3.7v2.9c-1.4-.1-2.6-.6-3.5-1.4v6.6a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3a2.3 2.3 0 1 0 1.6 2.2V3h2.8z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.facebook.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.4c0-.9.3-1.5 1.6-1.5h1.5V4.2C15.9 4.1 14.8 4 13.6 4 11 4 9.5 5.6 9.5 8.2v2.3H7v3h2.5V21h4z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.reddit.com/user/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+        <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"></circle><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"></circle><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"></circle><path d="M8.5 16.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"></path><circle cx="18.5" cy="8.5" r="1.3"></circle><path d="M12 10V6.5a1.3 1.3 0 1 1 2-1.1"></path></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom-row">
+      <p class="footer-copyright">&copy; 2026 Ndovesha. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=254112480181&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+  <span class="whatsapp-icon-part">
+    <svg viewBox="0 0 32 32"><path d="M16.001 3C9.106 3 3.5 8.606 3.5 15.5c0 2.53.744 4.885 2.024 6.86L3 29l6.822-2.463A12.44 12.44 0 0 0 16 28c6.895 0 12.5-5.606 12.5-12.5S22.896 3 16.001 3zm7.24 17.634c-.31.874-1.53 1.61-2.114 1.702-.54.084-1.222.12-1.972-.123-.455-.146-1.036-.34-1.782-.664-3.14-1.356-5.19-4.51-5.35-4.72-.16-.21-1.29-1.71-1.29-3.26 0-1.55.813-2.31 1.1-2.63.29-.32.63-.4.84-.4.21 0 .42.002.6.01.19.008.45-.072.702.535.26.63.885 2.166.965 2.324.08.16.133.347.027.556-.107.21-.16.34-.32.523-.16.183-.335.41-.478.55-.16.16-.327.334-.14.653.187.32.83 1.373 1.783 2.223 1.223 1.09 2.256 1.428 2.577 1.588.32.16.507.133.694-.08.187-.213.8-.933 1.014-1.253.213-.32.427-.267.72-.16.293.107 1.86.877 2.18 1.037.32.16.533.24.613.373.08.133.08.77-.23 1.646z"/></svg>
+  </span>
+  <span class="whatsapp-text-part">Chat with us</span>
+</a>
+
+<!-- Floating Home / Scroll-to-Top Arrow Button -->
+<a class="scroll-top-btn" href="#top" aria-label="Back to home">
+  <svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+</a>
+
+<script>
+  // Dropdown menus open on hover or click, and stay open until clicked
+  // elsewhere, clicked again, or another dropdown is opened.
+  document.querySelectorAll('.nav-center > li').forEach(function (li) {
+    var menu = li.querySelector('.dropdown-menu');
+    var trigger = li.querySelector('a');
+    if (!menu || !trigger) return;
+
+    function closeAllExcept(exceptMenu) {
+      document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
+        if (m !== exceptMenu) m.classList.remove('show');
+      });
+    }
+
+    function openMenu() {
+      closeAllExcept(menu);
+      menu.classList.add('show');
+    }
+
+    li.addEventListener('mouseenter', openMenu);
+    menu.addEventListener('mouseenter', openMenu);
+
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      var isOpen = menu.classList.contains('show');
+      closeAllExcept(menu);
+      menu.classList.toggle('show', !isOpen);
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-center')) {
+      document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
+        m.classList.remove('show');
+      });
+    }
+  });
+
+  // Mobile menu toggle
+  var mobileBtn = document.getElementById('mobileMenuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  mobileBtn.addEventListener('click', function () {
+    mobileNav.classList.toggle('active');
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
+      mobileNav.classList.remove('active');
+    }
+  });
+
+  // Mobile accordion fold sections (Who is it for / Capabilities / Resources)
+  document.querySelectorAll('.mobile-section-title').forEach(function (title) {
+    title.addEventListener('click', function () {
+      var fold = document.getElementById('fold-' + title.dataset.fold);
+      var isOpen = fold.classList.contains('open');
+      document.querySelectorAll('.mobile-fold').forEach(function (f) { f.classList.remove('open'); });
+      if (!isOpen) fold.classList.add('open');
+    });
+  });
+</script>
+
+<script>
+(function () {
+  var rows = document.querySelectorAll('.day-row');
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var rowsArr = Array.from(rows);
+        var i = rowsArr.indexOf(entry.target);
+        setTimeout(function () { entry.target.classList.add('revealed'); }, i * 120);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.35 });
+  rows.forEach(function (row) { observer.observe(row); });
+})();
+</script>
+
+<script>
+(function () {
+  document.querySelectorAll('.faq-question').forEach(function (question) {
+    question.addEventListener('click', function () {
+      var item = question.closest('.faq-item');
+      var icon = question.querySelector('.faq-toggle i');
+      var isOpen = item.classList.contains('open');
+      item.classList.toggle('open', !isOpen);
+      icon.classList.toggle('fa-plus', isOpen);
+      icon.classList.toggle('fa-minus', !isOpen);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

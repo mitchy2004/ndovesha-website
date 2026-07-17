@@ -219,13 +219,13 @@ img { max-width: 100%; display: block; }
    HERO SECTION
 ============================================================ */
 .hero-section {
-  min-height: calc(100vh - 68px);
+  min-height: auto;
   background: var(--light-grey);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 24px 80px;
+  padding: 48px 24px 56px;
   text-align: center;
   position: relative;
 }
@@ -236,7 +236,7 @@ img { max-width: 100%; display: block; }
   line-height: 1.08;
   letter-spacing: -0.5px;
   color: var(--primary);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   white-space: nowrap;
   word-spacing: -2px;
   font-stretch: expanded;
@@ -246,12 +246,12 @@ img { max-width: 100%; display: block; }
   font-size: clamp(1rem, 1.8vw, 1.18rem);
   color: var(--text-light);
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-bottom: 22px;
   max-width: 500px;
 }
 
 /* Search Bar */
-.search-bar-wrap { width: 100%; max-width: 720px; position: relative; margin-bottom: 32px; }
+.search-bar-wrap { width: 100%; max-width: 720px; position: relative; margin-bottom: 20px; }
 .search-bar {
   display: flex;
   align-items: center;
@@ -317,7 +317,7 @@ img { max-width: 100%; display: block; }
 .send-icon svg { color: white; }
 
 /* Capability Icons */
-.capability-icons { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 24px; }
+.capability-icons { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 16px; }
 .cap-icon-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.22s; }
 .cap-icon-item:hover { transform: translateY(-6px); }
 .cap-icon-circle {
@@ -339,7 +339,7 @@ img { max-width: 100%; display: block; }
   .hero-heading { font-size: clamp(2rem, 7vw, 3.5rem); white-space: normal; }
 }
 @media (max-width: 640px) {
-  .hero-section { padding: 40px 16px 60px; }
+  .hero-section { padding: 32px 16px 40px; }
   .capability-icons { gap: 24px; }
   .hero-heading { white-space: normal; font-size: 2rem; }
   .search-bar-wrap { max-width: 100%; }
@@ -349,13 +349,13 @@ img { max-width: 100%; display: block; }
    SECTION 2 — HIRE AI COWORKERS
 ============================================================ */
 .hire-section {
-  padding: 100px 0 80px;
+  padding: 48px 0 80px;
   background: var(--bg-alt);
 }
 
 .hire-heading-wrap {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 40px;
 }
 
 .hire-main-heading {
@@ -433,13 +433,13 @@ img { max-width: 100%; display: block; }
 /* AI Cards */
 .ai-cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 52px;
 }
 
-@media (max-width: 1100px) { .ai-cards-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 580px)  { .ai-cards-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .ai-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .ai-cards-grid { grid-template-columns: 1fr; } }
 
 .ai-card {
   background: var(--white);
@@ -542,12 +542,12 @@ margin-top: 50px;
 }
 
 @media (max-width: 768px) {
-  .hire-section { padding: 72px 0 60px; }
+  .hire-section { padding: 40px 0 60px; }
 }
 
 /* ─── SECTION THREE ─── */
 .section-three {
-    padding: 120px 32px;
+    padding: 80px 32px;
     background: var(--light-grey);
     text-align: center;
 }
@@ -603,7 +603,7 @@ margin-top: 50px;
 
 @media (max-width:768px) {
     .section-three {
-        padding: 80px 24px;
+        padding: 60px 24px;
     }
 
     .section-three h2 {
@@ -623,13 +623,13 @@ margin-top: 50px;
    SECTION 4 — WHAT WILL YOU BUILD?
 ============================================================ */
 .build-section {
-  padding: 100px 0 80px;
+  padding: 60px 0 60px;
   background: var(--bg-alt, #E9EAEE); /* same dark light-grey background used in Section 2 */
 }
 
 .build-heading-wrap {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .build-main-heading {
@@ -638,7 +638,7 @@ margin-top: 50px;
   font-weight: 400;
   color: var(--primary);
   line-height: 1.1;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   white-space: nowrap;
 }
 
@@ -696,7 +696,7 @@ margin-top: 50px;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 500;
   color: var(--text-light);
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 
 /* Six rounded buttons, 2 rows x 3 columns */
@@ -748,12 +748,12 @@ margin-top: 50px;
 }
 
 @media (max-width: 768px) {
-  .build-section { padding: 72px 0 60px; }
+  .build-section { padding: 48px 0 48px; }
 }
 
 .build-cta-center {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 
@@ -761,13 +761,13 @@ margin-top: 50px;
    SECTION 5 — WATCH THE TUTORIAL
 ============================================================ */
 .tutorial-section {
-  padding: 100px 0 90px;
+  padding: 60px 0 60px;
   background: var(--light-grey); /* same background as the hero/home section */
 }
 
 .tutorial-heading-wrap {
   text-align: center;
-  margin-bottom: 44px;
+  margin-bottom: 32px;
 }
 
 .tutorial-main-heading {
@@ -804,7 +804,7 @@ margin-top: 50px;
 /* Responsive 16:9 video embed */
 .tutorial-video-wrap {
   max-width: 860px;
-  margin: 44px auto 0;
+  margin: 32px auto 0;
   position: relative;
   width: 100%;
   padding-bottom: 56.25%; /* 16:9 */
@@ -829,7 +829,7 @@ margin-top: 50px;
 }
 
 @media (max-width: 640px) {
-  .tutorial-section { padding: 64px 0 56px; }
+  .tutorial-section { padding: 40px 0 40px; }
 }
 
 /* ============================================================
@@ -837,7 +837,7 @@ margin-top: 50px;
 ============================================================ */
 .footer-links-section {
   background: var(--light-grey); /* same light-grey used in Section 1 / hero */
-  padding: 72px 0 48px;
+  padding: 56px 0 40px;
 }
 
 .footer-links-grid {
@@ -885,7 +885,7 @@ margin-top: 50px;
    SECTION 6 — SEE AI TEAMS IN ACTION
 ============================================================ */
 .case-studies-section {
-  padding: 100px 0 90px;
+  padding: 64px 0 64px;
   background: linear-gradient(
     135deg,
     #FFF8DD 0%,
@@ -896,7 +896,7 @@ margin-top: 50px;
 
 .case-studies-heading-wrap {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 
 .case-studies-main-heading {
@@ -999,7 +999,7 @@ margin-top: 50px;
 
 .case-studies-cta-center {
   text-align: center;
-  margin-top: 56px;
+  margin-top: 40px;
 }
 
 @media (max-width: 900px) {
@@ -1015,13 +1015,13 @@ margin-top: 50px;
    SECTION 7 — THE FUTURE OF WORK
 ============================================================ */
 .future-section {
-  padding: 100px 0 90px;
+  padding: 64px 0 64px;
   background: var(--light-grey);
 }
 
 .future-heading-wrap {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .future-main-heading {
@@ -1076,7 +1076,7 @@ margin-top: 50px;
 
 .future-cta-center {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 @media (max-width: 700px) {
@@ -1096,13 +1096,13 @@ margin-top: 50px;
    SECTION 8 — FAQ
 ============================================================ */
 .faq-section {
-  padding: 100px 0 90px;
+  padding: 64px 0 64px;
   background: var(--bg-alt);
 }
 
 .faq-heading-wrap {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 
 .faq-main-heading {
@@ -1204,7 +1204,7 @@ margin-top: 50px;
 
 .faq-cta-center {
   text-align: center;
-  margin-top: 56px;
+  margin-top: 40px;
 }
 
 @media (max-width: 900px) {
@@ -1222,7 +1222,7 @@ margin-top: 50px;
 ============================================================ */
 .site-footer {
   background: var(--bg-alt); /* same light-grey used in Section 2 */
-  padding: 60px 0 32px;
+  padding: 48px 0 32px;
 }
 
 .footer-social-row {
@@ -1231,7 +1231,7 @@ margin-top: 50px;
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 44px;
+  margin-bottom: 36px;
 }
 
 .footer-social-btn {
@@ -1383,4 +1383,3 @@ margin-top: 50px;
   .case-studies-grid { grid-template-columns: 1fr; }
   .case-studies-main-heading { white-space: normal; }
 }
-
