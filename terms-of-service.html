@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Terms of Service — Ndovesha AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="favicon-32x32.png">
+  <style>
+    /* ===================== TERMS OF SERVICE PAGE STYLES ===================== */
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Hero */
+    .terms-hero {
+      padding: 70px 5% 50px;
+      background: var(--white);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .terms-hero .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .terms-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(10, 42, 102, 0.06);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+    }
+
+    .terms-hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0 0 14px;
+      line-height: 1.2;
+    }
+
+    .terms-hero p {
+      color: var(--text-light);
+      font-size: 1.02rem;
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 0 auto 26px;
+    }
+
+    .terms-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .terms-meta-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: var(--light-grey);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 16px;
+      min-width: 150px;
+      text-align: left;
+    }
+
+    .terms-meta-pill .label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-light);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .terms-meta-pill .value {
+      font-size: 0.88rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Layout */
+    .terms-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 5% 90px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* Sidebar TOC */
+    .terms-toc-wrap {
+      position: sticky;
+      top: 24px;
+    }
+
+    .terms-toc-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .terms-toc-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+    }
+
+    .terms-toc-list li {
+      margin: 0;
+    }
+
+    .terms-toc-link {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 0.86rem;
+      line-height: 1.4;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .terms-toc-num {
+      flex-shrink: 0;
+      font-weight: 800;
+      color: var(--gold);
+      font-size: 0.78rem;
+      width: 20px;
+    }
+
+    .terms-toc-link:hover {
+      background: rgba(10, 42, 102, 0.05);
+      color: var(--primary);
+    }
+
+    .terms-toc-link.active {
+      background: rgba(10, 42, 102, 0.08);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Mobile TOC select */
+    .terms-toc-select {
+      display: none;
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: var(--white);
+      color: var(--primary);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.92rem;
+      margin-bottom: 30px;
+    }
+
+    /* Content */
+    .terms-content {
+      min-width: 0;
+    }
+
+    .terms-section {
+      scroll-margin-top: 24px;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .terms-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .terms-section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .terms-section-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .terms-section h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0;
+      line-height: 1.35;
+    }
+
+    .terms-section p {
+      color: var(--text-light);
+      font-size: 0.96rem;
+      line-height: 1.7;
+      margin: 0 0 14px;
+    }
+
+    .terms-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .terms-section h3 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 18px 0 8px;
+    }
+
+    .terms-list {
+      list-style: none;
+      margin: 0 0 16px;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .terms-list:last-child {
+      margin-bottom: 0;
+    }
+
+    .terms-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.94rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .terms-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .terms-contact-card {
+      background: var(--light-grey);
+      border-radius: 12px;
+      padding: 22px 24px;
+      border: 1px solid var(--border);
+    }
+
+    .terms-contact-card p {
+      margin: 0 0 4px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .terms-contact-card a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .terms-contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    .terms-closing {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid var(--gold);
+      font-style: italic;
+      color: var(--text-light);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .terms-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .terms-toc-wrap {
+        display: none;
+      }
+
+      .terms-toc-select {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .terms-hero {
+        padding: 50px 6% 36px;
+      }
+
+      .terms-layout {
+        padding: 36px 6% 70px;
+      }
+
+      .terms-meta-pill {
+        min-width: 130px;
+      }
+
+      .terms-section-num {
+        font-size: 1.3rem;
+      }
+
+      .terms-section h2 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-container">
+    <!-- Logo -->
+    <a href="https://ndovesha.ai" class="logo">
+      <img src="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png" class="logo-img" alt="Ndovesha AI">
+    </a>
+
+    <!-- Center Nav -->
+    <ul class="nav-center">
+      <li>
+        <a href="https://ndovesha.ai/who">Who is it for <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="owner.html">Business Owners</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="agency.html">Agencies</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="designer.html">Developers</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="marketers.html">Marketers</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://ndovesha.ai/capabilities">Capabilities <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="software.html">Software Development</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="ecommerce.html">Ecommerce Stores</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="web.html">Websites</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="graphic.html">Graphic Design</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="writing.html">Writing</a></li>
+        </ul>
+      </li>
+      <li><a href="how-to-prompt.html">How to Prompt</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li>
+        <a href="https://ndovesha.ai/resources">Resources <span class="nav-arrow">▼</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="blogs.html" target="_blank" rel="noopener noreferrer">Blog</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="webinars.html">Webinars</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="join-our-community.html">Join our Community</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="faq.html">FAQs</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Right Buttons -->
+    <div class="nav-right">
+      <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
+      <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Deploy Your Team</a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-section-title" data-fold="who">Who is it for <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-who">
+        <a href="owner.html">Business Owners</a>
+        <a href="agency.html">Agencies</a>
+        <a href="designer.html">Developers</a>
+        <a href="marketers.html">Marketers</a>
+      </div>
+
+      <div class="mobile-section-title" data-fold="capabilities">Capabilities <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-capabilities">
+        <a href="software.html">Software Development</a>
+        <a href="ecommerce.html">Ecommerce Stores</a>
+        <a href="web.html">Websites</a>
+        <a href="graphic.html">Graphic Design</a>
+        <a href="writing.html">Writing</a>
+      </div>
+
+      <a href="how-to-prompt.html">How to Prompt</a>
+      <a href="pricing.html">Pricing</a>
+
+      <div class="mobile-section-title" data-fold="resources">Resources <span class="nav-arrow">▼</span></div>
+      <div class="mobile-fold" id="fold-resources">
+        <a href="blogs.html">Blog</a>
+        <a href="webinars.html">Webinars</a>
+        <a href="join-our-community.html">Join our Community</a>
+        <a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX">Tutorials</a>
+        <a href="faq.html">FAQs</a>
+      </div>
+
+      <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
+      <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Deploy Your Team</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== TERMS HERO ===== -->
+<section class="terms-hero">
+  <div class="container">
+    <span class="terms-eyebrow"><i class="fas fa-file-contract"></i> Legal</span>
+    <h1>Terms of Service</h1>
+    <p>These Terms govern your access to and use of Ndovesha, including our website, applications, APIs, AI tools, integrations, software, features, and related services.</p>
+
+    <div class="terms-meta-row">
+      <div class="terms-meta-pill">
+        <span class="label">Effective Date</span>
+        <span class="value">22nd May 2026</span>
+      </div>
+      <div class="terms-meta-pill">
+        <span class="label">Company</span>
+        <span class="value">NdovuCloud Technologies Limited</span>
+      </div>
+      <div class="terms-meta-pill">
+        <span class="label">Platform</span>
+        <span class="value">Ndovesha</span>
+      </div>
+      <div class="terms-meta-pill">
+        <span class="label">Regions Covered</span>
+        <span class="value">Kenya, EU, US &amp; Global</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TERMS LAYOUT ===== -->
+<section class="terms-layout">
+
+  <!-- Mobile dropdown TOC -->
+  <select class="terms-toc-select" id="tocSelect" aria-label="Jump to section">
+    <option value="">Jump to a section…</option>
+  </select>
+
+  <!-- Sidebar TOC -->
+  <aside class="terms-toc-wrap">
+    <div class="terms-toc-title">On this page</div>
+    <ul class="terms-toc-list" id="tocList"></ul>
+  </aside>
+
+  <!-- Content -->
+  <div class="terms-content">
+
+    <div class="terms-section" id="section-1">
+      <div class="terms-section-head">
+        <span class="terms-section-num">01</span>
+        <h2>Introduction &amp; Acceptance of Terms</h2>
+      </div>
+      <p>Welcome to Ndovesha.</p>
+      <p>Ndovesha is an AI-powered software platform operated by NdovuCloud Technologies Limited ("Ndovesha", "we", "our", or "us").</p>
+      <p>These Terms of Service ("Terms") govern your access to and use of Ndovesha, including our website, applications, APIs, AI tools, integrations, software, features, and related services.</p>
+      <p>By creating an account, accessing, or using Ndovesha, you agree to be bound by these Terms.</p>
+      <p>If you do not agree to these Terms, you may not use Ndovesha.</p>
+      <p>These Terms are intended to align with applicable laws including:</p>
+      <ul class="terms-list">
+        <li>Kenya Data Protection Act, 2019</li>
+        <li>Applicable Kenya ICT regulations</li>
+        <li>European Union General Data Protection Regulation (GDPR)</li>
+        <li>Applicable United States consumer and privacy laws</li>
+        <li>Other applicable international regulations</li>
+      </ul>
+    </div>
+
+    <div class="terms-section" id="section-2">
+      <div class="terms-section-head">
+        <span class="terms-section-num">02</span>
+        <h2>Eligibility &amp; User Requirements</h2>
+      </div>
+      <p>To use Ndovesha, you must:</p>
+      <ul class="terms-list">
+        <li>Be at least eighteen (18) years old or possess legal capacity under applicable law</li>
+        <li>Provide accurate, complete, and current account information</li>
+        <li>Maintain the accuracy of account information</li>
+        <li>Use Ndovesha only for lawful purposes</li>
+        <li>Comply with all applicable laws and regulations</li>
+      </ul>
+      <p>You are responsible for activities occurring under your account.</p>
+      <p>Ndovesha reserves the right to refuse access, suspend accounts, or terminate services where permitted by law.</p>
+    </div>
+
+    <div class="terms-section" id="section-3">
+      <div class="terms-section-head">
+        <span class="terms-section-num">03</span>
+        <h2>Account Registration &amp; Security</h2>
+      </div>
+      <p>Certain Ndovesha features require account registration.</p>
+      <p>You agree to:</p>
+      <ul class="terms-list">
+        <li>Maintain confidentiality of account credentials</li>
+        <li>Use strong passwords and appropriate security practices</li>
+        <li>Notify Ndovesha immediately if unauthorized access occurs</li>
+        <li>Ensure connected third-party accounts remain properly authorized</li>
+        <li>Maintain updated contact information</li>
+      </ul>
+      <p>You are responsible for activities occurring through your account unless otherwise required by applicable law.</p>
+      <p>Contact security concerns: <a href="mailto:help@ndovesha.com">help@ndovesha.com</a></p>
+    </div>
+
+    <div class="terms-section" id="section-4">
+      <div class="terms-section-head">
+        <span class="terms-section-num">04</span>
+        <h2>License to Use Ndovesha</h2>
+      </div>
+      <p>Subject to compliance with these Terms, Ndovesha grants you a limited, revocable, non-exclusive, non-transferable license to access and use the platform for legitimate business and professional purposes.</p>
+      <p>You may not:</p>
+      <ul class="terms-list">
+        <li>Reverse engineer platform systems</li>
+        <li>Copy platform software</li>
+        <li>Reproduce platform functionality</li>
+        <li>Circumvent security systems</li>
+        <li>Access source code</li>
+        <li>Resell platform access without authorization</li>
+        <li>Attempt unauthorized infrastructure access</li>
+        <li>Use Ndovesha outside intended platform functionality</li>
+        <li>Create derivative works from protected platform technologies except where permitted by law</li>
+      </ul>
+      <p>All rights not expressly granted remain reserved.</p>
+    </div>
+
+    <div class="terms-section" id="section-5">
+      <div class="terms-section-head">
+        <span class="terms-section-num">05</span>
+        <h2>Acceptable Use Policy</h2>
+      </div>
+      <p>You agree not to use Ndovesha to:</p>
+      <ul class="terms-list">
+        <li>Violate applicable laws</li>
+        <li>Upload unlawful content</li>
+        <li>Distribute malware or harmful software</li>
+        <li>Conduct fraudulent activity</li>
+        <li>Impersonate individuals or organizations</li>
+        <li>Send spam or unauthorized communications</li>
+        <li>Infringe intellectual property rights</li>
+        <li>Harass, threaten, or abuse others</li>
+        <li>Scrape platform systems without authorization</li>
+        <li>Benchmark platform performance without permission</li>
+        <li>Circumvent technical limitations</li>
+        <li>Abuse automation systems</li>
+        <li>Attempt extraction of AI models or proprietary technologies</li>
+        <li>Upload harmful code</li>
+        <li>Interfere with platform operations</li>
+        <li>Engage in deceptive practices</li>
+        <li>Use Ndovesha to violate third-party platform rules</li>
+        <li>Upload content promoting illegal activity</li>
+      </ul>
+      <p>Violation may result in suspension, restriction, or termination.</p>
+    </div>
+
+    <div class="terms-section" id="section-6">
+      <div class="terms-section-head">
+        <span class="terms-section-num">06</span>
+        <h2>AI Features, Generated Content &amp; User Responsibility</h2>
+      </div>
+      <p>Ndovesha is an AI-powered platform designed to generate, optimize, automate, and assist with digital content creation, websites, marketing assets, workflows, analytics insights, business productivity processes, and related outputs.</p>
+      <p>Ndovesha AI functionality may include:</p>
+      <ul class="terms-list">
+        <li>AI-generated text</li>
+        <li>AI-generated marketing assets</li>
+        <li>AI-generated website components</li>
+        <li>AI-generated visual content</li>
+        <li>AI-powered recommendations</li>
+        <li>AI-assisted automation</li>
+        <li>Analytics insights</li>
+        <li>Content enhancement tools</li>
+        <li>Workflow automation</li>
+        <li>AI-powered business tools</li>
+        <li>Integration-powered automations</li>
+      </ul>
+      <p>Outputs created through Ndovesha ("Generated Content") are produced using machine learning systems, artificial intelligence technologies, automation tools, and third-party AI infrastructure.</p>
+      <p>You acknowledge and agree:</p>
+      <ul class="terms-list">
+        <li>AI outputs may contain inaccuracies</li>
+        <li>AI-generated outputs may require editing or verification</li>
+        <li>Generated Content may not always be unique</li>
+        <li>Similar outputs may be generated for multiple users</li>
+        <li>Human review is required before publication or business reliance</li>
+        <li>Ndovesha does not guarantee Generated Content will be accurate, original, lawful, complete, or fit for a specific purpose</li>
+        <li>Users remain solely responsible for reviewing, approving, publishing, distributing, or relying upon Generated Content</li>
+      </ul>
+      <p>Users may not use Ndovesha AI systems to generate:</p>
+      <ul class="terms-list">
+        <li>Illegal material</li>
+        <li>Fraudulent communications</li>
+        <li>Defamatory content</li>
+        <li>Harmful or malicious content</li>
+        <li>Intellectual property violations</li>
+        <li>Spam communications</li>
+        <li>Discriminatory content</li>
+        <li>Deceptive material</li>
+        <li>Content violating third-party policies</li>
+        <li>Content violating applicable laws</li>
+      </ul>
+      <p>Ndovesha reserves the right to update, improve, replace, retrain, restrict, suspend, or modify AI systems without prior notice.</p>
+    </div>
+
+    <div class="terms-section" id="section-7">
+      <div class="terms-section-head">
+        <span class="terms-section-num">07</span>
+        <h2>User Content Ownership &amp; Platform License</h2>
+      </div>
+      <p>Users retain ownership rights to content uploaded, connected, submitted, imported, or generated through Ndovesha ("User Content"), subject to applicable laws and third-party rights.</p>
+      <p>By providing User Content, users grant Ndovesha a worldwide, non-exclusive, royalty-free license to:</p>
+      <ul class="terms-list">
+        <li>Host</li>
+        <li>Store</li>
+        <li>Process</li>
+        <li>Analyze</li>
+        <li>Display</li>
+        <li>Reformat</li>
+        <li>Secure</li>
+        <li>Backup</li>
+        <li>Transmit</li>
+        <li>Improve platform functionality</li>
+        <li>Operate integrations</li>
+        <li>Maintain services</li>
+        <li>Improve platform performance where legally permitted</li>
+      </ul>
+      <p>This license exists solely to provide, maintain, secure, improve, and operate Ndovesha.</p>
+      <p>Users represent and warrant:</p>
+      <ul class="terms-list">
+        <li>They own User Content or possess necessary permissions</li>
+        <li>User Content complies with applicable laws</li>
+        <li>User Content does not violate intellectual property rights</li>
+        <li>User Content does not violate privacy rights</li>
+        <li>User Content does not violate contractual obligations</li>
+      </ul>
+      <p>Ndovesha reserves the right to remove content violating these Terms.</p>
+    </div>
+
+    <div class="terms-section" id="section-8">
+      <div class="terms-section-head">
+        <span class="terms-section-num">08</span>
+        <h2>Payments, Billing &amp; Subscriptions</h2>
+      </div>
+      <p>Certain Ndovesha services require paid subscriptions.</p>
+      <p>By subscribing:</p>
+      <ul class="terms-list">
+        <li>You authorize recurring billing where applicable</li>
+        <li>Fees apply according to selected plans</li>
+        <li>Billing cycles are disclosed during purchase</li>
+        <li>Taxes may apply where required by law</li>
+      </ul>
+      <p>Unless otherwise required by applicable law:</p>
+      <ul class="terms-list">
+        <li>Payments are non-refundable</li>
+        <li>Partial billing periods are not refunded</li>
+        <li>Cancellation prevents future billing only</li>
+      </ul>
+      <p>Failure to complete payment may result in restricted platform access.</p>
+      <p>Payments may be processed by authorized third-party payment providers.</p>
+      <p>Ndovesha reserves the right to modify pricing with reasonable notice.</p>
+    </div>
+
+    <div class="terms-section" id="section-9">
+      <div class="terms-section-head">
+        <span class="terms-section-num">09</span>
+        <h2>Third-Party Services, APIs &amp; Integrations</h2>
+      </div>
+      <p>Ndovesha integrates with third-party services to provide platform functionality.</p>
+      <p>These may include:</p>
+      <ul class="terms-list">
+        <li>Google services</li>
+        <li>Meta services</li>
+        <li>LinkedIn services</li>
+        <li>Social media networks</li>
+        <li>CRM providers</li>
+        <li>Payment providers</li>
+        <li>Cloud hosting providers</li>
+        <li>Email systems</li>
+        <li>Analytics providers</li>
+        <li>AI infrastructure providers</li>
+        <li>Authentication providers</li>
+        <li>External APIs</li>
+        <li>Automation systems</li>
+      </ul>
+      <p>Connecting external accounts authorizes Ndovesha to access, retrieve, process, store, and exchange authorized account information solely to provide requested functionality.</p>
+      <p>Users acknowledge:</p>
+      <ul class="terms-list">
+        <li>Third-party providers operate independently</li>
+        <li>Third-party services maintain separate policies and terms</li>
+        <li>API changes may affect functionality</li>
+        <li>Third-party outages may impact services</li>
+        <li>External restrictions may affect integrations</li>
+        <li>Ndovesha cannot guarantee uninterrupted integration availability</li>
+      </ul>
+      <p>Ndovesha is not responsible for:</p>
+      <ul class="terms-list">
+        <li>Third-party outages</li>
+        <li>API failures</li>
+        <li>External platform restrictions</li>
+        <li>Third-party policy changes</li>
+        <li>Data limitations imposed by third parties</li>
+        <li>External service interruptions</li>
+      </ul>
+      <p>Users connecting integrations represent that they possess authority to authorize access.</p>
+      <p>Ndovesha may modify, suspend, or disable integrations without liability.</p>
+    </div>
+
+    <div class="terms-section" id="section-10">
+      <div class="terms-section-head">
+        <span class="terms-section-num">10</span>
+        <h2>API Access &amp; Developer Usage</h2>
+      </div>
+      <p>If API access is made available, users may not:</p>
+      <ul class="terms-list">
+        <li>Circumvent API limitations</li>
+        <li>Abuse rate limits</li>
+        <li>Attempt unauthorized access</li>
+        <li>Use APIs unlawfully</li>
+        <li>Resell API access without authorization</li>
+        <li>Abuse infrastructure resources</li>
+      </ul>
+      <p>Ndovesha may modify, suspend, limit, or revoke API access.</p>
+    </div>
+
+    <div class="terms-section" id="section-11">
+      <div class="terms-section-head">
+        <span class="terms-section-num">11</span>
+        <h2>Service Availability, Infrastructure &amp; Platform Changes</h2>
+      </div>
+      <p>Ndovesha continuously develops and improves platform functionality.</p>
+      <p>Users acknowledge:</p>
+      <ul class="terms-list">
+        <li>Maintenance may affect availability</li>
+        <li>Infrastructure providers may experience outages</li>
+        <li>AI systems may require updates</li>
+        <li>External dependencies may affect platform performance</li>
+        <li>Features may change over time</li>
+      </ul>
+      <p>Ndovesha does not guarantee:</p>
+      <ul class="terms-list">
+        <li>Continuous uptime</li>
+        <li>Uninterrupted availability</li>
+        <li>Error-free functionality</li>
+        <li>Permanent availability of specific features</li>
+        <li>Compatibility with all external systems</li>
+      </ul>
+      <p>Platform functionality may be added, modified, replaced, or removed.</p>
+    </div>
+
+    <div class="terms-section" id="section-12">
+      <div class="terms-section-head">
+        <span class="terms-section-num">12</span>
+        <h2>Beta Features</h2>
+      </div>
+      <p>Ndovesha may release experimental, preview, beta, or early-access functionality.</p>
+      <p>Beta features:</p>
+      <ul class="terms-list">
+        <li>May contain errors</li>
+        <li>May change without notice</li>
+        <li>May be discontinued</li>
+        <li>Are provided "as available"</li>
+      </ul>
+      <p>Users assume risks associated with beta functionality.</p>
+    </div>
+
+    <div class="terms-section" id="section-13">
+      <div class="terms-section-head">
+        <span class="terms-section-num">13</span>
+        <h2>Intellectual Property</h2>
+      </div>
+      <p>Ndovesha and its software, technology, code, AI systems, branding, visual assets, workflows, designs, trademarks, documentation, and related materials are owned by Ndovesha or its licensors and protected under applicable intellectual property laws.</p>
+      <p>Users may not:</p>
+      <ul class="terms-list">
+        <li>Copy</li>
+        <li>Reproduce</li>
+        <li>Modify</li>
+        <li>Distribute</li>
+        <li>License</li>
+        <li>Sell</li>
+        <li>Create derivative works</li>
+        <li>Commercially exploit protected materials</li>
+      </ul>
+      <p>Unauthorized use is prohibited.</p>
+    </div>
+
+    <div class="terms-section" id="section-14">
+      <div class="terms-section-head">
+        <span class="terms-section-num">14</span>
+        <h2>Privacy, Data Handling &amp; International Processing</h2>
+      </div>
+      <p>Data handling practices are governed by the Ndovesha Privacy Policy.</p>
+      <p>The Privacy Policy forms part of these Terms.</p>
+      <p>By using Ndovesha, users acknowledge information may be collected, processed, stored, analyzed, transferred, secured, deleted, or retained for purposes including:</p>
+      <ul class="terms-list">
+        <li>Platform operation</li>
+        <li>AI processing</li>
+        <li>Service delivery</li>
+        <li>Fraud prevention</li>
+        <li>Security protection</li>
+        <li>Product improvement</li>
+        <li>Customer support</li>
+        <li>Analytics</li>
+        <li>Compliance obligations</li>
+      </ul>
+      <p>Data may be processed internationally where infrastructure providers, integrations, or service operations require cross-border processing.</p>
+      <p>Ndovesha implements commercially reasonable safeguards to protect information.</p>
+    </div>
+
+    <div class="terms-section" id="section-15">
+      <div class="terms-section-head">
+        <span class="terms-section-num">15</span>
+        <h2>Security Responsibilities</h2>
+      </div>
+      <p>Ndovesha implements reasonable administrative, organizational, and technical safeguards.</p>
+      <p>However, no platform can guarantee absolute security.</p>
+      <p>Users remain responsible for:</p>
+      <ul class="terms-list">
+        <li>Protecting credentials</li>
+        <li>Securing integrations</li>
+        <li>Protecting API keys</li>
+        <li>Restricting unauthorized access</li>
+        <li>Maintaining secure systems</li>
+        <li>Monitoring connected accounts</li>
+      </ul>
+      <p>Users must notify <a href="mailto:help@ndovesha.com">help@ndovesha.com</a> if they suspect:</p>
+      <ul class="terms-list">
+        <li>Credential compromise</li>
+        <li>Unauthorized account access</li>
+        <li>Integration misuse</li>
+        <li>Security incidents</li>
+      </ul>
+      <p>Ndovesha reserves the right to investigate and respond to security incidents.</p>
+    </div>
+
+    <div class="terms-section" id="section-16">
+      <div class="terms-section-head">
+        <span class="terms-section-num">16</span>
+        <h2>Suspension &amp; Termination</h2>
+      </div>
+      <p>Ndovesha may suspend, restrict, or terminate accounts where:</p>
+      <ul class="terms-list">
+        <li>Terms are violated</li>
+        <li>Fraud is suspected</li>
+        <li>Security threats arise</li>
+        <li>Harm occurs to users or systems</li>
+        <li>Required by law</li>
+      </ul>
+      <p>Users may discontinue platform use at any time.</p>
+      <p>Termination does not remove outstanding payment obligations.</p>
+    </div>
+
+    <div class="terms-section" id="section-17">
+      <div class="terms-section-head">
+        <span class="terms-section-num">17</span>
+        <h2>Disclaimers</h2>
+      </div>
+      <p>Ndovesha is provided "AS IS" and "AS AVAILABLE."</p>
+      <p>To the maximum extent permitted by law, Ndovesha disclaims warranties including:</p>
+      <ul class="terms-list">
+        <li>Merchantability</li>
+        <li>Fitness for a particular purpose</li>
+        <li>Non-infringement</li>
+        <li>Reliability</li>
+        <li>Availability</li>
+        <li>Accuracy</li>
+      </ul>
+      <p>Use occurs at the user's own risk.</p>
+    </div>
+
+    <div class="terms-section" id="section-18">
+      <div class="terms-section-head">
+        <span class="terms-section-num">18</span>
+        <h2>Limitation of Liability</h2>
+      </div>
+      <p>To the maximum extent permitted by applicable law, Ndovesha shall not be liable for:</p>
+      <ul class="terms-list">
+        <li>Indirect damages</li>
+        <li>Incidental damages</li>
+        <li>Consequential damages</li>
+        <li>Lost profits</li>
+        <li>Lost revenue</li>
+        <li>Data loss</li>
+        <li>Reputation damage</li>
+        <li>Service interruptions</li>
+        <li>Third-party failures</li>
+        <li>AI output inaccuracies</li>
+        <li>Decisions based on AI-generated outputs</li>
+        <li>Marketing performance outcomes</li>
+        <li>Advertising performance outcomes</li>
+        <li>Search ranking outcomes</li>
+        <li>Business losses</li>
+      </ul>
+      <p>Users acknowledge AI systems involve probabilistic technologies and operational limitations.</p>
+      <p>Where liability cannot legally be excluded, total liability shall not exceed amounts paid to Ndovesha during the preceding twelve (12) months.</p>
+    </div>
+
+    <div class="terms-section" id="section-19">
+      <div class="terms-section-head">
+        <span class="terms-section-num">19</span>
+        <h2>Indemnification</h2>
+      </div>
+      <p>You agree to defend, indemnify, and hold harmless Ndovesha against claims, liabilities, damages, losses, costs, expenses, and legal fees arising from:</p>
+      <ul class="terms-list">
+        <li>Violation of these Terms</li>
+        <li>Misuse of the platform</li>
+        <li>User Content</li>
+        <li>Violation of applicable laws</li>
+        <li>Third-party claims resulting from your activities</li>
+      </ul>
+    </div>
+
+    <div class="terms-section" id="section-20">
+      <div class="terms-section-head">
+        <span class="terms-section-num">20</span>
+        <h2>Force Majeure</h2>
+      </div>
+      <p>Ndovesha shall not be liable for delays or failures caused by events beyond reasonable control including:</p>
+      <ul class="terms-list">
+        <li>Internet outages</li>
+        <li>Infrastructure failures</li>
+        <li>Cybersecurity incidents</li>
+        <li>Natural disasters</li>
+        <li>Government actions</li>
+        <li>Labor disputes</li>
+        <li>Third-party provider failures</li>
+        <li>Utility failures</li>
+        <li>Telecommunications disruptions</li>
+      </ul>
+    </div>
+
+    <div class="terms-section" id="section-21">
+      <div class="terms-section-head">
+        <span class="terms-section-num">21</span>
+        <h2>Export Compliance &amp; Restricted Use</h2>
+      </div>
+      <p>Users may not access or use Ndovesha where prohibited by applicable sanctions laws, export controls, or trade restrictions.</p>
+      <p>Users represent that they are not prohibited from accessing Ndovesha under applicable laws.</p>
+    </div>
+
+    <div class="terms-section" id="section-22">
+      <div class="terms-section-head">
+        <span class="terms-section-num">22</span>
+        <h2>Governing Law &amp; Dispute Resolution</h2>
+      </div>
+      <p>These Terms are governed by the laws of Kenya.</p>
+      <p>Parties agree to first attempt good-faith negotiation.</p>
+      <p>Where resolution cannot be reached, disputes shall be resolved through confidential arbitration in Nairobi, Kenya, unless applicable law requires otherwise.</p>
+      <p>Nothing limits rights that cannot legally be waived.</p>
+    </div>
+
+    <div class="terms-section" id="section-23">
+      <div class="terms-section-head">
+        <span class="terms-section-num">23</span>
+        <h2>Changes to Terms</h2>
+      </div>
+      <p>Ndovesha may update these Terms periodically.</p>
+      <p>Updated Terms become effective upon publication unless otherwise stated.</p>
+      <p>Continued use following updates constitutes acceptance.</p>
+    </div>
+
+    <div class="terms-section" id="section-24">
+      <div class="terms-section-head">
+        <span class="terms-section-num">24</span>
+        <h2>Contact Information</h2>
+      </div>
+      <div class="terms-contact-card">
+        <p>Ndovesha</p>
+        <p>Operated by NdovuCloud Technologies Limited</p>
+        <p>Nairobi, Kenya</p>
+        <p><a href="mailto:help@ndovesha.com">help@ndovesha.com</a></p>
+      </div>
+      <p class="terms-closing">By using Ndovesha, you acknowledge that you have read, understood, and agree to these Terms of Service.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer Links -->
+<section class="footer-links-section">
+  <div class="container">
+    <div class="footer-links-grid">
+
+      <div class="footer-links-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="https://chat.ndovesha.ai/signup" target="_blank" rel="noopener noreferrer">AI Agents</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="blogs.html" target="_blank" rel="noopener noreferrer">Blog</a></li>
+          <li><a href="webinars.html">Webinars</a></li>
+          <li><a href="comparison.html">Ndovesha vs ChatGPT vs Gemini</a></li>
+          <li><a href="how-to-prompt.html">How to Prompt Ndovesha</a></li>
+          <li><a href="lovable.html">Ndovesha vs Manus vs Lovable</a></li>
+          <li><a href="join-our-community.html">Join community</a></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Ask AI About Us</h4>
+        <ul>
+          <li><a href="https://chat.openai.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">ChatGPT</a></li>
+          <li><a href="https://claude.ai/new?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Claude</a></li>
+          <li><a href="https://gemini.google.com/app?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Gemini</a></li>
+          <li><a href="https://www.perplexity.ai/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Perplexity</a></li>
+          <li><a href="https://copilot.microsoft.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Copilot</a></li>
+          <li><a href="https://x.com/i/grok?text=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Grok</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Who Is It For</h4>
+        <ul>
+          <li><a href="owner.html">Business Owners</a></li>
+          <li><a href="agency.html">Agencies</a></li>
+          <li><a href="designer.html">Developers</a></li>
+          <li><a href="marketers.html">Marketers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Capabilities</h4>
+        <ul>
+          <li><a href="software.html">Software Development</a></li>
+          <li><a href="ecommerce.html">Ecommerce Stores</a></li>
+          <li><a href="web.html">Websites</a></li>
+          <li><a href="graphic.html">Graphic design</a></li>
+          <li><a href="writing.html">Writing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms-of-service.html">Terms of service</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-social-row">
+      <a class="footer-social-btn" href="https://www.linkedin.com/company/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.5 8.65 23 10.9 23 14.2V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.58-2.33 3.2V21h-4V9z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://x.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.2 8.2L23 22h-6.8l-5.3-6.9L4.9 22H2l7.7-8.8L1.5 2h6.9l4.8 6.3L18.9 2z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.youtube.com/@ndovesha" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7c-.2-.9-.9-1.6-1.8-1.8C19 5 12 5 12 5s-7 0-8.8.5c-.9.2-1.6.9-1.8 1.8C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.9.9 1.6 1.8 1.8C5 19 12 19 12 19s7 0 8.8-.5c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.instagram.com/ndovesha.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.tiktok.com/@ndovesha.ai?lang=en" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M16.5 3c.3 2 1.7 3.4 3.5 3.7v2.9c-1.4-.1-2.6-.6-3.5-1.4v6.6a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3a2.3 2.3 0 1 0 1.6 2.2V3h2.8z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.facebook.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.4c0-.9.3-1.5 1.6-1.5h1.5V4.2C15.9 4.1 14.8 4 13.6 4 11 4 9.5 5.6 9.5 8.2v2.3H7v3h2.5V21h4z"/></svg>
+      </a>
+      <a class="footer-social-btn" href="https://www.reddit.com/user/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+        <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"></circle><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"></circle><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"></circle><path d="M8.5 16.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"></path><circle cx="18.5" cy="8.5" r="1.3"></circle><path d="M12 10V6.5a1.3 1.3 0 1 1 2-1.1"></path></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom-row">
+      <p class="footer-copyright">&copy; 2026 Ndovesha. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=254112480181&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+  <span class="whatsapp-icon-part">
+    <svg viewBox="0 0 32 32"><path d="M16.001 3C9.106 3 3.5 8.606 3.5 15.5c0 2.53.744 4.885 2.024 6.86L3 29l6.822-2.463A12.44 12.44 0 0 0 16 28c6.895 0 12.5-5.606 12.5-12.5S22.896 3 16.001 3zm7.24 17.634c-.31.874-1.53 1.61-2.114 1.702-.54.084-1.222.12-1.972-.123-.455-.146-1.036-.34-1.782-.664-3.14-1.356-5.19-4.51-5.35-4.72-.16-.21-1.29-1.71-1.29-3.26 0-1.55.813-2.31 1.1-2.63.29-.32.63-.4.84-.4.21 0 .42.002.6.01.19.008.45-.072.702.535.26.63.885 2.166.965 2.324.08.16.133.347.027.556-.107.21-.16.34-.32.523-.16.183-.335.41-.478.55-.16.16-.327.334-.14.653.187.32.83 1.373 1.783 2.223 1.223 1.09 2.256 1.428 2.577 1.588.32.16.507.133.694-.08.187-.213.8-.933 1.014-1.253.213-.32.427-.267.72-.16.293.107 1.86.877 2.18 1.037.32.16.533.24.613.373.08.133.08.77-.23 1.646z"/></svg>
+  </span>
+  <span class="whatsapp-text-part">Chat with us</span>
+</a>
+
+<!-- Floating Home / Scroll-to-Top Arrow Button -->
+<a class="scroll-top-btn" href="#top" aria-label="Back to home">
+  <svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+</a>
+
+<script>
+  // Dropdown menus open on hover or click
+  document.querySelectorAll('.nav-center > li').forEach(function (li) {
+    var menu = li.querySelector('.dropdown-menu');
+    var trigger = li.querySelector('a');
+    if (!menu || !trigger) return;
+
+    function closeAllExcept(exceptMenu) {
+      document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
+        if (m !== exceptMenu) m.classList.remove('show');
+      });
+    }
+
+    function openMenu() {
+      closeAllExcept(menu);
+      menu.classList.add('show');
+    }
+
+    li.addEventListener('mouseenter', openMenu);
+    menu.addEventListener('mouseenter', openMenu);
+
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      var isOpen = menu.classList.contains('show');
+      closeAllExcept(menu);
+      menu.classList.toggle('show', !isOpen);
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-center')) {
+      document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
+        m.classList.remove('show');
+      });
+    }
+  });
+
+  // Mobile menu toggle
+  var mobileBtn = document.getElementById('mobileMenuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  mobileBtn.addEventListener('click', function () {
+    mobileNav.classList.toggle('active');
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
+      mobileNav.classList.remove('active');
+    }
+  });
+
+  // Mobile accordion fold sections
+  document.querySelectorAll('.mobile-section-title').forEach(function (title) {
+    title.addEventListener('click', function () {
+      var fold = document.getElementById('fold-' + title.dataset.fold);
+      var isOpen = fold.classList.contains('open');
+      document.querySelectorAll('.mobile-fold').forEach(function (f) { f.classList.remove('open'); });
+      if (!isOpen) fold.classList.add('open');
+    });
+  });
+
+  // ===== Build the Terms of Service table of contents from the sections on the page =====
+  var tocList = document.getElementById('tocList');
+  var tocSelect = document.getElementById('tocSelect');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.terms-section'));
+
+  sections.forEach(function (section) {
+    var num = section.querySelector('.terms-section-num').textContent.trim();
+    var title = section.querySelector('h2').textContent.trim();
+    var id = section.id;
+
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#' + id;
+    a.className = 'terms-toc-link';
+    a.innerHTML = '<span class="terms-toc-num">' + num + '</span><span>' + title + '</span>';
+    li.appendChild(a);
+    tocList.appendChild(li);
+
+    var opt = document.createElement('option');
+    opt.value = id;
+    opt.textContent = num + '. ' + title;
+    tocSelect.appendChild(opt);
+  });
+
+  tocSelect.addEventListener('change', function () {
+    if (!this.value) return;
+    var target = document.getElementById(this.value);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // Highlight the active section link as the user scrolls
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.terms-toc-link'));
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var id = entry.target.id;
+      tocLinks.forEach(function (link) {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+      if (tocSelect.value !== id) tocSelect.value = id;
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(function (section) { observer.observe(section); });
+</script>
+
+</body>
+</html>

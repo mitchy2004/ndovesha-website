@@ -4,121 +4,161 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Webinars | Ndovesha AI</title>
+<title>Contact Us | Ndovesha AI</title>
 
-<!-- SEO Meta -->
-<meta name="description" content="Catch up on Ndovesha's previous AI marketing webinars and never miss the next live session with our AI coworkers experts.">
-<meta name="author" content="Ndovesha">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://ndovesha.ai/webinars.html">
+<meta name="description" content="Get in touch with Ndovesha — call, WhatsApp, email, or visit us at Spur Mall, Thika Road.">
+<meta name="theme-color" content="#0A2A66">
 
-<link rel="icon" type="image/png" sizes="32x32" href="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png">
-<link rel="apple-touch-icon" href="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png">
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<!-- Favicon -->
 <link rel="icon" type="image/png" href="favicon-32x32.png">
 <link rel="apple-touch-icon" href="favicon-32x32.png">
-
 <style>
-:root {
-  --primary: #0A2A66;
-  --primary-light: #1a3d80;
-  --gold: #FEBF0F;
-  --white: #ffffff;
-  --text: #1a1a1a;
-  --muted: #5a6280;
-  --border: #e5e7eb;
-  --light-gray: #f8f9fb;
-}
-.wb-container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-.wb-center { text-align: center; }
-.gold-static { color: var(--gold); font-weight: 700; }
 
-/* ===================== HERO ===================== */
-.webinar-hero { padding: 70px 5% 56px; background: var(--light-gray); text-align: center; }
-.webinar-hero .wb-container { max-width: 820px; }
-.webinar-hero h1 {
+/* ---------- Hero ---------- */
+.contact-hero {
+  background: var(--light-grey);
+  padding: 52px 24px 46px;
+  text-align: center;
+}
+.contact-hero-inner { max-width: 700px; margin: 0 auto; }
+.contact-hero-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.2rem, 4.4vw, 3.2rem); font-weight: 800; line-height: 1.25;
-  color: var(--primary); margin-bottom: 18px;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 500;
+  color: var(--primary);
+  line-height: 1.15;
+  margin-bottom: 16px;
 }
-.webinar-hero h1 span{
-  color: #FEBF0F; /* Golden yellow */
+.contact-hero-heading .gold-static { color: var(--gold); font-weight: 700; }
+.contact-hero-sub {
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  color: var(--text-light);
+  line-height: 1.8;
+}
 
-}
-.webinar-hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 680px; margin: 0 auto; }
+/* ---------- Contact methods ---------- */
+.contact-section { padding: 52px 0 60px; background: var(--white); }
 
-/* ===================== WEBINAR CARDS ===================== */
-.webinars-section { padding: 64px 5% 76px; background: var(--white); }
-.webinar-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
-  max-width: 1180px; margin: 0 auto;
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto 24px;
 }
-.webinar-card {
-  display: flex; flex-direction: column;
-  border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
-  box-shadow: 0 6px 18px rgba(10,42,102,0.08);
+
+@media (max-width: 900px) {
+  .contact-cards-grid { grid-template-columns: 1fr; max-width: 420px; }
+}
+
+.contact-card {
   background: var(--white);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 34px 26px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
-.webinar-card:hover { transform: translateY(-8px); box-shadow: 0 18px 34px rgba(10,42,102,0.16); }
+.contact-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 
-.webinar-video-wrap { position: relative; width: 100%; padding-top: 56.25%; background: #000; flex-shrink: 0; }
-.webinar-video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
-.webinar-content { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
-.webinar-content h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); line-height: 1.35; margin-bottom: 10px; }
-.webinar-content p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 20px; flex: 1; }
-
-.watch-now-btn {
-  align-self: flex-start;
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--primary); color: var(--white); font-weight: 700; font-size: 0.88rem;
-  padding: 11px 22px; border-radius: 10px; text-decoration: none; border: none; cursor: pointer;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+.contact-icon-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid rgba(254,191,15,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
 }
-.watch-now-btn i { font-size: 0.78rem; }
-.watch-now-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(10,42,102,0.3); }
+.contact-icon-circle svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.contact-icon-circle svg.filled { fill: var(--white); stroke: none; }
 
-@media (max-width: 980px) { .webinar-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 620px) { .webinar-grid { grid-template-columns: 1fr; max-width: 440px; } }
-
-/* ===================== NEXT WEBINAR CTA ===================== */
-.next-webinar-section { padding: 88px 5%; background: var(--primary); text-align: center; }
-.next-webinar-section .wb-container { max-width: 640px; }
-.next-webinar-section h2 {
+.contact-card h3 {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2rem, 4.2vw, 2.9rem); font-weight: 800; color: var(--white); margin-bottom: 16px; line-height: 1.25;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
 }
-.next-webinar-sub { color: rgba(255,255,255,0.8); font-size: 1.02rem; line-height: 1.75; margin-bottom: 30px; }
 
-.btn-gold {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--gold); color: var(--primary); font-weight: 700; font-size: 1rem;
-  padding: 16px 30px; border-radius: 12px; text-decoration: none; border: none; cursor: pointer;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.18); transition: transform 0.25s ease, box-shadow 0.25s ease;
+.contact-card p {
+  font-size: 0.98rem;
+  color: var(--text-light);
+  margin-bottom: 22px;
 }
-.btn-gold i { transition: transform 0.22s ease; }
-.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.28); }
-.btn-gold:hover i { transform: translateX(3px); }
 
-@media (max-width: 640px) {
-  .webinar-hero { padding: 52px 5% 44px; }
-  .webinars-section { padding: 48px 5% 56px; }
-  .next-webinar-section { padding: 60px 5%; }
+.contact-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.contact-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(254,191,15,0.4);
+}
+
+/* ---------- Visit us (larger card) ---------- */
+.contact-visit-card {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--light-grey);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 44px 30px;
+  text-align: center;
+}
+
+.contact-visit-card .contact-icon-circle { width: 76px; height: 76px; }
+.contact-visit-card .contact-icon-circle svg { width: 32px; height: 32px; }
+
+.contact-visit-card h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.contact-visit-card p {
+  font-size: 1.02rem;
+  color: var(--text-light);
+  margin-bottom: 26px;
+}
+
 </style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-container">
-    <!-- Logo — clickable, directs to the main Ndovesha website -->
-    <a href="https://ndovesha.ai" class="logo">
+    <!-- Logo -->
+    <div class="logo">
       <img src="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png" class="logo-img" alt="Ndovesha AI">
-    </a>
+    </div>
 
     
     <!-- Center Nav -->
@@ -154,7 +194,7 @@
       <li>
         <a href="https://ndovesha.ai/resources">Resources <span class="nav-arrow">▼</span></a>
         <ul class="dropdown-menu">
-          <li><a href="blogs.html">Blog</a></li>
+          <li><a href="blogs.html" target="_blank" rel="noopener noreferrer">Blog</a></li>
           <li class="dropdown-divider"></li>
           <li><a href="webinars.html">Webinars</a></li>
           <li class="dropdown-divider"></li>
@@ -202,7 +242,7 @@
         <a href="blogs.html">Blog</a>
         <a href="webinars.html">Webinars</a>
         <a href="join-our-community.html">Join our Community</a>
-        <a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX">Tutorials</a>
+        <a href="tutorials">Tutorials</a>
         <a href="faq.html">FAQs</a>
       </div>
 
@@ -212,101 +252,60 @@
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
-<section class="webinar-hero">
-  <div class="wb-container wb-center">
-    <h1>What you missed and why it <span>still matters</span></h1>
-    <p class="webinar-hero-sub">Catch up on our previous sessions and learn valuable AI marketing insights.</p>
+<!-- Hero -->
+<section class="contact-hero">
+  <div class="contact-hero-inner">
+    <h1 class="contact-hero-heading">Get in <span class="gold-static">Touch</span></h1>
+    <p class="contact-hero-sub">Call, message, email, or stop by whichever works best for you.</p>
   </div>
 </section>
 
-<!-- ===== WEBINAR CARDS ===== -->
-<section class="webinars-section">
-  <div class="wb-container">
-    <div class="webinar-grid">
+<!-- Contact methods -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-cards-grid">
 
-      <!-- Card 1 -->
-      <div class="webinar-card">
-        <div class="webinar-video-wrap">
-          <iframe src="https://www.youtube.com/embed/8qLEXo6Z6q8?si=KaK57KuMBoEDsRGf" title="Scaling a Tourism Business to Global Reach with AI Co-Workers" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <!-- Call -->
+      <div class="contact-card">
+        <div class="contact-icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.99.36 1.96.68 2.9a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.18-1.25a2 2 0 0 1 2.11-.45c.94.32 1.91.55 2.9.68A2 2 0 0 1 22 16.92z"></path></svg>
         </div>
-        <div class="webinar-content">
-          <h3>Scaling a Tourism Business to Global Reach with AI Co-Workers</h3>
-          <p>Watch this webinar to learn valuable AI marketing insights.</p>
-          <a class="watch-now-btn" href="https://www.youtube.com/watch?v=8qLEXo6Z6q8" target="_blank" rel="noopener noreferrer">Watch Now <i class="fas fa-play"></i></a>
-        </div>
+        <h3>Call Us</h3>
+        <p>+254 728 081311</p>
+        <a href="tel:+254728081311" class="contact-cta">Call Now</a>
       </div>
 
-      <!-- Card 2 -->
-      <div class="webinar-card">
-        <div class="webinar-video-wrap">
-          <iframe src="https://www.youtube.com/embed/VnEQLXa55ic?si=lt9ZKZnA2xz6QYMt" title="How AI is Revolutionizing Healthcare Marketing in 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <!-- WhatsApp -->
+      <div class="contact-card">
+        <div class="contact-icon-circle">
+          <svg class="filled" viewBox="0 0 32 32"><path d="M16.001 3C9.106 3 3.5 8.606 3.5 15.5c0 2.53.744 4.885 2.024 6.86L3 29l6.822-2.463A12.44 12.44 0 0 0 16 28c6.895 0 12.5-5.606 12.5-12.5S22.896 3 16.001 3zm7.24 17.634c-.31.874-1.53 1.61-2.114 1.702-.54.084-1.222.12-1.972-.123-.455-.146-1.036-.34-1.782-.664-3.14-1.356-5.19-4.51-5.35-4.72-.16-.21-1.29-1.71-1.29-3.26 0-1.55.813-2.31 1.1-2.63.29-.32.63-.4.84-.4.21 0 .42.002.6.01.19.008.45-.072.702.535.26.63.885 2.166.965 2.324.08.16.133.347.027.556-.107.21-.16.34-.32.523-.16.183-.335.41-.478.55-.16.16-.327.334-.14.653.187.32.83 1.373 1.783 2.223 1.223 1.09 2.256 1.428 2.577 1.588.32.16.507.133.694-.08.187-.213.8-.933 1.014-1.253.213-.32.427-.267.72-.16.293.107 1.86.877 2.18 1.037.32.16.533.24.613.373.08.133.08.77-.23 1.646z"></path></svg>
         </div>
-        <div class="webinar-content">
-          <h3>How AI is Revolutionizing Healthcare Marketing in 2026</h3>
-          <p>Watch this webinar to learn valuable AI marketing insights.</p>
-          <a class="watch-now-btn" href="https://www.youtube.com/watch?v=VnEQLXa55ic" target="_blank" rel="noopener noreferrer">Watch Now <i class="fas fa-play"></i></a>
-        </div>
+        <h3>WhatsApp</h3>
+        <p>+254 112 480 181</p>
+        <a href="https://api.whatsapp.com/send/?phone=254112480181&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="contact-cta">Chat with Us</a>
       </div>
 
-      <!-- Card 3 -->
-      <div class="webinar-card">
-        <div class="webinar-video-wrap">
-          <iframe src="https://www.youtube.com/embed/ddDxX-_tBiY?si=bxXih9GjY8DWG7jN" title="3 Real Estate Marketing Mistakes Killing Your Leads" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <!-- Email -->
+      <div class="contact-card">
+        <div class="contact-icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="m4 4 8 9 8-9"></path></svg>
         </div>
-        <div class="webinar-content">
-          <h3>3 Real Estate Marketing Mistakes Killing Your Leads</h3>
-          <p>Watch this webinar to learn valuable AI marketing insights.</p>
-          <a class="watch-now-btn" href="https://www.youtube.com/watch?v=ddDxX-_tBiY" target="_blank" rel="noopener noreferrer">Watch Now <i class="fas fa-play"></i></a>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="webinar-card">
-        <div class="webinar-video-wrap">
-          <iframe src="https://www.youtube.com/embed/iYSrwZBOTE8?si=dTxOb6JoPPApNgYZ" title="How to Fill Your School with Students Fast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="webinar-content">
-          <h3>How to Fill Your School with Students Fast</h3>
-          <p>Watch this webinar to learn valuable AI marketing insights.</p>
-          <a class="watch-now-btn" href="https://www.youtube.com/watch?v=iYSrwZBOTE8" target="_blank" rel="noopener noreferrer">Watch Now <i class="fas fa-play"></i></a>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="webinar-card">
-        <div class="webinar-video-wrap">
-          <iframe src="https://www.youtube.com/embed/TcrMrLQHfJU?si=qdt3fNIwgT6F74-v" title="How A Graphic Designer MUST DO in 2026 To Survive!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="webinar-content">
-          <h3>How A Graphic Designer MUST DO in 2026 To Survive!</h3>
-          <p>Watch this webinar to learn valuable AI marketing insights.</p>
-          <a class="watch-now-btn" href="https://www.youtube.com/watch?v=TcrMrLQHfJU" target="_blank" rel="noopener noreferrer">Watch Now <i class="fas fa-play"></i></a>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="webinar-card">
-        <div class="webinar-video-wrap">
-          <iframe src="https://www.youtube.com/embed/8chbFm8XB_4?si=nnpAnXONg3lXN1Jp" title="I Scaled to $100k/mo Alone (Here's How)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="webinar-content">
-          <h3>I Scaled to $100k/mo Alone (Here's How)</h3>
-          <p>Watch this webinar to learn valuable AI marketing insights.</p>
-          <a class="watch-now-btn" href="https://www.youtube.com/watch?v=8chbFm8XB_4" target="_blank" rel="noopener noreferrer">Watch Now <i class="fas fa-play"></i></a>
-        </div>
+        <h3>Email</h3>
+        <p>help@ndovesha.ai</p>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=help@ndovesha.ai" target="_blank" rel="noopener noreferrer" class="contact-cta">Email Us</a>
       </div>
 
     </div>
-  </div>
-</section>
 
-<!-- ===== NEXT WEBINAR CTA ===== -->
-<section class="next-webinar-section">
-  <div class="wb-container">
-    <h2>Don't miss our next webinar!</h2>
-    <p class="next-webinar-sub">Join us for our upcoming live session and learn cutting-edge AI marketing strategies from industry experts.</p>
-    <a class="btn-gold" href="https://www.whatsapp.com/channel/0029VbC6HuR7dmeiViuoPI2m" target="_blank" rel="noopener noreferrer">Add Our Next Webinar To Calendar <i class="fas fa-arrow-right"></i></a>
+    <!-- Visit Us -->
+    <div class="contact-visit-card">
+      <div class="contact-icon-circle">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      </div>
+      <h3>Visit Us</h3>
+      <p>Spur Mall, 2nd Floor S23 — Thika Road</p>
+      <a href="https://www.google.com/maps/place/Spur+Mall/@-1.1363865,36.9677193,17z/data=!3m1!4b1!4m6!3m5!1s0x182f3fc955678a67:0xb42cac64d8e16dea!8m2!3d-1.1363865!4d36.9702942!16s%2Fg%2F11c0vlj6kr?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="contact-cta">Get Directions</a>
+    </div>
   </div>
 </section>
 
@@ -323,13 +322,14 @@
         </ul>
       </div>
 
-       <div class="footer-links-col">
+      <div class="footer-links-col">
         <h4>Resources</h4>
         <ul>
           <li><a href="blogs.html" target="_blank" rel="noopener noreferrer">Blog</a></li>
           <li><a href="webinars.html">Webinars</a></li>
           <li><a href="comparison.html">Ndovesha vs ChatGPT vs Gemini</a></li>
           <li><a href="how-to-prompt.html">How to Prompt Ndovesha</a></li>
+          <li><a href="lovable.html">Ndovesha vs Manus vs Lovable</a></li>
           <li><a href="join-our-community.html">Join community</a></li>
           <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
           <li><a href="faq.html">FAQs</a></li>
@@ -381,6 +381,8 @@
     </div>
   </div>
 </section>
+
+
 <!-- Footer -->
 <footer class="site-footer">
   <div class="container">
@@ -416,7 +418,6 @@
   </div>
 </footer>
 
-
 <!-- Floating WhatsApp Button -->
 <a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=254112480181&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
   <span class="whatsapp-icon-part">
@@ -432,7 +433,7 @@
 
 
 <script>
-  // Dropdown menus open on hover or click, and now STAY open even after the
+  // Dropdown menus open on hover or click, and stay open even after the
   // mouse leaves the nav bar. They only close when you click elsewhere on
   // the page, click the trigger again, or open a different dropdown.
   document.querySelectorAll('.nav-center > li').forEach(function (li) {
@@ -451,12 +452,9 @@
       menu.classList.add('show');
     }
 
-    // Hovering the trigger or the menu opens it (no close-on-leave anymore)
     li.addEventListener('mouseenter', openMenu);
     menu.addEventListener('mouseenter', openMenu);
 
-    // Clicking the trigger toggles it open/closed — useful for touch and
-    // for keeping it open without needing to hover at all
     trigger.addEventListener('click', function (e) {
       e.preventDefault();
       var isOpen = menu.classList.contains('show');
@@ -465,7 +463,6 @@
     });
   });
 
-  // Clicking anywhere outside the nav closes any open dropdown
   document.addEventListener('click', function (e) {
     if (!e.target.closest('.nav-center')) {
       document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
@@ -481,14 +478,13 @@
     mobileNav.classList.toggle('active');
   });
 
-  // Close mobile menu when clicking outside
   document.addEventListener('click', function (e) {
     if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
       mobileNav.classList.remove('active');
     }
   });
 
-  // Mobile accordion fold sections (Who is it for / Capabilities / Resources)
+  // Mobile accordion fold sections
   document.querySelectorAll('.mobile-section-title').forEach(function (title) {
     title.addEventListener('click', function () {
       var fold = document.getElementById('fold-' + title.dataset.fold);
@@ -497,21 +493,6 @@
       if (!isOpen) fold.classList.add('open');
     });
   });
-
-  // FAQ accordion — clicking a question toggles it open/closed; opening one
-  // closes any other that was open (only one answer visible at a time)
-  document.querySelectorAll('.faq-item').forEach(function (item) {
-    var row = item.querySelector('.faq-question-row');
-    row.addEventListener('click', function () {
-      var isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
-        openItem.classList.remove('open');
-      });
-      if (!isOpen) item.classList.add('open');
-    });
-  });
 </script>
-</body>
-</html>
 </body>
 </html>
