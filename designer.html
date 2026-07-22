@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K2HTVGXV');</script>
+    <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Ndovesha for Designers — Design Better with AI Coworkers</title>
+<meta name="description" content="Build software, web apps, and websites faster with Ndovesha's AI coworkers. Get help with architecture, code, and deployment — all in one place.">
+<title>Ndovesha for Developers — Build Faster with AI Coworkers</title>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon-32x32.png">
     <link rel="apple-touch-icon" href="favicon-32x32.png">
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1120700146854777');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1120700146854777&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
 <style>
 :root {
   --primary: #003366;
@@ -280,18 +306,18 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .faq-item.open .faq-answer { max-height: 260px; padding: 0 4px 22px; }
 .faq-answer p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
 
-/* ===================== DESIGNER: HERO ===================== */
-.designer-hero { padding: 70px 5% 60px; background: var(--white); }
-.designer-hero .container { text-align: center; max-width: 880px; }
-.designer-hero h1 {
+/* ===================== DEVELOPER: HERO ===================== */
+.developer-hero { padding: 70px 5% 60px; background: var(--white); }
+.developer-hero .container { text-align: center; max-width: 880px; }
+.developer-hero h1 {
   font-size: clamp(2.6rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.25;
   color: var(--primary); margin-bottom: 24px;
 }
-.designer-hero h1 .gold { color: var(--gold); }
-.designer-hero-sub { font-size: 1.08rem; color: var(--muted); max-width: 680px; margin: 0 auto 34px; }
+.developer-hero h1 .gold { color: var(--gold); }
+.developer-hero-sub { font-size: 1.08rem; color: var(--muted); max-width: 680px; margin: 0 auto 34px; }
 
-/* ===================== DESIGNER: CREATIVE CHALLENGES (no cards) ===================== */
-.creative-challenges-section { padding: 70px 5%; background: var(--light-gray); }
+/* ===================== DEVELOPER: TECHNICAL CHALLENGES (no cards) ===================== */
+.dev-challenges-section { padding: 70px 5%; background: var(--light-gray); }
 .problem-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px;
   max-width: 1080px; margin: 40px auto 34px;
@@ -307,38 +333,42 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 @media (max-width: 900px) { .problem-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .problem-grid { grid-template-columns: 1fr; } }
 
-/* ===================== DESIGNER: AI COWORKER BUTTONS ===================== */
-.designer-team-section { padding: 70px 5%; background: var(--white); }
-.designer-team-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+/* ===================== DEVELOPER: AI COWORKER BUTTONS ===================== */
+.developer-team-section { padding: 70px 5%; background: var(--white); }
+.developer-team-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
   max-width: 1080px; margin: 40px auto 44px;
 }
 
-@media (max-width: 900px) { .designer-team-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 640px) { .designer-team-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .developer-team-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .developer-team-grid { grid-template-columns: 1fr; } }
 
-/* ===================== DESIGNER: VIDEO SHOWCASE ===================== */
-.designer-showcase-section { padding: 70px 5%; background: var(--light-gray); }
-.designer-showcase-grid {
+/* ===================== DEVELOPER: VIDEO SHOWCASE ===================== */
+.developer-showcase-section { padding: 70px 5%; background: var(--light-gray); }
+.developer-showcase-grid {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
   max-width: 920px; margin: 40px auto 0;
 }
-.designer-showcase-card {
+.developer-showcase-card {
   border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: var(--white);
 }
-.designer-showcase-card:hover { transform: scale(1.035); box-shadow: 0 16px 30px rgba(0,0,0,0.14); }
-.designer-showcase-card .video-wrap { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
-.designer-showcase-card .video-wrap iframe {
+.developer-showcase-card:hover { transform: scale(1.035); box-shadow: 0 16px 30px rgba(0,0,0,0.14); }
+.developer-showcase-card .video-wrap { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
+.developer-showcase-card .video-wrap iframe {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
 }
 
-@media (max-width: 720px) { .designer-showcase-grid { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .developer-showcase-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
+   <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2HTVGXV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 <nav class="nav">
   <div class="nav-container">
@@ -439,52 +469,51 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   </div>
 </nav>
 
-<!-- ===== HERO: You Didn't Start a Business to Become Its Staff ===== -->
-<!-- ===== HERO: Bring Every Creative Vision to Life ===== -->
-<section class="designer-hero">
+<!-- ===== HERO: Turn Every Idea Into Working Code ===== -->
+<section class="developer-hero">
   <div class="container">
-    <h1>Bring Every Creative <span class="gold">Vision to Life.</span></h1>
-    <p class="designer-hero-sub">Create stunning visuals, build stronger brands, and complete projects more efficiently with AI coworkers that support every stage of your creative workflow.</p>
+    <h1>Turn Every Idea Into <span class="gold">Working Code.</span></h1>
+    <p class="developer-hero-sub">Ship features faster, write cleaner code, and complete projects more efficiently with AI coworkers that support every stage of your development workflow.</p>
     <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
-<!-- ===== SECTION 2: CREATING GREAT DESIGNS IS ONLY HALF THE JOB ===== -->
-<section class="creative-challenges-section">
+<!-- ===== SECTION 2: WRITING GREAT CODE IS ONLY HALF THE JOB ===== -->
+<section class="dev-challenges-section">
   <div class="container center">
-    <h2 class="section-title">Creating Great Designs Is Only <span class="gold">Half the Job</span></h2>
-    <p class="section-sub">The real challenge is balancing creativity with tight deadlines, endless revisions, and the constant demand for fresh ideas. Every project comes with obstacles that can slow even the most talented designers.</p>
+    <h2 class="section-title">Writing Great Code Is Only <span class="gold">Half the Job</span></h2>
+    <p class="section-sub">The real challenge is balancing clean architecture with tight deadlines, endless bug fixes, and the constant demand for new features. Every project comes with obstacles that can slow even the most talented developers.</p>
   </div>
 
   <div class="problem-grid">
     <div class="problem-item">
-      <h3><i class="fas fa-lightbulb"></i> Creative Blocks</h3>
-      <p>Finding fresh ideas for every project isn't always easy. Creative blocks can slow progress and make it harder to deliver your best work.</p>
+      <h3><i class="fas fa-bug"></i> Debugging Bottlenecks</h3>
+      <p>Tracking down elusive bugs can eat up hours that should go toward building new features.</p>
     </div>
 
     <div class="problem-item">
       <h3><i class="fas fa-clock"></i> Tight Deadlines</h3>
-      <p>Design projects often come with short turnaround times, leaving little room for research, experimentation, or refinement.</p>
+      <p>Development projects often come with short turnaround times, leaving little room for testing, refactoring, or documentation.</p>
     </div>
 
     <div class="problem-item">
-      <h3><i class="fas fa-arrows-rotate"></i> Endless Revisions</h3>
-      <p>Client feedback and repeated revisions can consume valuable time and delay project completion.</p>
+      <h3><i class="fas fa-arrows-rotate"></i> Endless Code Reviews</h3>
+      <p>Pull request feedback and repeated revisions can consume valuable time and delay shipping.</p>
     </div>
 
     <div class="problem-item">
       <h3><i class="fas fa-layer-group"></i> Multiple Projects</h3>
-      <p>Managing several clients, campaigns, or design requests at once can quickly become overwhelming.</p>
+      <p>Managing several codebases, sprints, or client requests at once can quickly become overwhelming.</p>
     </div>
 
     <div class="problem-item">
       <h3><i class="fas fa-repeat"></i> Repetitive Tasks</h3>
-      <p>Creating multiple versions, resizing assets, writing placeholder content, and preparing presentations take time away from creative work.</p>
+      <p>Writing boilerplate code, configuring environments, and drafting documentation take time away from solving real problems.</p>
     </div>
 
     <div class="problem-item">
-      <h3><i class="fas fa-folder-open"></i> File &amp; Asset Management</h3>
-      <p>Keeping track of design files, brand assets, and project versions can become difficult as workloads grow.</p>
+      <h3><i class="fas fa-code-branch"></i> Version Control &amp; Dependencies</h3>
+      <p>Keeping track of branches, dependencies, and environment configs can become difficult as projects grow.</p>
     </div>
   </div>
 
@@ -493,36 +522,30 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   </div>
 </section>
 
-<!-- ===== SECTION 3: DESIGN BETTER WITH AI COWORKERS ===== -->
-<section class="designer-team-section">
+<!-- ===== SECTION 3: BUILD BETTER WITH AI COWORKERS ===== -->
+<section class="developer-team-section">
   <div class="container center">
-    <h2 class="section-title">Design Better with <span class="gold">AI Coworkers</span></h2>
-    <p class="section-sub">From the first concept to the final delivery, AI coworkers help you create faster, stay organized, and deliver exceptional work without sacrificing creativity.</p>
+    <h2 class="section-title">Build Better with <span class="gold">AI Coworkers</span></h2>
+    <p class="section-sub">From the first line of code to final deployment, AI coworkers help you build faster, stay organized, and ship exceptional software without sacrificing quality.</p>
   </div>
 
-  <div class="designer-team-grid">
+  <div class="developer-team-grid">
     <div class="coworker-card">
-      <div class="coworker-icon"><i class="fas fa-palette"></i></div>
-      <h3>Design Coworker</h3>
-      <p>Creates logos, illustrations, marketing graphics, flyers, posters, and brand visuals.</p>
+      <div class="coworker-icon"><i class="fas fa-cubes"></i></div>
+      <h3>Software Builder Coworker</h3>
+      <p>Turns your specs into working software architecture, logic, and clean code included, so you start building on a solid foundation instead of a blank file.</p>
+    </div>
+
+    <div class="coworker-card">
+      <div class="coworker-icon"><i class="fas fa-laptop-code"></i></div>
+      <h3>Web App Builder Coworker</h3>
+      <p>Ships complete web apps end-to-end ; front end, back end, and database wired together so you go from idea to a working product in one pass.</p>
     </div>
 
     <div class="coworker-card">
       <div class="coworker-icon"><i class="fas fa-globe"></i></div>
-      <h3>Website Coworker</h3>
-      <p>Designs responsive websites, landing pages, and web layouts ready for development.</p>
-    </div>
-
-    <div class="coworker-card">
-      <div class="coworker-icon"><i class="fas fa-hashtag"></i></div>
-      <h3>Social Media Coworker</h3>
-      <p>Creates social media posts, stories, banners, ad creatives, and campaign graphics.</p>
-    </div>
-
-    <div class="coworker-card">
-      <div class="coworker-icon"><i class="fas fa-pen-nib"></i></div>
-      <h3>Copywriting Coworker</h3>
-      <p>Writes headlines, taglines, website copy, captions, and marketing content that complements your designs.</p>
+      <h3>Website Builder Coworker</h3>
+      <p>Builds production-ready websites and landing pages that look polished and perform well, without you starting every project from scratch.</p>
     </div>
   </div>
 
@@ -531,23 +554,23 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   </div>
 </section>
 
-<!-- ===== SECTION 4: SEE DESIGN IN ACTION ===== -->
-<section class="designer-showcase-section">
+<!-- ===== SECTION 4: SEE DEVELOPMENT IN ACTION ===== -->
+<section class="developer-showcase-section">
   <div class="container center">
-    <h2 class="section-title">See Design <span class="gold">in Action</span></h2>
-    <p class="section-sub">Watch real-world design workflows and discover practical techniques used by creative professionals every day.</p>
+    <h2 class="section-title">See Development <span class="gold">in Action</span></h2>
+    <p class="section-sub">Watch real-world development workflows and discover practical techniques used by engineering professionals every day.</p>
   </div>
 
-  <div class="designer-showcase-grid">
-    <div class="designer-showcase-card">
+  <div class="developer-showcase-grid">
+    <div class="developer-showcase-card">
       <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/m8BIh3_Bq3E?si=0_0SQQ-s2uqoDA_p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/D5VPKFsGOr8?si=YmhAt3ZufiL19AMl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
 
-    <div class="designer-showcase-card">
+    <div class="developer-showcase-card">
       <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/pHV231CXp6A?si=VC_jHxq0qwA4fYpJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+       <iframe src="https://www.youtube.com/embed/yoV03G_YTTk?si=sFNb79jpSiZ33Ler" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -560,59 +583,60 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   <div class="faq-list" id="faqList">
     <div class="faq-item">
       <div class="faq-question">
-        <h3>How can AI coworkers help me as a designer?</h3>
+        <h3>How can AI coworkers help me as a developer?</h3>
         <div class="faq-toggle"><i class="fas fa-plus"></i></div>
       </div>
       <div class="faq-answer">
-        <p>AI coworkers assist with repetitive and time-consuming tasks such as generating creative concepts, creating design assets, writing supporting copy, preparing presentations, and organizing project deliverables. This gives you more time to focus on creativity and producing high-quality designs.</p>
+        <p>AI coworkers assist with repetitive and time-consuming tasks such as writing boilerplate code, debugging, generating documentation, setting up environments, and organizing project deliverables. This gives you more time to focus on architecture and building high-quality software.</p>
       </div>
       <div class="faq-divider"></div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question">
-        <h3>Will AI replace designers?</h3>
+        <h3>Will AI replace developers?</h3>
         <div class="faq-toggle"><i class="fas fa-plus"></i></div>
       </div>
       <div class="faq-answer">
-        <p>No. AI coworkers are designed to support your creative process, not replace it. They handle repetitive tasks and provide creative assistance while you remain in control of the ideas, design decisions, and final output.</p>
+        <p>No. AI coworkers are designed to support your development process, not replace it. They handle repetitive tasks and provide technical assistance while you remain in control of the architecture, engineering decisions, and final output.</p>
       </div>
       <div class="faq-divider"></div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question">
-        <h3>Can AI coworkers help with client revisions?</h3>
+        <h3>Can AI coworkers help with code reviews and revisions?</h3>
         <div class="faq-toggle"><i class="fas fa-plus"></i></div>
       </div>
       <div class="faq-answer">
-        <p>Yes. AI coworkers can quickly generate alternative layouts, update design assets, revise supporting content, and prepare multiple versions based on client feedback, making the revision process faster and more efficient.</p>
+        <p>Yes. AI coworkers can quickly generate alternative implementations, update code and dependencies, revise documentation, and prepare multiple versions based on review feedback, making the revision process faster and more efficient.</p>
       </div>
       <div class="faq-divider"></div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question">
-        <h3>What types of design projects can AI coworkers support?</h3>
+        <h3>What types of development projects can AI coworkers support?</h3>
         <div class="faq-toggle"><i class="fas fa-plus"></i></div>
       </div>
       <div class="faq-answer">
-        <p>AI coworkers can assist with branding, graphic design, website design, UI/UX, social media graphics, presentations, marketing materials, and many other creative projects across different industries.</p>
+        <p>AI coworkers can assist with web applications, APIs, mobile apps, automation scripts, DevOps pipelines, and many other development projects across different industries.</p>
       </div>
       <div class="faq-divider"></div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question">
-        <h3>What makes Ndovesha different from other AI design tools?</h3>
+        <h3>What makes Ndovesha different from other AI coding tools?</h3>
         <div class="faq-toggle"><i class="fas fa-plus"></i></div>
       </div>
       <div class="faq-answer">
-        <p>Ndovesha provides specialized AI coworkers that collaborate across different creative tasks instead of offering a single AI assistant. Whether you're designing a brand, building a website, or creating marketing assets, each coworker contributes its expertise to help you complete projects more efficiently.</p>
+        <p>Ndovesha provides specialized AI coworkers that collaborate across different technical tasks instead of offering a single AI assistant. Whether you're writing code, setting up infrastructure, or documenting an API, each coworker contributes its expertise to help you complete projects more efficiently.</p>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- Footer Links -->
 <section class="footer-links-section">
@@ -630,10 +654,11 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
       <div class="footer-links-col">
         <h4>Resources</h4>
         <ul>
+           <li><a href="blogs.html" target="_blank" rel="noopener noreferrer">Blog</a></li>
           <li><a href="webinars.html">Webinars</a></li>
-          <li><a href="https://ndovesha.ai/comparison.html">Ndovesha vs ChatGPT vs Gemini</a></li>
+          <li><a href="comparison.html">Ndovesha vs ChatGPT vs Gemini</a></li>
           <li><a href="how-to-prompt.html">How to Prompt Ndovesha</a></li>
-          <li><a href="https://blog.ndovesha.ai/lovable-vs-replit-vs-manus-vs-ndovesha-the-ultimate-ai-website-builder-comparison-2026/" target="_blank" rel="noopener noreferrer">Ndovesha vs Manus vs Lovable</a></li>
+          <li><a href="lovable.html">Ndovesha vs Manus vs Lovable</a></li>
           <li><a href="join-our-community.html">Join community</a></li>
           <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
           <li><a href="faq.html">FAQs</a></li>
@@ -676,15 +701,16 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
       <div class="footer-links-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="https://ndovesha.ai/contacts.html">Contact</a></li>
-          <li><a href="https://ndovesha.ai/terms-of-service.html">Terms of service</a></li>
-          <li><a href="https://ndovesha.ai/privacy-policy.html">Privacy policy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms-of-service.html">Terms of service</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
         </ul>
       </div>
 
     </div>
   </div>
 </section>
+
 
 <!-- Footer -->
 <footer class="site-footer">
