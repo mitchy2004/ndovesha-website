@@ -246,14 +246,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 .pipeline-connector {
+  position: relative;
   flex: 1;
   width: 2px;
   min-height: 30px;
   margin: 6px 0;
-  background-image: linear-gradient(var(--border) 55%, transparent 0%);
+  background-image: linear-gradient(var(--gold) 55%, transparent 0%);
   background-position: left;
   background-size: 2px 9px;
   background-repeat: repeat-y;
+}
+
+.pipeline-connector::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid var(--gold);
 }
 
 .pipeline-step-body {
