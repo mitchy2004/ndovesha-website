@@ -80,68 +80,70 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       gap: 10px;
       background: var(--primary);
       color: var(--white);
-      font-weight: 800;
-      font-size: 1.02rem;
-      padding: 17px 34px;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 32px;
       border-radius: 50px;
       text-decoration: none;
       border: none;
       cursor: pointer;
-      box-shadow: 0 10px 26px rgba(10, 51, 102, 0.32);
+      box-shadow: 0 8px 22px rgba(10, 51, 102, 0.3);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     
     .ecommerce-cta-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 32px rgba(10, 51, 102, 0.42);
+      box-shadow: 0 12px 30px rgba(10, 51, 102, 0.45);
     }
     
-    /* Section 2: Challenges */
-    .ecommerce-challenges {
+    /* Section 2: Opportunities */
+    .ecommerce-opportunities {
       padding: 70px 5%;
-      background: var(--white);
-    }
-    
-    .challenges-heading {
+      background: var(--light-grey);
       text-align: center;
-      margin-bottom: 50px;
     }
-    
-    .challenges-heading h2 {
+
+    .opportunities-heading {
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .opportunities-heading h2 {
       font-size: clamp(2.2rem, 4.5vw, 3rem);
       font-weight: 800;
       line-height: 1.22;
       color: var(--primary);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
-    
-    .challenges-heading h2 .gold {
+
+    .opportunities-heading h2 .gold {
       color: var(--gold);
     }
-    
-    .challenges-heading p {
+
+    .opportunities-heading p {
       font-size: 1.05rem;
       color: var(--text-light);
-      max-width: 600px;
+      max-width: 640px;
       margin: 0 auto;
       line-height: 1.6;
     }
-    
-    .challenges-grid {
+
+    .opportunities-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px 24px;
       max-width: 1080px;
       margin: 0 auto;
+      text-align: left;
     }
-    
-    .challenge-item {
+
+    .opportunity-item {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
-    
-    .challenge-icon {
+
+    .opportunity-icon {
       width: 54px;
       height: 54px;
       border-radius: 12px;
@@ -152,20 +154,128 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: var(--primary);
       font-size: 1.3rem;
     }
-    
-    .challenge-item h3 {
-      font-size: 1.15rem;
+
+    .opportunity-item h3 {
+      font-size: 1.1rem;
       font-weight: 800;
       color: var(--primary);
     }
-    
-    .challenge-item p {
-      font-size: 0.95rem;
+
+    .opportunity-item p {
+      font-size: 0.94rem;
       color: var(--text-light);
       line-height: 1.55;
     }
-    
-    .challenges-cta {
+
+    @media (max-width: 900px) {
+      .opportunities-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .opportunities-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Section 4: Categories */
+    .ecommerce-categories {
+      padding: 70px 5%;
+      background: var(--light-grey);
+      text-align: center;
+    }
+
+    .categories-heading {
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .categories-heading h2 {
+      font-size: clamp(2.2rem, 4.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.22;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .categories-heading h2 .gold {
+      color: var(--gold);
+    }
+
+    .categories-heading p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .categories-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .category-card {
+      flex: 0 1 calc((100% - 48px) / 3);
+      min-width: 180px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 34px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 16px rgba(10,42,102,0.06);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(254,191,15,0.18), 0 8px 24px rgba(10,42,102,0.08);
+      border-color: rgba(254,191,15,0.35);
+    }
+
+    .category-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 16px;
+      background: var(--primary);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: background 0.28s ease;
+    }
+
+    .category-card:hover .category-icon {
+      background: var(--primary-light);
+    }
+
+    .category-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .category-card p {
+      font-size: 0.86rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .category-card { flex: 0 1 calc((100% - 24px) / 2); }
+    }
+    @media (max-width: 560px) {
+      .category-card { flex: 0 1 100%; }
+    }
+
+    .challenges-cta,
+    .coworkers-cta {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -183,85 +293,131 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     
-    .challenges-cta:hover {
+    .challenges-cta:hover,
+    .coworkers-cta:hover {
       transform: translateY(-3px);
       box-shadow: 0 12px 30px rgba(10, 51, 102, 0.45);
     }
     
     .challenges-cta-wrap {
       text-align: center;
-      margin-top: 60px;
+      margin-top: 50px;
     }
     
-    @media (max-width: 900px) {
-      .challenges-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    @media (max-width: 600px) {
-      .challenges-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    /* Section 3: AI Coworkers */
-    .ecommerce-coworkers {
+    /* Section 3: Your AI Coworker — Pipeline */
+    .ecommerce-pipeline {
       padding: 70px 5%;
-      background: var(--light-grey);
-      text-align: center;
+      background: var(--white);
     }
-    
-    .coworkers-heading {
-      margin-bottom: 0;
+
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 56px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
     }
-    
-    .coworkers-heading h2 {
-      font-size: clamp(2.2rem, 4.5vw, 3rem);
+
+    .pipeline-left h2 {
+      font-size: clamp(1.9rem, 3.6vw, 2.5rem);
       font-weight: 800;
-      line-height: 1.22;
       color: var(--primary);
-      margin-bottom: 12px;
+      line-height: 1.32;
+      margin-bottom: 18px;
     }
-    
-    .coworkers-heading h2 .gold {
+
+    .pipeline-left h2 .gold {
       color: var(--gold);
     }
-    
-    .coworkers-heading p {
-      font-size: 1.05rem;
+
+    .pipeline-left p {
+      font-size: 1rem;
       color: var(--text-light);
-      max-width: 720px;
-      margin: 0 auto 40px;
+      line-height: 1.65;
+      max-width: 380px;
+    }
+
+    .pipeline-steps {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+    }
+
+    .pipeline-steps::before {
+      content: '';
+      position: absolute;
+      left: 27px;
+      top: 32px;
+      bottom: 32px;
+      border-left: 2px dashed var(--border);
+      z-index: 0;
+    }
+
+    .pipeline-step {
+      position: relative;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .step-icon {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .pipeline-step-content {
+      padding-top: 4px;
+      text-align: left;
+    }
+
+    .pipeline-step-title-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .pipeline-step-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .pipeline-step-content h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+
+    .pipeline-step-content p {
+      font-size: 0.9rem;
+      color: var(--text-light);
       line-height: 1.6;
     }
-    
-    .coworkers-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--primary);
-      color: var(--white);
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 16px 32px;
-      border-radius: 12px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 8px 22px rgba(10, 51, 102, 0.3);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    @media (max-width: 860px) {
+      .pipeline-grid { grid-template-columns: 1fr; gap: 40px; }
+      .pipeline-left p { max-width: none; }
     }
-    
-    .coworkers-cta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(10, 51, 102, 0.45);
-    }
-    
+
     /* FAQ Section */
     .ecommerce-faq {
       padding: 70px 5% 80px;
-      background: var(--light-grey);
+      background: var(--white);
     }
     
     .faq-heading {
@@ -454,55 +610,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== SECTION 1: HERO ===== -->
 <section class="ecommerce-hero">
   <div class="container">
-    <h1>Build Your Online Store with <span class="gold">AI Coworkers.</span></h1>
-    <p class="ecommerce-hero-content">Launch, manage, and grow your ecommerce business with AI coworkers that help you create online stores, write product descriptions, manage inventory, design marketing campaigns, and deliver better shopping experiences.</p>
+    <h1>Launch Your Online Store <span class="gold">Without the Overwhelm.</span></h1>
+    <p class="ecommerce-hero-content">From your first product to your first sale, Ndovesha works alongside you at every stage helping you build, launch, market, and grow your business faster.</p>
     <a class="ecommerce-cta-btn" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
-<!-- ===== SECTION 2: CHALLENGES ===== -->
-<section class="ecommerce-challenges">
+<!-- ===== SECTION 2: OPPORTUNITIES ===== -->
+<section class="ecommerce-opportunities">
   <div class="container">
-    <div class="challenges-heading">
-      <h2>Running an Online Store Is Only <span class="gold">Half the Job.</span></h2>
-      <p>Growing an ecommerce business means managing products, customers, marketing, orders, and inventory while delivering an exceptional shopping experience.</p>
+    <div class="opportunities-heading">
+      <h2>Every Product You Sell Is a <span class="gold">Door to a New Customer.</span></h2>
+      <p>Ndovesha's E-commerce Coworker turns that opportunity into momentum helping you launch a professional store, list your products, and start selling before the moment passes.</p>
     </div>
 
-    <div class="challenges-grid">
-      <div class="challenge-item">
-        <div class="challenge-icon"><i class="fas fa-box"></i></div>
-        <h3>Managing Product Listings</h3>
-        <p>Creating detailed product pages, descriptions, and pricing for large inventories can take significant time.</p>
+    <div class="opportunities-grid">
+      <div class="opportunity-item">
+        <div class="opportunity-icon"><i class="fas fa-globe"></i></div>
+        <h3>Reach Customers Anywhere</h3>
+        <p>Sell beyond your neighborhood with a store that's open to customers day and night.</p>
       </div>
 
-      <div class="challenge-item">
-        <div class="challenge-icon"><i class="fas fa-cubes"></i></div>
-        <h3>Inventory Management</h3>
-        <p>Keeping stock levels accurate across multiple products and sales channels is essential for avoiding overselling and stock shortages.</p>
+      <div class="opportunity-item">
+        <div class="opportunity-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Launch Before the Moment Passes</h3>
+        <p>Go from idea to live store in minutes, so trends and demand don't outrun you.</p>
       </div>
 
-      <div class="challenge-item">
-        <div class="challenge-icon"><i class="fas fa-headset"></i></div>
-        <h3>Customer Support</h3>
-        <p>Responding to customer questions, processing returns, and handling inquiries requires continuous attention.</p>
+      <div class="opportunity-item">
+        <div class="opportunity-icon"><i class="fas fa-arrow-trend-up"></i></div>
+        <h3>Scale Without Extra Overhead</h3>
+        <p>Grow your catalog and your customer base without hiring a bigger team.</p>
       </div>
 
-      <div class="challenge-item">
-        <div class="challenge-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Driving Sales</h3>
-        <p>Generating consistent traffic and converting visitors into customers requires effective marketing and optimization.</p>
+      <div class="opportunity-item">
+        <div class="opportunity-icon"><i class="fas fa-magnifying-glass-dollar"></i></div>
+        <h3>Turn Browsers Into Buyers</h3>
+        <p>Professional product pages and clear descriptions help visitors decide faster.</p>
       </div>
 
-      <div class="challenge-item">
-        <div class="challenge-icon"><i class="fas fa-clipboard-list"></i></div>
-        <h3>Order Processing</h3>
-        <p>Managing orders, payments, shipping, and fulfillment efficiently becomes more challenging as your business grows.</p>
+      <div class="opportunity-item">
+        <div class="opportunity-icon"><i class="fas fa-bullhorn"></i></div>
+        <h3>Stay Visible, Consistently</h3>
+        <p>Keep marketing across channels running without spending hours writing content.</p>
       </div>
 
-      <div class="challenge-item">
-        <div class="challenge-icon"><i class="fas fa-bullhorn"></i></div>
-        <h3>Marketing Across Multiple Channels</h3>
-        <p>Running campaigns across websites, email, and social media while maintaining a consistent brand can be difficult.</p>
+      <div class="opportunity-item">
+        <div class="opportunity-icon"><i class="fas fa-heart"></i></div>
+        <h3>Build Lasting Trust</h3>
+        <p>Deliver a polished shopping experience that keeps customers coming back.</p>
       </div>
     </div>
 
@@ -512,18 +668,120 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ===== SECTION 3: AI COWORKERS ===== -->
-<section class="ecommerce-coworkers">
+<!-- ===== SECTION 3: YOUR AI COWORKER — PIPELINE ===== -->
+<section class="ecommerce-pipeline">
   <div class="container">
-    <div class="coworkers-heading">
-      <h2>Grow Your Store with <span class="gold">AI Coworkers.</span></h2>
-      <p>AI coworkers help automate repetitive ecommerce tasks so you can focus on growing your business and improving customer experiences.</p>
+
+    <div class="pipeline-grid">
+
+      <div class="pipeline-left">
+        <h2>Your E-commerce<br><span class="gold"> Success Partner.</span></h2>
+        <p>From your first product to your first sale, Ndovesha works alongside you at every stage helping you build, launch, market, and grow your business faster.</p>
+      </div>
+
+      <div class="pipeline-steps">
+
+        <div class="pipeline-step">
+          <div class="step-icon"><i class="fas fa-comment-dots"></i></div>
+          <div class="pipeline-step-content">
+            <div class="pipeline-step-title-row">
+              <span class="pipeline-step-num">01</span>
+              <h3>Tell Ndovesha About Your Business</h3>
+            </div>
+            <p>Describe what you want to sell, your target customers, and your goals. No technical skill required.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-icon"><i class="fas fa-store"></i></div>
+          <div class="pipeline-step-content">
+            <div class="pipeline-step-title-row">
+              <span class="pipeline-step-num">02</span>
+              <h3>Generate Your Store</h3>
+            </div>
+            <p>Your AI coworker creates product pages, collections, navigation, and a professional storefront in minutes. Ready to customize or publish.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-icon"><i class="fas fa-box"></i></div>
+          <div class="pipeline-step-content">
+            <div class="pipeline-step-title-row">
+              <span class="pipeline-step-num">03</span>
+              <h3>Add Products &amp; Content</h3>
+            </div>
+            <p>Generate product descriptions, upload products, organize collections, and optimize everything for conversions. No more writing every page manually.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-icon"><i class="fas fa-rocket"></i></div>
+          <div class="pipeline-step-content">
+            <div class="pipeline-step-title-row">
+              <span class="pipeline-step-num">04</span>
+              <h3>Launch, Market &amp; Grow</h3>
+            </div>
+            <p>Create ads, emails, social media posts, customer support responses, and analyze store performance — all from one AI coworker. Keep improving while your business grows.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="challenges-cta-wrap">
       <a class="coworkers-cta" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
 
-<!-- ===== SECTION 4: FAQ ===== -->
+<!-- ===== SECTION 4: CATEGORIES ===== -->
+<section class="ecommerce-categories">
+  <div class="container">
+    <div class="categories-heading">
+      <h2>Whatever You Sell, <span class="gold">Ndovesha Can Help You Sell It.</span></h2>
+      <p>From local shops to growing brands, your AI coworker helps you launch a professional online store in minutes so you can spend less time building and more time selling.</p>
+    </div>
+
+    <div class="categories-grid">
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-shirt"></i></div>
+        <h3>Fashion</h3>
+        <p>Showcase collections with product pages built to highlight style, sizing, and fit.</p>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-spa"></i></div>
+        <h3>Beauty</h3>
+        <p>Sell skincare, cosmetics, and wellness products with descriptions that build trust.</p>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-prescription-bottle-medical"></i></div>
+        <h3>Pharmacy</h3>
+        <p>Organize health products and essentials with clear, accurate product listings.</p>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-couch"></i></div>
+        <h3>Furniture</h3>
+        <p>Present pieces with detailed specs, dimensions, and imagery that drive confident orders.</p>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-laptop"></i></div>
+        <h3>Electronics</h3>
+        <p>List devices and gadgets with specs and comparisons that help customers decide faster.</p>
+      </div>
+    </div>
+
+    <div class="challenges-cta-wrap">
+      <a class="challenges-cta" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: FAQ ===== -->
 <section class="ecommerce-faq">
   <div class="container">
     <div class="faq-heading">
@@ -778,5 +1036,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"6892ca8ffd3b4ad7b1737418d2724ac1","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>

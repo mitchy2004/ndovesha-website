@@ -108,14 +108,41 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   .row-list { grid-template-columns: 1fr; gap: 34px; }
 }
 
+/* ===================== OPPORTUNITY CARDS ===================== */
+.opportunity-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  max-width: 1100px; margin: 44px auto 0;
+}
+.opportunity-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  padding: 30px 24px; text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.opportunity-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 34px rgba(254,191,15,0.28);
+  border-color: rgba(254,191,15,0.5);
+}
+.opportunity-icon {
+  width: 52px; height: 52px; border-radius: 12px;
+  background: var(--primary); color: var(--gold);
+  display: flex; align-items: center; justify-content: center; font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+.opportunity-card h3 { font-size: 1.08rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; line-height: 1.3; }
+.opportunity-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+@media (max-width: 900px) { .opportunity-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .opportunity-grid { grid-template-columns: 1fr; } }
+
 /* ===================== COWORKERS ===================== */
 .coworkers-section { padding: 70px 5%; background: var(--white); }
 .coworkers-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-  max-width: 1200px; margin: 40px auto 44px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  max-width: 800px; margin: 40px auto 44px;
 }
 .coworker-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  background: var(--white); border: 1.5px solid var(--border); border-radius: 16px;
   padding: 28px 22px; text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -135,7 +162,6 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .coworker-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
 .coworker-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
 
-@media (max-width: 900px) { .coworkers-grid { grid-template-columns: repeat(2, 1fr); max-width: 640px; } }
 @media (max-width: 560px) { .coworkers-grid { grid-template-columns: 1fr; max-width: 420px; } }
 
 /* ===================== TUTORIALS (two hover video cards) ===================== */
@@ -297,49 +323,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== SECTION 1: HERO ===== -->
 <section class="hero-page">
   <div class="container center">
-    <h1>Design Smarter. <span class="gold">Launch Faster.</span></h1>
-    <p class="hero-page-sub">Create responsive, professional websites faster with AI coworkers that help you design layouts, write content, improve user experience, and launch websites that make an impact.</p>
+    <h1>Building Great Websites Shouldn't <span class="gold">Take Weeks.</span></h1>
+    <p class="hero-page-sub">Empower your team with AI coworkers that help plan, build, refine, and optimize websites faster so you can deliver exceptional digital experiences without increasing your workload.</p>
     <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
-<!-- ===== SECTION 2: CHALLENGES (rows, not cards) ===== -->
+<!-- ===== SECTION 2: OPPORTUNITY CARDS ===== -->
 <section class="challenges-rows">
   <div class="container center">
-    <h2 class="section-title">Every Great Website Starts with <span class="gold">Challenges.</span></h2>
-    <p class="section-sub">Building a successful website takes more than writing code. From planning layouts to improving user experience, web designers face challenges that can slow projects and affect results.</p>
+    <h2 class="section-title">Turn Every Website Idea Into a <span class="gold">Better Digital Experience.</span></h2>
+    <p class="section-sub">Whether you're building landing pages, business websites, or custom web experiences, Ndovesha helps your team work faster, collaborate better, and launch exceptional websites with AI coworkers supporting every step of the journey.</p>
   </div>
 
-  <div class="row-list">
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-mobile-screen-button"></i></div>
-      <h3>Responsive Design</h3>
-      <p>Creating layouts that look and perform well across every device requires careful planning and testing.</p>
+  <div class="opportunity-grid">
+    <div class="opportunity-card">
+      <div class="opportunity-icon"><i class="fas fa-rocket"></i></div>
+      <h3>Accelerate Website Creation</h3>
+      <p>Go from idea to live pages in a fraction of the time.</p>
     </div>
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-compass"></i></div>
-      <h3>User Experience</h3>
-      <p>Balancing aesthetics with usability is essential for keeping visitors engaged and improving conversions.</p>
+    <div class="opportunity-card">
+      <div class="opportunity-icon"><i class="fas fa-layer-group"></i></div>
+      <h3>Build Modern Experiences</h3>
+      <p>Create clean designs that keep visitors engaged.</p>
     </div>
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-comments"></i></div>
-      <h3>Client Revisions</h3>
-      <p>Managing feedback and making repeated design changes can significantly extend project timelines.</p>
+    <div class="opportunity-card">
+      <div class="opportunity-icon"><i class="fas fa-gauge-high"></i></div>
+      <h3>Speed Up Development</h3>
+      <p>Move through builds and revisions faster.</p>
     </div>
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-file-lines"></i></div>
-      <h3>Website Content</h3>
-      <p>Writing compelling headlines, service pages, and calls to action often becomes a project on its own.</p>
-    </div>
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
-      <h3>SEO &amp; Performance</h3>
-      <p>Optimizing websites for search engines, speed, and accessibility requires attention to many technical details.</p>
-    </div>
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-hourglass-half"></i></div>
-      <h3>Tight Deadlines</h3>
-      <p>Delivering high-quality websites on time while managing multiple projects can be challenging.</p>
+    <div class="opportunity-card">
+      <div class="opportunity-icon"><i class="fas fa-people-arrows"></i></div>
+      <h3>Collaborate Better</h3>
+      <p>Keep your team and AI coworkers aligned on every project.</p>
     </div>
   </div>
 
@@ -359,22 +375,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="coworker-card">
       <div class="coworker-icon"><i class="fas fa-laptop-code"></i></div>
       <h3>Your Web Applications Coworker</h3>
-      <p>Build responsive web applications with clean layouts, intuitive user experiences, and functionality tailored to your business goals.</p>
+      <p>Build responsive apps with clean, tailored user experiences.</p>
     </div>
     <div class="coworker-card">
       <div class="coworker-icon"><i class="fas fa-cart-shopping"></i></div>
       <h3>Your Ecommerce Stores Coworker</h3>
-      <p>Create professional online stores complete with product pages, shopping carts, secure checkout experiences, and mobile-friendly designs.</p>
+      <p>Create online stores with product pages and secure checkout.</p>
     </div>
     <div class="coworker-card">
-      <div class="coworker-icon"><i class="fas fa-building"></i></div>
+      <div class="coworker-icon"><i class="fas fa-globe"></i></div>
       <h3>Your Informational Websites Coworker</h3>
-      <p>Design modern business websites that showcase your services, build credibility, and help visitors find the information they need.</p>
+      <p>Design business websites that build credibility and clarity.</p>
     </div>
     <div class="coworker-card">
-      <div class="coworker-icon"><i class="fas fa-bullseye"></i></div>
+      <div class="coworker-icon"><i class="fas fa-chart-line"></i></div>
       <h3>Your Landing Pages Coworker</h3>
-      <p>Create high-converting landing pages optimized for lead generation, product launches, advertising campaigns, and customer acquisition.</p>
+      <p>Create high-converting pages for campaigns and launches.</p>
     </div>
   </div>
 
@@ -387,6 +403,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="tutorials-section">
   <div class="container center">
     <h2 class="section-title">See Web Design in <span class="gold">Action.</span></h2>
+    <p class="section-sub">Watch real walkthroughs of Ndovesha's AI coworkers building websites from scratch, from first prompt to a finished, launch-ready site.</p>
   </div>
 
   <div class="tutorials-grid">

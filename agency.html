@@ -56,161 +56,70 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
 .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 .center { text-align: center; }
-.dev-note { background: var(--primary); color: rgba(255,255,255,0.85); text-align: center; padding: 12px 20px; font-size: 0.85rem; }
-.dev-note strong { color: var(--gold); }
 
 .section-title { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 800; color: var(--primary); line-height: 1.22; margin-bottom: 12px; }
 .section-title .gold { color: var(--gold); }
-.section-title .navy { color: var(--primary); }
 .section-sub { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1.02rem; }
-.btn-gold {
-  display: inline-flex; align-items: center; gap: 9px;
-  background: var(--primary); color: var(--white); font-weight: 700; font-size: 1rem;
-  padding: 15px 30px; border-radius: 12px; text-decoration: none; border: none; cursor: pointer;
-  margin: 16px;
-  box-shadow: 0 8px 24px rgba(0,51,102,0.35); transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,51,102,0.45); }
 
-/* ===================== HERO: THE WEIGHT OF EVERY HAT ===================== */
-.hero-weight { padding: 60px 5% 50px; background: var(--white); }
-.hero-weight .container { text-align: center; max-width: 1080px; }
-
-.hero-weight h1 {
-  font-size: clamp(2.9rem, 4.8vw, 3.5rem);
-  font-weight: 800; line-height: 1.25; color: var(--primary);
-  max-width: 940px; margin: 0 auto 40px;
+/* ===== Hero formula visual ===== */
+.hero-formula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin: 8px auto 18px;
 }
-.hero-weight h1 .gold { color: var(--gold); }
-
-.hero-weight-sub {
-  font-size: 1.05rem; font-weight: 0; color: var(--muted);
-  max-width: 720px; margin: 0 auto 32px;
+.formula-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
-
-/* Team row — coworkers and the owner shown side by side,
-   connected by a line to communicate a team standing together
-   rather than a stack of burdens on one person */
-.team-row {
-  position: relative;
-  display: flex; justify-content: center; align-items: flex-start;
-  gap: 22px; margin-bottom: 40px; flex-wrap: wrap; row-gap: 22px;
-}
-.team-node {
-  position: relative; z-index: 1;
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-}
-.team-badge {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: var(--white); border: 2px solid var(--border);
+.formula-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--border);
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem; color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: var(--primary);
 }
-.team-badge.you {
-  background: var(--primary); color: var(--white);
-  width: 68px; height: 68px; font-weight: 800; font-size: 0.82rem;
+.formula-icon.navy {
+  background: var(--primary);
+  color: var(--gold);
   border: 3px solid var(--gold);
   box-shadow: 0 10px 24px rgba(0,51,102,0.3);
 }
-.team-plus {
-  position: relative; z-index: 1; align-self: center;
-  color: var(--gold); font-size: 0.9rem; font-weight: 800;
-  margin-top: 32px;
+.formula-icon-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
 }
-.team-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); }
-.team-node.owner .team-label { color: var(--primary); font-weight: 800; }
-
-.hero-weight-cta {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--primary); color: var(--white); font-weight: 800; font-size: 1.02rem;
-  padding: 17px 34px; border-radius: 50px; text-decoration: none; border: none; cursor: pointer;
-  box-shadow: 0 10px 26px rgba(0,51,102,0.32); transition: transform 0.25s ease, box-shadow 0.25s ease;
+.formula-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  white-space: nowrap;
 }
-.hero-weight-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,51,102,0.42); }
-
-@media (max-width: 640px) {
-  .team-plus { display: none; }
-}
-
-/* ===================== SECTION: DAY IN THE LIFE ===================== */
-.day-section { padding: 20px 5% 50px; background: var(--white); }
-
-/* Column headers */
-.day-headers {
-  display: grid; grid-template-columns: 1fr 90px 1fr;
-  max-width: 900px; margin: 24px auto 8px; align-items: center;
-}
-.day-header {
-  text-align: center; font-weight: 800; font-size: 0.95rem;
-  padding: 12px 16px; border-radius: 50px;
-}
-.day-header.without { background: var(--red-bg); color: var(--red); }
-.day-header.with { background: rgba(254,191,15,0.15); color: var(--primary); }
-.day-header-spacer {}
-
-/* Timeline grid */
-.day-timeline { max-width: 900px; margin: 0 auto; position: relative; }
-.day-row {
-  display: grid; grid-template-columns: 1fr 90px 1fr;
-  align-items: center; gap: 0;
-  opacity: 0; transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.day-row.revealed { opacity: 1; transform: translateY(0); }
-
-.day-cell {
-  padding: 18px 20px; margin: 8px 10px;
-  border-radius: 12px; font-size: 0.92rem; line-height: 1.5;
-  display: flex; align-items: center; gap: 10px;
-}
-.day-cell.without { background: var(--red-bg); color: #7f1d1d; border: 1px solid rgba(220,38,38,0.15); justify-content: flex-end; text-align: right; }
-.day-cell.with { background: #fffbeb; color: var(--primary); border: 1px solid rgba(254,191,15,0.3); font-weight: 600; }
-.day-cell i { flex-shrink: 0; font-size: 0.85rem; }
-.day-cell.without i { color: var(--red); order: 2; }
-.day-cell.with i { color: var(--gold); }
-
-.day-time-col { display: flex; flex-direction: column; align-items: center; position: relative; }
-.day-time-dot {
-  width: 12px; height: 12px; border-radius: 50%; background: var(--border);
-  border: 2px solid var(--white); box-shadow: 0 0 0 2px var(--border);
-  transition: background 0.4s ease, box-shadow 0.4s ease;
-}
-.day-row.revealed .day-time-dot { background: var(--primary); box-shadow: 0 0 0 2px var(--primary); }
-.day-time-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); margin-top: 6px; white-space: nowrap; }
-.day-time-line {
-  position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
-  width: 2px; height: 100%; background: var(--border); z-index: -1;
-}
-.day-row:first-child .day-time-line { top: 50%; height: 50%; }
-.day-row:last-child .day-time-line { height: 50%; }
-
-/* Closing line */
-.day-closer {
-  max-width: 640px; margin: 30px auto 0; text-align: center;
-}
-.day-closer p {
-  font-size: 1.15rem; font-weight: 700; color: var(--primary); line-height: 1.5; margin-bottom: 12px;
-}
-.day-closer p .gold { color: var(--gold); }
-
-@media (max-width: 680px) {
-  .day-headers, .day-row { grid-template-columns: 1fr; gap: 10px; }
-  .day-header-spacer { display: none; }
-  .day-time-col { flex-direction: row; gap: 8px; justify-content: center; margin: 6px 0; }
-  .day-time-line { display: none; }
-  .day-cell.without, .day-cell.with { justify-content: flex-start; text-align: left; margin: 4px 0; }
-  .day-cell.without i { order: 0; }
+.formula-op {
+  color: var(--gold);
+  font-size: 1.3rem;
+  font-weight: 800;
+  height: 84px;              /* same height as .formula-icon */
+  display: flex;
+  align-items: center;       /* true vertical center vs. icons, no magic number */
 }
 
-/* ===================== SECTION 3: MEET YOUR AI TEAM ===================== */
-.team-section { padding: 70px 5%; background: var(--light-gray); }
-
-.team-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-  max-width: 1080px; margin: 40px auto 44px;
+@media (max-width: 480px) {
+  .formula-op { display: none; }
 }
 
+/* ===================== COWORKER CARDS (shared by all coworker grids) ===================== */
 .coworker-card {
   background: var(--white); border: 1px solid var(--border); border-radius: 16px;
   padding: 32px 26px; text-align: left;
@@ -243,49 +152,8 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .btn-navy i { color: var(--white); }
 .btn-navy:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(13,76,148,0.55); }
 
-@media (max-width: 900px) { .team-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .team-grid { grid-template-columns: 1fr; } }
-
-/* ===================== SECTION 4: SEE AI COWORKERS IN ACTION ===================== */
-.showcase-section { padding: 70px 5%; background: var(--white); }
-.showcase-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-  max-width: 1080px; margin: 40px auto 0;
-}
-.showcase-card {
-  border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: var(--white);
-}
-.showcase-card:hover { transform: translateY(-8px); box-shadow: 0 16px 30px rgba(0,0,0,0.14); }
-.showcase-card .video-wrap { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
-.showcase-card .video-wrap iframe {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
-}
-
-@media (max-width: 900px) { .showcase-grid { grid-template-columns: 1fr; } }
-
-/* ===================== SECTION 5: WHY BUSINESS OWNERS CHOOSE NDOVESHA ===================== */
-.why-section { padding: 70px 5%; background: var(--white); }
-.why-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px;
-  max-width: 1080px; margin: 40px auto 0;
-}
-.why-item { display: flex; gap: 16px; align-items: flex-start; text-align: left; }
-.why-icon {
-  flex-shrink: 0; width: 46px; height: 46px; border-radius: 50%;
-  background: var(--primary); color: var(--gold);
-  display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
-}
-.why-item h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
-.why-item p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
-
-@media (max-width: 900px) { .why-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .why-grid { grid-template-columns: 1fr; } }
-
-/* ===================== SECTION 6: FAQ ===================== */
-.faq-section { padding: 70px 5% 80px; background: var(--white); }
+/* ===================== FAQ ===================== */
+.faq-section { padding: 70px 5%; background: var(--white); }
 .faq-list { max-width: 760px; margin: 40px auto 0; }
 .faq-question {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -309,7 +177,7 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .faq-answer p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
 
 /* ===================== AGENCY: HERO ===================== */
-.agency-hero { padding: 70px 5% 60px; background: var(--white); }
+.agency-hero { padding: 70px 5%; background: var(--white); }
 .agency-hero .container { text-align: center; max-width: 880px; }
 .agency-hero h1 {
   font-size: clamp(2.6rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.25;
@@ -319,54 +187,57 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .agency-hero-sub { font-size: 1.08rem; color: var(--muted); max-width: 680px; margin: 0 auto 34px; }
 
 /* ===================== AGENCY: SCALING CHALLENGES ===================== */
-.challenges-section { padding: 70px 5%; background: var(--light-gray); }
-.challenge-grid {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
-  max-width: 1200px; margin: 40px auto 32px;
+.opportunities-section { padding: 70px 5%; background: var(--light-gray); }
+.opportunity-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  max-width: 760px; margin: 24px auto 32px;
 }
-.challenge-card {
+.opportunity-card {
   background: var(--white); border: 1px solid var(--border); border-radius: 16px;
-  padding: 26px 20px; text-align: left;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 26px 20px 22px; text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.challenge-card:hover {
+.opportunity-card:hover {
+  transform: translateY(-8px);
   border-color: var(--gold);
-  box-shadow: 0 0 0 1px var(--gold), 0 12px 28px rgba(254,191,15,0.28);
+  box-shadow: 0 0 0 1px var(--gold), 0 16px 34px rgba(254,191,15,0.32);
 }
-.challenge-icon {
-  width: 46px; height: 46px; border-radius: 12px;
-  background: rgba(0,51,102,0.06); color: var(--primary);
+.opportunity-card:hover .opportunity-icon { transform: scale(1.06); }
+.opportunity-icon {
+  width: 54px; height: 54px; border-radius: 14px;
+  background: var(--primary); color: var(--gold);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; margin-bottom: 16px;
+  font-size: 1.3rem; margin-bottom: 16px;
+  transition: transform 0.3s ease;
 }
-.challenge-tag {
-  display: block; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.04em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
-}
-.challenge-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
-.challenge-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+.opportunity-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+.opportunity-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
 
-.challenge-closing {
-  max-width: 680px; margin: 0 auto 30px; text-align: center;
-  font-size: 1.08rem; font-weight: 700; color: var(--primary); line-height: 1.5;
-}
-
-@media (max-width: 1100px) { .challenge-grid { grid-template-columns: repeat(3, 1fr); max-width: 760px; } }
-@media (max-width: 640px) { .challenge-grid { grid-template-columns: 1fr; max-width: 420px; } }
+@media (max-width: 640px) { .opportunity-grid { grid-template-columns: 1fr; max-width: 420px; } }
 
 /* ===================== AGENCY: COWORKERS FOR AGENCIES ===================== */
 .agency-team-section { padding: 70px 5%; background: var(--white); }
 .agency-team-grid {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
-  max-width: 1200px; margin: 40px auto 44px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 900px;
+  margin: 40px auto 44px;
 }
-.agency-team-grid .coworker-card { padding: 26px 20px; }
+.agency-team-grid .coworker-card {
+  flex: 0 1 calc((100% - 48px) / 3);
+  min-width: 220px;
+}
 .agency-team-grid .coworker-card h3 { font-size: 1.05rem; }
 .agency-team-grid .coworker-card p { font-size: 0.88rem; }
-
-@media (max-width: 1100px) { .agency-team-grid { grid-template-columns: repeat(3, 1fr); max-width: 760px; } }
-@media (max-width: 640px) { .agency-team-grid { grid-template-columns: 1fr; max-width: 420px; } }
-
+@media (max-width: 700px) {
+  .agency-team-grid .coworker-card { flex: 0 1 calc((100% - 24px) / 2); }
+}
+@media (max-width: 480px) {
+  .agency-team-grid { max-width: 420px; }
+  .agency-team-grid .coworker-card { flex: 0 1 100%; }
+}
 /* ===================== AGENCY: VIDEO SHOWCASE ===================== */
 .agency-showcase-section { padding: 70px 5%; background: var(--light-gray); }
 .agency-showcase-grid {
@@ -386,6 +257,9 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 }
 
 @media (max-width: 720px) { .agency-showcase-grid { grid-template-columns: 1fr; } }
+
+/* ===================== FOOTER LINKS: continue the alternating rhythm ===================== */
+.footer-links-section { padding: 70px 5%; background: var(--light-gray); }
 </style>
 </head>
 <body>
@@ -496,109 +370,99 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== HERO: Scale Your Output, Not Your Headcount ===== -->
 <section class="agency-hero">
   <div class="container">
-    <h1>Scale your output. <span class="gold">Not your headcount.</span></h1>
-    <p>Deliver exceptional client work with AI coworkers that help your agency create content, manage projects, support clients, and accelerate delivery.</p>
+    <h1>More Clients Shouldn't Mean <span class="gold">More Chaos.</span></h1>
+    <p class="agency-hero-sub">Deliver projects faster, manage more clients without hiring, and give your team AI coworkers that handle repetitive work around the clock.</p>
 
+    <div class="hero-formula">
+      <div class="formula-node">
+        <div class="formula-icon"><i class="fas fa-user-group"></i></div>
+        <span class="formula-label">Your Team</span>
+      </div>
+      <span class="formula-op">+</span>
+      <div class="formula-node">
+        <div class="formula-icon navy"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEZ0lEQVR4AexWW2gcZRQ+55/NxjRpdjemjUirUB9UqOCLUFqaZk2rGCwUpFIEKYhVYktbvEulVqGpVzRWm3rJQ31TBMFqpU3MJqEWBPHBS8W+tFJQaHWzm8Q02ez8n+ffZmbnn5lcHgSxdDlnzne+c87sN/9cFf3Hv6sC/v8rgL5MqjyQ6cBAY9UHUxtwalndQi6vBa0ABtO90/3pbOwOa/VNivUXYP7Sd9AJTI0NIUeJ2JkAOa+A8tfpBwE85Djowc+UDMxWILcWvwfRJ5XE3txBnN5pU9FsTgHILblOMd6aGbuZLmaemMFWUMTPCjEpbpkIfxFDTcstMpSoUG6loFIPMTV5JLR+frI/tcLLvcjZwjlo6vbyQGyQmbcDeQTOKgC5xi3SvUm8akyLkgnqqRJVpOqdLgJdqDIewiYMZjZ6WTjGCsDxhqUgPhhuruSgu8q59NYKDmx4VX6UmfYGKB8C+iCOt9T7RADEC0g670hPs3isKcIb+KZhaaTYVvyQiH+i6O9GXTP5QpQmigjAcOo+adwsHjEQdcq5fkoK1+qSEznnsgIuK8ReqFLbjaHMbTJrmSVgNLe4GS69a3VUkz6VLb6n/iq+KdS3TLSlnMvcK9gyXlc8IcRX4mGrcV0cBkhGqyVLQD0rc1Qt1bKPxljzNpkE30/udFltk92UFOlDONm82O+aAew6Twosi1smt/RqdyD1cJD0BWAgs4ZBDwSLHpY/3s/thd+8vHbDyI9M/Irky2m6fECiZbw+fxrgjyxyJlFMLyOXTs+k1WugLHv0yEhkjEW4icJ+WYVfAHQa8ZE6448IZwh5rpRcvsFA4/4K1GRHTgrxmXjEoNUeHGtqDBa4g6ZcqEfMIYD1BzhGtV4duaZlTLTDy0Oxr3b9yA8e5wswBCtnl8RxcdsY1+s6/ZJNEhnRIDos/K36mvQeiRVzyX1fQEo8bFOc0JYwFezgdfnzIN4X5DzMhO1y7m73ci+qCec5ORXn5fZ7BrnMSshDSnZ6j1cPRhC9zmvHzgQ56Q2mRIoK3fJI9ZcoUE2A5I24T1oCJHfkR7WrtstMEqT7wTgUKAfhOTVe3xUkDI4I4CyVXTidclTaNIR8lc7at5GpJ9pHjsrRfSy4RYQskhgxDd7FG3+fCBciAkxDTXv+lOyw1+Cws0sHMNywJMyrpLsToHyYv5zz0cSdhc8vY3sbK8C0qCTMO/6iwZbLbSRL/qrFScJrxi8o5scFhu3SVAnm4g7zlXxWAbx6NK+Jn650hTZMvHV6MLM2RJN8FxwRrk/cNxB31d1dPOsTITCrANPntBWOEHjY4JCzA3kMf0c1IZ5Y0aPC/S1OBDqjLhVeq+BZNnMKYLn3OKHMBVmKmV+px1O7w7y8jM4CvNfwImYHd9CUwbP5nALMELfmT2vQY4J/FTdL6TuDY7901J+Fbk20mduK1umQ+YjNK8BMJLLFXnkV3yK+wvZCq6mHneWNKTOfhvm4fEEC4gb/Le7KFzDfSv0DAAD//2iF8xMAAAAGSURBVAMApOF8UDSqOKUAAAAASUVORK5CYII=" alt="Ndovesha" class="formula-icon-img"></div>
+        <span class="formula-label">Ndovesha</span>
+      </div>
+      <span class="formula-op">=</span>
+      <div class="formula-node">
+        <div class="formula-icon"><i class="fas fa-chart-line"></i></div>
+        <span class="formula-label">Scale With Confidence</span>
+      </div>
+    </div>
     <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
 <!-- ===== SECTION 2: GROWING AN AGENCY ISN'T THE HARD PART. SCALING IT IS. ===== -->
-<section class="challenges-section">
+<section class="opportunities-section">
   <div class="container center">
-    <h2 class="section-title">Growing an Agency Isn't the Hard Part. <span class="gold">Scaling It Is.</span></h2>
+    <h2 class="section-title">Turn Every Pressure Point Into <span class="gold">An Opportunity</span></h2>
+    <p class="section-sub">AI coworkers take the weight off your team, so the moments that used to slow your agency down become the moments you grow the fastest.</p>
   </div>
 
-  <div class="challenge-grid">
-    <div class="challenge-card">
-      <div class="challenge-icon"><i class="fas fa-ban"></i></div>
-      <span class="challenge-tag">Capacity Limits</span>
-      <h3>Turning Away New Clients</h3>
-      <p>Your team is already fully booked, forcing you to decline new opportunities or delay onboarding.</p>
-    </div>
-
-    <div class="challenge-card">
-      <div class="challenge-icon"><i class="fas fa-clock"></i></div>
-      <span class="challenge-tag">Deadline Pressure</span>
-      <h3>Missing Deadlines</h3>
-      <p>Busy weeks and overlapping projects make it difficult to deliver work on time without burning out your team.</p>
-    </div>
-
-    <div class="challenge-card">
-      <div class="challenge-icon"><i class="fas fa-sack-dollar"></i></div>
-      <span class="challenge-tag">Shrinking Margins</span>
-      <h3>Rising Delivery Costs</h3>
-      <p>Freelancers and subcontractors help fill the gaps—but every invoice reduces your profit margins.</p>
-    </div>
-
-    <div class="challenge-card">
-      <div class="challenge-icon"><i class="fas fa-hourglass-half"></i></div>
-      <span class="challenge-tag">Approval Bottlenecks</span>
-      <h3>Work Waiting for Review</h3>
-      <p>Junior team members depend on senior approvals, slowing delivery and creating unnecessary bottlenecks.</p>
-    </div>
-
-    <div class="challenge-card">
-      <div class="challenge-icon"><i class="fas fa-arrows-up-down-left-right"></i></div>
-      <span class="challenge-tag">Scope Creep</span>
-      <h3>Projects That Keep Growing</h3>
-      <p>Small client requests add up over time, consuming valuable hours without increasing revenue.</p>
-    </div>
+  <div class="opportunity-grid">
+  <div class="opportunity-card">
+    <div class="opportunity-icon"><i class="fas fa-handshake"></i></div>
+    <h3>Say Yes to Every Client</h3>
+     <p>Free up capacity to take on new business instead of turning it away when your team is booked.</p>
   </div>
 
-  <p class="challenge-closing">Every challenge above has one thing in common and that is they're caused by teams running out of capacity, not ambition. That's where AI coworkers make the difference.</p>
-
-  <div class="team-cta-wrap">
-    <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
+  <div class="opportunity-card">
+    <div class="opportunity-icon"><i class="fas fa-calendar-check"></i></div>
+    <h3>Deliver On Time, Every Time</h3>
+     <p>Hit every deadline confidently, even in your busiest weeks, without burning out your team.</p>
   </div>
+
+  <div class="opportunity-card">
+    <div class="opportunity-icon"><i class="fas fa-gauge-high"></i></div>
+    <h3>Stretch Your Team Further</h3>
+     <p>Give your best people room to take on more high-value work without adding headcount.</p>
+  </div>
+
+  <div class="opportunity-card">
+    <div class="opportunity-icon"><i class="fas fa-clipboard-check"></i></div>
+    <h3>Move Work Through Faster</h3>
+    <p>Cut the wait on senior approvals so projects keep moving instead of piling up in review.</p>
+  </div>
+</div>
 </section>
 
 <!-- ===== SECTION 3: EVERYTHING YOUR AGENCY NEEDS TO DELIVER FASTER ===== -->
 <section class="agency-team-section">
   <div class="container center">
-    <h2 class="section-title">Everything Your Agency Needs to <span class="gold">Deliver Faster</span></h2>
-    <p class="section-sub">Give every project the support it needs. Ndovesha AI coworkers work alongside your agency, helping your team deliver more without sacrificing quality or hiring more staff.</p>
+    <h2 class="section-title">Meet Your<span class="gold"> AI Coworkers</span></h2>
+    <p class="section-sub">Ndovesha AI coworkers work alongside your agency, helping your team deliver more without sacrificing quality or hiring more staff.</p>
   </div>
 
-  <div class="why-grid agency-why-grid">
-    <div class="why-item">
-      <div class="why-icon"><i class="fas fa-globe"></i></div>
-      <div>
-        <h3>Website Coworker</h3>
-        <p>Build client websites and landing pages faster, so your team can launch projects without long development cycles.</p>
-      </div>
+  <div class="agency-team-grid">
+    <div class="coworker-card">
+      <div class="coworker-icon"><i class="fas fa-globe"></i></div>
+      <h3>Website Coworker</h3>
+      <p>Build client websites and landing pages faster, so your team can launch projects without long development cycles.</p>
     </div>
 
-    <div class="why-item">
-      <div class="why-icon"><i class="fas fa-pen-nib"></i></div>
-      <div>
-        <h3>Content Coworker</h3>
-        <p>Create blogs, social posts, and campaign copy that keeps every client account active.</p>
-      </div>
+    <div class="coworker-card">
+      <div class="coworker-icon"><i class="fas fa-pen-nib"></i></div>
+      <h3>Content Coworker</h3>
+      <p>Create blogs, social posts, and campaign copy that keeps every client account active.</p>
     </div>
 
-    <div class="why-item">
-      <div class="why-icon"><i class="fas fa-bullhorn"></i></div>
-      <div>
-        <h3>Advertising Coworker</h3>
-        <p>Produce high-converting ad creatives for multiple client campaigns simultaneously.</p>
-      </div>
+    <div class="coworker-card">
+      <div class="coworker-icon"><i class="fas fa-bullhorn"></i></div>
+      <h3>Advertising Coworker</h3>
+      <p>Produce high-converting ad creatives for multiple client campaigns simultaneously.</p>
     </div>
 
-    <div class="why-item">
-      <div class="why-icon"><i class="fas fa-palette"></i></div>
-      <div>
-        <h3>Design Coworker</h3>
-        <p>Design on-brand visuals, social graphics, and marketing assets without waiting on freelancers.</p>
-      </div>
+    <div class="coworker-card">
+      <div class="coworker-icon"><i class="fas fa-palette"></i></div>
+      <h3>Design Coworker</h3>
+      <p>Design on-brand visuals, social graphics, and marketing assets without waiting on freelancers.</p>
     </div>
 
-    <div class="why-item">
-      <div class="why-icon"><i class="fas fa-file-invoice"></i></div>
-      <div>
-        <h3>Sales Materials Coworker</h3>
-        <p>Prepare polished proposals, presentations, and sales collateral that help your agency win new business.</p>
-      </div>
+    <div class="coworker-card">
+      <div class="coworker-icon"><i class="fas fa-file-invoice"></i></div>
+      <h3>Sales Materials Coworker</h3>
+      <p>Prepare polished proposals, presentations, and sales collateral that help your agency win new business.</p>
     </div>
   </div>
 
@@ -873,23 +737,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (!isOpen) fold.classList.add('open');
     });
   });
-</script>
-
-<script>
-(function () {
-  var rows = document.querySelectorAll('.day-row');
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        var rowsArr = Array.from(rows);
-        var i = rowsArr.indexOf(entry.target);
-        setTimeout(function () { entry.target.classList.add('revealed'); }, i * 120);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.35 });
-  rows.forEach(function (row) { observer.observe(row); });
-})();
 </script>
 
 <script>

@@ -73,27 +73,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   margin-top: 4px;
 }
 
-/* ---------- Section 2: Problems (no cards, plain rows) ---------- */
-.problems-section {
+/* ---------- Section 2: Software Types ---------- */
+.software-types-section {
   padding: 52px 0 56px;
   background: var(--white);
 }
 
-.problems-heading-wrap {
+.software-types-heading-wrap {
   text-align: center;
   max-width: 760px;
   margin: 0 auto 14px;
 }
 
-.problems-main-heading {
+.software-types-main-heading {
   font-family: 'Ubuntu', sans-serif;
   font-size: clamp(2rem, 4.5vw, 3.2rem);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--primary);
   line-height: 1.2;
 }
 
-.problems-sub-heading {
+.software-types-sub-heading {
   text-align: center;
   max-width: 680px;
   margin: 0 auto 40px;
@@ -102,92 +102,200 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   line-height: 1.8;
 }
 
-.problems-grid {
+.software-types-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px 40px;
-  max-width: 1080px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 860px;
   margin: 0 auto 38px;
 }
 
-.problem-item {
+.software-type-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  gap: 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 30px 26px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.problem-icon {
-  width: 46px;
-  height: 46px;
+.software-type-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 34px rgba(254,191,15,0.35);
+  border-color: rgba(254,191,15,0.5);
+}
+
+.software-type-icon {
+  width: 54px;
+  height: 54px;
   border-radius: 12px;
-  background: rgba(254,191,15,0.14);
+  background: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
   flex-shrink: 0;
 }
 
-.problem-icon svg {
-  width: 22px;
-  height: 22px;
-  stroke: var(--primary);
+.software-type-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--gold);
   fill: none;
-  stroke-width: 1.8;
+  stroke-width: 2.1;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.problem-item h3 {
+.software-type-card h3 {
   font-size: 1.06rem;
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: 10px;
   line-height: 1.35;
 }
 
-.problem-item p {
+.software-type-card p {
   font-size: 0.92rem;
   color: var(--text-light);
-  line-height: 1.72;
+  line-height: 1.65;
+  margin-bottom: 0;
 }
 
-@media (max-width: 900px) {
-  .problems-grid { grid-template-columns: repeat(2, 1fr); }
-}
 @media (max-width: 560px) {
-  .problems-grid { grid-template-columns: 1fr; }
+  .software-types-grid { grid-template-columns: 1fr; max-width: 420px; }
+  .software-type-card:hover { transform: translateY(-4px); }
 }
 
-/* ---------- Section 3: Develop Faster (heading, sub-heading, CTA only) ---------- */
+/* ---------- Section 3: Coworker Pipeline ---------- */
 .coworkers-section {
   padding: 52px 0 56px;
   background: var(--bg-alt);
 }
 
-.coworkers-heading-wrap {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 14px;
+.coworkers-pipeline {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 60px;
+  max-width: 1080px;
+  margin: 0 auto;
+  align-items: start;
 }
 
-.coworkers-main-heading {
+.coworkers-pipeline-left {
+  position: sticky;
+  top: 90px;
+}
+
+.coworkers-pipeline-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
-  font-weight: 500;
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  font-weight: 700;
   color: var(--primary);
-  line-height: 1.2;
-  margin-bottom: 12px;
+  line-height: 1.28;
+  margin-bottom: 16px;
 }
 
-.coworkers-sub-heading {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto 28px;
-  color: var(--text-light);
+.coworkers-pipeline-text {
   font-size: 1rem;
-  line-height: 1.8;
+  color: var(--text-light);
+  line-height: 1.75;
+  margin-bottom: 26px;
+  max-width: 420px;
+}
+
+.coworkers-pipeline-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.pipeline-step {
+  display: flex;
+  gap: 20px;
+}
+
+.pipeline-icon-col {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pipeline-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pipeline-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pipeline-connector {
+  flex: 1;
+  width: 2px;
+  min-height: 30px;
+  margin: 6px 0;
+  background-image: linear-gradient(var(--border) 55%, transparent 0%);
+  background-position: left;
+  background-size: 2px 9px;
+  background-repeat: repeat-y;
+}
+
+.pipeline-step-body {
+  padding-bottom: 34px;
+}
+
+.pipeline-step:last-child .pipeline-step-body {
+  padding-bottom: 0;
+}
+
+.pipeline-step-num {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.pipeline-step-body h4 {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.pipeline-step-body p {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .coworkers-pipeline { grid-template-columns: 1fr; gap: 36px; }
+  .coworkers-pipeline-left { position: static; text-align: center; }
+  .coworkers-pipeline-text { margin-left: auto; margin-right: auto; }
+}
+
+@media (max-width: 600px) {
+  .pipeline-icon { width: 44px; height: 44px; }
+  .pipeline-icon svg { width: 20px; height: 20px; }
 }
 
 /* ---------- Section 4: Video showcase (real embeds) ---------- */
@@ -378,67 +486,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Hero -->
 <section class="solution-hero">
   <div class="solution-hero-inner">
-    <h1 class="solution-hero-heading">Missed Deadlines, Growing Costs, <span class="gold-static">and Endless Revisions?</span></h1>
-    <p class="solution-hero-sub">Every delay means lost opportunities, frustrated teams, and projects that never seem to move forward. Ndovesha helps you streamline software development, reduce bottlenecks, and deliver faster with confidence.</p>
+    <h1 class="solution-hero-heading">Building Custom Software <span class="gold-static">Shouldn't Take Months.</span></h1>
+    <p class="solution-hero-sub">Turn your ideas into business software faster with Ndovesha AI that helps you design, build, and improve applications in minutes, not months.</p>
     <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy solution-cta">Get Your AI Teammate <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
 <!-- Section 2: Problems -->
-<section class="problems-section">
+<section class="software-types-section">
   <div class="container">
-    <div class="problems-heading-wrap">
-      <h2 class="problems-main-heading">Building Great Software Is Only <span class="gold-static">Half the Job</span>.</h2>
+    <div class="software-types-heading-wrap">
+      <h2 class="software-types-main-heading">Build the software <span class="gold-static">your business needs</span></h2>
     </div>
-    <p class="problems-sub-heading">Successful software development requires more than writing code. Developers must solve complex problems, collaborate with teams, manage changing requirements, and deliver secure, scalable applications on time.</p>
+    <p class="software-types-sub-heading">Whether you need a CRM, booking platform, internal dashboard, customer portal, or inventory system, your AI coworker helps transform your ideas into working software.</p>
 
-    <div class="problems-grid">
-      <div class="problem-item">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+    <div class="software-types-grid">
+      <div class="software-type-card">
+        <div class="software-type-icon">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M4 20c0-3 2.5-5 5-5s5 2 5 5"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M15 20c0-2.2 1.5-3.8 3.5-4.2"></path></svg>
         </div>
-        <h3>Writing Clean Code</h3>
-        <p>Developing scalable, maintainable, and efficient software while following best practices requires careful planning and continuous improvement.</p>
+        <h3>Customer Management Systems</h3>
+        <p>Keep customer details, communication history, and relationships organized in one place.</p>
       </div>
 
-      <div class="problem-item">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <div class="software-type-card">
+        <div class="software-type-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line><polyline points="8 15 11 18 16 12"></polyline></svg>
         </div>
-        <h3>Debugging &amp; Troubleshooting</h3>
-        <p>Finding and fixing bugs across complex applications can slow development and delay software releases.</p>
+        <h3>Appointment Booking Platforms</h3>
+        <p>Let customers book, reschedule, and manage appointments online, synced to your calendar.</p>
       </div>
 
-      <div class="problem-item">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15.5 14"></polyline></svg>
+      <div class="software-type-card">
+        <div class="software-type-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg>
         </div>
-        <h3>Tight Deadlines</h3>
-        <p>Fast-paced development cycles often leave limited time for testing, optimization, and documentation.</p>
+        <h3>Inventory &amp; Stock Systems</h3>
+        <p>Track stock levels, manage suppliers, and stay ahead of shortages in real time.</p>
       </div>
 
-      <div class="problem-item">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="7" rx="1.5"></rect><rect x="14" y="4" width="7" height="7" rx="1.5"></rect><rect x="3" y="15" width="7" height="5" rx="1.5"></rect><rect x="14" y="15" width="7" height="5" rx="1.5"></rect></svg>
+      <div class="software-type-card">
+        <div class="software-type-icon">
+          <svg viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="20"></line><rect x="6" y="12" width="3" height="8"></rect><rect x="11" y="8" width="3" height="12"></rect><rect x="16" y="4" width="3" height="16"></rect></svg>
         </div>
-        <h3>Managing Multiple Projects</h3>
-        <p>Working across several repositories, applications, or client projects can quickly become difficult to manage.</p>
-      </div>
-
-      <div class="problem-item">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line></svg>
-        </div>
-        <h3>Documentation</h3>
-        <p>Keeping technical documentation, API references, and project guides accurate and up to date requires ongoing effort.</p>
-      </div>
-
-      <div class="problem-item">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="9"></circle></svg>
-        </div>
-        <h3>Testing &amp; Quality Assurance</h3>
-        <p>Ensuring applications perform reliably across different browsers, devices, and environments is critical before deployment.</p>
+        <h3>Business Dashboards</h3>
+        <p>Visualize key metrics and business data in one place so you can make faster decisions.</p>
       </div>
     </div>
 
@@ -448,16 +540,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- Section 3: Develop Faster -->
+<!-- Section 3: Coworker Pipeline -->
 <section class="coworkers-section">
   <div class="container">
-    <div class="coworkers-heading-wrap">
-      <h2 class="coworkers-main-heading">Develop Faster with <span class="gold-static">AI Coworkers</span>.</h2>
-    </div>
-    <p class="coworkers-sub-heading">From planning your application to deployment, AI coworkers help streamline every stage of the software development lifecycle so you can build reliable software more efficiently.</p>
+    <div class="coworkers-pipeline">
+      <div class="coworkers-pipeline-left">
+        <h3 class="coworkers-pipeline-heading">Building Software Has Never<span class="gold-static"> Been This Simple.</span></h3>
+        <p class="coworkers-pipeline-text">No dev team, no long build cycles. Describe what you need and your AI coworker takes it from first draft to a live application you can keep improving.</p>
+        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Your AI Teammate <span aria-hidden="true">→</span></a>
+      </div>
 
-    <div class="ai-cta-center">
-      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Your AI Teammate <span aria-hidden="true">→</span></a>
+      <div class="coworkers-pipeline-right">
+
+        <div class="pipeline-step">
+          <div class="pipeline-icon-col">
+            <div class="pipeline-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.6 8.6 0 0 1-3.5-.8L3 20l1.1-5.6a8.4 8.4 0 0 1-.6-3.1A8.4 8.4 0 0 1 12.5 3a8.4 8.4 0 0 1 8.5 8.5z"></path></svg>
+            </div>
+            <div class="pipeline-connector"></div>
+          </div>
+          <div class="pipeline-step-body">
+            <span class="pipeline-step-num">01</span>
+            <h4>Describe Your Idea</h4>
+            <p>Tell your coworker what your business needs and how you want it to work.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="pipeline-icon-col">
+            <div class="pipeline-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="8" y1="4" x2="8" y2="9"></line><line x1="12" y1="13" x2="17" y2="13"></line><line x1="12" y1="17" x2="15" y2="17"></line></svg>
+            </div>
+            <div class="pipeline-connector"></div>
+          </div>
+          <div class="pipeline-step-body">
+            <span class="pipeline-step-num">02</span>
+            <h4>Plan Your Software</h4>
+            <p>Your coworker structures the pages, features, workflows, and user experience.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="pipeline-icon-col">
+            <div class="pipeline-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg>
+            </div>
+            <div class="pipeline-connector"></div>
+          </div>
+          <div class="pipeline-step-body">
+            <span class="pipeline-step-num">03</span>
+            <h4>Review &amp; Refine</h4>
+            <p>Request changes, add new features, and customize your software.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="pipeline-icon-col">
+            <div class="pipeline-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2c2.5 2 4 5.5 4 9 0 2-.5 4-1.3 5.5l-2.7 3-2.7-3C8.5 15 8 13 8 11c0-3.5 1.5-7 4-9z"></path><circle cx="12" cy="10" r="1.8"></circle><path d="M8.5 16.5 5 20l1-4 2.2-1.3"></path><path d="M15.5 16.5 19 20l-1-4-2.2-1.3"></path></svg>
+            </div>
+          </div>
+          <div class="pipeline-step-body">
+            <span class="pipeline-step-num">04</span>
+            <h4>Launch &amp; Improve</h4>
+            <p>Deploy your application and continue improving it as your business evolves.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>

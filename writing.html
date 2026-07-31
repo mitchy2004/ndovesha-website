@@ -86,19 +86,19 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .challenges-rows { padding: 70px 5%; background: var(--light-gray); }
 .row-list {
   max-width: 1000px; margin: 44px auto 0;
-  display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 30px 40px;
+  display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; gap: 30px 40px;
 }
 .row-item {
   display: flex; flex-direction: column; align-items: flex-start;
 }
 .row-icon {
   width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
-  background: rgba(10,42,102,0.06); color: var(--primary);
+  background: var(--primary); color: var(--gold);
   display: flex; align-items: center; justify-content: center; font-size: 1.15rem;
   transition: background 0.25s ease, color 0.25s ease;
   margin-bottom: 18px;
 }
-.row-item:hover .row-icon { background: var(--gold); color: var(--primary); }
+.row-item:hover .row-icon { background: var(--primary-light); color: var(--gold); }
 .row-item h3 { font-size: 1.12rem; font-weight: 800; color: var(--primary); line-height: 1.3; margin-bottom: 10px; }
 .row-item p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; margin: 0; }
 
@@ -176,6 +176,21 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .faq-answer p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
 .faq-answer p:last-child { margin-bottom: 0; }
 
+.row-btn {
+  display: flex; align-items: center; gap: 18px; width: 100%;
+  background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+  padding: 22px 24px; text-align: left; text-decoration: none; cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.row-btn:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(254,191,15,0.28);
+  border-color: rgba(254,191,15,0.5);
+}
+.row-btn .row-icon { margin-bottom: 0; flex-shrink: 0; }
+.row-btn:hover .row-icon { background: var(--primary-light); }
+.row-btn-text h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+.row-btn-text p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin: 0; }
 
 </style>
 </head>
@@ -289,50 +304,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== HERO ===== -->
 <section class="hero-page">
   <div class="container center">
-    <h1>Write Content That <span class="gold">Connects.</span></h1>
-    <p class="hero-page-sub">Create blogs, website copy, emails, articles, and marketing content faster with AI coworkers that help you research, write, edit, and refine every piece of content.</p>
+    <h1>Creating More Content Shouldn't Mean<span class="gold"> More Work.</span></h1>
+    <p class="hero-page-sub">Empower your team with AI coworkers that help brainstorm, draft, and refine content faster so you can create more without increasing your workload.</p>
     <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
-<!-- ===== PROBLEM SECTION (no cards) ===== -->
+<!-- ===== OPPORTUNITY SECTION (no cards) ===== -->
 <section class="challenges-rows">
   <div class="container center">
-    <h2 class="section-title">Every Great Story Starts with a Blank <span class="gold">Page.</span></h2>
-    <p class="section-sub">Whether you're writing for websites, businesses, or marketing campaigns, producing high-quality content consistently requires creativity, research, and time.</p>
+    <h2 class="section-title">You + Ndovesha <span class="gold">= Better Content.</span></h2>
+    <p class="section-sub">From brainstorming to publishing, Ndovesha gives your team AI coworkers that help create high-quality content faster so you can spend less time writing and more time delivering value.</p>
   </div>
 
   <div class="row-list">
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-pen"></i></div>
-      <h3>Writer's Block</h3>
-      <p>Staring at a blank page and struggling to find the right words to start can stall a project before it even begins.</p>
-    </div>
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-magnifying-glass"></i></div>
-      <h3>Research</h3>
-      <p>Gathering accurate information, data, and context for every topic takes time that could be spent actually writing.</p>
-    </div>
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-eraser"></i></div>
-      <h3>Editing</h3>
-      <p>Refining structure, tightening sentences, and polishing tone across every draft is necessary, but it adds up fast.</p>
-    </div>
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-music"></i></div>
-      <h3>Maintaining Tone</h3>
-      <p>Keeping a consistent voice across blogs, captions, and emails gets harder as content volume and channels grow.</p>
-    </div>
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-hourglass-half"></i></div>
-      <h3>Meeting Deadlines</h3>
-      <p>Content calendars and campaign launches don't wait, even on the days when inspiration does.</p>
-    </div>
-    <div class="row-item">
-      <div class="row-icon"><i class="fas fa-layer-group"></i></div>
-      <h3>Writing at Scale</h3>
-      <p>Producing consistent, high-quality content across multiple channels and formats stretches most teams thin.</p>
-    </div>
+    <a class="row-btn" href="https://chat.ndovesha.ai/signup">
+      <div class="row-icon"><i class="fas fa-lightbulb"></i></div>
+      <div class="row-btn-text">
+        <h3>Brainstorm Better</h3>
+        <p>Generate fresh ideas, outlines, headlines, and creative angles in seconds.</p>
+      </div>
+    </a>
+    <a class="row-btn" href="https://chat.ndovesha.ai/signup">
+      <div class="row-icon"><i class="fas fa-feather-pointed"></i></div>
+      <div class="row-btn-text">
+        <h3>Draft Faster</h3>
+        <p>Turn simple prompts into polished first drafts in seconds.</p>
+      </div>
+    </a>
+    <a class="row-btn" href="https://chat.ndovesha.ai/signup">
+      <div class="row-icon"><i class="fas fa-bullseye"></i></div>
+      <div class="row-btn-text">
+        <h3>Stay Consistent</h3>
+        <p>Maintain a consistent tone and style across every project.</p>
+      </div>
+    </a>
+    <a class="row-btn" href="https://chat.ndovesha.ai/signup">
+      <div class="row-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+      <div class="row-btn-text">
+        <h3>Refine With Confidence</h3>
+        <p>Improve clarity, structure, and readability before publishing.</p>
+      </div>
+    </a>
   </div>
 
   <div class="container center" style="margin-top:16px;">
@@ -344,23 +357,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="coworkers-section">
   <div class="container center">
     <h2 class="section-title">Write Smarter with <span class="gold">AI Coworkers.</span></h2>
+    <p>Empower your team with AI coworkers that draft content, refine messaging, and speed up every writing task without compromising quality.</p>
   </div>
 
   <div class="coworkers-grid">
     <div class="coworker-card">
       <div class="coworker-icon"><i class="fas fa-comment-dots"></i></div>
       <h3>Captions</h3>
-      <p class="desc">Create compelling captions for Instagram, Facebook, LinkedIn, TikTok, and X. Generate platform-specific content that captures attention, encourages interaction, and reflects your brand's voice.</p>
+      <p class="desc">Create compelling captions for social media platforms. Generate content that captures attention, encourages interaction, and reflects your brand's voice.</p>
     </div>
     <div class="coworker-card">
       <div class="coworker-icon"><i class="fas fa-newspaper"></i></div>
       <h3>Blog Articles</h3>
-      <p class="desc">Generate well-researched, engaging blog posts that educate your audience and improve search rankings. From thought leadership to product guides, produce high-quality content in minutes.</p>
+      <p class="desc">Generate well-researched, engaging blog posts that educate your audience and improve search rankings.</p>
     </div>
     <div class="coworker-card">
       <div class="coworker-icon"><i class="fas fa-display"></i></div>
       <h3>Presentations</h3>
-      <p class="desc">Create clear, persuasive presentation content for business pitches, training sessions, reports, sales meetings, and educational purposes. Organize your ideas into polished, audience-ready slides.</p>
+      <p class="desc">Create clear, persuasive presentation content for business pitches, training sessions, reports, sales meetings, and educational purposes.</p>
     </div>
   </div>
 
@@ -373,6 +387,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="tutorials-section">
   <div class="container center">
     <h2 class="section-title">See Writing in <span class="gold">Action.</span></h2>
+    <p>Watch how your AI writing coworker streamlines the writing process, turning ideas into polished content while helping your team save time and focus on higher-value work.</p>
   </div>
 
   <div class="tutorials-grid">
@@ -633,5 +648,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
