@@ -17,19 +17,12 @@
   --shadow-lg: 0 8px 40px rgba(10,42,102,0.14);
   --radius: 14px;
   --radius-sm: 8px;
-  /* Before & After card backgrounds */
-    --before-bg: #FFF4F4;
-    --after-bg: #FFF8E8;
-
-    /* Matching borders */
-    --before-border: #F3CACA;
-    --after-border: #F3D37A;
-  
+  --before-bg: #FFF4F4;
+  --after-bg: #FFF8E8;
+  --before-border: #F3CACA;
+  --after-border: #F3D37A;
 }
 
-/* ============================================================
-   RESET
-============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
@@ -38,9 +31,6 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 28px; }
 
-/* ============================================================
-   NAV
-============================================================ */
 .nav {
   position: sticky;
   top: 0;
@@ -64,7 +54,6 @@ img { max-width: 100%; display: block; }
 }
 .logo-img { height: 52px; width: auto; max-width: 200px; object-fit: contain; }
 
-/* Center nav */
 .nav-center { display: flex; align-items: center; gap: 4px; list-style: none; }
 .nav-center > li { position: relative; }
 .nav-center > li > a {
@@ -84,7 +73,6 @@ img { max-width: 100%; display: block; }
 .nav-arrow { font-size: 0.8rem; margin-left: 2px; transition: transform 0.2s; display: inline-block; }
 .nav-center > li:hover .nav-arrow { transform: rotate(180deg); }
 
-/* Dropdown */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -99,8 +87,6 @@ img { max-width: 100%; display: block; }
   z-index: 2000;
   overflow: hidden;
 }
-/* Invisible bridge so the mouse never "leaves" the hoverable area
-   while crossing the gap between the nav link and the dropdown */
 .dropdown-menu::after {
   content: '';
   position: absolute;
@@ -123,7 +109,6 @@ img { max-width: 100%; display: block; }
 .dropdown-menu li a:hover { color: var(--gold); background: var(--light-grey); }
 .dropdown-divider { height: 1px; background: var(--border); margin: 0; }
 
-/* Nav Right */
 .nav-right { display: flex; align-items: center; gap: 10px; }
 .btn-login {
   font-family: 'Ubuntu', sans-serif;
@@ -163,7 +148,6 @@ img { max-width: 100%; display: block; }
 }
 .btn-cta:hover { transform: translateY(-3px); box-shadow: var(--green-glow); border-radius: 10px; }
 
-/* Mobile nav */
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -223,9 +207,6 @@ img { max-width: 100%; display: block; }
   .mobile-menu-btn { display: block; }
 }
 
-/* ============================================================
-   HERO SECTION
-============================================================ */
 .hero-section {
   min-height: auto;
   background: var(--light-grey);
@@ -258,7 +239,6 @@ img { max-width: 100%; display: block; }
   max-width: 500px;
 }
 
-/* Search Bar */
 .search-bar-wrap { width: 100%; max-width: 720px; position: relative; margin-bottom: 20px; }
 .search-bar {
   display: flex;
@@ -324,7 +304,6 @@ img { max-width: 100%; display: block; }
 .send-icon:hover { background: var(--primary-dark); transform: scale(1.05); }
 .send-icon svg { color: white; }
 
-/* Capability Icons */
 .capability-icons { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 16px; }
 .cap-icon-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.22s; }
 .cap-icon-item:hover { transform: translateY(-6px); }
@@ -353,9 +332,6 @@ img { max-width: 100%; display: block; }
   .search-bar-wrap { max-width: 100%; }
 }
 
-/* ============================================================
-   SECTION 2 — HIRE AI COWORKERS
-============================================================ */
 .hire-section {
   padding: 48px 0 80px;
   background: var(--bg-alt);
@@ -379,16 +355,15 @@ img { max-width: 100%; display: block; }
 .hire-ai-text {
   display: inline-block;
   margin-bottom: 6px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
-/* The word "Coworkers" — gently enlarges on a repeating 2-second cycle */
 .gold-coworkers {
   color: var(--gold);
-  font-weight: 700;
+  font-weight: 600;
   display: inline-block;
   position: relative;
-  padding-bottom: 8px;   /* small gap so the word and divider don't crowd the line */
+  padding-bottom: 8px;
   vertical-align: baseline;
   animation: growCoworkers 2s ease-in-out infinite;
 }
@@ -398,8 +373,6 @@ img { max-width: 100%; display: block; }
   50%      { transform: scale(1.08); }
 }
 
-/* Clipping wrapper for the divider — kept separate from the text itself so it
-   doesn't affect "Coworkers"' baseline / vertical alignment with "Hire AI" */
 .coworkers-divider {
   position: absolute;
   left: 0;
@@ -410,8 +383,6 @@ img { max-width: 100%; display: block; }
   border-radius: 2px;
 }
 
-/* Glowing segment that continuously sweeps left to right and restarts seamlessly
-   — this is the only part of the divider that's visible; there is no static track */
 .coworkers-divider::before {
   content: '';
   position: absolute;
@@ -438,7 +409,6 @@ img { max-width: 100%; display: block; }
   100% { left: 100%; }
 }
 
-/* AI Cards */
 .ai-cards-grid {
   display: flex;
   flex-wrap: wrap;
@@ -448,15 +418,15 @@ img { max-width: 100%; display: block; }
 }
 
 .ai-card {
-  flex: 0 1 calc((100% - 48px) / 3); /* 3 per row, accounts for 2 gaps */
+  flex: 0 1 calc((100% - 48px) / 3);
   min-width: 240px;
 }
 
 @media (max-width: 900px) {
-  .ai-card { flex: 0 1 calc((100% - 24px) / 2); } /* 2 per row */
+  .ai-card { flex: 0 1 calc((100% - 24px) / 2); }
 }
 @media (max-width: 560px) {
-  .ai-card { flex: 0 1 100%; } /* 1 per row */
+  .ai-card { flex: 0 1 100%; }
 }
 
 .ai-card {
@@ -481,7 +451,6 @@ img { max-width: 100%; display: block; }
   border-color: rgba(254,191,15,0.3);
 }
 
-/* Icon box — navy background, static (no spin/bounce/pulse of its own) */
 .ai-card-icon {
   width: 66px;
   height: 66px;
@@ -523,7 +492,6 @@ img { max-width: 100%; display: block; }
   line-height: 1.72;
 }
 
-/* CTA button */
 .ai-cta-center { text-align: center;
 margin-top: 50px;
 }
@@ -545,7 +513,6 @@ margin-top: 50px;
   border: 2px solid transparent;
 }
 
-/* Navy CTA */
 .btn-navy {
   background: var(--primary);
   color: var(--white);
@@ -563,9 +530,6 @@ margin-top: 50px;
   .hire-section { padding: 40px 0 60px; }
 }
 
-/* ============================================================
-   SECTION 3 — The difference Ndovesha Makes.
-============================================================ */
 .challenges-section {
   padding: 64px 0;
   background: var(--light-grey);
@@ -579,22 +543,24 @@ margin-top: 50px;
 
 .challenges-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2.4rem);
-  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
   color: var(--primary);
-  line-height: 1.25;
+  line-height: 1.1;
+  margin-bottom: 10px;
 }
 
 .gold-challenges { color: var(--gold); }
 
 .challenges-sub {
   margin-top: 14px;
-  font-size: 1rem;
+    font-size: clamp(1rem, 1.8vw, 1.18rem);
+  color: var(--text-light);
+  font-weight: 400;
   color: var(--text-light);
   line-height: 1.6;
 }
 
-/* Column headers */
 .challenges-col-headers {
   display: grid;
   grid-template-columns: 1fr 40px 1fr;
@@ -604,7 +570,7 @@ margin-top: 50px;
 }
 .col-header-left {
   grid-column: 1;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -613,7 +579,7 @@ margin-top: 50px;
 }
 .col-header-right {
   grid-column: 3;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -621,7 +587,6 @@ margin-top: 50px;
   text-align: center;
 }
 
-/* List */
 .challenges-list {
   max-width: 1100px;
   margin: 0 auto;
@@ -637,7 +602,6 @@ margin-top: 50px;
   gap: 0 14px;
 }
 
-/* Buttons — the core visual unit */
 .challenge-btn {
   display: flex;
   align-items: center;
@@ -652,28 +616,28 @@ margin-top: 50px;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-/* Left button — challenge (soft red outline, no fill) */
 .challenge-btn-left {
   background: none;
-  border: 1.5px solid var(--before-border);
+  border: 2px solid var(--before-border);
   box-shadow: none;
+  border-color: #ea3333;
 }
 .challenge-btn-left:hover {
   transform: translateY(-2px);
-  border-color: #E88888;
-  box-shadow: 0 6px 18px rgba(220,38,38,0.1);
+  border-color: #e65151;
+   box-shadow: 0 6px 18px rgba(237, 209, 68, 0.2);
 }
 
-/* Right button — Ndovesha (soft golden yellow outline, no fill) */
 .challenge-btn-right {
   background: none;
-  border: 1.5px solid var(--after-border);
+  border: 2px solid var(--after-border);
   box-shadow: none;
+  border-color: var(--gold);
 }
 .challenge-btn-right:hover {
   transform: translateY(-2px);
   border-color: var(--gold);
-  box-shadow: 0 6px 18px rgba(254,191,15,0.2);
+  box-shadow: 0 6px 18px rgba(218, 185, 22, 0.2);
 }
 
 .challenge-icon {
@@ -709,13 +673,13 @@ margin-top: 50px;
 }
 
 .challenge-title {
-  font-size: 0.86rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 550;
   color: var(--primary);
 }
 
 .challenge-desc {
-  font-size: 0.76rem;
+  font-size: 0.98rem;
   line-height: 1.45;
   color: var(--text-light);
 }
@@ -744,7 +708,6 @@ margin-top: 50px;
   margin-top: 44px;
 }
 
-/* Responsive — stack left/right buttons on smaller screens */
 @media (max-width: 860px) {
   .challenges-col-headers { display: none; }
   .challenge-row {
@@ -761,12 +724,10 @@ margin-top: 50px;
   .challenge-title { font-size: 0.82rem; }
   .challenge-desc { font-size: 0.72rem; }
 }
-/* ============================================================
-   SECTION 4 — WHAT WILL YOU BUILD?
-============================================================ */
+
 .build-section {
   padding: 60px 0 60px;
-  background: var(--bg-alt, #E9EAEE); /* same dark light-grey background used in Section 2 */
+  background: var(--bg-alt, #E9EAEE);
 }
 
 .build-heading-wrap {
@@ -784,13 +745,12 @@ margin-top: 50px;
   white-space: nowrap;
 }
 
-/* The word "Build?" — gently enlarges on a repeating 2-second cycle */
 .gold-build {
   color: var(--gold);
   font-weight: 700;
   display: inline-block;
   position: relative;
-  padding-bottom: 8px;   /* small gap so the word and divider don't crowd the line */
+  padding-bottom: 8px;
   vertical-align: baseline;
   animation: growBuild 2s ease-in-out infinite;
 }
@@ -800,8 +760,6 @@ margin-top: 50px;
   50%      { transform: scale(1.08); }
 }
 
-/* Clipping wrapper for the divider — same premium animated divider used
-   under "Coworkers" in Section 2, reused here under "Build?" */
 .build-divider {
   position: absolute;
   left: 0;
@@ -841,7 +799,6 @@ margin-top: 50px;
   margin-bottom: 40px;
 }
 
-/* Six rounded buttons, 2 rows x 3 columns */
 .build-buttons-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -898,13 +855,9 @@ margin-top: 50px;
   margin-top: 60px;
 }
 
-
-/* ============================================================
-   SECTION 5 — WATCH THE TUTORIAL
-============================================================ */
 .tutorial-section {
   padding: 60px 0 60px;
-  background: var(--light-grey); /* same background as the hero/home section */
+  background: var(--light-grey);
 }
 
 .tutorial-heading-wrap {
@@ -922,7 +875,6 @@ margin-top: 50px;
   white-space: nowrap;
 }
 
-/* The word "Tutorial" — gently enlarges on a repeating 2-second cycle */
 .gold-tutorial {
   color: var(--gold);
   font-weight: 700;
@@ -943,13 +895,12 @@ margin-top: 50px;
   margin: 0 auto;
 }
 
-/* Responsive 16:9 video embed */
 .tutorial-video-wrap {
   max-width: 860px;
   margin: 32px auto 0;
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -974,11 +925,8 @@ margin-top: 50px;
   .tutorial-section { padding: 40px 0 40px; }
 }
 
-/* ============================================================
-   FOOTER LINKS SECTION (sits above the icon/copyright footer)
-============================================================ */
 .footer-links-section {
-  background: var(--light-grey); /* same light-grey used in Section 1 / hero */
+  background: var(--light-grey);
   padding: 56px 0 40px;
 }
 
@@ -1022,10 +970,6 @@ margin-top: 50px;
   color: var(--gold);
 }
 
-
-/* ============================================================
-   SECTION 6 — SEE AI TEAMS IN ACTION
-============================================================ */
 .case-studies-section {
   padding: 64px 0 64px;
   background: linear-gradient(
@@ -1153,11 +1097,6 @@ margin-top: 50px;
   .case-studies-main-heading { white-space: normal; }
 }
 
-/* ============================================================
-   AI + HUMAN — BETTER TOGETHER
-   Uses the site's existing --primary, --gold, --white, --border,
-   --shadow, --shadow-lg, --radius, --text, --text-light variables.
-============================================================ */
 .together-section {
   padding: 64px 0;
   background: var(--white);
@@ -1194,7 +1133,6 @@ margin-top: 50px;
   transform: translateY(0);
 }
 
-/* ---- main panel container ---- */
 .together-panel {
   max-width: 1200px;
   margin: 0 auto;
@@ -1219,7 +1157,6 @@ margin-top: 50px;
   align-items: start;
 }
 
-/* ---- columns ---- */
 .together-col {
   opacity: 0;
   transition: opacity .6s cubic-bezier(.19,1,.22,1), transform .6s cubic-bezier(.19,1,.22,1);
@@ -1273,7 +1210,6 @@ margin-top: 50px;
 }
 .together-section.in-view .col-list li { opacity: 1; transform: translateY(0); }
 
-/* stagger — left column items (7) */
 .col-ai .col-list li:nth-child(1) { transition-delay: .6s, .6s, 0s, 0s, 0s; }
 .col-ai .col-list li:nth-child(2) { transition-delay: .67s, .67s, 0s, 0s, 0s; }
 .col-ai .col-list li:nth-child(3) { transition-delay: .74s, .74s, 0s, 0s, 0s; }
@@ -1281,7 +1217,6 @@ margin-top: 50px;
 .col-ai .col-list li:nth-child(5) { transition-delay: .88s, .88s, 0s, 0s, 0s; }
 .col-ai .col-list li:nth-child(6) { transition-delay: .95s, .95s, 0s, 0s, 0s; }
 .col-ai .col-list li:nth-child(7) { transition-delay: 1.02s, 1.02s, 0s, 0s, 0s; }
-/* stagger — right column items (7) */
 .col-human .col-list li:nth-child(1) { transition-delay: .6s, .6s, 0s, 0s, 0s; }
 .col-human .col-list li:nth-child(2) { transition-delay: .67s, .67s, 0s, 0s, 0s; }
 .col-human .col-list li:nth-child(3) { transition-delay: .74s, .74s, 0s, 0s, 0s; }
@@ -1303,7 +1238,6 @@ margin-top: 50px;
   transition: background-color .25s ease;
 }
 
-/* ---- center divider + handshake ---- */
 .together-divider {
   display: flex;
   flex-direction: column;
@@ -1348,7 +1282,6 @@ margin-top: 50px;
   white-space: nowrap;
 }
 
-/* ---- bottom result panel ---- */
 .result-panel {
   margin-top: 28px;
   padding-top: 24px;
@@ -1422,7 +1355,6 @@ margin-top: 50px;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-/* ---- responsive ---- */
 @media (max-width: 900px) {
   .together-panel { padding: 40px 28px; }
   .together-cols { grid-template-columns: 1fr; gap: 0; }
@@ -1444,9 +1376,7 @@ margin-top: 50px;
   .result-chips { gap: 8px; }
   .result-chip { font-size: 0.8rem; padding: 8px 14px; }
 }
-/* ============================================================
-   SECTION 8 — FAQ
-============================================================ */
+
 .faq-section {
   padding: 64px 0 64px;
   background: var(--bg-alt);
@@ -1467,7 +1397,6 @@ margin-top: 50px;
   margin: 0 auto;
 }
 
-/* "AI workers" — gently enlarges on a repeating 2-second cycle */
 .gold-ai-workers {
   color: var(--gold);
   font-weight: 700;
@@ -1505,7 +1434,6 @@ margin-top: 50px;
   margin: 0;
 }
 
-/* Plus/minus toggle — no border or outline, just a gold icon */
 .faq-toggle-btn {
   background: none;
   border: none;
@@ -1530,7 +1458,7 @@ margin-top: 50px;
 }
 
 .faq-item.open .faq-toggle-btn::before {
-  content: '\2212'; /* minus sign */
+  content: '\2212';
 }
 
 .faq-answer {
@@ -1568,12 +1496,8 @@ margin-top: 50px;
   .case-studies-main-heading { white-space: normal; }
 }
 
-
-/* ============================================================
-   FOOTER
-============================================================ */
 .site-footer {
-  background: var(--bg-alt); /* same light-grey used in Section 2 */
+  background: var(--bg-alt);
   padding: 48px 0 32px;
 }
 
@@ -1613,8 +1537,6 @@ margin-top: 50px;
   fill: currentColor;
 }
 
-/* Outline-style icons (Instagram, Reddit) need fill turned off so their
-   shapes render as outlines instead of solid, unrecognizable blobs */
 .footer-social-btn svg.icon-outline {
   fill: none;
 }
@@ -1626,15 +1548,11 @@ margin-top: 50px;
   border-top: 1px solid var(--border);
 }
 
-
 .footer-copyright {
   font-size: 0.85rem;
   color: var(--primary);
 }
 
-/* ============================================================
-   FLOATING WHATSAPP BUTTON (bottom-right)
-============================================================ */
 .whatsapp-float {
   position: fixed;
   bottom: 28px;
@@ -1646,7 +1564,7 @@ margin-top: 50px;
   border-radius: 27px;
   overflow: hidden;
   text-decoration: none;
-  box-shadow: var(--shadow); /* soft neutral shadow — no permanent green glow */
+  box-shadow: var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1683,9 +1601,6 @@ margin-top: 50px;
   white-space: nowrap;
 }
 
-/* ============================================================
-   FLOATING SCROLL-TO-TOP / HOME ARROW BUTTON (bottom-left)
-============================================================ */
 .scroll-top-btn {
   position: fixed;
   bottom: 28px;
