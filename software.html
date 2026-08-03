@@ -15,6 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="description" content="Build smarter software with AI coworkers that write clean code, debug faster, design databases, and integrate APIs so your team ships reliable applications faster.">
 <link rel="canonical" href="https://ndovesha.ai/software">
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon-32x32.png">
@@ -42,6 +43,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* ---------- Hero ---------- */
 .gold-static { color: var(--gold); font-weight: 700; }
 .solution-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--light-grey);
   padding: 52px 24px 46px;
 }
@@ -70,22 +75,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 .solution-cta {
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
-/* ---------- Section 2: Software Types ---------- */
-.software-types-section {
+/* ---------- Shared: section eyebrow label ---------- */
+.section-eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+/* ---------- Section 2: Problems ---------- */
+.problems-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 52px 0 56px;
   background: var(--white);
 }
 
-.software-types-heading-wrap {
+.problems-heading-wrap {
   text-align: center;
   max-width: 760px;
   margin: 0 auto 14px;
 }
 
-.software-types-main-heading {
+.problems-main-heading {
   font-family: 'Ubuntu', sans-serif;
   font-size: clamp(2rem, 4.5vw, 3.2rem);
   font-weight: 700;
@@ -93,85 +112,100 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   line-height: 1.2;
 }
 
-.software-types-sub-heading {
+.problems-sub-heading {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 40px;
+  margin: 0 auto 44px;
   color: var(--text-light);
   font-size: 1rem;
   line-height: 1.8;
 }
 
-.software-types-grid {
+.problem-cards-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  max-width: 860px;
-  margin: 0 auto 38px;
+  max-width: 1100px;
+  margin: 0 auto 40px;
 }
 
-.software-type-card {
+.problem-card-v2 {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 14px;
   background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 30px 26px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  border: 2px solid var(--primary);
+  border-radius: 30px 30px 30px 6px;
+  padding: 32px 28px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.software-type-card:hover {
+.problem-card-v2:hover {
   transform: translateY(-8px);
-  box-shadow: 0 16px 34px rgba(254,191,15,0.35);
-  border-color: rgba(254,191,15,0.5);
+  box-shadow: 0 18px 38px rgba(254,191,15,0.3);
+  border-color: var(--gold);
 }
 
-.software-type-icon {
-  width: 54px;
-  height: 54px;
-  border-radius: 12px;
+.problem-card-v2:hover .problem-card-v2-icon {
+  background: var(--gold);
+  color: var(--primary);
+}
+
+.problem-card-v2-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+  min-height: 64px;
+}
+
+/* Challenges section: icon precedes heading, left-aligned */
+.problems-section .problem-card-v2-top {
+  justify-content: flex-start;
+}
+
+.problem-card-v2-top h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.problem-card-v2-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   background: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  font-size: 1.3rem;
+  color: var(--gold);
+  line-height: 1;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.software-type-icon svg {
-  width: 26px;
-  height: 26px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 2.1;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.software-type-card h3 {
-  font-size: 1.06rem;
-  font-weight: 700;
-  color: var(--primary);
-  line-height: 1.35;
-}
-
-.software-type-card p {
+.problem-card-v2 .problem-desc {
   font-size: 0.92rem;
   color: var(--text-light);
   line-height: 1.65;
   margin-bottom: 0;
 }
 
-@media (max-width: 560px) {
-  .software-types-grid { grid-template-columns: 1fr; max-width: 420px; }
-  .software-type-card:hover { transform: translateY(-4px); }
+@media (max-width: 900px) {
+  .problem-cards-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .problem-cards-grid { grid-template-columns: 1fr; }
+  .problem-card-v2:hover { transform: translateY(-4px); }
 }
 
 /* ---------- Section 3: Coworker Pipeline ---------- */
 .coworkers-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 52px 0 56px;
   background: var(--bg-alt);
 }
@@ -192,7 +226,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 .coworkers-pipeline-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
   font-weight: 700;
   color: var(--primary);
   line-height: 1.28;
@@ -200,10 +234,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 .coworkers-pipeline-text {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--text-light);
   line-height: 1.75;
-  margin-bottom: 26px;
+  margin-bottom: 22px;
   max-width: 420px;
 }
 
@@ -250,7 +284,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   flex: 1;
   width: 2px;
   min-height: 30px;
-  margin: 6px 0;
+  margin: 4px 0 0;
   background-image: linear-gradient(var(--gold) 55%, transparent 0%);
   background-position: left;
   background-size: 2px 9px;
@@ -260,7 +294,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .pipeline-connector::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -280,7 +314,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 .pipeline-step-num {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   color: var(--gold);
@@ -288,7 +322,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 .pipeline-step-body h4 {
-  font-size: 1.08rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--primary);
   margin-bottom: 6px;
@@ -296,7 +330,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 .pipeline-step-body p {
-  font-size: 0.92rem;
+  font-size: 0.96rem;
   color: var(--text-light);
   line-height: 1.6;
 }
@@ -314,6 +348,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 /* ---------- Section 4: Video showcase (real embeds) ---------- */
 .video-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 52px 0 56px;
   background: var(--light-grey);
 }
@@ -383,7 +420,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 /* ---------- FAQ section spacing + dividers ---------- */
-.faq-section { padding: 52px 0 56px; }
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 52px 0 56px;
+}
 .faq-item {
   border-bottom: 1px solid var(--border);
   padding: 20px 0;
@@ -500,51 +542,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Hero -->
 <section class="solution-hero">
   <div class="solution-hero-inner">
-    <h1 class="solution-hero-heading">Building Custom Software <span class="gold-static">Shouldn't Take Months.</span></h1>
-    <p class="solution-hero-sub">Turn your ideas into business software faster with Ndovesha AI that helps you design, build, and improve applications in minutes, not months.</p>
+    <h1 class="solution-hero-heading">Building Software Has Been <span class="gold-static">Too Expensive for Too Long.</span></h1>
+    <p class="solution-hero-sub">Building custom software required months of development and budgets many businesses couldn't justify. Ndovesha AI Coworkers are helping you build faster and turn ideas into working software with less complexity.</p>
     <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy solution-cta">Get Your AI Teammate <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
-<!-- Section 2: Problems -->
-<section class="software-types-section">
+<!-- Section 2: Challenges -->
+<section class="problems-section">
   <div class="container">
-    <div class="software-types-heading-wrap">
-      <h2 class="software-types-main-heading">Whatever Your Business Needs <span class="gold-static">Build It With AI.</span></h2>
+    <div class="problems-heading-wrap">
+      <h2 class="problems-main-heading">A Better Way to <span class="gold-static">Build Software.</span></h2>
     </div>
-    <p class="software-types-sub-heading">Whether you need a CRM, booking platform, internal dashboard, customer portal, or inventory system, your AI coworker helps transform your ideas into working software.</p>
+    <p class="problems-sub-heading">Building custom software doesn't have to mean big teams, long timelines, or big price tags. With Ndovesha, your ideas come together faster, cost less to build, and keep up with your business as it grows.</p>
 
-    <div class="software-types-grid">
-      <div class="software-type-card">
-        <div class="software-type-icon">
-          <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M4 20c0-3 2.5-5 5-5s5 2 5 5"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M15 20c0-2.2 1.5-3.8 3.5-4.2"></path></svg>
+    <div class="problem-cards-grid">
+      <div class="problem-card-v2">
+        <div class="problem-card-v2-top">
+          <div class="problem-card-v2-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>From Ideas to Working Software</h3>
         </div>
-        <h3>Customer Management Systems</h3>
-        <p>Keep customer details, communication history, and relationships organized in one place.</p>
+        <p class="problem-desc">Turn concepts into working applications faster, so your business can move from planning to execution without unnecessary delays.</p>
       </div>
 
-      <div class="software-type-card">
-        <div class="software-type-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line><polyline points="8 15 11 18 16 12"></polyline></svg>
+      <div class="problem-card-v2">
+        <div class="problem-card-v2-top">
+          <div class="problem-card-v2-icon"><i class="fas fa-sack-dollar"></i></div>
+          <h3>Build Without the Traditional Costs</h3>
         </div>
-        <h3>Appointment Booking Platforms</h3>
-        <p>Let customers book, reschedule, and manage appointments online, synced to your calendar.</p>
+        <p class="problem-desc">Reduce the need for large development teams, lengthy project timelines, and the overhead that often comes with custom software.</p>
       </div>
 
-      <div class="software-type-card">
-        <div class="software-type-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg>
+      <div class="problem-card-v2">
+        <div class="problem-card-v2-top">
+          <div class="problem-card-v2-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Software That Scales With Your Business</h3>
         </div>
-        <h3>Inventory &amp; Stock Systems</h3>
-        <p>Track stock levels, manage suppliers, and stay ahead of shortages in real time.</p>
-      </div>
-
-      <div class="software-type-card">
-        <div class="software-type-icon">
-          <svg viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="20"></line><rect x="6" y="12" width="3" height="8"></rect><rect x="11" y="8" width="3" height="12"></rect><rect x="16" y="4" width="3" height="16"></rect></svg>
-        </div>
-        <h3>Business Dashboards</h3>
-        <p>Visualize key metrics and business data in one place so you can make faster decisions.</p>
+        <p class="problem-desc">Launch sooner, improve continuously, and adapt your software as your business evolves instead of starting over every time requirements change.</p>
       </div>
     </div>
 
@@ -554,13 +588,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- Section 3: Coworker Pipeline -->
+<!-- Section 3: Solution (AI Coworker) -->
 <section class="coworkers-section">
   <div class="container">
     <div class="coworkers-pipeline">
       <div class="coworkers-pipeline-left">
-        <h3 class="coworkers-pipeline-heading">From Vision to <span class="gold-static">Live Application.</span></h3>
-        <p class="coworkers-pipeline-text">No development team or lengthy build cycles required. Simply describe your vision, and your AI Software Coworker transforms it into a live application you can refine and grow.</p>
+        <span class="section-eyebrow">How We Work</span>
+        <h3 class="coworkers-pipeline-heading">From Idea to Success in <span class="gold-static">4 Simple Steps.</span></h3>
+        <p class="coworkers-pipeline-text">Simply describe your vision, and your AI Coworker transforms it into a live application you can refine and grow.</p>
+
         <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Your AI Teammate <span aria-hidden="true">→</span></a>
       </div>
 
@@ -626,7 +662,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- Section 4: Video showcase -->
+<!-- Section 4: Tutorials -->
 <section class="video-section">
   <div class="container">
     <div class="video-heading-wrap">
@@ -650,7 +686,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- Section 5: FAQ -->
 <section class="faq-section">
   <div class="container">
     <div class="faq-heading-wrap">
