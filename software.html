@@ -201,27 +201,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .problem-card-v2:hover { transform: translateY(-4px); }
 }
 
-/* ---------- Section 3: Coworker Pipeline ---------- */
+/* ---------- Section 3: Meet Your AI Coworker (intro) ---------- */
+.coworker-intro-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 24px 64px;
+  background: var(--bg-alt);
+  text-align: center;
+}
+
+.coworker-intro-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.coworker-intro-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.coworker-intro-text {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 680px;
+  margin: 0 auto 30px;
+}
+
+/* ---------- Section 4: Coworker Pipeline (alternating timeline) ---------- */
 .coworkers-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 52px 0 56px;
-  background: var(--bg-alt);
+  padding: 52px 0 60px;
+  background: var(--white);
 }
 
-.coworkers-pipeline {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 60px;
-  max-width: 1080px;
-  margin: 0 auto;
-  align-items: start;
+.coworkers-heading-wrap {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 50px;
 }
 
-.coworkers-pipeline-left {
-  position: sticky;
-  top: 90px;
+.coworkers-heading-wrap .section-eyebrow {
+  text-align: center;
 }
 
 .coworkers-pipeline-heading {
@@ -230,35 +258,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   font-weight: 700;
   color: var(--primary);
   line-height: 1.28;
-  margin-bottom: 16px;
 }
 
-.coworkers-pipeline-text {
-  font-size: 1.1rem;
-  color: var(--text-light);
-  line-height: 1.75;
-  margin-bottom: 22px;
-  max-width: 420px;
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 0;
 }
 
-.coworkers-pipeline-right {
-  display: flex;
-  flex-direction: column;
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background-image: linear-gradient(var(--gold) 55%, transparent 0%);
+  background-position: left;
+  background-size: 2px 9px;
+  background-repeat: repeat-y;
 }
 
-.pipeline-step {
-  display: flex;
-  gap: 20px;
+.timeline-step {
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0 46px 44px;
 }
 
-.pipeline-icon-col {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.timeline-step:last-child { padding-bottom: 0; }
+
+.timeline-step.step-right {
+  margin-left: 50%;
+  text-align: left;
 }
 
-.pipeline-icon {
+.timeline-step.step-left {
+  margin-left: 0;
+  text-align: right;
+}
+
+.timeline-icon {
+  position: absolute;
+  top: 0;
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -266,10 +310,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  z-index: 2;
 }
 
-.pipeline-icon svg {
+.timeline-icon svg {
   width: 24px;
   height: 24px;
   stroke: var(--gold);
@@ -279,40 +323,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   stroke-linejoin: round;
 }
 
-.pipeline-connector {
-  position: relative;
-  flex: 1;
-  width: 2px;
-  min-height: 30px;
-  margin: 4px 0 0;
-  background-image: linear-gradient(var(--gold) 55%, transparent 0%);
-  background-position: left;
-  background-size: 2px 9px;
-  background-repeat: repeat-y;
+.timeline-step.step-right .timeline-icon { left: -26px; }
+.timeline-step.step-left .timeline-icon { right: -26px; }
+
+.timeline-content {
+  background: var(--white);
+  border: 2px solid var(--primary);
+  border-radius: 24px;
+  padding: 26px 28px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.pipeline-connector::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 7px solid var(--gold);
+.timeline-content:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(254,191,15,0.3);
+  border-color: var(--gold);
 }
 
-.pipeline-step-body {
-  padding-bottom: 34px;
-}
-
-.pipeline-step:last-child .pipeline-step-body {
-  padding-bottom: 0;
-}
-
-.pipeline-step-num {
+.timeline-step-num {
   display: block;
   font-size: 0.85rem;
   font-weight: 800;
@@ -321,7 +349,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   margin-bottom: 4px;
 }
 
-.pipeline-step-body h4 {
+.timeline-content h4 {
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--primary);
@@ -329,24 +357,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   line-height: 1.35;
 }
 
-.pipeline-step-body p {
+.timeline-content p {
   font-size: 0.96rem;
   color: var(--text-light);
   line-height: 1.6;
 }
 
+.coworkers-cta-center {
+  text-align: center;
+  margin-top: 44px;
+}
+
 @media (max-width: 860px) {
-  .coworkers-pipeline { grid-template-columns: 1fr; gap: 36px; }
-  .coworkers-pipeline-left { position: static; text-align: center; }
-  .coworkers-pipeline-text { margin-left: auto; margin-right: auto; }
+  .timeline::before { left: 26px; }
+
+  .timeline-step,
+  .timeline-step.step-right,
+  .timeline-step.step-left {
+    width: 100%;
+    margin-left: 0;
+    text-align: left;
+    padding: 0 0 40px 68px;
+  }
+
+  .timeline-step.step-right .timeline-icon,
+  .timeline-step.step-left .timeline-icon {
+    left: 0;
+    right: auto;
+  }
 }
 
 @media (max-width: 600px) {
-  .pipeline-icon { width: 44px; height: 44px; }
-  .pipeline-icon svg { width: 20px; height: 20px; }
+  .timeline-icon { width: 44px; height: 44px; }
+  .timeline-icon svg { width: 20px; height: 20px; }
 }
 
-/* ---------- Section 4: Video showcase (real embeds) ---------- */
+/* ---------- Section 5: Video showcase (real embeds) ---------- */
 .video-section {
   display: flex;
   flex-direction: column;
@@ -588,81 +634,79 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- Section 3: Solution (AI Coworker) -->
+<!-- Section 3: Meet Your AI Coworker (intro) -->
+<section class="coworker-intro-section">
+  <div class="coworker-intro-inner">
+    <span class="section-eyebrow">How We Work</span>
+    <h2 class="coworker-intro-heading">Meet Your <span class="gold-static">AI Coworker.</span></h2>
+    <p class="coworker-intro-text">Your AI Coworker works alongside you like a real teammate — listening to what you need, planning the right approach, writing and refining the code, and staying by your side as your software grows. No hand-offs, no waiting on a dev queue, just a partner that turns your ideas into working software.</p>
+    <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Your AI Teammate <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- Section 4: Coworker Pipeline -->
 <section class="coworkers-section">
   <div class="container">
-    <div class="coworkers-pipeline">
-      <div class="coworkers-pipeline-left">
-        <span class="section-eyebrow">How We Work</span>
-        <h3 class="coworkers-pipeline-heading">From Idea to Success in <span class="gold-static">4 Simple Steps.</span></h3>
-        <p class="coworkers-pipeline-text">Simply describe your vision, and your AI Coworker transforms it into a live application you can refine and grow.</p>
+    <div class="coworkers-heading-wrap">
+      <span class="section-eyebrow">The Process</span>
+      <h3 class="coworkers-pipeline-heading">From Idea to Success in <span class="gold-static">4 Simple Steps.</span></h3>
+    </div>
 
-        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Your AI Teammate <span aria-hidden="true">→</span></a>
+    <div class="timeline">
+
+      <div class="timeline-step step-right">
+        <div class="timeline-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.6 8.6 0 0 1-3.5-.8L3 20l1.1-5.6a8.4 8.4 0 0 1-.6-3.1A8.4 8.4 0 0 1 12.5 3a8.4 8.4 0 0 1 8.5 8.5z"></path></svg>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-step-num">01</span>
+          <h4>Describe Your Idea</h4>
+          <p>Tell your coworker what your business needs and how you want it to work.</p>
+        </div>
       </div>
 
-      <div class="coworkers-pipeline-right">
-
-        <div class="pipeline-step">
-          <div class="pipeline-icon-col">
-            <div class="pipeline-icon">
-              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.6 8.6 0 0 1-3.5-.8L3 20l1.1-5.6a8.4 8.4 0 0 1-.6-3.1A8.4 8.4 0 0 1 12.5 3a8.4 8.4 0 0 1 8.5 8.5z"></path></svg>
-            </div>
-            <div class="pipeline-connector"></div>
-          </div>
-          <div class="pipeline-step-body">
-            <span class="pipeline-step-num">01</span>
-            <h4>Describe Your Idea</h4>
-            <p>Tell your coworker what your business needs and how you want it to work.</p>
-          </div>
+      <div class="timeline-step step-left">
+        <div class="timeline-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="8" y1="4" x2="8" y2="9"></line><line x1="12" y1="13" x2="17" y2="13"></line><line x1="12" y1="17" x2="15" y2="17"></line></svg>
         </div>
-
-        <div class="pipeline-step">
-          <div class="pipeline-icon-col">
-            <div class="pipeline-icon">
-              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="8" y1="4" x2="8" y2="9"></line><line x1="12" y1="13" x2="17" y2="13"></line><line x1="12" y1="17" x2="15" y2="17"></line></svg>
-            </div>
-            <div class="pipeline-connector"></div>
-          </div>
-          <div class="pipeline-step-body">
-            <span class="pipeline-step-num">02</span>
-            <h4>Plan Your Software</h4>
-            <p>Your coworker structures the pages, features, workflows, and user experience.</p>
-          </div>
+        <div class="timeline-content">
+          <span class="timeline-step-num">02</span>
+          <h4>Plan Your Software</h4>
+          <p>Your coworker structures the pages, features, workflows, and user experience.</p>
         </div>
-
-        <div class="pipeline-step">
-          <div class="pipeline-icon-col">
-            <div class="pipeline-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg>
-            </div>
-            <div class="pipeline-connector"></div>
-          </div>
-          <div class="pipeline-step-body">
-            <span class="pipeline-step-num">03</span>
-            <h4>Review &amp; Refine</h4>
-            <p>Request changes, add new features, and customize your software.</p>
-          </div>
-        </div>
-
-        <div class="pipeline-step">
-          <div class="pipeline-icon-col">
-            <div class="pipeline-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 2c2.5 2 4 5.5 4 9 0 2-.5 4-1.3 5.5l-2.7 3-2.7-3C8.5 15 8 13 8 11c0-3.5 1.5-7 4-9z"></path><circle cx="12" cy="10" r="1.8"></circle><path d="M8.5 16.5 5 20l1-4 2.2-1.3"></path><path d="M15.5 16.5 19 20l-1-4-2.2-1.3"></path></svg>
-            </div>
-          </div>
-          <div class="pipeline-step-body">
-            <span class="pipeline-step-num">04</span>
-            <h4>Launch &amp; Improve</h4>
-            <p>Deploy your application and continue improving it as your business evolves.</p>
-          </div>
-        </div>
-
       </div>
+
+      <div class="timeline-step step-right">
+        <div class="timeline-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-step-num">03</span>
+          <h4>Review &amp; Refine</h4>
+          <p>Request changes, add new features, and customize your software.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step step-left">
+        <div class="timeline-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2c2.5 2 4 5.5 4 9 0 2-.5 4-1.3 5.5l-2.7 3-2.7-3C8.5 15 8 13 8 11c0-3.5 1.5-7 4-9z"></path><circle cx="12" cy="10" r="1.8"></circle><path d="M8.5 16.5 5 20l1-4 2.2-1.3"></path><path d="M15.5 16.5 19 20l-1-4-2.2-1.3"></path></svg>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-step-num">04</span>
+          <h4>Launch &amp; Improve</h4>
+          <p>Deploy your application and continue improving it as your business evolves.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="coworkers-cta-center">
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Your AI Teammate <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- Section 4: Tutorials -->
+<!-- Section 5: Tutorials -->
 <section class="video-section">
   <div class="container">
     <div class="video-heading-wrap">
@@ -686,7 +730,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- Section 5: FAQ -->
+<!-- Section 6: FAQ -->
 <section class="faq-section">
   <div class="container">
     <div class="faq-heading-wrap">
