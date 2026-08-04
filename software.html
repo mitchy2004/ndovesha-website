@@ -43,15 +43,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* ---------- Hero ---------- */
 .gold-static { color: var(--gold); font-weight: 700; }
 .solution-hero {
+  position: relative;
+  overflow: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: var(--light-grey);
+  background: var(--white);
   padding: 52px 24px 46px;
 }
 
 .solution-hero-inner {
+  position: relative;
+  z-index: 1;
   max-width: 980px;
   margin: 0 auto;
   text-align: center;
@@ -71,11 +75,138 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   color: var(--text-light);
   line-height: 1.8;
   max-width: 850px;
-  margin: 0 auto 26px;
+  margin: 0 auto 14px;
 }
 
 .solution-cta {
   margin-top: 6px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.solution-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 45%, transparent 90%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+  z-index: -1;
+}
+
+.solution-cta:hover::before {
+  transform: translateX(120%);
+}
+
+.solution-cta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(10,42,102,0.32);
+}
+
+.solution-cta:hover span {
+  transform: translateX(4px);
+}
+
+.solution-cta span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+/* ---------- Hero problem list (inline, connected by a line) ---------- */
+.hero-problem-list {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  max-width: 820px;
+  margin: 22px auto 40px;
+  padding: 0;
+}
+
+.hero-problem-list li {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 18px;
+}
+
+.hero-problem-list .hpl-track {
+  position: relative;
+  width: 100%;
+  height: 44px;
+  margin-bottom: 14px;
+}
+
+.hpl-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-problem-list li:hover .hpl-icon {
+  background: var(--gold);
+  color: var(--primary);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.hero-problem-list h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.hero-problem-list p {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 190px;
+}
+
+@media (max-width: 720px) {
+  .hero-problem-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-width: 340px;
+    margin: 18px auto 32px;
+  }
+  .hero-problem-list li {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    padding: 16px 4px;
+    gap: 16px;
+  }
+  .hero-problem-list .hpl-track {
+    width: 44px;
+    height: auto;
+    align-self: stretch;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  .hpl-icon { top: 22px; }
+  .hero-problem-list p { max-width: none; }
 }
 
 /* ---------- Shared: section eyebrow label ---------- */
@@ -95,7 +226,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   flex-direction: column;
   justify-content: center;
   padding: 52px 0 56px;
-  background: var(--white);
+  background: var(--light-grey);
 }
 
 .problems-heading-wrap {
@@ -206,31 +337,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px 24px 64px;
-  background: var(--bg-alt);
+  padding: 80px 24px 86px;
+  background: var(--light-grey);
   text-align: center;
 }
 
 .coworker-intro-inner {
-  max-width: 760px;
+  max-width: 820px;
   margin: 0 auto;
 }
 
 .coworker-intro-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 700;
   color: var(--primary);
   line-height: 1.2;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .coworker-intro-text {
-  font-size: 1.05rem;
+  font-size: 1.14rem;
   color: var(--text-light);
-  line-height: 1.8;
-  max-width: 680px;
-  margin: 0 auto 30px;
+  line-height: 1.85;
+  max-width: 720px;
+  margin: 0 auto 34px;
 }
 
 /* ---------- Section 4: Coworker Pipeline (alternating timeline) ---------- */
@@ -271,7 +402,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   content: '';
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 6px;
   left: 50%;
   width: 2px;
   transform: translateX(-50%);
@@ -279,6 +410,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   background-position: left;
   background-size: 2px 9px;
   background-repeat: repeat-y;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 11px solid var(--gold);
 }
 
 .timeline-step {
@@ -311,6 +455,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   align-items: center;
   justify-content: center;
   z-index: 2;
+  transition: background 0.3s ease;
 }
 
 .timeline-icon svg {
@@ -321,23 +466,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
+  transition: stroke 0.3s ease;
 }
 
 .timeline-step.step-right .timeline-icon { left: -26px; }
 .timeline-step.step-left .timeline-icon { right: -26px; }
 
+.timeline-step:not(:last-child) .timeline-icon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 62px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid var(--gold);
+  z-index: 2;
+}
+
 .timeline-content {
   background: var(--white);
   border: 2px solid var(--primary);
-  border-radius: 24px;
+  border-radius: 30px 30px 30px 6px;
   padding: 26px 28px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.timeline-content:hover {
-  transform: translateY(-6px);
+.timeline-step.step-left .timeline-content {
+  border-radius: 30px 30px 6px 30px;
+}
+
+.timeline-step:hover .timeline-content {
+  transform: translateY(-8px);
   box-shadow: 0 18px 38px rgba(254,191,15,0.3);
   border-color: var(--gold);
+}
+
+.timeline-step:hover .timeline-icon {
+  background: var(--gold);
+}
+
+.timeline-step:hover .timeline-icon svg {
+  stroke: var(--primary);
 }
 
 .timeline-step-num {
@@ -369,7 +541,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 @media (max-width: 860px) {
-  .timeline::before { left: 26px; }
+  .timeline::before,
+  .timeline::after { left: 26px; }
 
   .timeline-step,
   .timeline-step.step-right,
@@ -398,7 +571,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   flex-direction: column;
   justify-content: center;
   padding: 52px 0 56px;
-  background: var(--light-grey);
+  background: var(--white);
 }
 
 .video-heading-wrap {
@@ -471,6 +644,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   flex-direction: column;
   justify-content: center;
   padding: 52px 0 56px;
+  background: var(--light-grey);
 }
 .faq-item {
   border-bottom: 1px solid var(--border);
@@ -588,63 +762,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Hero -->
 <section class="solution-hero">
   <div class="solution-hero-inner">
-    <h1 class="solution-hero-heading">Building Software Has Been <span class="gold-static">Too Expensive for Too Long.</span></h1>
-    <p class="solution-hero-sub">Building custom software required months of development and budgets many businesses couldn't justify. Ndovesha AI Coworkers are helping you build faster and turn ideas into working software with less complexity.</p>
+    <h1 class="solution-hero-heading">Tired of Slow, Costly <span class="gold-static">Software?</span></h1>
+    <p class="solution-hero-sub">For many teams, the hardest part isn't the idea, it's everything that gets in the way of bringing it to life. That's where Ndovesha AI Coworkers step in, helping you build smarter, faster, and more affordably.</p>
+
+    <ul class="hero-problem-list">
+      <li>
+        <div class="hpl-track">
+          <div class="hpl-icon"><i class="fas fa-calendar-days"></i></div>
+        </div>
+        <h3>Months of Development</h3>
+        <p>Every project took months to build.</p>
+      </li>
+      <li>
+        <div class="hpl-track">
+          <div class="hpl-icon"><i class="fas fa-users"></i></div>
+        </div>
+        <h3>Large Teams</h3>
+        <p>Bigger teams meant bigger budgets.</p>
+      </li>
+      <li>
+        <div class="hpl-track">
+          <div class="hpl-icon"><i class="fas fa-clock"></i></div>
+        </div>
+        <h3>Countless Hours of Work</h3>
+        <p>Manual work at every step.</p>
+      </li>
+    </ul>
+
     <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy solution-cta">Get Your AI Teammate <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
-<!-- Section 2: Challenges -->
-<section class="problems-section">
-  <div class="container">
-    <div class="problems-heading-wrap">
-      <h2 class="problems-main-heading">A Better Way to <span class="gold-static">Build Software.</span></h2>
-    </div>
-    <p class="problems-sub-heading">Building custom software doesn't have to mean big teams, long timelines, or big price tags. With Ndovesha, your ideas come together faster, cost less to build, and keep up with your business as it grows.</p>
-
-    <div class="problem-cards-grid">
-      <div class="problem-card-v2">
-        <div class="problem-card-v2-top">
-          <div class="problem-card-v2-icon"><i class="fas fa-lightbulb"></i></div>
-          <h3>From Ideas to Working Software</h3>
-        </div>
-        <p class="problem-desc">Turn concepts into working applications faster, so your business can move from planning to execution without unnecessary delays.</p>
-      </div>
-
-      <div class="problem-card-v2">
-        <div class="problem-card-v2-top">
-          <div class="problem-card-v2-icon"><i class="fas fa-sack-dollar"></i></div>
-          <h3>Build Without the Traditional Costs</h3>
-        </div>
-        <p class="problem-desc">Reduce the need for large development teams, lengthy project timelines, and the overhead that often comes with custom software.</p>
-      </div>
-
-      <div class="problem-card-v2">
-        <div class="problem-card-v2-top">
-          <div class="problem-card-v2-icon"><i class="fas fa-seedling"></i></div>
-          <h3>Software That Scales With Your Business</h3>
-        </div>
-        <p class="problem-desc">Launch sooner, improve continuously, and adapt your software as your business evolves instead of starting over every time requirements change.</p>
-      </div>
-    </div>
-
-    <div class="ai-cta-center">
-      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Your AI Teammate <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- Section 3: Meet Your AI Coworker (intro) -->
+<!-- Section 2: Meet Your AI Coworker (intro) -->
 <section class="coworker-intro-section">
   <div class="coworker-intro-inner">
-    <span class="section-eyebrow">How We Work</span>
-    <h2 class="coworker-intro-heading">Meet Your <span class="gold-static">AI Coworker.</span></h2>
-    <p class="coworker-intro-text">Your AI Coworker works alongside you like a real teammate — listening to what you need, planning the right approach, writing and refining the code, and staying by your side as your software grows. No hand-offs, no waiting on a dev queue, just a partner that turns your ideas into working software.</p>
+    <span class="section-eyebrow">THE SOLUTION</span>
+    <h2 class="coworker-intro-heading">Build Custom Software <span class="gold-static">With AI</span></h2>
+    <p class="coworker-intro-text">From planning to launch, your AI coworker helps you build software faster, without the delays and overhead of traditional development.</p>
     <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Your AI Teammate <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
-<!-- Section 4: Coworker Pipeline -->
+<!-- Section 3: Coworker Pipeline (How It Works) -->
 <section class="coworkers-section">
   <div class="container">
     <div class="coworkers-heading-wrap">
@@ -701,6 +860,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="coworkers-cta-center">
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Your AI Teammate <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Benefits -->
+<section class="problems-section">
+  <div class="container">
+    <div class="problems-heading-wrap">
+      <h2 class="problems-main-heading">Why <span class="gold-static">Build With AI?</span></h2>
+    </div>
+    <p class="problems-sub-heading">Spend less time managing development and more time bringing ideas to life.</p>
+
+    <div class="problem-cards-grid">
+      <div class="problem-card-v2">
+        <div class="problem-card-v2-top">
+          <div class="problem-card-v2-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Launch Faster</h3>
+        </div>
+        <p class="problem-desc">Go from idea to working software in days, not months, with an AI coworker that builds alongside you.</p>
+      </div>
+
+      <div class="problem-card-v2">
+        <div class="problem-card-v2-top">
+          <div class="problem-card-v2-icon"><i class="fas fa-sack-dollar"></i></div>
+          <h3>Lower Development Costs</h3>
+        </div>
+        <p class="problem-desc">Cut the overhead of large teams and long timelines, and put your budget toward growing the business instead.</p>
+      </div>
+
+      <div class="problem-card-v2">
+        <div class="problem-card-v2-top">
+          <div class="problem-card-v2-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Built to Grow</h3>
+        </div>
+        <p class="problem-desc">Your software evolves with your business, so you can keep adding features without starting from scratch.</p>
+      </div>
+    </div>
+
+    <div class="ai-cta-center">
       <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Your AI Teammate <span aria-hidden="true">→</span></a>
     </div>
   </div>
