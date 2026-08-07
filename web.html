@@ -55,7 +55,7 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 .center { text-align: center; }
 
-.section-title { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 800; color: var(--primary); line-height: 1.22; margin-bottom: 12px; }
+.section-title { font-size: clamp(2.1rem, 3.9vw, 3rem); font-weight: 800; color: var(--primary); line-height: 1.22; margin-bottom: 12px; }
 .section-title .gold { color: var(--gold); }
 .section-sub { color: var(--muted); max-width: 620px; margin: 0 auto; font-size: 1.02rem; }
 
@@ -70,66 +70,102 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .btn-navy:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,51,102,0.42); }
 .btn-navy:hover i { transform: translateX(3px); }
 
+/* ===================== FULL-VIEWPORT / ALTERNATING SECTIONS ===================== */
+.coworkers-section,
+.showcase-section,
+.challenges-rows,
+.tutorials-section,
+.faq-section {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-page {
+  min-height: 55vh;
+  min-height: 55dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-page        { background: var(--white); }
+.coworkers-section { background: var(--light-gray); }
+.showcase-section  { background: var(--white); }
+.challenges-rows   { background: var(--light-gray); }
+.tutorials-section { background: var(--white); }
+.faq-section       { background: var(--light-gray); }
 
 /* ===================== HERO ===================== */
-.hero-page { padding: 55px 3% 45px; background: var(--white); }
+.hero-page { padding: 40px 3% 30px; }
 .hero-page .container { max-width: 880px; }
 .hero-page h1 {
   font-size: clamp(2.6rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.25;
   color: var(--primary); margin-bottom: 24px;
 }
 .hero-page h1 .gold { color: var(--gold); }
-.hero-page-sub { font-size: 1.08rem; color: var(--muted); max-width: 680px; margin: 0 auto 34px; }
+.hero-page-sub { font-size: 1.08rem; color: var(--muted); max-width: 680px; margin: 0 auto 22px; }
 
-/* ===================== CHALLENGES (rows, not cards) ===================== */
-.challenges-rows { padding: 70px 5%; background: var(--light-gray); }
-.row-list {
-  max-width: 1100px; margin: 44px auto 0;
-  display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 20px 40px;
+.hero-steps {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin: 0 auto 26px;
 }
-.row-item {
-  display: flex; flex-direction: column; align-items: flex-start;
-  height: 100%;
+.hero-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
-.row-icon {
-  width: 46px; height: 46px; border-radius: 12px;
-  background: rgba(0,51,102,0.06); color: var(--primary);
-  display: flex; align-items: center; justify-content: center; font-size: 1.15rem;
-  transition: background 0.25s ease, color 0.25s ease;
-  margin-bottom: 20px;
+.hero-step-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 8px 20px rgba(0,51,102,0.18);
+  transition: transform 0.3s ease;
 }
-.row-item:hover .row-icon { background: var(--gold); color: var(--primary); }
-.row-item h3 { font-size: 1.28rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; line-height: 1.3; }
-.row-item p { font-size: 1.02rem; color: var(--muted); line-height: 1.75; margin: 0; flex: 1; }
+.hero-step:hover .hero-step-icon { transform: translateY(-4px) scale(1.06); }
+.hero-step span { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
 
-@media (max-width: 900px) {
-  .row-list { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .row-list { grid-template-columns: 1fr; gap: 34px; }
+@media (max-width: 560px) {
+  .hero-steps { gap: 28px; }
+  .hero-step-icon { width: 48px; height: 48px; font-size: 18px; }
 }
 
-/* ===================== OPPORTUNITY CARDS ===================== */
+/* ===================== CHALLENGES / OPPORTUNITY CARDS (third section) ===================== */
+.challenges-rows { padding: 70px 5%; }
 .opportunity-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
   max-width: 1100px; margin: 44px auto 0;
 }
 .opportunity-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  background: var(--white); border: 2px solid var(--primary); border-radius: 16px;
   padding: 30px 24px; text-align: left;
+  box-shadow: 0 6px 18px rgba(0,51,102,0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .opportunity-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 34px rgba(254,191,15,0.28);
-  border-color: rgba(254,191,15,0.5);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,51,102,0.2);
+  border-color: var(--gold);
 }
 .opportunity-icon {
   width: 52px; height: 52px; border-radius: 12px;
   background: var(--primary); color: var(--gold);
   display: flex; align-items: center; justify-content: center; font-size: 1.25rem;
   margin-bottom: 20px;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
+.opportunity-card:hover .opportunity-icon { transform: scale(1.1) rotate(-4deg); background: var(--primary-light); }
 .opportunity-card h3 { font-size: 1.08rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; line-height: 1.3; }
 .opportunity-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; margin: 0; }
 
@@ -137,54 +173,116 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 @media (max-width: 560px) { .opportunity-grid { grid-template-columns: 1fr; } }
 
 /* ===================== COWORKERS ===================== */
-.coworkers-section { padding: 70px 5%; background: var(--white); }
+.coworkers-section { padding: 70px 5%; }
 .coworkers-grid {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
   max-width: 800px; margin: 40px auto 44px;
 }
 .coworker-card {
-  background: var(--white); border: 1.5px solid var(--border); border-radius: 16px;
+  background: var(--white); border: 2px solid var(--primary); border-radius: 16px;
   padding: 28px 22px; text-align: left;
+  box-shadow: 0 6px 18px rgba(0,51,102,0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .coworker-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 34px rgba(254,191,15,0.32);
-  border-color: rgba(254,191,15,0.5);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,51,102,0.2);
+  border-color: var(--gold);
 }
 .coworker-icon {
   width: 50px; height: 50px; border-radius: 12px;
-  background: rgba(0,51,102,0.06);
+  background: var(--primary);
   display: flex; align-items: center; justify-content: center;
-  color: var(--primary); font-size: 1.2rem; margin-bottom: 18px;
-  transition: background 0.3s ease, color 0.3s ease;
+  color: var(--gold); font-size: 1.2rem; margin-bottom: 18px;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
-.coworker-card:hover .coworker-icon { background: var(--gold); color: var(--primary); }
+.coworker-card:hover .coworker-icon { transform: scale(1.1) rotate(-4deg); background: var(--primary-light); }
 .coworker-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
 .coworker-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
 
 @media (max-width: 560px) { .coworkers-grid { grid-template-columns: 1fr; max-width: 420px; } }
 
+/* ===================== SHOWCASE (work built by Website Worker) ===================== */
+.showcase-section { padding: 70px 5%; }
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1080px;
+  margin: 40px auto 44px;
+  align-items: stretch;
+}
+.showcase-card {
+  background: var(--white);
+  border: 2px solid var(--primary);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  box-shadow: 0 6px 18px rgba(0,51,102,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.showcase-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,51,102,0.2);
+  border-color: var(--gold);
+}
+.showcase-media {
+  flex: 0 0 50%;
+  height: 50%;
+  width: 100%;
+  overflow: hidden;
+}
+.showcase-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+.showcase-card:hover .showcase-media img { transform: scale(1.06); }
+.showcase-content {
+  flex: 0 0 50%;
+  height: 50%;
+  padding: 26px 28px;
+  text-align: left;
+  overflow-y: auto;
+}
+.showcase-content h3 { font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+.showcase-content p { font-size: 0.95rem; color: var(--muted); line-height: 1.6; margin: 0; }
+ .case-card-btn-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+@media (max-width: 900px) {
+  .showcase-grid { grid-template-columns: 1fr; max-width: 520px; }
+}
+
 /* ===================== TUTORIALS (two hover video cards) ===================== */
-.tutorials-section { padding: 70px 5%; background: var(--light-gray); }
+.tutorials-section { padding: 70px 5%; }
 .tutorials-grid {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
   max-width: 920px; margin: 40px auto 0;
 }
 .tutorial-card {
-  border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px; overflow: hidden; border: 2px solid var(--primary);
+  box-shadow: 0 6px 18px rgba(0,51,102,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   background: var(--white);
 }
-.tutorial-card:hover { transform: translateY(-8px); box-shadow: 0 16px 30px rgba(0,0,0,0.16); }
+.tutorial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,51,102,0.22);
+  border-color: var(--gold);
+}
 .tutorial-card .video-wrap { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
 .tutorial-card .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
 @media (max-width: 720px) { .tutorials-grid { grid-template-columns: 1fr; } }
 
 /* ===================== FAQ ===================== */
-.faq-section { padding: 70px 5% 80px; background: var(--white); }
+.faq-section { padding: 70px 5% 80px; }
 .faq-list { max-width: 760px; margin: 40px auto 0; }
 .faq-question {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -266,7 +364,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li class="dropdown-divider"></li>
           <li><a href="/webinars">Webinars</a></li>
           <li class="dropdown-divider"></li>
-          <li><a href="/join-our-community">Join our Community</a></li>
+          <li><a href="/workshop">Workshop</a></li>
+<li class="dropdown-divider"></li>
+<li><a href="/join-our-community">Join our Community</a></li>
           <li class="dropdown-divider"></li>
           <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
           <li class="dropdown-divider"></li>
@@ -310,6 +410,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="mobile-fold" id="fold-resources">
         <a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a>
         <a href="/webinars">Webinars</a>
+        <a href="/workshop">Workshop</a>
         <a href="/join-our-community">Join our Community</a>
          <a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a>
         <a href="/faq">FAQs</a>
@@ -324,52 +425,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== SECTION 1: HERO ===== -->
 <section class="hero-page">
   <div class="container center">
-    <h1>Building Great Websites Shouldn't <span class="gold">Take Weeks.</span></h1>
-    <p class="hero-page-sub">Empower your team with AI coworkers that help plan, build, refine, and optimize websites faster so you can deliver exceptional digital experiences without increasing your workload.</p>
+    <h1>Why Are You Still Paying <span class="gold">Thousands for a Website?</span></h1>
+    <p class="hero-page-sub">Building a professional website shouldn't cost a fortune or take weeks. Ndovesha helps you:</p>
+    <div class="hero-steps">
+      <div class="hero-step">
+        <div class="hero-step-icon"><i class="fas fa-hammer"></i></div>
+        <span>Build</span>
+      </div>
+      <div class="hero-step">
+        <div class="hero-step-icon"><i class="fas fa-pen-to-square"></i></div>
+        <span>Edit</span>
+      </div>
+      <div class="hero-step">
+        <div class="hero-step-icon"><i class="fas fa-rocket"></i></div>
+        <span>Publish</span>
+      </div>
+    </div>
+    <p class="hero-page-sub">Beautiful websites in minutes without developers or technical skills.</p>
     <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
-<!-- ===== SECTION 2: OPPORTUNITY CARDS ===== -->
-<section class="challenges-rows">
-  <div class="container center">
-    <h2 class="section-title">Turn Every Website Idea Into a <span class="gold">Better Digital Experience.</span></h2>
-    <p class="section-sub">Whether you're building landing pages, business websites, or custom web experiences, Ndovesha helps your team work faster, collaborate better, and launch exceptional websites with AI coworkers supporting every step of the journey.</p>
-  </div>
-
-  <div class="opportunity-grid">
-    <div class="opportunity-card">
-      <div class="opportunity-icon"><i class="fas fa-rocket"></i></div>
-      <h3>Accelerate Website Creation</h3>
-      <p>Go from idea to live pages in a fraction of the time.</p>
-    </div>
-    <div class="opportunity-card">
-      <div class="opportunity-icon"><i class="fas fa-layer-group"></i></div>
-      <h3>Build Modern Experiences</h3>
-      <p>Create clean designs that keep visitors engaged.</p>
-    </div>
-    <div class="opportunity-card">
-      <div class="opportunity-icon"><i class="fas fa-gauge-high"></i></div>
-      <h3>Speed Up Development</h3>
-      <p>Move through builds and revisions faster.</p>
-    </div>
-    <div class="opportunity-card">
-      <div class="opportunity-icon"><i class="fas fa-people-arrows"></i></div>
-      <h3>Collaborate Better</h3>
-      <p>Keep your team and AI coworkers aligned on every project.</p>
-    </div>
-  </div>
-
-  <div class="container center" style="margin-top:16px;">
-    <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
-  </div>
-</section>
-
-<!-- ===== SECTION 3: AI COWORKERS ===== -->
+<!-- ===== SECTION 2: AI COWORKERS ===== -->
 <section class="coworkers-section">
   <div class="container center">
     <h2 class="section-title">Build Smarter with <span class="gold">AI Coworkers.</span></h2>
-    <p class="section-sub">Whether you're building a business website, an online store, or a high-converting landing page, Ndovesha's AI coworkers help you create professional websites faster with less manual work.</p>
+    <p class="section-sub">Ndovesha's AI coworkers help you create professional websites faster with less manual work.</p>
   </div>
 
   <div class="coworkers-grid">
@@ -399,6 +480,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
+
+<!-- ===== SECTION 3: SHOWCASE (websites built by Website Worker) ===== -->
+<section class="showcase-section">
+  <div class="container center">
+    <h2 class="section-title">See What Website Worker <span class="gold">Has Built.</span></h2>
+    <p class="section-sub">Real businesses, launched end-to-end by your AI coworkers from first prompt to a live, professional website.</p>
+  </div>
+
+  <div class="showcase-grid">
+    <div class="showcase-card">
+      <div class="showcase-media">
+        <img src="jane-kuria-coaching.png" alt="Jane Kuria Coaching website homepage built by Website Worker">
+      </div>
+      <div class="showcase-content">
+        <h3>Jane Kuria Coaching</h3>
+        <p>Website Worker deployed a full coaching presence, live in minutes, no agency required.</p>
+         <div class="case-card-btn-wrap">
+            <a href="https://janekuriacoaching.com/" target="_blank" rel="noopener noreferrer" class="case-card-btn">Website Worker</a>
+          </div>
+      </div>
+    </div>
+    <div class="showcase-card">
+      <div class="showcase-media">
+        <img src="spatial-group-networks.png" alt="Spatial Group Networks website homepage built by Website Worker">
+      </div>
+      <div class="showcase-content">
+        <h3>Spatial Group Networks</h3>
+        <p>Website Worker deployed a multi-county surveying firm across 47 counties, one department.</p>
+        <div class="case-card-btn-wrap">
+            <a href="https://spatialgroupnetworks.co.ke/" target="_blank" rel="noopener noreferrer" class="case-card-btn">Website Worker</a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container center">
+    <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get an AI Teammate <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: OPPORTUNITY CARDS ===== -->
+<section class="challenges-rows">
+  <div class="container center">
+    <h2 class="section-title">Why Businesses Build <span class="gold">with Ndovesha</span></h2>
+    <p class="section-sub"> Ndovesha's AI coworkers handle the build, the updates, and the launch so you spend less time managing a website and more time growing your business.</p>
+  </div>
+
+  <div class="opportunity-grid">
+    <div class="opportunity-card">
+      <div class="opportunity-icon"><i class="fas fa-bolt"></i></div>
+      <h3>Build Websites in Minutes</h3>
+      <p>Turn your ideas into a fully functional website in minutes instead of waiting weeks for traditional development.</p>
+    </div>
+    <div class="opportunity-card">
+      <div class="opportunity-icon"><i class="fas fa-arrows-rotate"></i></div>
+      <h3>Update Your Website Instantly</h3>
+      <p>Make changes whenever you want by simply telling your AI coworker what to update no coding or developers required.</p>
+    </div>
+    <div class="opportunity-card">
+      <div class="opportunity-icon"><i class="fas fa-rocket"></i></div>
+      <h3>Launch With Everything Included</h3>
+      <p>Get a complete website with hosting and a custom domain, ready to publish from one place.</p>
+    </div>
+    <div class="opportunity-card">
+      <div class="opportunity-icon"><i class="fas fa-sack-dollar"></i></div>
+      <h3>Save Time and Money</h3>
+      <p>Reduce development costs while creating professional websites that help your business grow faster.</p>
+    </div>
+  </div>
+
+  <div class="container center" style="margin-top:16px;">
+    <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
 
 <!-- ===== SECTION 4: TUTORIALS ===== -->
 <section class="tutorials-section">
@@ -520,6 +676,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ul>
            <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
           <li><a href="/webinars">Webinars</a></li>
+          <li><a href="/workshop">Workshop</a></li>
           <li><a href="/comparison">Ndovesha vs ChatGPT vs Gemini</a></li>
           <li><a href="/how-to-prompt">How to Prompt Ndovesha</a></li>
           <li><a href="/lovable">Ndovesha vs Manus vs Lovable</a></li>

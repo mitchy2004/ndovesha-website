@@ -40,10 +40,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <style>
     /* ===================== ECOMMERCE PAGE STYLES ===================== */
-    
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Every top-level page section fits within one viewport so the next
+       section's heading never bleeds into view. */
+    .ecommerce-hero,
+    .ecommerce-opportunities,
+    .ecommerce-pipeline,
+    .ecommerce-features,
+    .ecommerce-categories,
+    .ecommerce-faq {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .ecommerce-hero .container,
+    .ecommerce-opportunities .container,
+    .ecommerce-pipeline .container,
+    .ecommerce-features .container,
+    .ecommerce-categories .container,
+    .ecommerce-faq .container {
+      width: 100%;
+    }
+
     /* Hero Section */
     .ecommerce-hero {
-      padding: 60px 5% 50px;
+      padding: 20px 5% 48px;
       background: var(--white);
     }
     
@@ -53,7 +82,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .hero-grid {
-      max-width: 780px;
+      max-width: 1040px;
       margin: 0 auto;
       text-align: center;
     }
@@ -75,7 +104,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     
     .ecommerce-hero-content {
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       color: var(--text-light);
       margin: 0 auto 32px;
       line-height: 1.6;
@@ -102,25 +131,76 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       transform: translateY(-3px);
       box-shadow: 0 12px 30px rgba(10, 51, 102, 0.45);
     }
-    
-    /* Section 2: Opportunities */
+
+    /* Hero problem list (no cards) */
+    .hero-problems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px 28px;
+      max-width: 980px;
+      margin: 4px auto 30px;
+      text-align: left;
+    }
+
+    .hero-problem-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-problem-icon {
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #dc2626;
+      font-size: 1.3rem;
+    }
+
+    .hero-problem-item h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+
+    .hero-solution-line {
+      font-size: 1.08rem;
+      font-weight: 400;
+      color: var(--text-light);
+      max-width: 660px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 760px) {
+      .hero-problems-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Section 2: Meet Your AI Ecommerce Coworker */
     .ecommerce-opportunities {
-      padding: 70px 5%;
+      min-height: auto;
+      padding: 64px 5%;
       background: var(--light-grey);
       text-align: center;
     }
 
     .opportunities-heading {
       max-width: 700px;
-      margin: 0 auto 50px;
+      margin: 0 auto 34px;
     }
 
     .opportunities-heading h2 {
-      font-size: clamp(2.2rem, 4.5vw, 3rem);
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
       font-weight: 800;
       line-height: 1.22;
       color: var(--primary);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .opportunities-heading h2 .gold {
@@ -128,78 +208,133 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .opportunities-heading p {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--text-light);
       max-width: 640px;
       margin: 0 auto;
       line-height: 1.6;
     }
 
-    .opportunities-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px 24px;
-      max-width: 1080px;
-      margin: 0 auto;
-      text-align: left;
+    @media (max-width: 900px) {
+      .ecommerce-hero,
+      .ecommerce-opportunities,
+      .ecommerce-pipeline,
+      .ecommerce-features,
+      .ecommerce-categories,
+      .ecommerce-faq {
+        min-height: auto;
+        overflow: visible;
+      }
     }
 
-    .opportunity-item {
+    /* Section 3.5: Store Features */
+    .ecommerce-features {
+      padding: 60px 5%;
+      background: var(--light-grey);
+      text-align: center;
+    }
+
+    .features-heading {
+      max-width: 700px;
+      margin: 0 auto 34px;
+    }
+
+    .features-heading h2 {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.22;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .features-heading h2 .gold {
+      color: var(--gold);
+    }
+
+    .features-heading p {
+      font-size: 1.02rem;
+      color: var(--text-light);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .feature-item {
+      flex: 0 1 300px;
+      max-width: 320px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--white);
+      border: 2px solid var(--primary);
+      border-radius: 16px;
+      padding: 26px 22px;
+      text-align: left;
+      box-shadow: 0 8px 24px rgba(10, 42, 102, 0.06);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
     }
 
-    .opportunity-icon {
-      width: 54px;
-      height: 54px;
+    .feature-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(10, 42, 102, 0.14);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
       border-radius: 12px;
-      background: rgba(10, 51, 102, 0.06);
+      background: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary);
-      font-size: 1.3rem;
+      color: var(--gold);
+      font-size: 1.2rem;
     }
 
-    .opportunity-item h3 {
-      font-size: 1.1rem;
+    .feature-item h3 {
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--primary);
     }
 
-    .opportunity-item p {
-      font-size: 0.94rem;
+    .feature-item p {
+      font-size: 0.9rem;
       color: var(--text-light);
-      line-height: 1.55;
-    }
-
-    @media (max-width: 900px) {
-      .opportunities-grid { grid-template-columns: repeat(2, 1fr); }
+      line-height: 1.5;
     }
 
     @media (max-width: 600px) {
-      .opportunities-grid { grid-template-columns: 1fr; }
+      .feature-item { flex: 1 1 100%; max-width: 420px; }
     }
 
     /* Section 4: Categories */
     .ecommerce-categories {
-      padding: 70px 5%;
-      background: var(--light-grey);
+      padding: 60px 5%;
+      background: var(--white);
       text-align: center;
     }
 
     .categories-heading {
       max-width: 700px;
-      margin: 0 auto 50px;
+      margin: 0 auto 40px;
     }
 
     .categories-heading h2 {
-      font-size: clamp(2.2rem, 4.5vw, 3rem);
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
       font-weight: 800;
       line-height: 1.22;
       color: var(--primary);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .categories-heading h2 .gold {
@@ -207,78 +342,144 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .categories-heading p {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--text-light);
       max-width: 640px;
       margin: 0 auto;
       line-height: 1.6;
     }
 
-    .categories-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 28px 24px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .category-card {
-      flex: 0 1 calc((100% - 48px) / 3);
-      min-width: 180px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 34px 20px 28px;
+    /* Category wheel — ring of nodes around a center hub */
+    .categories-wheel-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
-      box-shadow: 0 4px 16px rgba(10,42,102,0.06);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
     }
 
-    .category-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 40px rgba(254,191,15,0.18), 0 8px 24px rgba(10,42,102,0.08);
-      border-color: rgba(254,191,15,0.35);
+    .categories-wheel {
+      position: relative;
+      width: 100%;
+      max-width: 620px;
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
     }
 
-    .category-icon {
-      width: 62px;
-      height: 62px;
-      border-radius: 16px;
+    .categories-wheel svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .wheel-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(150px, 32vw, 210px);
+      height: clamp(150px, 32vw, 210px);
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 14px;
+      box-shadow: 0 16px 40px rgba(10, 42, 102, 0.18);
+    }
+
+    .wheel-center i {
+      color: var(--gold);
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      margin-bottom: 6px;
+    }
+
+    .wheel-center h3 {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      line-height: 1.25;
+    }
+
+    .wheel-center p {
+      color: var(--text-light);
+      font-size: 0.78rem;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    .wheel-node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wheel-node-icon {
+      width: clamp(90px, 17vw, 128px);
+      height: clamp(90px, 17vw, 128px);
+      border-radius: 50%;
       background: var(--primary);
+      color: var(--gold);
+      border: 3px solid var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+      box-shadow: 0 10px 24px rgba(10, 42, 102, 0.25);
+      text-align: center;
+      padding: 10px;
+    }
+
+    .wheel-node-icon span {
+      font-weight: 800;
+      color: var(--gold);
+      font-size: clamp(0.66rem, 1.4vw, 0.82rem);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .wheel-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .wheel-footer .wheel-footer-line {
+      width: 70px;
+      height: 2px;
+      background-image: repeating-linear-gradient(to right, var(--gold) 0 6px, transparent 6px 13px);
+    }
+
+    .wheel-footer-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(254, 191, 15, 0.15);
       color: var(--gold);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      transition: background 0.28s ease;
+      font-size: 1rem;
+      flex-shrink: 0;
     }
 
-    .category-card:hover .category-icon {
-      background: var(--primary-light);
-    }
-
-    .category-card h3 {
-      font-size: 1.05rem;
-      font-weight: 800;
+    .wheel-footer span {
+      font-weight: 700;
       color: var(--primary);
-      margin-bottom: 4px;
+      font-size: 0.95rem;
     }
 
-    .category-card p {
-      font-size: 0.86rem;
-      color: var(--text-light);
-      line-height: 1.5;
-    }
-
-    @media (max-width: 900px) {
-      .category-card { flex: 0 1 calc((100% - 24px) / 2); }
-    }
-    @media (max-width: 560px) {
-      .category-card { flex: 0 1 100%; }
+    @media (max-width: 620px) {
+      .wheel-footer .wheel-footer-line { width: 32px; }
+      .wheel-footer span { font-size: 0.82rem; }
     }
 
     .challenges-cta,
@@ -290,12 +491,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: var(--white);
       font-weight: 700;
       font-size: 1rem;
-      padding: 16px 32px;
+      padding: 14px 30px;
       border-radius: 50px;
       text-decoration: none;
       border: none;
       cursor: pointer;
-      margin-top: 40px;
+      margin-top: 32px;
       box-shadow: 0 8px 22px rgba(10, 51, 102, 0.3);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
@@ -308,69 +509,78 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     .challenges-cta-wrap {
       text-align: center;
-      margin-top: 50px;
+      margin-top: 28px;
     }
     
-    /* Section 3: Your AI Coworker — Pipeline */
+    /* Section 3: Your AI Coworker — Pipeline (own section, zigzag timeline) */
     .ecommerce-pipeline {
-      padding: 70px 5%;
+      padding: 60px 5%;
       background: var(--white);
+      text-align: center;
     }
 
-    .pipeline-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 56px;
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: start;
+    .pipeline-heading {
+      max-width: 700px;
+      margin: 0 auto 36px;
     }
 
-    .pipeline-left h2 {
-      font-size: clamp(1.9rem, 3.6vw, 2.5rem);
+    .pipeline-heading h2 {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
       font-weight: 800;
+      line-height: 1.22;
       color: var(--primary);
-      line-height: 1.32;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
-    .pipeline-left h2 .gold {
+    .pipeline-heading h2 .gold {
       color: var(--gold);
     }
 
-    .pipeline-left p {
-      font-size: 1rem;
+    .pipeline-heading p {
+      font-size: 1.02rem;
       color: var(--text-light);
-      line-height: 1.65;
-      max-width: 380px;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
     .pipeline-steps {
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 34px;
+      gap: 26px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .pipeline-steps::before {
       content: '';
       position: absolute;
-      left: 27px;
-      top: 32px;
-      bottom: 32px;
+      left: 50%;
+      top: 28px;
+      bottom: 28px;
       border-left: 2px dashed var(--gold);
+      transform: translateX(-50%);
       z-index: 0;
     }
 
+    /* Each step is one grid row. The icon always sits in the middle
+       column and is vertically centered against its own card, and a
+       short solid connector ties the icon directly to that card so the
+       two visually read as a single pinned pair. */
     .pipeline-step {
       position: relative;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: 1fr 56px 1fr;
+      grid-template-rows: 1fr;
+      align-items: center;
+      gap: 0 28px;
     }
 
     .step-icon {
       position: relative;
+      grid-row: 1;
+      grid-column: 2;
       z-index: 1;
       flex-shrink: 0;
       width: 56px;
@@ -382,13 +592,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       align-items: center;
       justify-content: center;
       font-size: 1.25rem;
+      align-self: center;
+      justify-self: center;
     }
 
     .pipeline-step:not(:last-child) .step-icon::after {
       content: '';
       position: absolute;
       left: 50%;
-      bottom: -21px;
+      bottom: -30px;
       transform: translateX(-50%);
       width: 0;
       height: 0;
@@ -399,8 +611,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .pipeline-step-content {
-      padding-top: 4px;
+      grid-row: 1;
       text-align: left;
+      background: var(--white);
+      border: 2px solid var(--primary);
+      border-radius: 18px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 24px rgba(10,42,102,0.08);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      align-self: center;
+      position: relative;
+    }
+
+    .pipeline-step-content:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(254,191,15,0.28);
+    }
+
+    /* Steps 1 & 3: content on the right, solid connector runs from the
+       icon straight into the left edge of that same card. */
+    .pipeline-step.step-right .pipeline-step-content {
+      grid-column: 3;
+    }
+    .pipeline-step.step-right .pipeline-step-content::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 50%;
+      width: 28px;
+      height: 2px;
+      background: var(--gold);
+      transform: translateY(-50%);
+    }
+
+    /* Steps 2 & 4: content on the left, connector mirrored so the icon
+       touches the right edge of its own card. */
+    .pipeline-step.step-left .pipeline-step-content {
+      grid-column: 1;
+    }
+    .pipeline-step.step-left .pipeline-step-content::after {
+      content: '';
+      position: absolute;
+      right: -28px;
+      top: 50%;
+      width: 28px;
+      height: 2px;
+      background: var(--gold);
+      transform: translateY(-50%);
     }
 
     .pipeline-step-title-row {
@@ -408,7 +665,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       align-items: baseline;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .pipeline-step-num {
@@ -418,36 +675,62 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .pipeline-step-content h3 {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 800;
       color: var(--primary);
       line-height: 1.3;
     }
 
+    .pipeline-step-content h4 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
     .pipeline-step-content p {
       font-size: 0.9rem;
       color: var(--text-light);
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
-    @media (max-width: 860px) {
-      .pipeline-grid { grid-template-columns: 1fr; gap: 40px; }
-      .pipeline-left p { max-width: none; }
+    @media (max-width: 760px) {
+      .pipeline-steps { max-width: 480px; gap: 22px; }
+      .pipeline-steps::before { left: 27px; }
+      .pipeline-step {
+        grid-template-columns: 56px 1fr;
+        gap: 0 20px;
+      }
+      .step-icon { grid-column: 1; }
+      .pipeline-step.step-right .pipeline-step-content,
+      .pipeline-step.step-left .pipeline-step-content {
+        grid-column: 2;
+        text-align: left;
+      }
+      .pipeline-step.step-right .pipeline-step-content::before,
+      .pipeline-step.step-left .pipeline-step-content::after {
+        content: none;
+      }
+      .pipeline-step:not(:last-child) .step-icon::after {
+        left: 27px;
+        transform: translateX(-50%);
+      }
     }
 
     /* FAQ Section */
     .ecommerce-faq {
-      padding: 70px 5% 80px;
-      background: var(--white);
+      padding: 60px 5% 60px;
+      background: var(--light-grey);
     }
     
     .faq-heading {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
     
     .faq-heading h2 {
-      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
       font-weight: 800;
       line-height: 1.22;
       color: var(--primary);
@@ -459,7 +742,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     .faq-list {
       max-width: 760px;
-      margin: 40px auto 0;
+      margin: 0 auto;
     }
     
     .faq-item {
@@ -475,13 +758,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 22px 0;
+      padding: 16px 0;
       cursor: pointer;
       user-select: none;
     }
     
     .faq-question h3 {
-      font-size: 1.02rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--primary);
       line-height: 1.4;
@@ -513,11 +796,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     .faq-item.open .faq-answer {
       max-height: 260px;
-      padding: 0 0 22px 0;
+      padding: 0 0 16px 0;
     }
     
     .faq-answer p {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--text-light);
       line-height: 1.6;
     }
@@ -573,7 +856,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li class="dropdown-divider"></li>
           <li><a href="/webinars">Webinars</a></li>
           <li class="dropdown-divider"></li>
-          <li><a href="/join-our-community">Join our Community</a></li>
+          <li><a href="/workshop">Workshop</a></li>
+<li class="dropdown-divider"></li>
+<li><a href="/join-our-community">Join our Community</a></li>
           <li class="dropdown-divider"></li>
           <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
           <li class="dropdown-divider"></li>
@@ -617,6 +902,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="mobile-fold" id="fold-resources">
        <a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a>
         <a href="/webinars">Webinars</a>
+        <a href="/workshop">Workshop</a>
         <a href="/join-our-community">Join our Community</a>
          <a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a>
         <a href="/faq">FAQs</a>
@@ -633,58 +919,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="hero-grid">
       <div class="hero-left">
-        <h1>Launch Your Online Store <span class="gold">Without the Overwhelm.</span></h1>
-        <p class="ecommerce-hero-content">From your first product to your first sale, building an online store doesn't have to be complicated. Ndovesha's AI coworkers help you launch, market, and grow with confidence.</p>
+        <h1>Still Waiting to <span class="gold">Launch Your Online Store?</span></h1>
+        <p class="ecommerce-hero-content">Getting an online store live often means:</p>
+
+        <div class="hero-problems-grid">
+          <div class="hero-problem-item">
+            <div class="hero-problem-icon"><i class="fas fa-hourglass-half"></i></div>
+            <h3>Weeks of Setup</h3>
+          </div>
+
+          <div class="hero-problem-item">
+            <div class="hero-problem-icon"><i class="fas fa-plug-circle-bolt"></i></div>
+            <h3>Complex Integrations</h3>
+          </div>
+
+          <div class="hero-problem-item">
+            <div class="hero-problem-icon"><i class="fas fa-sack-dollar"></i></div>
+            <h3>Costly Development</h3>
+          </div>
+        </div>
+
+        <p class="hero-solution-line">Ndovesha AI handles the heavy lifting so you can launch faster and start selling sooner.</p>
+
         <a class="ecommerce-cta-btn" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SECTION 2: OPPORTUNITIES ===== -->
+<!-- ===== SECTION 2: MEET YOUR AI ECOMMERCE COWORKER ===== -->
 <section class="ecommerce-opportunities">
   <div class="container">
     <div class="opportunities-heading">
-      <h2>Every Product You Sell Is a <span class="gold">Door to a New Customer.</span></h2>
-      <p>Ndovesha's E-commerce Coworker turns that opportunity into momentum helping you launch a professional store, list your products, and start selling before the moment passes.</p>
-    </div>
-
-    <div class="opportunities-grid">
-      <div class="opportunity-item">
-        <div class="opportunity-icon"><i class="fas fa-globe"></i></div>
-        <h3>Reach Customers Anywhere</h3>
-        <p>Sell beyond your neighborhood with a store that's open to customers day and night.</p>
-      </div>
-
-      <div class="opportunity-item">
-        <div class="opportunity-icon"><i class="fas fa-bolt"></i></div>
-        <h3>Launch Before the Moment Passes</h3>
-        <p>Go from idea to live store in minutes, so trends and demand don't outrun you.</p>
-      </div>
-
-      <div class="opportunity-item">
-        <div class="opportunity-icon"><i class="fas fa-arrow-trend-up"></i></div>
-        <h3>Scale Without Extra Overhead</h3>
-        <p>Grow your catalog and your customer base without hiring a bigger team.</p>
-      </div>
-
-      <div class="opportunity-item">
-        <div class="opportunity-icon"><i class="fas fa-magnifying-glass-dollar"></i></div>
-        <h3>Turn Browsers Into Buyers</h3>
-        <p>Professional product pages and clear descriptions help visitors decide faster.</p>
-      </div>
-
-      <div class="opportunity-item">
-        <div class="opportunity-icon"><i class="fas fa-bullhorn"></i></div>
-        <h3>Stay Visible, Consistently</h3>
-        <p>Keep marketing across channels running without spending hours writing content.</p>
-      </div>
-
-      <div class="opportunity-item">
-        <div class="opportunity-icon"><i class="fas fa-heart"></i></div>
-        <h3>Build Lasting Trust</h3>
-        <p>Deliver a polished shopping experience that keeps customers coming back.</p>
-      </div>
+      <h2>Meet Your <span class="gold">AI Ecommerce Coworker.</span></h2>
+      <p>From product pages and collections to a polished storefront, your AI coworker helps you launch faster so you can focus on selling and growing your business.</p>
     </div>
 
     <div class="challenges-cta-wrap">
@@ -697,59 +965,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="ecommerce-pipeline">
   <div class="container">
 
-    <div class="pipeline-grid">
+    <div class="pipeline-heading">
+      <h2>From Product Idea to <span class="gold">Online Store.</span></h2>
+    </div>
 
-      <div class="pipeline-left">
-        <h2>Your E-commerce<br><span class="gold"> Success Partner.</span></h2>
-        <p>From your first product to your first sale, Ndovesha works alongside you at every stage helping you build, launch, market, and grow your business faster.</p>
+    <div class="pipeline-steps">
+
+      <div class="pipeline-step step-right">
+        <div class="step-icon"><i class="fas fa-comment-dots"></i></div>
+        <div class="pipeline-step-content">
+          <div class="pipeline-step-title-row">
+            <span class="pipeline-step-num">01</span>
+            <h3>Tell Ndovesha About Your Business</h3>
+          </div>
+          <p>Describe what you want to sell, your target customers, and your goals. No technical skill required.</p>
+        </div>
       </div>
 
-      <div class="pipeline-steps">
-
-        <div class="pipeline-step">
-          <div class="step-icon"><i class="fas fa-comment-dots"></i></div>
-          <div class="pipeline-step-content">
-            <div class="pipeline-step-title-row">
-              <span class="pipeline-step-num">01</span>
-              <h3>Tell Ndovesha About Your Business</h3>
-            </div>
-            <p>Describe what you want to sell, your target customers, and your goals. No technical skill required.</p>
+      <div class="pipeline-step step-left">
+        <div class="step-icon"><i class="fas fa-store"></i></div>
+        <div class="pipeline-step-content">
+          <div class="pipeline-step-title-row">
+            <span class="pipeline-step-num">02</span>
+            <h3>Generate Your Store</h3>
           </div>
+          <p>Your AI coworker creates product pages, collections, navigation, and a professional storefront in minutes. Ready to customize or publish.</p>
         </div>
+      </div>
 
-        <div class="pipeline-step">
-          <div class="step-icon"><i class="fas fa-store"></i></div>
-          <div class="pipeline-step-content">
-            <div class="pipeline-step-title-row">
-              <span class="pipeline-step-num">02</span>
-              <h3>Generate Your Store</h3>
-            </div>
-            <p>Your AI coworker creates product pages, collections, navigation, and a professional storefront in minutes. Ready to customize or publish.</p>
+      <div class="pipeline-step step-right">
+        <div class="step-icon"><i class="fas fa-box"></i></div>
+        <div class="pipeline-step-content">
+          <div class="pipeline-step-title-row">
+            <span class="pipeline-step-num">03</span>
+            <h3>Add Products &amp; Content</h3>
           </div>
+          <p>Generate product descriptions, upload products, organize collections, and optimize everything for conversions. No more writing every page manually.</p>
         </div>
+      </div>
 
-        <div class="pipeline-step">
-          <div class="step-icon"><i class="fas fa-box"></i></div>
-          <div class="pipeline-step-content">
-            <div class="pipeline-step-title-row">
-              <span class="pipeline-step-num">03</span>
-              <h3>Add Products &amp; Content</h3>
-            </div>
-            <p>Generate product descriptions, upload products, organize collections, and optimize everything for conversions. No more writing every page manually.</p>
-          </div>
+      <div class="pipeline-step step-left">
+        <div class="step-icon"><i class="fas fa-rocket"></i></div>
+        <div class="pipeline-step-content">
+          <h4>Launch &amp; Improve</h4>
+          <p>Deploy your application and continue improving it as your business evolves.</p>
         </div>
-
-        <div class="pipeline-step">
-          <div class="step-icon"><i class="fas fa-rocket"></i></div>
-          <div class="pipeline-step-content">
-            <div class="pipeline-step-title-row">
-              <span class="pipeline-step-num">04</span>
-              <h3>Launch, Market &amp; Grow</h3>
-            </div>
-            <p>Create ads, emails, social media posts, customer support responses, and analyze store performance — all from one AI coworker. Keep improving while your business grows.</p>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -760,43 +1020,120 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ===== SECTION 4: CATEGORIES ===== -->
+<!-- ===== SECTION 3.5: STORE FEATURES ===== -->
+<section class="ecommerce-features">
+  <div class="container">
+    <div class="features-heading">
+      <h2>Everything Your <span class="gold">Store Needs.</span></h2>
+      <p>A complete ecommerce foundation, built and connected from day one.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-shop"></i></div>
+        <h3>Store Frontend</h3>
+        <p>Launch a modern storefront designed to showcase your products and brand.</p>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-basket-shopping"></i></div>
+        <h3>Shopping Cart</h3>
+        <p>Give customers a fast and intuitive shopping experience from cart to checkout.</p>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
+        <h3>Checkout</h3>
+        <p>Create a secure checkout that helps customers complete purchases with confidence.</p>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Admin Dashboard</h3>
+        <p>Manage every aspect of your store from one powerful dashboard.</p>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-warehouse"></i></div>
+        <h3>Inventory Management</h3>
+        <p>Monitor stock, organize products, and keep your catalog up to date.</p>
+      </div>
+    </div>
+
+    <div class="challenges-cta-wrap">
+      <a class="coworkers-cta" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: STORE TYPES (HUB & SPOKE) ===== -->
 <section class="ecommerce-categories">
   <div class="container">
     <div class="categories-heading">
-      <h2>Whatever You Sell, <span class="gold">Ndovesha Can Help You Sell It.</span></h2>
-      <p>From local shops to growing brands, your AI coworker helps you launch a professional online store in minutes so you can spend less time building and more time selling.</p>
+      <h2>One Coworker, <span class="gold">Any Kind of Store.</span></h2>
+      <p>From a single hero product to a sprawling multi-vendor marketplace, Ndovesha's AI coworker can architect the exact kind of store your business needs.</p>
     </div>
 
-    <div class="categories-grid">
-      <div class="category-card">
-        <div class="category-icon"><i class="fas fa-shirt"></i></div>
-        <h3>Fashion</h3>
-        <p>Showcase collections with product pages built to highlight style, sizing, and fit.</p>
+    <div class="categories-wheel-wrap">
+      <div class="categories-wheel">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- ring connecting all category nodes -->
+          <circle cx="200" cy="200" r="152" fill="none" stroke="var(--primary)" stroke-width="8"/>
+          <!-- dashed gold spokes from ring toward the hub -->
+          <line x1="200" y1="70" x2="200" y2="130" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 7"/>
+          <line x1="323.6" y1="159.8" x2="266.6" y2="178.4" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 7"/>
+          <line x1="276.4" y1="305.2" x2="241.2" y2="256.6" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 7"/>
+          <line x1="123.6" y1="305.2" x2="158.8" y2="256.6" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 7"/>
+          <line x1="76.4" y1="159.8" x2="133.4" y2="178.4" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 7"/>
+        </svg>
+
+        <div class="wheel-center">
+          <i class="fas fa-bag-shopping"></i>
+          <h3>Any Kind of Store</h3>
+          <p>Build. Launch. Sell more.</p>
+        </div>
+
+        <div class="wheel-node" style="left:50%; top:12%;">
+          <div class="wheel-node-icon">
+            <i class="fas fa-shirt"></i>
+            <span>Fashion</span>
+          </div>
+        </div>
+
+        <div class="wheel-node" style="left:86.1%; top:38.3%;">
+          <div class="wheel-node-icon">
+            <i class="fas fa-spa"></i>
+            <span>Beauty</span>
+          </div>
+        </div>
+
+        <div class="wheel-node" style="left:72.3%; top:80.7%;">
+          <div class="wheel-node-icon">
+            <i class="fas fa-prescription-bottle-medical"></i>
+            <span>Pharmacy</span>
+          </div>
+        </div>
+
+        <div class="wheel-node" style="left:27.7%; top:80.7%;">
+          <div class="wheel-node-icon">
+            <i class="fas fa-couch"></i>
+            <span>Furniture</span>
+          </div>
+        </div>
+
+        <div class="wheel-node" style="left:13.9%; top:38.3%;">
+          <div class="wheel-node-icon">
+            <i class="fas fa-laptop"></i>
+            <span>Electronics</span>
+          </div>
+        </div>
       </div>
 
-      <div class="category-card">
-        <div class="category-icon"><i class="fas fa-spa"></i></div>
-        <h3>Beauty</h3>
-        <p>Sell skincare, cosmetics, and wellness products with descriptions that build trust.</p>
-      </div>
-
-      <div class="category-card">
-        <div class="category-icon"><i class="fas fa-prescription-bottle-medical"></i></div>
-        <h3>Pharmacy</h3>
-        <p>Organize health products and essentials with clear, accurate product listings.</p>
-      </div>
-
-      <div class="category-card">
-        <div class="category-icon"><i class="fas fa-couch"></i></div>
-        <h3>Furniture</h3>
-        <p>Present pieces with detailed specs, dimensions, and imagery that drive confident orders.</p>
-      </div>
-
-      <div class="category-card">
-        <div class="category-icon"><i class="fas fa-laptop"></i></div>
-        <h3>Electronics</h3>
-        <p>List devices and gadgets with specs and comparisons that help customers decide faster.</p>
+      <div class="wheel-footer">
+        <span class="wheel-footer-line"></span>
+        <span class="wheel-footer-icon"><i class="fas fa-cart-shopping"></i></span>
+        <span>All the store types you need, in one AI coworker.</span>
+        <span class="wheel-footer-line"></span>
       </div>
     </div>
 
@@ -885,6 +1222,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ul>
           <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
           <li><a href="/webinars">Webinars</a></li>
+          <li><a href="/workshop">Workshop</a></li>
           <li><a href="/comparison">Ndovesha vs ChatGPT vs Gemini</a></li>
           <li><a href="/how-to-prompt">How to Prompt Ndovesha</a></li>
           <li><a href="/join-our-community">Join community</a></li>
@@ -1061,7 +1399,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"6892ca8ffd3b4ad7b1737418d2724ac1","r":1}' crossorigin="anonymous"></script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"6892ca8ffd3b4ad7b1737418d2724ac1","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>

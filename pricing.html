@@ -117,6 +117,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 500;
     }
 
+    /* Billing Period Toggle */
+    .pricing-toggle-wrap {
+      display: flex;
+      justify-content: center;
+      margin: -20px auto 50px;
+    }
+
+    .pricing-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--light-grey);
+      border-radius: 50px;
+      padding: 6px;
+    }
+
+    .pricing-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      background: transparent;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 10px 22px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .pricing-toggle-btn.active {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 6px 16px rgba(10, 42, 102, 0.25);
+    }
+
+    .pricing-toggle-save {
+      display: inline-flex;
+      align-items: center;
+      background: #1fa971;
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 50px;
+      letter-spacing: 0.2px;
+    }
+
     /* Pricing Cards */
     .pricing-cards-grid {
       display: grid;
@@ -722,7 +771,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li class="dropdown-divider"></li>
           <li><a href="/webinars">Webinars</a></li>
           <li class="dropdown-divider"></li>
-          <li><a href="/join-our-community">Join our Community</a></li>
+          <li><a href="/workshop">Workshop</a></li>
+<li class="dropdown-divider"></li>
+<li><a href="/join-our-community">Join our Community</a></li>
           <li class="dropdown-divider"></li>
           <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
           <li class="dropdown-divider"></li>
@@ -766,6 +817,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="mobile-fold" id="fold-resources">
         <a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a>
         <a href="/webinars">Webinars</a>
+        <a href="/workshop">Workshop</a>
         <a href="/join-our-community">Join our Community</a>
         <a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a>
         <a href="/faq">FAQs</a>
@@ -782,6 +834,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <h1>Simple pricing, <span class="gold">powerful results</span></h1>
     <p class="pricing-hero-subheading">Start free, upgrade when you are ready to scale.</p>
+
+    <!-- Billing Period Toggle -->
+    <div class="pricing-toggle-wrap">
+      <div class="pricing-toggle" id="billingToggle" role="tablist" aria-label="Billing period">
+        <button type="button" class="pricing-toggle-btn active" id="monthlyToggleBtn" data-period="monthly" role="tab" aria-selected="true">Monthly</button>
+        <button type="button" class="pricing-toggle-btn" id="annualToggleBtn" data-period="annual" role="tab" aria-selected="false">
+          Annual
+          <span class="pricing-toggle-save">Save 15%</span>
+        </button>
+      </div>
+    </div>
 
     <!-- Pricing Cards -->
     <div class="pricing-cards-grid">
@@ -1227,6 +1290,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ul>
           <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
           <li><a href="/webinars">Webinars</a></li>
+          <li><a href="/workshop">Workshop</a></li>
           <li><a href="/comparison">Ndovesha vs ChatGPT vs Gemini</a></li>
           <li><a href="/how-to-prompt">How to Prompt Ndovesha</a></li>
           <li><a href="/join-our-community">Join community</a></li>
@@ -1504,6 +1568,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   });
 
+  // ===== Billing period toggle (Monthly / Annual) =====
+  window.ndoveshaBillingPeriod = 'monthly'; // 'monthly' | 'annual'
+  var ANNUAL_DISCOUNT = 0.15; // 15% off when billed annually
+
+  var monthlyToggleBtn = document.getElementById('monthlyToggleBtn');
+  var annualToggleBtn = document.getElementById('annualToggleBtn');
+
+  function setBillingPeriod(period) {
+    window.ndoveshaBillingPeriod = period;
+    monthlyToggleBtn.classList.toggle('active', period === 'monthly');
+    annualToggleBtn.classList.toggle('active', period === 'annual');
+    monthlyToggleBtn.setAttribute('aria-selected', period === 'monthly');
+    annualToggleBtn.setAttribute('aria-selected', period === 'annual');
+
+    // Update the "/mo" suffix on each price to reflect billing cadence
+    document.querySelectorAll('.pricing-card-price[data-plan]').forEach(function (el) {
+      var span = el.querySelector('span');
+      if (!span) return;
+      span.textContent = period === 'annual' ? '/mo, billed yearly' : '/mo';
+    });
+
+    // Re-render prices using whatever currency system is active on the page
+    if (typeof window.ndoveshaRenderPrices === 'function') {
+      window.ndoveshaRenderPrices();
+    }
+  }
+
+  monthlyToggleBtn.addEventListener('click', function () { setBillingPeriod('monthly'); });
+  annualToggleBtn.addEventListener('click', function () { setBillingPeriod('annual'); });
+
 /* =====================================================================
    DROP-IN REPLACEMENT for the "USD-first pricing reveal" IIFE at the
    bottom of pricing.html. Ported from the first page's CurrencyConverter
@@ -1671,8 +1765,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // ---------------------------------------------------------------------
   // Formatting + rendering (kept from the original page's approach)
   // ---------------------------------------------------------------------
+  function periodMultiplier() {
+    return window.ndoveshaBillingPeriod === 'annual' ? (1 - ANNUAL_DISCOUNT) : 1;
+  }
+
   function formatUSD(baseKes, kesPerUsd) {
-    var usd = baseKes / kesPerUsd;
+    var usd = (baseKes * periodMultiplier()) / kesPerUsd;
     try {
       return new Intl.NumberFormat(undefined, {
         style: 'currency', currency: 'USD',
@@ -1684,13 +1782,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   function formatKSH(baseKes) {
-    if (baseKes === 0) return 'Ksh0';
-    return 'Ksh' + baseKes.toLocaleString();
+    var adjusted = Math.round(baseKes * periodMultiplier());
+    if (adjusted === 0) return 'Ksh0';
+    return 'Ksh' + adjusted.toLocaleString();
   }
 
   function formatLocal(baseKes, currency, kesPerUsd, usdPerCurrencyUnit) {
     // baseKes -> USD -> target currency, pivoting through the USD rate table
-    var usd = baseKes / kesPerUsd;
+    var usd = (baseKes * periodMultiplier()) / kesPerUsd;
     var converted = usd * usdPerCurrencyUnit;
     try {
       return new Intl.NumberFormat(undefined, {
@@ -1790,6 +1889,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       settleOnBestGuess();
     }).catch(settleOnBestGuess);
   }, 2000);
+
+  // Expose a re-render hook so the Monthly/Annual toggle can refresh
+  // prices immediately using whatever currency has already been resolved.
+  window.ndoveshaRenderPrices = function () {
+    if (!settled) return; // still on the initial fallback pass, nothing to redo yet
+    settleOnBestGuess();
+  };
 
   // Optional: expose a manual-currency setter for a future selector UI,
   // mirroring the first page's debug/override hooks.
