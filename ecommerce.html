@@ -76,14 +76,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--white);
     }
     .ecommerce-hero {
-  min-height: 85vh;   /* NEW — was inheriting 100vh from the shared rule */
+  min-height: 85vh;
+  align-items: flex-start;
+  padding: clamp(40px, 8vw, 64px) 5% clamp(32px, 6vw, 40px);
   background: var(--white);
 }
         
-    .ecommerce-hero .container {
-      max-width: 1180px;
-      margin: 0;
-    }
+   .ecommerce-hero .container {
+  max-width: 1180px;
+  margin: 0 auto;   /* was margin: 0 — this was the bug */
+}
 
     .hero-grid {
       max-width: 1040px;
@@ -181,10 +183,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin: 0 auto 28px;
       line-height: 1.6;
     }
+.hero-problems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 3vw, 28px);
+  max-width: 980px;
+  margin: 4px auto 30px;
+  text-align: left;
+}
 
-    @media (max-width: 760px) {
-      .hero-problems-grid { grid-template-columns: 1fr; }
-    }
+/* Tablet: step down to 2 columns before collapsing fully */
+@media (max-width: 900px) {
+  .hero-problems-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: single column, more generous vertical rhythm */
+@media (max-width: 600px) {
+  .hero-problems-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 4px auto 26px;
+  }
+
+  .ecommerce-hero h1 {
+    margin: 0 0 18px;
+  }
+
+  .hero-solution-line {
+    margin: 0 auto 22px;
+  }
+}
 
     /* Section 2: Meet Your AI Ecommerce Coworker */
     .ecommerce-opportunities {
