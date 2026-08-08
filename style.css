@@ -147,9 +147,32 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 .btn-cta:hover { transform: translateY(-3px); box-shadow: var(--green-glow); border-radius: 10px; }
+ 
+.mobile-nav-trigger {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-get-started-btn {
+  display: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: var(--primary);
+  color: var(--white);
+  white-space: nowrap;
+  transition: transform 0.18s, box-shadow 0.22s;
+}
+.mobile-get-started-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--green-glow);
+}
 
 .mobile-menu-btn {
-  display: none;
+  display: none;        /* NEW — hidden by default (desktop) */
   background: none;
   border: none;
   font-size: 1.6rem;
@@ -179,6 +202,7 @@ img { max-width: 100%; display: block; }
   display: block;
 }
 .mobile-nav a:hover { color: var(--gold); }
+
 .mobile-nav .btn-cta, .mobile-nav .btn-login {
   margin-top: 8px;
   text-align: center;
@@ -186,6 +210,9 @@ img { max-width: 100%; display: block; }
   border-bottom: none;
   display: block;
   border-radius: 50px;
+}
+.mobile-nav a.btn-cta {
+  color: var(--white);
 }
 .mobile-section-title {
   display: flex;
@@ -204,7 +231,9 @@ img { max-width: 100%; display: block; }
 @media (max-width: 968px) {
   .nav-center { display: none; }
   .nav-right { display: none; }
-  .mobile-menu-btn { display: block; }
+  .mobile-nav-trigger { display: flex; }
+  .mobile-get-started-btn { display: inline-block; }
+  .mobile-menu-btn { display: block; }   /* NEW — only shown at mobile width */
 }
 
 .hero-section {

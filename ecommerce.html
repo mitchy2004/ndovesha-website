@@ -72,13 +72,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Hero Section */
     .ecommerce-hero {
-      padding: 20px 5% 48px;
+      /* padding: 20px 5% 48px; */
       background: var(--white);
     }
-    
+    .ecommerce-hero {
+  min-height: 85vh;   /* NEW — was inheriting 100vh from the shared rule */
+  background: var(--white);
+}
+        
     .ecommerce-hero .container {
       max-width: 1180px;
-      margin: 0 auto;
+      margin: 0;
     }
 
     .hero-grid {
@@ -1007,8 +1011,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="pipeline-step step-left">
         <div class="step-icon"><i class="fas fa-rocket"></i></div>
         <div class="pipeline-step-content">
+          <div class="pipeline-step-title-row">
+            <span class="pipeline-step-num">04</span>
           <h4>Launch &amp; Improve</h4>
           <p>Deploy your application and continue improving it as your business evolves.</p>
+          </div>
+          
         </div>
       </div>
 
