@@ -2,13 +2,14 @@
    VARIABLES (shared across both sections)
 ============================================================ */
 :root {
-  --primary: #0A2A66;
-  --primary-dark: #061a42;
-  --primary-light: #1a3d80;
-  --gold: #FEBF0F;
+  /* Ndovesha brand colours */
+  --primary: #003366;       /* Deep Blue */
+  --primary-dark: #001f4a;  /* Deep Blue, darkened */
+  --primary-light: #1a4d8f; /* Deep Blue, lightened */
+  --gold: #FEBF0F;          /* Savanna Gold */
   --white: #FFFFFF;
-  --light-grey: #F7F8FA;   /* hero background */
-  --bg-alt: #E9EAEE;       /* Hire AI Coworkers background — slightly darker light-grey */
+  --light-grey: #F7F8FA;   
+  --bg-alt: #E9EAEE;      
   --text: #111827;
   --text-light: #6B7280;
   --border: #E5E7EB;
@@ -21,15 +22,102 @@
   --after-bg: #FFF8E8;
   --before-border: #F3CACA;
   --after-border: #F3D37A;
+
+  /* Font weight tiers */
+  --font-regular:   400;
+  --font-medium:    500;
+  --font-semibold:  600;
+  --font-bold:      700;
+  --font-extrabold: 800;
+  --font-heading:   400; /* unified weight for all headings — matches the "What Will You Build" (.build-main-heading) weight */
+  --font-h3:        600; /* h3s sit heavier than the rest of the heading scale */
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; font-weight: var(--font-regular); }
 ul { list-style: none; padding: 0; margin: 0; }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+/* ============================================================
+   GLOBAL FONT-WEIGHT ASSIGNMENTS
+   Centralized here instead of on individual selectors.
+============================================================ */
+
+/* Regular — 400 */
+.dropdown-menu li a,
+.hero-sub,
+.hire-ai-text,
+.challenges-sub,
+.tutorial-sub-heading,
+p {
+  font-weight: var(--font-regular);
+}
+
+/* Medium — 500 (non-heading UI elements) */
+.nav-center > li > a,
+.btn-login,
+.mobile-nav a,
+.build-sub-heading {
+  font-weight: var(--font-medium);
+}
+
+/* Semibold — 600 (non-heading UI elements only) */
+.btn-cta,
+.mobile-get-started-btn,
+.result-chip,
+.whatsapp-text-part {
+  font-weight: var(--font-semibold);
+}
+
+/* Bold — 700 (non-heading UI elements only) */
+.mobile-section-title,
+.cap-icon-label,
+.btn,
+.col-header-left,
+.col-header-right,
+.case-card-btn,
+.divider-label,
+.faq-toggle-btn {
+  font-weight: var(--font-bold);
+}
+
+/* Extrabold — 800 */
+.build-check,
+.chip-check {
+  font-weight: var(--font-extrabold);
+}
+
+/* ============================================================
+   HEADINGS — unified to a single weight (400, matching the build
+   section heading) across the page.
+   Covers both real h1–h6 tags and the custom "section heading"
+   classes (which wrap h1/h2/h3/h4 in markup). Declared last so
+   it wins over the tier blocks above for any shared selectors.
+============================================================ */
+h1, h2, h4, h5, h6,
+.hero-heading,
+.hire-main-heading,
+.challenges-heading,
+.build-main-heading,
+.tutorial-main-heading,
+.case-studies-main-heading,
+.faq-main-heading,
+.together-heading,
+.col-title,
+.result-heading {
+  font-weight: var(--font-heading);
+}
+
+/* h3s sit one step heavier than the rest of the heading scale */
+h3,
+.ai-card h3,
+.case-card-content h3,
+.faq-question-row h3 {
+  font-weight: var(--font-h3);
+}
 
 .nav {
   position: sticky;
@@ -62,7 +150,6 @@ img { max-width: 100%; display: block; }
   gap: 5px;
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.02rem;
-  font-weight: 500;
   color: var(--text);
   padding: 8px 14px;
   border-radius: 8px;
@@ -101,7 +188,6 @@ img { max-width: 100%; display: block; }
   display: block;
   padding: 13px 20px;
   font-size: 0.97rem;
-  font-weight: 400;
   color: var(--text);
   transition: color 0.18s, background 0.18s;
   white-space: nowrap;
@@ -113,7 +199,6 @@ img { max-width: 100%; display: block; }
 .btn-login {
   font-family: 'Ubuntu', sans-serif;
   font-size: 0.97rem;
-  font-weight: 500;
   padding: 9px 20px;
   border-radius: 50px;
   border: 1.5px solid var(--border);
@@ -135,7 +220,6 @@ img { max-width: 100%; display: block; }
 .btn-cta {
   font-family: 'Ubuntu', sans-serif;
   font-size: 0.97rem;
-  font-weight: 600;
   padding: 9px 20px;
   border-radius: 50px;
   border: none;
@@ -158,7 +242,6 @@ img { max-width: 100%; display: block; }
   display: none;
   font-family: 'Ubuntu', sans-serif;
   font-size: 0.88rem;
-  font-weight: 600;
   padding: 8px 16px;
   border-radius: 50px;
   background: var(--primary);
@@ -196,7 +279,6 @@ img { max-width: 100%; display: block; }
 .mobile-nav a {
   padding: 12px 8px;
   font-size: 1rem;
-  font-weight: 500;
   color: var(--text);
   border-bottom: 1px solid var(--border);
   display: block;
@@ -219,7 +301,6 @@ img { max-width: 100%; display: block; }
   align-items: center;
   justify-content: space-between;
   padding: 12px 8px;
-  font-weight: 700;
   font-size: 0.95rem;
   color: var(--primary);
   cursor: pointer;
@@ -250,7 +331,6 @@ img { max-width: 100%; display: block; }
 .hero-heading {
   font-family: 'Ubuntu', sans-serif;
   font-size: clamp(2.6rem, 5.5vw, 5.2rem);
-  font-weight: 400;
   line-height: 1.08;
   letter-spacing: -0.5px;
   color: var(--primary);
@@ -261,9 +341,8 @@ img { max-width: 100%; display: block; }
 }
 .hero-heading .golden { color: var(--gold); }
 .hero-sub {
-  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  font-size: clamp(1.08rem, 1.9vw, 1.28rem);
   color: var(--text-light);
-  font-weight: 400;
   margin-bottom: 22px;
   max-width: 500px;
 }
@@ -349,7 +428,7 @@ img { max-width: 100%; display: block; }
 }
 .cap-icon-item:hover .cap-icon-circle { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(254,191,15,0.18); }
 .cap-icon-circle svg { color: var(--primary); }
-.cap-icon-label { font-size: 0.82rem; font-weight: 700; color: var(--text); letter-spacing: 0.01em; }
+.cap-icon-label { font-size: 0.82rem; color: var(--text); letter-spacing: 0.01em; }
 
 @media (max-width: 968px) {
   .hero-heading { font-size: clamp(2rem, 7vw, 3.5rem); white-space: normal; }
@@ -373,8 +452,7 @@ img { max-width: 100%; display: block; }
 
 .hire-main-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  font-weight: 400;
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
   color: var(--primary);
   line-height: 1.1;
   margin-bottom: 0;
@@ -384,12 +462,10 @@ img { max-width: 100%; display: block; }
 .hire-ai-text {
   display: inline-block;
   margin-bottom: 6px;
-  font-weight: 400;
 }
 
 .gold-coworkers {
   color: var(--gold);
-  font-weight: 600;
   display: inline-block;
   position: relative;
   padding-bottom: 8px;
@@ -462,7 +538,7 @@ img { max-width: 100%; display: block; }
   background: var(--white);
   border-radius: 16px;
   padding: 38px 26px 34px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border);   /* navy outline removed */
   box-shadow: 0 4px 16px rgba(10,42,102,0.06);
   transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
   display: flex;
@@ -470,7 +546,6 @@ img { max-width: 100%; display: block; }
   align-items: center;
   text-align: center;
 }
-
 .ai-card:hover {
   transform: translateY(-9px);
   box-shadow:
@@ -492,31 +567,40 @@ img { max-width: 100%; display: block; }
   transition: background 0.28s;
 }
 
-.ai-card:hover .ai-card-icon {
-  background: var(--primary-light);
-}
-
 .ai-card-icon svg {
   width: 30px;
   height: 30px;
-  stroke: var(--white);
-  color: var(--white);
+  stroke: var(--gold);   /* was: var(--white) */
+  color: var(--gold);    /* was: var(--white) */
   fill: none;
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
+.ai-card:hover .ai-card-icon {
+  background: var(--gold);   /* was: var(--primary-light) */
+}
+.ai-card:hover .ai-card-icon svg {
+  stroke: var(--primary);
+  color: var(--primary);
+}
+.ai-card:hover {
+  transform: translateY(-9px);
+  box-shadow:
+    0 0 42px rgba(254,191,15,0.5),
+    0 8px 32px rgba(10,42,102,0.10);
+  border-color: var(--gold);
+}
 .ai-card h3 {
   font-size: 1.04rem;
-  font-weight: 700;
   color: var(--primary);
   margin-bottom: 12px;
   line-height: 1.3;
 }
 
 .ai-card p {
-  font-size: 0.89rem;
+  font-size: 0.96rem;
   color: var(--text-light);
   line-height: 1.72;
 }
@@ -534,7 +618,6 @@ margin-top: 50px;
   border-radius: 50px;
   font-family: 'Ubuntu', sans-serif;
   font-size: 0.95rem;
-  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -572,8 +655,7 @@ margin-top: 50px;
 
 .challenges-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  font-weight: 400;
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
   color: var(--primary);
   line-height: 1.1;
   margin-bottom: 10px;
@@ -583,9 +665,7 @@ margin-top: 50px;
 
 .challenges-sub {
   margin-top: 14px;
-    font-size: clamp(1rem, 1.8vw, 1.18rem);
-  color: var(--text-light);
-  font-weight: 400;
+  font-size: clamp(0.98rem, 1.7vw, 1.14rem);
   color: var(--text-light);
   line-height: 1.6;
 }
@@ -600,7 +680,6 @@ margin-top: 50px;
 .col-header-left {
   grid-column: 1;
   font-size: 0.95rem;
-  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-light);
@@ -609,7 +688,6 @@ margin-top: 50px;
 .col-header-right {
   grid-column: 3;
   font-size: 0.95rem;
-  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-light);
@@ -703,12 +781,12 @@ margin-top: 50px;
 
 .challenge-title {
   font-size: 1rem;
-  font-weight: 550;
+  font-weight: 600;
   color: var(--primary);
 }
 
 .challenge-desc {
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   line-height: 1.45;
   color: var(--text-light);
 }
@@ -735,6 +813,14 @@ margin-top: 50px;
 .challenges-cta-center {
   text-align: center;
   margin-top: 44px;
+}
+.build-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 @media (max-width: 860px) {
@@ -766,8 +852,7 @@ margin-top: 50px;
 
 .build-main-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  font-weight: 400;
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* reference size — 3rd section h2 */
   color: var(--primary);
   line-height: 1.1;
   margin-bottom: 10px;
@@ -776,7 +861,6 @@ margin-top: 50px;
 
 .gold-build {
   color: var(--gold);
-  font-weight: 700;
   display: inline-block;
   position: relative;
   padding-bottom: 8px;
@@ -822,23 +906,10 @@ margin-top: 50px;
 
 .build-sub-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-weight: 500;
+  font-size: clamp(1.18rem, 2.1vw, 1.5rem);
   color: var(--text-light);
   margin-bottom: 40px;
 }
-
-.build-buttons-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 1fr;
-  gap: 22px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-@media (max-width: 860px) { .build-buttons-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .build-buttons-grid { grid-template-columns: 1fr; } }
 
 .build-btn {
   display: flex;
@@ -853,7 +924,6 @@ margin-top: 50px;
   padding: 18px 24px;
   font-family: 'Ubuntu', sans-serif;
   font-size: 0.98rem;
-  font-weight: 600;
   color: var(--primary);
   border: 0.5px solid var(--border);
   box-shadow: var(--shadow);
@@ -870,10 +940,12 @@ margin-top: 50px;
 .build-check {
   color: var(--gold);
   font-size: 1.1rem;
-  font-weight: 800;
   line-height: 1;
   flex-shrink: 0;
 }
+
+@media (max-width: 860px) { .build-buttons-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .build-buttons-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 768px) {
   .build-section { padding: 48px 0 48px; }
@@ -896,8 +968,7 @@ margin-top: 50px;
 
 .tutorial-main-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
-  font-weight: 400;
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
   color: var(--primary);
   line-height: 1.1;
   margin-bottom: 16px;
@@ -906,7 +977,6 @@ margin-top: 50px;
 
 .gold-tutorial {
   color: var(--gold);
-  font-weight: 700;
   display: inline-block;
   animation: growTutorial 2s ease-in-out infinite;
 }
@@ -917,19 +987,19 @@ margin-top: 50px;
 }
 
 .tutorial-sub-heading {
-  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  font-size: clamp(1.08rem, 1.9vw, 1.28rem);
   color: var(--text-light);
-  font-weight: 400;
   max-width: 560px;
   margin: 0 auto;
 }
 
 .tutorial-video-wrap {
-  max-width: 860px;
+  max-width: 700px; /* reduced from 860px so the YouTube thumbnail displays at its
+                        native 16:9 crop instead of appearing stretched/cropped */
   margin: 32px auto 0;
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
+  padding-bottom: 39.375%; /* 700 * 9/16, keeps a true 16:9 frame at the new width */
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -1016,8 +1086,7 @@ margin-top: 50px;
 
 .case-studies-main-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.1rem, 4.5vw, 3.4rem);
-  font-weight: 400;
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
   color: var(--primary);
   line-height: 1.1;
   white-space: nowrap;
@@ -1025,7 +1094,6 @@ margin-top: 50px;
 
 .gold-action {
   color: var(--gold);
-  font-weight: 700;
 }
 
 .case-studies-grid {
@@ -1077,13 +1145,12 @@ margin-top: 50px;
 .case-card-content h3 {
   color: var(--primary);
   font-size: 1.2rem;
-  font-weight: 700;
   margin-bottom: 10px;
 }
 
 .case-card-content p {
   color: var(--text-light);
-  font-size: 0.93rem;
+  font-size: 1rem;
   line-height: 1.65;
   margin-bottom: 22px;
 }
@@ -1102,7 +1169,6 @@ margin-top: 50px;
   background: var(--primary);
   color: var(--white);
   font-size: 0.85rem;
-  font-weight: 700;
   text-decoration: none;
   transition: background 0.3s ease, transform 0.3s ease;
 }
@@ -1137,8 +1203,7 @@ margin-top: 50px;
 }
 .together-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(1.6rem, 4vw, 2.9rem);
-  font-weight: 600;
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
   color: var(--primary);
   line-height: 1.25;
   white-space: nowrap;
@@ -1149,7 +1214,7 @@ margin-top: 50px;
 .gold-together { color: var(--gold); }
 .together-sub {
   margin-top: 14px;
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   color: var(--text-light);
   line-height: 1.6;
   opacity: 0;
@@ -1203,8 +1268,8 @@ margin-top: 50px;
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: var(--light-grey, #F7F8FA);
-  border: 1px solid var(--border);
+  background: var(--primary);
+  border: 1px solid var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1212,14 +1277,13 @@ margin-top: 50px;
 }
 .col-icon svg {
   width: 22px; height: 22px;
-  color: var(--primary);
-  stroke: currentColor; fill: none;
+  color: var(--gold);
+  stroke: var(--gold);
+  fill: none;
   stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
 }
-
 .col-title {
   font-size: 1.3rem;
-  font-weight: 700;
   color: var(--primary);
   margin-bottom: 22px;
 }
@@ -1304,7 +1368,6 @@ margin-top: 50px;
 }
 .divider-label {
   font-size: 0.72rem;
-  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-light);
@@ -1332,7 +1395,6 @@ margin-top: 50px;
 
 .result-heading {
   font-size: 1.15rem;
-  font-weight: 700;
   color: var(--primary);
   margin-bottom: 22px;
 }
@@ -1352,7 +1414,6 @@ margin-top: 50px;
   border-radius: 50px;
   padding: 10px 18px;
   font-size: 0.86rem;
-  font-weight: 600;
   color: var(--text);
   opacity: 0;
   transform: translateY(10px);
@@ -1372,7 +1433,6 @@ margin-top: 50px;
 }
 .chip-check {
   color: var(--gold);
-  font-weight: 800;
   font-size: 0.8rem;
 }
 .handshake-badge svg {
@@ -1418,8 +1478,7 @@ margin-top: 50px;
 
 .faq-main-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
-  font-weight: 400;
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
   color: var(--primary);
   line-height: 1.2;
   max-width: 720px;
@@ -1428,7 +1487,6 @@ margin-top: 50px;
 
 .gold-ai-workers {
   color: var(--gold);
-  font-weight: 700;
   display: inline-block;
   animation: growAiWorkers 2s ease-in-out infinite;
 }
@@ -1458,7 +1516,6 @@ margin-top: 50px;
 
 .faq-question-row h3 {
   font-size: 1.02rem;
-  font-weight: 600;
   color: var(--primary);
   margin: 0;
 }
@@ -1478,7 +1535,6 @@ margin-top: 50px;
   cursor: pointer;
   color: var(--gold);
   font-size: 1.6rem;
-  font-weight: 700;
   line-height: 1;
 }
 
@@ -1495,7 +1551,7 @@ margin-top: 50px;
   overflow: hidden;
   opacity: 0;
   color: var(--text-light);
-  font-size: 0.92rem;
+  font-size: 0.99rem;
   line-height: 1.75;
   transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
 }
@@ -1625,7 +1681,6 @@ margin-top: 50px;
   justify-content: center;
   color: #000000;
   font-family: 'Ubuntu', sans-serif;
-  font-weight: 600;
   font-size: 0.88rem;
   white-space: nowrap;
 }

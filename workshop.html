@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <!-- Google Tag Manager -->
+  <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -9,1128 +9,1066 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-K2HTVGXV');</script>
     <!-- End Google Tag Manager -->
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ndovesha AI Physical Masterclass </title>
-<meta name="description" content="Explore highlights from Ndovesha AI's physical masterclass, where entrepreneurs, business owners, and professionals learned to build websites, software and marketing assets using AI.">
-<link rel="canonical" href="https://ndovesha.ai/workshop">
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" href="favicon-32x32.png">
-
-     <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1120700146854777');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1120700146854777&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-<style>
-  /* ============================================================
-   Ndovesha AI — Physical Masterclass Recap Page
-============================================================ */
-
-/* ---------- Variables & base reset ---------- */
-:root {
-  --primary: #0A2A66;
-  --gold: #FEBF0F;
-  --white: #FFFFFF;
-  --light-grey: #F7F8FA;
-  --bg-alt: #E9EAEE;
-  --text: #111827;
-  --text-light: #6B7280;
-  --border: #E5E7EB;
-  --green-glow: 0 0 18px rgba(34, 197, 94, 0.45);
-  --shadow: 0 4px 24px rgba(10,42,102,0.10);
-  --shadow-lg: 0 8px 40px rgba(10,42,102,0.14);
-  --nav-height: 68px;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box; margin: 0; padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Ubuntu", sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden;
-}
-
-ul {
-  list-style: none; padding: 0; margin: 0;
-}
-
-a {
-  text-decoration: none; color: inherit;
-}
-
-img {
-  max-width: 100%; display: block;
-}
-
-.container {
-  width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 28px;
-}
-
-/* ---------- Header / navigation ---------- */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  height: var(--nav-height);
-  display: flex;
-  align-items: center;
-}
-
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 100%;
-}
-
-.logo-img {
-  height: 52px; width: auto; max-width: 200px; object-fit: contain;
-}
-
-.nav-center {
-  display: flex; align-items: center; gap: 4px; list-style: none;
-}
-
-.nav-center > li {
-  position: relative;
-}
-
-.nav-center > li > a {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 1.02rem;
-  font-weight: 500;
-  color: var(--text);
-  padding: 8px 14px;
-  border-radius: 8px;
-  transition: color 0.2s;
-  white-space: nowrap;
-}
-
-.nav-center > li > a:hover {
-  color: var(--gold);
-}
-
-.nav-arrow {
-  font-size: 0.8rem; margin-left: 2px; transition: transform 0.2s; display: inline-block;
-}
-
-.nav-center > li:hover .nav-arrow {
-  transform: rotate(180deg);
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-lg);
-  min-width: 200px;
-  z-index: 2000;
-  overflow: hidden;
-}
-
-.dropdown-menu::after {
-  content: "";
-  position: absolute;
-  top: -8px;
-  left: 0;
-  right: 0;
-  height: 8px;
-}
-
-.nav-center > li:hover .dropdown-menu,
-.dropdown-menu.show {
-  display: block;
-}
-
-.dropdown-menu li a {
-  display: block;
-  padding: 13px 20px;
-  font-size: 0.97rem;
-  font-weight: 400;
-  color: var(--text);
-  transition: color 0.18s, background 0.18s;
-  white-space: nowrap;
-}
-
-.dropdown-menu li a:hover {
-  color: var(--gold); background: var(--light-grey);
-}
-
-.dropdown-divider {
-  height: 1px; background: var(--border); margin: 0;
-}
-
-.nav-right {
-  display: flex; align-items: center; gap: 10px;
-}
-
-.btn-login {
-  font-family: "Ubuntu", sans-serif;
-  font-size: 0.97rem;
-  font-weight: 500;
-  padding: 9px 20px;
-  border-radius: 50px;
-  border: 1.5px solid var(--border);
-  background: var(--white);
-  color: var(--text);
-  cursor: pointer;
-  transition: background 0.22s, color 0.22s, transform 0.18s, box-shadow 0.22s, border-radius 0.22s;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.btn-login:hover {
-  background: var(--primary);
-  color: var(--white);
-  transform: translateY(-3px);
-  box-shadow: var(--green-glow);
-  border-radius: 10px;
-  border-color: var(--primary);
-}
-
-.btn-cta {
-  font-family: "Ubuntu", sans-serif;
-  font-size: 0.97rem;
-  font-weight: 600;
-  padding: 9px 20px;
-  border-radius: 50px;
-  border: none;
-  background: var(--primary);
-  color: var(--white);
-  cursor: pointer;
-  transition: transform 0.18s, box-shadow 0.22s, border-radius 0.22s;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.btn-cta:hover {
-  transform: translateY(-3px); box-shadow: var(--green-glow); border-radius: 10px;
-}
-
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  cursor: pointer;
-  color: var(--text);
-}
-
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--white);
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  z-index: 999;
-  border-top: 1px solid var(--border);
-}
-
-.mobile-nav.active {
-  display: flex;
-}
-
-.mobile-nav a {
-  padding: 12px 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text);
-  border-bottom: 1px solid var(--border);
-  display: block;
-}
-
-.mobile-nav a:hover {
-  color: var(--gold);
-}
-
-.mobile-nav .btn-cta, .mobile-nav .btn-login {
-  margin-top: 8px;
-  text-align: center;
-  width: 100%;
-  border-bottom: none;
-  display: block;
-  border-radius: 50px;
-}
-
-.mobile-section-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 8px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--primary);
-  cursor: pointer;
-}
-
-.mobile-fold {
-  display: none; flex-direction: column; padding-left: 12px;
-}
-
-.mobile-fold.open {
-  display: flex;
-}
-
-.mobile-fold a {
-  border-bottom: none; padding: 10px 8px;
-}
-
-@media (max-width: 968px) {
-  .nav-center { display: none; }
-  .nav-right { display: none; }
-  .mobile-menu-btn { display: block; }
-}
-
-/* ---------- Footer ---------- */
-.footer-links-section {
-  background: var(--light-grey);
-  padding: 56px 0 40px;
-}
-
-.footer-links-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 32px;
-}
-
-@media (max-width: 1024px) {
-  .footer-links-grid { grid-template-columns: repeat(3, 1fr); gap: 36px 28px; }
-}
-
-@media (max-width: 640px) {
-  .footer-links-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
-}
-
-.footer-links-col h4 {
-  font-family: "Ubuntu", sans-serif;
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 18px;
-}
-
-.footer-links-col ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer-links-col ul li {
-  margin-bottom: 12px;
-}
-
-.footer-links-col ul li a {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-links-col ul li a:hover {
-  color: var(--gold);
-}
-
-.site-footer {
-  background: var(--bg-alt);
-  padding: 48px 0 32px;
-}
-
-.footer-social-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 36px;
-}
-
-.footer-social-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.footer-social-btn:hover {
-  transform: translateY(-4px);
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(254,191,15,0.35), var(--shadow-lg);
-}
-
-.footer-social-btn svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-}
-
-.footer-social-btn svg.icon-outline {
-  fill: none;
-}
-
-.footer-bottom-row {
-  display: flex;
-  justify-content: flex-start;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-}
-
-.footer-copyright {
-  font-size: 0.85rem;
-  color: var(--primary);
-}
-
-/* ---------- Floating buttons ---------- */
-.whatsapp-float {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 9999;
-  display: flex;
-  width: 200px;
-  height: 54px;
-  border-radius: 27px;
-  overflow: hidden;
-  text-decoration: none;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: var(--shadow-lg);
-}
-
-.whatsapp-icon-part {
-  width: 25%;
-  flex-shrink: 0;
-  background: #25D366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.whatsapp-icon-part svg {
-  width: 22px;
-  height: 22px;
-  fill: var(--white);
-}
-
-.whatsapp-text-part {
-  width: 75%;
-  background: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000000;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 600;
-  font-size: 0.88rem;
-  white-space: nowrap;
-}
-
-.scroll-top-btn {
-  position: fixed;
-  bottom: 28px;
-  left: 28px;
-  z-index: 9999;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--gold);
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow);
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.scroll-top-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  outline: #061a42;
-}
-
-.scroll-top-btn svg {
-  width: 22px;
-  height: 22px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-@media (max-width: 480px) {
-  .whatsapp-float { width: 170px; height: 48px; bottom: 20px; right: 20px; }
-  .whatsapp-text-part { font-size: 0.8rem; }
-  .scroll-top-btn { width: 46px; height: 46px; bottom: 20px; left: 20px; }
-}
-
-/* ============================================================
-   PAGE-SPECIFIC STYLES
-   (hero, mosaic gallery, video recap, "next workshop" CTA section)
-============================================================ */
-:root {
-    --primary: #0A2A66;
-    --primary-dark: #061a42;
-    --primary-light: #1a3d80;
-    --gold: #FEBF0F;
-    --white: #FFFFFF;
-    --light-grey: #F7F8FA;
-    --text: #111827;
-    --text-light: #6B7280;
-    --border: #E5E7EB;
-    --shadow: 0 4px 24px rgba(10,42,102,0.10);
-    --shadow-lg: 0 8px 40px rgba(10,42,102,0.14);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Ubuntu', sans-serif;
-    color: var(--text);
-    background: var(--white);
-    line-height: 1.6;
-  }
-  img { max-width: 100%; display: block; }
-  .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-
-  /* ---------- Hero / thank you ---------- */
-  .recap-hero {
-    background: var(--light-grey);
-    padding: 96px 24px 64px;
-    text-align: center;
-  }
-
-  .eyebrow {
-    display: inline-block;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    background: var(--primary);
-    padding: 8px 18px;
-    border-radius: 999px;
-    margin-bottom: 24px;
-  }
-
-  .recap-heading {
-    font-size: clamp(2.2rem, 5vw, 3.6rem);
-    font-weight: 800;
-    color: var(--primary);
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-    max-width: 780px;
-    margin: 0 auto 20px;
-  }
-
-  .recap-heading .gold { color: var(--gold); }
-
-  .recap-sub {
-    font-size: clamp(1rem, 1.6vw, 1.15rem);
-    color: var(--text-light);
-    max-width: 620px;
-    margin: 0 auto;
-    line-height: 1.75;
-  }
-
-  /* ---------- Mosaic gallery ---------- */
-  .gallery-section {
-    padding: 64px 0 76px;
-    background: var(--white);
-  }
-
-  .gallery-label {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    max-width: 1100px;
-    margin: 0 auto 28px;
-    padding: 0 24px;
-  }
-
-  .gallery-label span {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--primary);
-    white-space: nowrap;
-  }
-
-  .gallery-label .rule {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .gallery-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 220px);
-    grid-template-areas:
-      "a a b b"
-      "a a c c";
-    gap: 18px;
-  }
-
-  .tile {
-    position: relative;
-    border-radius: 18px;
-    overflow: hidden;
-    background: var(--light-grey);
-    box-shadow: var(--shadow);
-  }
-
-  .tile img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s cubic-bezier(.19,1,.22,1);
-  }
-
-  .tile:hover img { transform: scale(1.05); }
-
-  .tile-a { grid-area: a; }
-  .tile-b { grid-area: b; }
-  .tile-c { grid-area: c; }
-
-  .tile-wide {
-    grid-column: 1 / -1;
-    height: 450px;
-  }
-
-  @media (max-width: 760px) {
-    .gallery-grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: none;
-      grid-template-areas:
-        "a"
-        "b"
-        "c";
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Ndovesha AI Academy | AI Masterclasses &amp; Workshops</title>
+  <meta name="description" content="Experience Ndovesha AI firsthand through practical masterclasses. Meet the team, see AI coworkers in action, explore what's possible and hear from real attendees.">
+  <link rel="canonical" href="https://ndovesha.ai/academy">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ndovesha.ai/academy">
+  <meta property="og:title" content="Ndovesha AI Academy | AI Masterclasses & Workshops">
+  <meta property="og:description" content="Experience Ndovesha AI firsthand through practical masterclasses. Meet the team, see AI coworkers in action, explore what's possible and hear from real attendees.">
+  <meta property="og:image" content="[OG_IMAGE_URL]">
+  <meta property="og:site_name" content="Ndovesha">
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="favicon-32x32.png">
+
+  <style>
+    /* =========================================================
+       NDOVESHA AI ACADEMY — PAGE-SPECIFIC STYLES
+       Reuses shared tokens (--primary, --gold, --white, --light-grey,
+       --text, --text-light, --border, --shadow, --shadow-lg, --radius)
+       and shared nav/footer styles already defined in style.css.
+    ========================================================= */
+
+    .section-heading { text-align: center; max-width: 700px; margin: 0 auto 46px; }
+    .section-heading h2 {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: clamp(2.3rem, 4.8vw, 3.2rem);
+      font-weight: 700;
+      color: #003366; /* Deep Blue */
+      line-height: 1.22;
+      margin-bottom: 16px;
     }
-    .tile { height: 280px; }
-    .tile-wide { height: 280px; }
-  }
+    .section-heading h2 .gold { color: #FEBF0F; } /* Savanna Gold */
+    .academy-hero-copy h1 .gold-text { color: #FEBF0F; } /* Savanna Gold */
+    .section-heading p {
+      font-size: 1.18rem;
+      font-weight: 400;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
 
-  /* ---------- Video recap (attendee reactions) ---------- */
-  .video-recap-section {
-    padding: 76px 24px;
-    background: var(--light-grey);
-    text-align: center;
-  }
+    /* Scroll-reveal (respects reduced motion) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s cubic-bezier(.19,1,.22,1), transform 0.7s cubic-bezier(.19,1,.22,1);
+    }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
 
-  .video-recap-inner {
-    max-width: 820px;
-    margin: 0 auto;
-  }
+    /* ============ HERO ============ */
+    .academy-hero {
+      padding: 20px 5%;
+      min-height: calc(100vh - 80px);
+      min-height: calc(100svh - 80px); /* adjust 80px to your actual nav height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .academy-hero .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .academy-hero-copy h1 {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: clamp(2.8rem, 5.6vw, 4.4rem);
+      font-weight: 500;
+      color: #003366; /* Deep Blue */
+      line-height: 1.12;
+      margin-bottom: 20px;
+    }
+    .academy-hero-copy .hero-support {
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      font-weight: 450;
+      color: var(--primary-light, var(--primary));
+      margin-bottom: 20px;
+    }
+    .academy-hero-copy .hero-desc {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text-light);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto 16px;
+    }
+    .hero-icon-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 44px;
+      margin-top: 56px;
+    }
+    .hero-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      max-width: 190px;
+      text-align: center;
+    }
+    .hero-icon-circle {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background: var(--white, #ffffff);
+      border: 1px solid var(--border);
+      color: #003366; /* Deep Blue icon color */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.55rem;
+      box-shadow: 0 8px 22px rgba(0, 51, 102, 0.12);
+      flex-shrink: 0;
+    }
+    .hero-icon-item span {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-light);
+      line-height: 1.45;
+    }
 
-  .video-recap-heading {
-    font-size: clamp(1.9rem, 4.2vw, 2.7rem);
-    font-weight: 800;
-    color: var(--primary);
-    line-height: 1.2;
-    margin-bottom: 18px;
-  }
+    .hero-support-line {
+      margin-top: 40px;
+      font-size: 1.04rem;
+      font-weight: 400;
+      color: var(--text-light);
+      line-height: 1.7;
+      letter-spacing: normal;
+    }
 
-  .video-recap-heading .gold { color: var(--gold); }
+    /* Hero sign-up button (navy-blue, matches heading accent color) */
+    .hero-signup-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #003366; /* Deep Blue, same as headings */
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 15px 34px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      margin-top: 40px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      box-shadow: 0 10px 28px rgba(0, 51, 102, 0.28);
+    }
+    .hero-signup-btn:hover {
+      background: #002244;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(0, 51, 102, 0.34);
+    }
 
-  .video-recap-text {
-    font-size: 1.02rem;
-    color: var(--text-light);
-    line-height: 1.75;
-    max-width: 560px;
-    margin: 0 auto 36px;
-  }
+    @media (max-width: 640px) {
+      .hero-icon-row { gap: 30px; }
+    }
 
-  .video-recap-wrap {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-    border-radius: 18px;
-    overflow: hidden;
-    background: #000;
-    box-shadow: var(--shadow-lg);
-  }
+    /* ============ WHY ATTEND ============ */
+    .why-attend-section {
+      padding: 80px 5%;
+      min-height: 100vh;
+      min-height: 100svh;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      background: var(--light-grey);
+    }
+    .why-attend-section > .section-heading { display: none; } /* heading moved into flex wrapper below for centering */
+    .why-attend-wrapper {
+      width: 100%;
+    }
+    .why-attend-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 56px;
+      max-width: 1260px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+    .why-attend-image {
+      position: relative;
+      border-radius: var(--radius, 14px);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      min-height: 600px;
+    }
+    .why-attend-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 1.2s ease;
+    }
+    .why-attend-img.active {
+      opacity: 1;
+      animation: whyAttendZoom 5.6s ease-in-out forwards;
+    }
+    @keyframes whyAttendZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .why-attend-img.active { animation: none; }
+    }
 
-  .video-recap-wrap iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: 0;
-  }
+    /* Why-attend reasons: bento-style stacked cards, tightened spacing */
+    .why-attend-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 14px;
+      text-align: left;
+      min-height: 600px;
+    }
+    .why-row {
+      padding: 24px 26px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius, 14px);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .why-row:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .why-row h3 {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+      font-weight: 700;
+      line-height: 1.28;
+      margin-bottom: 6px;
+      color: #003366; /* Deep Blue */
+    }
+    .why-row h3 .accent { color: #FEBF0F; } /* Savanna Gold */
+    .why-row p {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--text-light);
+    }
 
-  /* ---------- Next workshop CTA ---------- */
-  .next-section {
-    background: var(--primary);
-    padding: 76px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
+    @media (max-width: 860px) {
+      .why-attend-layout { grid-template-columns: 1fr; gap: 30px; }
+      .why-attend-image { min-height: 380px; }
+      .why-attend-list { min-height: auto; }
+    }
 
-  .next-section::before {
-    content: '';
-    position: absolute;
-    top: -180px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 620px;
-    height: 620px;
-    background: radial-gradient(circle, rgba(254,191,15,0.14) 0%, transparent 70%);
-    pointer-events: none;
-  }
+    /* ============ VIDEO ============ */
+    .video-section {
+      padding: 80px 5%;
+      min-height: 100vh;
+      min-height: 100svh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--light-grey);
+      text-align: center;
+    }
+    .video-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FEBF0F; /* Savanna Gold */
+      margin-bottom: 14px;
+      display: block;
+    }
+    .video-section .section-heading {
+      max-width: none;
+      width: 100%;
+    }
+    .video-section .section-heading h2 {
+      white-space: nowrap;
+      text-align: center;
+      width: 100%;
+    }
+    .video-section .section-heading p {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .video-frame-wrap {
+      max-width: 900px;
+      margin: 40px auto 24px;
+      position: relative;
+      width: 100%;
+      padding-bottom: 50.625%; /* 900 * 9/16 relative */
+      border-radius: var(--radius, 14px);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--primary-dark, #061A42);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .video-frame-wrap:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 48px rgba(6,26,66,0.28);
+    }
+    .video-frame-wrap iframe,
+    .video-frame-wrap .video-thumb {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-thumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: linear-gradient(150deg, var(--primary) 0%, var(--primary-dark, #061A42) 100%);
+      color: rgba(255,255,255,0.8);
+      flex-direction: column;
+      gap: 14px;
+      transition: filter 0.25s ease;
+    }
+    .video-thumb:hover { filter: brightness(1.08); }
+    .video-play-btn {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #FEBF0F; /* Savanna Gold */
+      color: #003366; /* Deep Blue */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+      transition: transform 0.25s ease;
+    }
+    .video-thumb:hover .video-play-btn { transform: scale(1.08); }
+    .video-thumb span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .video-caption {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #003366; /* Deep Blue */
+      margin-top: 8px;
+    }
 
-  .next-inner {
-    position: relative;
-    max-width: 620px;
-    margin: 0 auto;
-  }
+    /* ============ TESTIMONIALS ============ */
+    .testimonials-section {
+      padding: 80px 5%;
+      min-height: 100vh;
+      min-height: 100svh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--white);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      max-width: 1180px;
+      margin: 0 auto;
+      align-items: start;
+      width: 100%;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius, 14px);
+      border: 1px solid var(--border);
+      padding: 30px 26px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .testimonial-quote-icon { color: #FEBF0F; font-size: 1.6rem; line-height: 1; } /* Savanna Gold */
+    .testimonial-quote {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.7;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .testimonial-card.expanded .testimonial-quote {
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+    .testimonial-read-more {
+      align-self: flex-start;
+      background: none;
+      border: none;
+      color: #003366; /* Deep Blue */
+      font-weight: 600;
+      font-size: 0.86rem;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+    }
+    .testimonial-read-more:hover { color: #FEBF0F; } /* Savanna Gold */
+    .testimonial-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+    }
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #003366; /* Deep Blue */
+      color: #FEBF0F; /* Savanna Gold */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .testimonial-person-name { font-size: 0.95rem; font-weight: 600; color: #003366; } /* Deep Blue */
+    .testimonial-person-role { font-size: 0.82rem; font-weight: 400; color: var(--text-light); }
 
-  .next-heading {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    font-weight: 800;
-    color: var(--white);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
+    @media (max-width: 960px) { .testimonials-grid { grid-template-columns: 1fr; max-width: 560px; } }
 
-  .next-heading .gold { color: var(--gold); }
+    /* ============ CTA ============ */
+    .academy-cta-section {
+      padding: 100px 5%;
+      min-height: 60vh;
+      min-height: 60svh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark, #061A42) 100%);
+      text-align: center;
+    }
+    .academy-cta-section h2 {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: clamp(1.9rem, 3.8vw, 2.6rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .academy-cta-section h2 .gold { color: #FEBF0F; } /* Savanna Gold */
+    .academy-cta-section p {
+      font-size: 1.08rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.78);
+      max-width: 560px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FEBF0F; /* Savanna Gold */
+      color: #003366; /* Deep Blue */
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 15px 34px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+    }
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(0,0,0,0.34); }
 
-  .next-text {
-    font-size: 1.02rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.7;
-    max-width: 480px;
-    margin: 0 auto 32px;
-  }
+    /* Structured event card (populated by JS when an event is set) */
+    .event-card {
+      max-width: 640px;
+      margin: 0 auto 30px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius, 14px);
+      padding: 28px 26px;
+      text-align: left;
+      display: grid;
+      gap: 14px;
+    }
+    .event-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .event-card p { color: rgba(255,255,255,0.78); font-size: 0.95rem; margin: 0; }
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .event-meta span { display: flex; align-items: center; gap: 8px; }
+    .event-meta i { color: #FEBF0F; } /* Savanna Gold */
+    .event-card .btn-gold { margin-top: 6px; }
 
-  .next-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--gold);
-    color: var(--primary);
-    font-weight: 700;
-    font-size: 0.98rem;
-    padding: 15px 34px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 10px 26px rgba(254,191,15,0.28);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
+    @media (max-width: 640px) {
+      .hero-cta-row { flex-direction: column; align-items: stretch; }
+      .hero-cta-row a { text-align: center; justify-content: center; }
+    }
 
-  .next-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 34px rgba(254,191,15,0.4);
-  }
-</style>
+    /* ============ MOBILE: relax full-viewport-height sections ============
+       On small screens, forcing every section to fill 100vh causes large
+       empty gaps around sparse content (e.g. the video and CTA sections).
+       Below 768px, sections size to their content instead. */
+    @media (max-width: 768px) {
+      .academy-hero,
+      .why-attend-section,
+      .video-section,
+      .testimonials-section,
+      .academy-cta-section {
+        min-height: auto;
+      }
+      .video-section .section-heading h2 {
+        white-space: normal;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2HTVGXV"
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2HTVGXV"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-<nav class="nav">
-  <div class="nav-container">
-    <!-- Logo — clickable, directs to the main Ndovesha website -->
-    <a href="https://ndovesha.ai" class="logo">
-      <img src="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png" class="logo-img" alt="Ndovesha AI">
-    </a>
+  <!-- End Google Tag Manager (noscript) -->
 
-    
-    <!-- Center Nav -->
-    <ul class="nav-center">
-      <li>
-        <a href="https://ndovesha.ai/who">Who is it for <span class="nav-arrow">▼</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/owner">Business Owners</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="/agency">Agencies</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="/developer">Developers</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="/marketers">Marketers</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://ndovesha.ai/capabilities">Capabilities <span class="nav-arrow">▼</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/software">Software Development</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="/ecommerce">Ecommerce Stores</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="/web">Websites</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="/graphic">Graphic Design</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="/writing">Writing</a></li>
-        </ul>
-      </li>
-      <li><a href="/how-to-prompt">How to Prompt</a></li>
-      <li><a href="/pricing">Pricing</a></li>
-      <li>
-        <a href="https://ndovesha.ai/resources">Resources <span class="nav-arrow">▼</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="/webinars">Webinars</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="/workshop">Workshop</a></li>
-<li class="dropdown-divider"></li>
-<li><a href="/join-our-community">Join our Community</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
-          <li class="dropdown-divider"></li>
-          <li><a href="/faq">FAQs</a></li>
-        </ul>
-      </li>
-    </ul>
-     <!-- Right Buttons -->
-    <div class="nav-right">
-    <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
-      <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+  <!-- ===== NAV (shared) ===== -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png" class="logo-img" alt="Ndovesha AI">
+      </div>
+      <ul class="nav-center">
+        <li>
+          <a href="https://ndovesha.ai/who">Who is it for <span class="nav-arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/owner">Business Owners</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/agency">Agencies</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/developer">Developers</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/marketers">Marketers</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://ndovesha.ai/capabilities">Capabilities <span class="nav-arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/software">Software Development</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/ecommerce">Ecommerce Stores</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/web">Websites</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/graphic">Graphic Design</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/writing">Writing</a></li>
+          </ul>
+        </li>
+        <li><a href="/how-to-prompt">How to Prompt</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li>
+          <a href="https://ndovesha.ai/resources">Resources <span class="nav-arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/webinars">Webinars</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/workshop">Workshop</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/join-our-community">Join our Community</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/faq">FAQs</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="nav-right">
+        <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
+        <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+      </div>
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+      <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-section-title" data-fold="who">Who is it for <span class="nav-arrow">▼</span></div>
+        <div class="mobile-fold" id="fold-who">
+          <a href="/owner">Business Owners</a>
+          <a href="/agency">Agencies</a>
+          <a href="/developer">Developers</a>
+          <a href="/marketers">Marketers</a>
+        </div>
+        <div class="mobile-section-title" data-fold="capabilities">Capabilities <span class="nav-arrow">▼</span></div>
+        <div class="mobile-fold" id="fold-capabilities">
+          <a href="/software">Software Development</a>
+          <a href="/ecommerce">Ecommerce Stores</a>
+          <a href="/web">Websites</a>
+          <a href="/graphic">Graphic Design</a>
+          <a href="/writing">Writing</a>
+        </div>
+        <a href="/how-to-prompt">How to Prompt</a>
+        <a href="/pricing">Pricing</a>
+        <div class="mobile-section-title" data-fold="resources">Resources <span class="nav-arrow">▼</span></div>
+        <div class="mobile-fold" id="fold-resources">
+          <a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a>
+          <a href="/webinars">Webinars</a>
+          <a href="/workshop">Workshop</a>
+          <a href="/join-our-community">Join our Community</a>
+          <a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a>
+          <a href="/faq">FAQs</a>
+        </div>
+        <a href="/login" class="btn-login">Log In</a>
+        <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+      </div>
     </div>
+  </nav>
 
-    <!-- Mobile Menu Button -->
-    <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
-
-    <!-- Mobile Nav -->
-    <div class="mobile-nav" id="mobileNav">
-      <div class="mobile-section-title" data-fold="who">Who is it for <span class="nav-arrow">▼</span></div>
-      <div class="mobile-fold" id="fold-who">
-        <a href="/owner">Business Owners</a>
-        <a href="/agency">Agencies</a>
-        <a href="/developer">Developers</a>
-        <a href="/marketers">Marketers</a>
+  <!-- ===== 1. HERO ===== -->
+  <section class="academy-hero">
+    <div class="hero-inner">
+      <div class="academy-hero-copy reveal">
+        <h1>Ndovesha AI <span class="gold-text">Academy.</span></h1>
+        <p class="hero-desc">A hands-on space where entrepreneurs, marketers, and business owners from different industries come together to:</p>
       </div>
 
-      <div class="mobile-section-title" data-fold="capabilities">Capabilities <span class="nav-arrow">▼</span></div>
-      <div class="mobile-fold" id="fold-capabilities">
-        <a href="/software">Software Development</a>
-        <a href="/ecommerce">Ecommerce Stores</a>
-        <a href="/web">Websites</a>
-        <a href="/graphic">Graphic Design</a>
-        <a href="/writing">Writing</a>
+      <div class="hero-icon-row reveal">
+        <div class="hero-icon-item">
+          <div class="hero-icon-circle"><i class="fas fa-diagram-project"></i></div>
+          <span>Explore practical AI applications</span>
+        </div>
+        <div class="hero-icon-item">
+          <div class="hero-icon-circle"><i class="fas fa-comments"></i></div>
+          <span>Exchange ideas</span>
+        </div>
+        <div class="hero-icon-item">
+          <div class="hero-icon-circle"><i class="fas fa-rocket"></i></div>
+          <span>Experience what's possible beyond the theory</span>
+        </div>
       </div>
 
-      <a href="/how-to-prompt">How to Prompt</a>
-      <a href="/pricing">Pricing</a>
+      <a href="https://www.whatsapp.com/channel/0029VbC6HuR7dmeiViuoPI2m" class="hero-signup-btn reveal">Sign Up <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
 
-      <div class="mobile-section-title" data-fold="resources">Resources <span class="nav-arrow">▼</span></div>
-      <div class="mobile-fold" id="fold-resources">
-        <a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a>
-        <a href="/webinars">Webinars</a>
-        <a href="/workshop">Workshop</a>
-        <a href="/join-our-community">Join our Community</a>
-        <a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a>
-        <a href="/faq">FAQs</a>
+  <!-- ===== 2. WHY ATTEND ===== -->
+  <section class="why-attend-section">
+    <div class="why-attend-wrapper">
+      <div class="section-heading reveal" style="display:block;">
+        <h2>Why Experience <span class="gold">Ndovesha in person?</span></h2>
+        <p>Make your time count with practical insights, meaningful connections, and new possibilities you can take back to your business.</p>
       </div>
 
-      <a href="/login" class="btn-login">Log In</a>
-      <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+      <div class="why-attend-layout">
+        <div class="why-attend-image reveal" id="whyAttendImage">
+          <img src="workshop-01.jpg" alt="Attendees collaborating around laptops at the Ndovesha AI Physical Masterclass" class="why-attend-img active">
+          <img src="workshop-02.jpg" alt="Ndovesha team member guiding a participant through the platform" class="why-attend-img">
+          <img src="workshop-03.jpg" alt="Participants reviewing their build on a laptop during the masterclass" class="why-attend-img">
+          <img src="workshop-04.jpg" alt="Group of attendees working together at the masterclass" class="why-attend-img">
+        </div>
+
+        <div class="why-attend-list">
+          <div class="why-row reveal">
+            <h3>Connect, Learn &amp; <span class="accent">Exchange Ideas</span></h3>
+            <p>Share experiences with business owners and professionals from different industries while exploring new possibilities together.</p>
+          </div>
+
+          <div class="why-row reveal">
+            <h3>More than a <span class="accent">Sales Pitch</span></h3>
+            <p>Experience an open space for learning, demonstrations, and real conversations, not a presentation designed simply to sell you something.</p>
+          </div>
+          <div class="why-row reveal">
+            <h3>Meet the <span class="accent">Team</span></h3>
+            <p>Connect with the team behind the technology, ask questions, and get to know the people building the future of AI-powered work.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</nav>
+  </section>
 
-<!-- Hero / thank you -->
-<section class="recap-hero">
-  <h1 class="recap-heading">Inside the Ndovesha AI <span class="gold">Masterclass Experience.</span></h1>
-  <p class="recap-sub">From insightful discussions to hands-on exploration, our first Ndovesha AI Masterclass created a space where business owners, entrepreneurs, and professionals experienced the practical possibilities of AI together.</p>
-</section>
-
-<!-- Mosaic gallery -->
-<section class="gallery-section">
-  <div class="gallery-label">
-    <span>Moments From that Day</span>
-    <div class="rule"></div>
-  </div>
-
-  <div class="gallery-grid">
-    <div class="tile tile-a">
-      <img src="workshop-01.jpg" alt="Attendees collaborating around laptops at the Ndovesha AI Physical Masterclass">
+  <!-- ===== 4. TESTIMONIALS ===== -->
+  <section class="testimonials-section">
+    <div class="section-heading reveal">
+      <h2>What Attendees <span class="gold">Are Saying</span></h2>
+      <p>Hear directly from people who experienced Ndovesha at our masterclass.</p>
     </div>
-    <div class="tile tile-b">
-      <img src="workshop-02.jpg" alt="Ndovesha team member guiding a participant through the platform">
-    </div>
-    <div class="tile tile-c">
-      <img src="workshop-03.jpg" alt="Participants reviewing their build on a laptop during the masterclass">
-    </div>
-    <div class="tile tile-wide">
-      <img src="workshop-04.jpg" alt="Group of attendees working together at the masterclass">
-    </div>
-  </div>
-</section>
 
-<!-- Attendee reactions video -->
-<section class="video-recap-section">
-  <div class="container video-recap-inner">
-    <h2 class="video-recap-heading">In Their Own <span class="gold">Words.</span></h2>
-    <p class="video-recap-text">We showed attendees how AI can build websites, campaigns, and software in real time. Here's what they had to say afterward.</p>
-    <div class="video-recap-wrap">
-      <iframe src="https://www.youtube.com/embed/ief5OwNChhw?si=cRvbgCP0bqXVm3sT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- Next workshop -->
-<section class="next-section">
-  <div class="next-inner">
-    <h2 class="next-heading">Don't Miss the <span class="gold">Next One.</span></h2>
-    <p class="next-text">Join our community to stay in the loop on our weekly webinars and be the first to know when we announce the next physical masterclass.</p>
-    <a href="https://www.whatsapp.com/channel/0029VbC6HuR7dmeiViuoPI2m" target="_blank" rel="noopener noreferrer" class="next-cta">Join Our Community <span aria-hidden="true">→</span></a>
-  </div>
-</section>
-
-<!-- Footer Links -->
-<section class="footer-links-section">
-  <div class="container">
-    <div class="footer-links-grid">
-
-      <div class="footer-links-col">
-        <h4>Product</h4>
-        <ul>
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="https://chat.ndovesha.ai/signup" target="_blank" rel="noopener noreferrer">AI Agents</a></li>
-        </ul>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+        <p class="testimonial-quote">Ndovesha has interestingly given us an opportunity to advance our businesses and the opportunities around us in terms of AI applications, in terms of scaling up, and in terms of making the work easier for all of us through the agents that they have online. It's changing the way things are being done in terms of timeline and timeliness of project delivery. So I think it's been an eye-opening opportunity, and I would encourage everybody to come and experience Ndovesha.</p>
+        <button type="button" class="testimonial-read-more">Read more</button>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-person-name">Alex</div>
+            <div class="testimonial-person-role">Workshop Participant</div>
+          </div>
+        </div>
       </div>
 
-      <div class="footer-links-col">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
-          <li><a href="/webinars">Webinars</a></li>
-          <li><a href="/workshop">Workshop</a></li>
-          <li><a href="/comparison">Ndovesha vs ChatGPT vs Gemini</a></li>
-          <li><a href="/how-to-prompt">How to Prompt Ndovesha</a></li>
-          <li><a href="/lovable">Ndovesha vs Manus vs Lovable</a></li>
-          <li><a href="/join-our-community">Join community</a></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
-          <li><a href="/faq">FAQs</a></li>
-        </ul>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+        <p class="testimonial-quote">I must say it's been an amazing experience. They normally do classes every Thursday, online webinars which are very enlightening. So we had a physical meet-up and I must say I was very impressed. They are very friendly and very accommodating. They take you through the process, regardless of whether you're a beginner or whether you're an expert. You feel like you're very integrated into the learning system. What I'll say for me is I've discovered very many business opportunities. I can create various websites. I can create e-commerce platforms, and it's something I'm definitely going to explore.</p>
+        <button type="button" class="testimonial-read-more">Read more</button>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">G</div>
+          <div>
+            <div class="testimonial-person-name">Grace Ndito</div>
+            <div class="testimonial-person-role">Media Industry Professional</div>
+          </div>
+        </div>
       </div>
 
-      <div class="footer-links-col">
-        <h4>Ask AI About Us</h4>
-        <ul>
-          <li><a href="https://chat.openai.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">ChatGPT</a></li>
-          <li><a href="https://claude.ai/new?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Claude</a></li>
-          <li><a href="https://gemini.google.com/app?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Gemini</a></li>
-          <li><a href="https://www.perplexity.ai/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Perplexity</a></li>
-          <li><a href="https://copilot.microsoft.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Copilot</a></li>
-          <li><a href="https://x.com/i/grok?text=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Grok</a></li>
-        </ul>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+        <p class="testimonial-quote">I've learned so much about how we can make the system work. How we can build an infrastructure that can build a massive export business, secure quality, and ensure that we have a major return as a country and even as the pastoralist and farming communities that are majorly dealing with this kind of business.</p>
+        <button type="button" class="testimonial-read-more">Read more</button>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">G</div>
+          <div>
+            <div class="testimonial-person-name">Dr. George Forester</div>
+            <div class="testimonial-person-role">Livestock Specialist — Genetics &amp; Breeding</div>
+          </div>
+        </div>
       </div>
-
-      <div class="footer-links-col">
-        <h4>Who Is It For</h4>
-        <ul>
-          <li><a href="/owner">Business Owners</a></li>
-          <li><a href="/agency">Agencies</a></li>
-          <li><a href="/developer">Developers</a></li>
-          <li><a href="/marketers">Marketers</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-links-col">
-        <h4>Capabilities</h4>
-        <ul>
-          <li><a href="/software">Software Development</a></li>
-          <li><a href="/ecommerce">Ecommerce Stores</a></li>
-          <li><a href="/web">Websites</a></li>
-          <li><a href="/graphic">Graphic design</a></li>
-          <li><a href="/writing">Writing</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-links-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/terms-of-service">Terms of service</a></li>
-          <li><a href="/privacy-policy">Privacy policy</a></li>
-        </ul>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="container">
-
-    <div class="footer-social-row">
-      <a class="footer-social-btn" href="https://www.linkedin.com/company/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.5 8.65 23 10.9 23 14.2V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.58-2.33 3.2V21h-4V9z"/></svg>
-      </a>
-      <a class="footer-social-btn" href="https://x.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="X">
-        <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.2 8.2L23 22h-6.8l-5.3-6.9L4.9 22H2l7.7-8.8L1.5 2h6.9l4.8 6.3L18.9 2z"/></svg>
-      </a>
-      <a class="footer-social-btn" href="https://www.youtube.com/@ndovesha" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-        <svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7c-.2-.9-.9-1.6-1.8-1.8C19 5 12 5 12 5s-7 0-8.8.5c-.9.2-1.6.9-1.8 1.8C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.9.9 1.6 1.8 1.8C5 19 12 19 12 19s7 0 8.8-.5c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
-      </a>
-      <a class="footer-social-btn" href="https://www.instagram.com/ndovesha.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg>
-      </a>
-      <a class="footer-social-btn" href="https://www.tiktok.com/@ndovesha.ai?lang=en" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-        <svg viewBox="0 0 24 24"><path d="M16.5 3c.3 2 1.7 3.4 3.5 3.7v2.9c-1.4-.1-2.6-.6-3.5-1.4v6.6a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3a2.3 2.3 0 1 0 1.6 2.2V3h2.8z"/></svg>
-      </a>
-      <a class="footer-social-btn" href="https://www.facebook.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.4c0-.9.3-1.5 1.6-1.5h1.5V4.2C15.9 4.1 14.8 4 13.6 4 11 4 9.5 5.6 9.5 8.2v2.3H7v3h2.5V21h4z"/></svg>
-      </a>
-      <a class="footer-social-btn" href="https://www.reddit.com/user/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
-        <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"></circle><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"></circle><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"></circle><path d="M8.5 16.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"></path><circle cx="18.5" cy="8.5" r="1.3"></circle><path d="M12 10V6.5a1.3 1.3 0 1 1 2-1.1"></path></svg>
-      </a>
+  <!-- ===== 5. VIDEO ===== -->
+  <section class="video-section" id="academy-video">
+    <div class="section-heading reveal" style="margin-bottom: 0;">
+      <h2>Inside the Ndovesha AI <span class="gold">Masterclass</span></h2>
+      <p>Don't just take our word for it. See what happened when business owners experienced Ndovesha AI firsthand.</p>
     </div>
 
-    <div class="footer-bottom-row">
-      <p class="footer-copyright">&copy; 2026 Ndovesha. All rights reserved.</p>
+    <div class="video-frame-wrap reveal" id="videoFrameWrap">
+      <!-- Click-to-load thumbnail; replaced with the real embed on click. -->
+       <iframe src="https://www.youtube.com/embed/ief5OwNChhw?si=cRvbgCP0bqXVm3sT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
+  </section>
 
-  </div>
-</footer>
+  <!-- ===== 6. UPCOMING MASTERCLASS / CTA ===== -->
+  <section class="academy-cta-section">
+    <div id="ctaDynamicArea">
+      <!-- Populated by JS below: shows event details if `upcomingEvent` is set,
+           otherwise falls back to the community CTA markup already here. -->
+      <h2>Don't Miss the <span class="gold">Next One.</span></h2>
+      <p>Join the Ndovesha community to stay updated on upcoming workshops and weekly webinars.</p>
+      <a href="https://www.whatsapp.com/channel/0029VbC6HuR7dmeiViuoPI2m" class="btn-gold">Join Our Community <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
 
-<!-- Floating WhatsApp Button -->
-<a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=254112480181&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
-  <span class="whatsapp-icon-part">
-    <svg viewBox="0 0 32 32"><path d="M16.001 3C9.106 3 3.5 8.606 3.5 15.5c0 2.53.744 4.885 2.024 6.86L3 29l6.822-2.463A12.44 12.44 0 0 0 16 28c6.895 0 12.5-5.606 12.5-12.5S22.896 3 16.001 3zm7.24 17.634c-.31.874-1.53 1.61-2.114 1.702-.54.084-1.222.12-1.972-.123-.455-.146-1.036-.34-1.782-.664-3.14-1.356-5.19-4.51-5.35-4.72-.16-.21-1.29-1.71-1.29-3.26 0-1.55.813-2.31 1.1-2.63.29-.32.63-.4.84-.4.21 0 .42.002.6.01.19.008.45-.072.702.535.26.63.885 2.166.965 2.324.08.16.133.347.027.556-.107.21-.16.34-.32.523-.16.183-.335.41-.478.55-.16.16-.327.334-.14.653.187.32.83 1.373 1.783 2.223 1.223 1.09 2.256 1.428 2.577 1.588.32.16.507.133.694-.08.187-.213.8-.933 1.014-1.253.213-.32.427-.267.72-.16.293.107 1.86.877 2.18 1.037.32.16.533.24.613.373.08.133.08.77-.23 1.646z"/></svg>
-  </span>
-  <span class="whatsapp-text-part">Chat with us</span>
-</a>
+  <!-- ===== FOOTER (shared) ===== -->
+  <section class="footer-links-section">
+    <div class="container">
+      <div class="footer-links-grid">
+        <div class="footer-links-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="https://chat.ndovesha.ai/signup" target="_blank" rel="noopener noreferrer">AI Agents</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            <li><a href="/webinars">Webinars</a></li>
+            <li><a href="/workshop">Workshop</a></li>
+            <li><a href="/comparison">Ndovesha vs ChatGPT vs Gemini</a></li>
+            <li><a href="/how-to-prompt">How to Prompt Ndovesha</a></li>
+            <li><a href="/lovable">Ndovesha vs Manus vs Lovable</a></li>
+            <li><a href="/join-our-community">Join community</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank" rel="noopener noreferrer">Tutorials</a></li>
+            <li><a href="/faq">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Ask AI About Us</h4>
+          <ul>
+            <li><a href="https://chat.openai.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">ChatGPT</a></li>
+            <li><a href="https://claude.ai/new?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Claude</a></li>
+            <li><a href="https://gemini.google.com/app?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Gemini</a></li>
+            <li><a href="https://www.perplexity.ai/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Perplexity</a></li>
+            <li><a href="https://copilot.microsoft.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Copilot</a></li>
+            <li><a href="https://x.com/i/grok?text=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener noreferrer">Grok</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Who Is It For</h4>
+          <ul>
+            <li><a href="/owner">Business Owners</a></li>
+            <li><a href="/agency">Agencies</a></li>
+            <li><a href="/developer">Developers</a></li>
+            <li><a href="/marketers">Marketers</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Capabilities</h4>
+          <ul>
+            <li><a href="/software">Software Development</a></li>
+            <li><a href="/ecommerce">Ecommerce Stores</a></li>
+            <li><a href="/web">Websites</a></li>
+            <li><a href="/graphic">Graphic design</a></li>
+            <li><a href="/writing">Writing</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/terms-of-service">Terms of service</a></li>
+            <li><a href="/privacy-policy">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Floating Home / Scroll-to-Top Arrow Button -->
-<a class="scroll-top-btn" href="#top" aria-label="Back to home">
-  <svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-</a>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-social-row">
+        <a class="footer-social-btn" href="https://www.linkedin.com/company/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.5 8.65 23 10.9 23 14.2V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.58-2.33 3.2V21h-4V9z"/></svg>
+        </a>
+        <a class="footer-social-btn" href="https://x.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.2 8.2L23 22h-6.8l-5.3-6.9L4.9 22H2l7.7-8.8L1.5 2h6.9l4.8 6.3L18.9 2z"/></svg>
+        </a>
+        <a class="footer-social-btn" href="https://www.youtube.com/@ndovesha" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7c-.2-.9-.9-1.6-1.8-1.8C19 5 12 5 12 5s-7 0-8.8.5c-.9.2-1.6.9-1.8 1.8C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.9.9 1.6 1.8 1.8C5 19 12 19 12 19s7 0 8.8-.5c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+        </a>
+        <a class="footer-social-btn" href="https://www.instagram.com/ndovesha.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg>
+        </a>
+        <a class="footer-social-btn" href="https://www.tiktok.com/@ndovesha.ai?lang=en" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.5 3c.3 2 1.7 3.4 3.5 3.7v2.9c-1.4-.1-2.6-.6-3.5-1.4v6.6a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3a2.3 2.3 0 1 0 1.6 2.2V3h2.8z"/></svg>
+        </a>
+        <a class="footer-social-btn" href="https://www.facebook.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.4c0-.9.3-1.5 1.6-1.5h1.5V4.2C15.9 4.1 14.8 4 13.6 4 11 4 9.5 5.6 9.5 8.2v2.3H7v3h2.5V21h4z"/></svg>
+        </a>
+        <a class="footer-social-btn" href="https://www.reddit.com/user/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+          <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"></circle><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"></circle><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"></circle><path d="M8.5 16.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"></path><circle cx="18.5" cy="8.5" r="1.3"></circle><path d="M12 10V6.5a1.3 1.3 0 1 1 2-1.1"></path></svg>
+        </a>
+      </div>
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">&copy; 2026 Ndovesha. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-<script>
-  // Dropdown menus (nav)
-  document.querySelectorAll('.nav-center > li').forEach(function (li) {
-    var menu = li.querySelector('.dropdown-menu');
-    var trigger = li.querySelector('a');
-    if (!menu || !trigger) return;
+  <a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=254112480181&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+    <span class="whatsapp-icon-part">
+      <svg viewBox="0 0 32 32"><path d="M16.001 3C9.106 3 3.5 8.606 3.5 15.5c0 2.53.744 4.885 2.024 6.86L3 29l6.822-2.463A12.44 12.44 0 0 0 16 28c6.895 0 12.5-5.606 12.5-12.5S22.896 3 16.001 3zm7.24 17.634c-.31.874-1.53 1.61-2.114 1.702-.54.084-1.222.12-1.972-.123-.455-.146-1.036-.34-1.782-.664-3.14-1.356-5.19-4.51-5.35-4.72-.16-.21-1.29-1.71-1.29-3.26 0-1.55.813-2.31 1.1-2.63.29-.32.63-.4.84-.4.21 0 .42.002.6.01.19.008.45-.072.702.535.26.63.885 2.166.965 2.324.08.16.133.347.027.556-.107.21-.16.34-.32.523-.16.183-.335.41-.478.55-.16.16-.327.334-.14.653.187.32.83 1.373 1.783 2.223 1.223 1.09 2.256 1.428 2.577 1.588.32.16.507.133.694-.08.187-.213.8-.933 1.014-1.253.213-.32.427-.267.72-.16.293.107 1.86.877 2.18 1.037.32.16.533.24.613.373.08.133.08.77-.23 1.646z"/></svg>
+    </span>
+    <span class="whatsapp-text-part">Chat with us</span>
+  </a>
 
-    function closeAllExcept(exceptMenu) {
-      document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
-        if (m !== exceptMenu) m.classList.remove('show');
+  <a class="scroll-top-btn" href="#top" aria-label="Back to home">
+    <svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+
+  <script>
+    // ---- Shared nav behavior (dropdowns + mobile menu) ----
+    document.querySelectorAll('.nav-center > li').forEach(function (li) {
+      var menu = li.querySelector('.dropdown-menu');
+      var trigger = li.querySelector('a');
+      if (!menu || !trigger) return;
+      function closeAllExcept(exceptMenu) {
+        document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
+          if (m !== exceptMenu) m.classList.remove('show');
+        });
+      }
+      function openMenu() { closeAllExcept(menu); menu.classList.add('show'); }
+      li.addEventListener('mouseenter', openMenu);
+      menu.addEventListener('mouseenter', openMenu);
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        var isOpen = menu.classList.contains('show');
+        closeAllExcept(menu);
+        menu.classList.toggle('show', !isOpen);
       });
-    }
-
-    function openMenu() {
-      closeAllExcept(menu);
-      menu.classList.add('show');
-    }
-
-    li.addEventListener('mouseenter', openMenu);
-    menu.addEventListener('mouseenter', openMenu);
-
-    trigger.addEventListener('click', function (e) {
-      e.preventDefault();
-      var isOpen = menu.classList.contains('show');
-      closeAllExcept(menu);
-      menu.classList.toggle('show', !isOpen);
     });
-  });
-
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.nav-center')) {
-      document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
-        m.classList.remove('show');
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav-center')) {
+        document.querySelectorAll('.dropdown-menu.show').forEach(function (m) { m.classList.remove('show'); });
+      }
+    });
+    var mobileBtn = document.getElementById('mobileMenuBtn');
+    var mobileNav = document.getElementById('mobileNav');
+    mobileBtn.addEventListener('click', function () { mobileNav.classList.toggle('active'); });
+    document.addEventListener('click', function (e) {
+      if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
+        mobileNav.classList.remove('active');
+      }
+    });
+    document.querySelectorAll('.mobile-section-title').forEach(function (title) {
+      title.addEventListener('click', function () {
+        var fold = document.getElementById('fold-' + title.dataset.fold);
+        var isOpen = fold.classList.contains('open');
+        document.querySelectorAll('.mobile-fold').forEach(function (f) { f.classList.remove('open'); });
+        if (!isOpen) fold.classList.add('open');
       });
-    }
-  });
-
-  // Mobile menu toggle
-  var mobileBtn = document.getElementById('mobileMenuBtn');
-  var mobileNav = document.getElementById('mobileNav');
-  mobileBtn.addEventListener('click', function () {
-    mobileNav.classList.toggle('active');
-  });
-
-  document.addEventListener('click', function (e) {
-    if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
-      mobileNav.classList.remove('active');
-    }
-  });
-
-  document.querySelectorAll('.mobile-section-title').forEach(function (title) {
-    title.addEventListener('click', function () {
-      var fold = document.getElementById('fold-' + title.dataset.fold);
-      var isOpen = fold.classList.contains('open');
-      document.querySelectorAll('.mobile-fold').forEach(function (f) { f.classList.remove('open'); });
-      if (!isOpen) fold.classList.add('open');
     });
-  });
 
-  // FAQ accordion
-  document.querySelectorAll('.faq-item').forEach(function (item) {
-    var row = item.querySelector('.faq-question-row');
-    row.addEventListener('click', function () {
-      var isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
-        openItem.classList.remove('open');
+    // ---- Scroll reveal ----
+    (function () {
+      var revealEls = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function (el) { observer.observe(el); });
+    })();
+
+    // ---- Gallery lightbox ----
+    (function () {
+      var galleryItems = document.querySelectorAll('.gallery-item');
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var closeBtn = document.getElementById('lightboxClose');
+      if (!lightbox || !lightboxImg || !closeBtn) return; // gallery/lightbox markup no longer on this page
+      var lastFocused = null;
+
+      function openLightbox(item) {
+        var img = item.querySelector('img');
+        var label = item.querySelector('.gallery-placeholder');
+        lastFocused = document.activeElement;
+        if (img) {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt || 'Ndovesha AI Academy masterclass photo';
+        } else {
+          lightboxImg.removeAttribute('src');
+          lightboxImg.alt = label ? label.textContent : 'Masterclass photo placeholder';
+        }
+        lightbox.classList.add('open');
+        closeBtn.focus();
+        document.addEventListener('keydown', onKeydown);
+      }
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.removeEventListener('keydown', onKeydown);
+        if (lastFocused) lastFocused.focus();
+      }
+      function onKeydown(e) {
+        if (e.key === 'Escape') closeLightbox();
+      }
+
+      galleryItems.forEach(function (item) {
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-label', 'Open masterclass photo');
+        item.addEventListener('click', function () { openLightbox(item); });
+        item.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(item); }
+        });
       });
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-</script>
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+    })();
 
+    // ---- Why-attend image rotation: slow zoom + crossfade, every 5s ----
+    (function () {
+      var wrap = document.getElementById('whyAttendImage');
+      if (!wrap) return;
+      var imgs = wrap.querySelectorAll('.why-attend-img');
+      if (imgs.length < 2) return;
+      var current = 0;
+      setInterval(function () {
+        var prev = imgs[current];
+        current = (current + 1) % imgs.length;
+        var next = imgs[current];
+        // restart the zoom animation on the incoming image
+        next.classList.remove('active');
+        void next.offsetWidth; // force reflow so the animation restarts
+        next.classList.add('active');
+        prev.classList.remove('active');
+      }, 5000);
+    })();
+
+    // ---- Testimonials: read more / read less ----
+    (function () {
+      document.querySelectorAll('.testimonial-card').forEach(function (card) {
+        var btn = card.querySelector('.testimonial-read-more');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var expanded = card.classList.toggle('expanded');
+          btn.textContent = expanded ? 'Read less' : 'Read more';
+        });
+      });
+    })();
+
+    // ---- Upcoming event (reusable structure) ----
+    // Set this object when a masterclass is confirmed and the CTA section
+    // will automatically render the event details instead of the generic
+    // community CTA. Leave as `null` to show the community CTA.
+    var upcomingEvent = null;
+    /* Example:
+    var upcomingEvent = {
+      title: "Ndovesha AI Masterclass — Nairobi",
+      date: "March 14, 2026",
+      time: "9:00 AM – 1:00 PM",
+      location: "Nairobi, Kenya",
+      description: "Join us for a hands-on session with the Ndovesha team.",
+      registerUrl: "https://chat.ndovesha.ai/signup"
+    };
+    */
+    (function () {
+      if (!upcomingEvent) return;
+      var area = document.getElementById('ctaDynamicArea');
+      area.innerHTML =
+        '<h2>Don\'t Miss the <span class="gold">Next Masterclass.</span></h2>' +
+        '<div class="event-card">' +
+          '<h3>' + upcomingEvent.title + '</h3>' +
+          '<div class="event-meta">' +
+            '<span><i class="fas fa-calendar-days"></i>' + upcomingEvent.date + '</span>' +
+            '<span><i class="fas fa-clock"></i>' + upcomingEvent.time + '</span>' +
+            '<span><i class="fas fa-location-dot"></i>' + upcomingEvent.location + '</span>' +
+          '</div>' +
+          '<p>' + upcomingEvent.description + '</p>' +
+          '<a href="' + upcomingEvent.registerUrl + '" class="btn-gold">Reserve Your Spot <i class="fas fa-arrow-right"></i></a>' +
+        '</div>' +
+        '<p>Can\'t make it this time? <a href="/join-our-community" style="color:var(--gold);text-decoration:underline;">Join our community</a> to hear about future masterclasses.</p>';
+    })();
+  </script>
 </body>
 </html>
