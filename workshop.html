@@ -42,8 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .section-heading { text-align: center; max-width: 700px; margin: 0 auto 46px; }
     .section-heading h2 {
       font-family: 'Ubuntu', sans-serif;
-      font-size: clamp(2.3rem, 4.8vw, 3.2rem);
-      font-weight: 700;
+      font-size: clamp(2.4rem, 4.9vw, 3.4rem);
       color: #003366; /* Deep Blue */
       line-height: 1.22;
       margin-bottom: 16px;
@@ -52,7 +51,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .academy-hero-copy h1 .gold-text { color: #FEBF0F; } /* Savanna Gold */
     .section-heading p {
       font-size: 1.18rem;
-      font-weight: 400;
       color: var(--text-light);
       line-height: 1.65;
     }
@@ -88,20 +86,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .academy-hero-copy h1 {
       font-family: 'Ubuntu', sans-serif;
       font-size: clamp(2.8rem, 5.6vw, 4.4rem);
-      font-weight: 500;
       color: #003366; /* Deep Blue */
       line-height: 1.12;
       margin-bottom: 20px;
     }
     .academy-hero-copy .hero-support {
       font-size: clamp(1rem, 1.8vw, 1.18rem);
-      font-weight: 450;
       color: var(--primary-light, var(--primary));
       margin-bottom: 20px;
     }
     .academy-hero-copy .hero-desc {
       font-size: 1.2rem;
-      font-weight: 400;
       color: var(--text-light);
       line-height: 1.7;
       max-width: 620px;
@@ -138,7 +133,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .hero-icon-item span {
       font-size: 0.92rem;
-      font-weight: 500;
       color: var(--text-light);
       line-height: 1.45;
     }
@@ -146,7 +140,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-support-line {
       margin-top: 40px;
       font-size: 1.04rem;
-      font-weight: 400;
       color: var(--text-light);
       line-height: 1.7;
       letter-spacing: normal;
@@ -159,7 +152,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       gap: 10px;
       background: #003366; /* Deep Blue, same as headings */
       color: #ffffff;
-      font-weight: 600;
       font-size: 1rem;
       padding: 15px 34px;
       border-radius: 50px;
@@ -193,6 +185,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .why-attend-section > .section-heading { display: none; } /* heading moved into flex wrapper below for centering */
     .why-attend-wrapper {
       width: 100%;
+    }
+    .why-attend-wrapper > .section-heading {
+      max-width: none;
+      width: 100%;
+    }
+    .why-attend-wrapper > .section-heading h2 {
+      white-space: nowrap;
+      text-align: center;
+      width: 100%;
+    }
+    .why-attend-wrapper > .section-heading p {
+      max-width: 700px;
+      margin: 0 auto;
     }
     .why-attend-layout {
       display: grid;
@@ -259,7 +264,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .why-row h3 {
       font-family: 'Ubuntu', sans-serif;
       font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-      font-weight: 700;
+      font-weight: 500; /* slightly lighter than the global h3 weight (600) */
       line-height: 1.28;
       margin-bottom: 6px;
       color: #003366; /* Deep Blue */
@@ -267,7 +272,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .why-row h3 .accent { color: #FEBF0F; } /* Savanna Gold */
     .why-row p {
       font-size: 1rem;
-      font-weight: 400;
       line-height: 1.55;
       color: var(--text-light);
     }
@@ -292,7 +296,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .video-label {
       font-size: 0.8rem;
-      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: #FEBF0F; /* Savanna Gold */
@@ -364,12 +367,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .video-thumb:hover .video-play-btn { transform: scale(1.08); }
     .video-thumb span {
       font-size: 0.9rem;
-      font-weight: 600;
       letter-spacing: 0.02em;
     }
     .video-caption {
       font-size: 0.95rem;
-      font-weight: 400;
       color: #003366; /* Deep Blue */
       margin-top: 8px;
     }
@@ -407,7 +408,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .testimonial-quote-icon { color: #FEBF0F; font-size: 1.6rem; line-height: 1; } /* Savanna Gold */
     .testimonial-quote {
       font-size: 0.95rem;
-      font-weight: 400;
       color: var(--text);
       line-height: 1.7;
       display: -webkit-box;
@@ -424,7 +424,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: none;
       border: none;
       color: #003366; /* Deep Blue */
-      font-weight: 600;
       font-size: 0.86rem;
       cursor: pointer;
       padding: 0;
@@ -448,12 +447,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
       font-size: 1rem;
       flex-shrink: 0;
     }
-    .testimonial-person-name { font-size: 0.95rem; font-weight: 600; color: #003366; } /* Deep Blue */
-    .testimonial-person-role { font-size: 0.82rem; font-weight: 400; color: var(--text-light); }
+    .testimonial-person-name { font-size: 0.95rem; color: #003366; } /* Deep Blue */
+    .testimonial-person-role { font-size: 0.82rem; color: var(--text-light); }
 
     @media (max-width: 960px) { .testimonials-grid { grid-template-columns: 1fr; max-width: 560px; } }
 
@@ -472,8 +470,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .academy-cta-section h2 {
       font-family: 'Ubuntu', sans-serif;
-      font-size: clamp(1.9rem, 3.8vw, 2.6rem);
-      font-weight: 700;
+      font-size: clamp(2rem, 3.9vw, 2.8rem);
       color: var(--white);
       line-height: 1.25;
       margin-bottom: 12px;
@@ -481,7 +478,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .academy-cta-section h2 .gold { color: #FEBF0F; } /* Savanna Gold */
     .academy-cta-section p {
       font-size: 1.08rem;
-      font-weight: 400;
       color: rgba(255,255,255,0.78);
       max-width: 560px;
       margin: 0 auto 32px;
@@ -493,7 +489,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       gap: 10px;
       background: #FEBF0F; /* Savanna Gold */
       color: #003366; /* Deep Blue */
-      font-weight: 600;
       font-size: 1rem;
       padding: 15px 34px;
       border-radius: 50px;
@@ -519,7 +514,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .event-card h3 {
       font-size: 1.25rem;
-      font-weight: 700;
       color: var(--white);
     }
     .event-card p { color: rgba(255,255,255,0.78); font-size: 0.95rem; margin: 0; }
