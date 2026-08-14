@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -638,7 +640,86 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .testimonials-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
     }
 
-    /* ============ CTA (final section) ============ */
+    /* ============ EVENT DETAILS (new section, after Testimonials) ============
+       Title followed by 4 floating white cards — one per event detail.
+       Icon badges stay Deep Blue with Savanna Gold glyphs; cards lift with
+       a soft golden glow on hover. */
+    .event-details-section {
+      padding: 80px 5%;
+      background: var(--white);
+      text-align: center;
+    }
+    .event-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+      max-width: 1100px;
+      margin: 40px auto 44px;
+    }
+    .event-card-item {
+      background: var(--light-grey);
+      border-radius: var(--radius, 14px);
+      box-shadow: var(--shadow);
+      padding: 34px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .event-card-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(254,191,15,0.38); /* soft golden glow */
+    }
+    .event-detail-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #003366; /* Deep Blue */
+      color: #FEBF0F; /* Savanna Gold */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-bottom: 4px;
+    }
+    .event-detail-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .event-detail-value {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #003366; /* Deep Blue */
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+    .event-maps-link {
+      margin-top: 2px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #FEBF0F; /* Savanna Gold */
+      text-decoration: underline;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+    }
+    .event-maps-link:hover { color: #003366; } /* Deep Blue */
+
+    @media (max-width: 860px) {
+      .event-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .event-cards-grid { grid-template-columns: 1fr; max-width: 340px; }
+    }
+
+    /* ============ CTA (Don't Miss the Next One) ============ */
     .academy-cta-section {
       padding: 100px 5%;
       min-height: 60vh;
@@ -851,15 +932,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="why-attend-list">
+<div class="why-row reveal">
+            <h3>Learn How AI Can Work <span class="accent">for Your Business</span></h3>
+            <p>Explore how AI can take on work across your business, functioning like an entire department that helps you build, create, and get more done.</p>
+          </div>
+
           <div class="why-row reveal">
             <h3>Connect, Learn &amp; <span class="accent">Exchange Ideas</span></h3>
             <p>Share experiences with business owners and professionals from different industries while exploring new possibilities together.</p>
           </div>
 
-          <div class="why-row reveal">
-            <h3>More than a <span class="accent">Sales Pitch</span></h3>
-            <p>Experience an open space for learning, demonstrations, and real conversations, not a presentation designed simply to sell you something.</p>
-          </div>
+          
           <div class="why-row reveal">
             <h3>Meet the <span class="accent">Team</span></h3>
             <p>Connect with the team behind the technology, ask questions, and get to know the people building the future of AI-powered work.</p>
@@ -916,18 +999,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- ===== 3. DON'T MISS THE NEXT ONE / CTA ===== -->
+  <!-- ===== 3. EVENT DETAILS ===== -->
+  <section class="event-details-section">
+    <div class="section-heading reveal">
+      <h2>Don’t Miss the <span class="gold"> Next One</span></h2>
+      <p>Everything you need to know to save your seat at the upcoming Ndovesha AI Physical Workshop.</p>
+    </div>
+
+    <div class="event-cards-grid">
+      <div class="event-card-item reveal">
+        <div class="event-detail-icon"><i class="fas fa-location-dot"></i></div>
+        <span class="event-detail-label">Venue</span>
+        <span class="event-detail-value">After 40 Hotel</span>
+        <span class="event-detail-label">Biashara St, Nairobi</span>
+        <a href="https://www.google.com/maps/place/After+40+Hotel/@-1.2830739,36.8166301,17z/data=!3m1!4b1!4m9!3m8!1s0x182f10d3f40e5d33:0x3456deba971eb2a0!5m2!4m1!1i2!8m2!3d-1.2830793!4d36.8192104!16s%2Fg%2F11cn183pxk?entry=ttu&g_ep=EgoyMDI2MDgxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="event-maps-link">View on Google Maps <i class="fas fa-arrow-up-right-from-square"></i></a>
+      </div>
+
+      <div class="event-card-item reveal">
+        <div class="event-detail-icon"><i class="fas fa-tag"></i></div>
+        <span class="event-detail-label">Price</span>
+        <span class="event-detail-value">KSh 2,000 Per person</span>
+      </div>
+
+      <div class="event-card-item reveal">
+        <div class="event-detail-icon"><i class="fas fa-clock"></i></div>
+        <span class="event-detail-label">Time</span>
+        <span class="event-detail-value">9:00 AM – 1:00 PM</span>
+      </div>
+
+      <div class="event-card-item reveal">
+        <div class="event-detail-icon"><i class="fas fa-calendar-days"></i></div>
+        <span class="event-detail-label">Date</span>
+        <span class="event-detail-value">Saturday, 5th September</span>
+      </div>
+    </div>
+
+    <div class="section-cta-wrap reveal">
+      <a href="https://paystack.shop/pay/ndovesha-ai-masterclass" class="hero-signup-btn">Click here to reserve your seat <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- ===== 4. DON'T MISS THE NEXT ONE / CTA ===== -->
   <section class="academy-cta-section">
     <div id="ctaDynamicArea">
       <!-- Populated by JS below: shows event details if `upcomingEvent` is set,
            otherwise falls back to the community CTA markup already here. -->
-      <h2>Don't Miss the <span class="gold">Next One.</span></h2>
-      <p>Join the Ndovesha community to stay updated on upcoming workshops and weekly webinars.</p>
-      <a href="https://chat.whatsapp.com/EhJwZYnZoSc5uQZpyRfUYU?s=cl&p=i&ilr=4&amv=1" class="btn-gold">Join Our Workshop Community <i class="fas fa-arrow-right"></i></a>
+      <h2>Join the Ndovesha <span class="gold">Workshop Community</span></h2>
+      <p>Stay connected with Ndovesha and be the first to know about upcoming physical workshops and events.</p>
+      <a href="https://chat.whatsapp.com/EhJwZYnZoSc5uQZpyRfUYU?s=cl&p=i&ilr=4&amv=1" class="btn-gold">Join Our Community <i class="fas fa-arrow-right"></i></a>
     </div>
   </section>
 
-  <!-- ===== 4. VIDEO ===== -->
+  <!-- ===== 5. VIDEO ===== -->
   <section class="video-section" id="academy-video">
     <div class="section-heading reveal" style="margin-bottom: 0;">
       <h2>Explore the Ndovesha AI <span class="gold">Masterclass</span></h2>
@@ -1209,5 +1332,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         '<p>Can\'t make it this time? <a href="/join-our-community" style="color:var(--gold);text-decoration:underline;">Join our community</a> to hear about future masterclasses.</p>';
     })();
   </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"6892ca8ffd3b4ad7b1737418d2724ac1","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>
