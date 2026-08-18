@@ -29,7 +29,7 @@
   --font-semibold:  600;
   --font-bold:      700;
   --font-extrabold: 800;
-  --font-heading:   400; /* unified weight for all headings — matches the "What Will You Build" (.build-main-heading) weight */
+  --font-heading:   400; /* unified weight for all headings â€” matches the "What Will You Build" (.build-main-heading) weight */
   --font-h3:        600; /* h3s sit heavier than the rest of the heading scale */
 }
 
@@ -46,7 +46,7 @@ img { max-width: 100%; display: block; }
    Centralized here instead of on individual selectors.
 ============================================================ */
 
-/* Regular — 400 */
+/* Regular â€” 400 */
 .dropdown-menu li a,
 .hero-sub,
 .hire-ai-text,
@@ -56,7 +56,7 @@ p {
   font-weight: var(--font-regular);
 }
 
-/* Medium — 500 (non-heading UI elements) */
+/* Medium â€” 500 (non-heading UI elements) */
 .nav-center > li > a,
 .btn-login,
 .mobile-nav a,
@@ -64,7 +64,7 @@ p {
   font-weight: var(--font-medium);
 }
 
-/* Semibold — 600 (non-heading UI elements only) */
+/* Semibold â€” 600 (non-heading UI elements only) */
 .btn-cta,
 .mobile-get-started-btn,
 .result-chip,
@@ -72,7 +72,7 @@ p {
   font-weight: var(--font-semibold);
 }
 
-/* Bold — 700 (non-heading UI elements only) */
+/* Bold â€” 700 (non-heading UI elements only) */
 .mobile-section-title,
 .cap-icon-label,
 .btn,
@@ -84,16 +84,16 @@ p {
   font-weight: var(--font-bold);
 }
 
-/* Extrabold — 800 */
+/* Extrabold â€” 800 */
 .build-check,
 .chip-check {
   font-weight: var(--font-extrabold);
 }
 
 /* ============================================================
-   HEADINGS — unified to a single weight (400, matching the build
+   HEADINGS â€” unified to a single weight (400, matching the build
    section heading) across the page.
-   Covers both real h1–h6 tags and the custom "section heading"
+   Covers both real h1â€“h6 tags and the custom "section heading"
    classes (which wrap h1/h2/h3/h4 in markup). Declared last so
    it wins over the tier blocks above for any shared selectors.
 ============================================================ */
@@ -255,7 +255,7 @@ h3,
 }
 
 .mobile-menu-btn {
-  display: none;        /* NEW — hidden by default (desktop) */
+  display: none;        /* NEW â€” hidden by default (desktop) */
   background: none;
   border: none;
   font-size: 1.6rem;
@@ -314,7 +314,7 @@ h3,
   .nav-right { display: none; }
   .mobile-nav-trigger { display: flex; }
   .mobile-get-started-btn { display: inline-block; }
-  .mobile-menu-btn { display: block; }   /* NEW — only shown at mobile width */
+  .mobile-menu-btn { display: block; }   /* NEW â€” only shown at mobile width */
 }
 
 .hero-section {
@@ -851,7 +851,7 @@ margin-top: 50px;
 
 .build-main-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* reference size — 3rd section h2 */
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* reference size â€” 3rd section h2 */
   color: var(--primary);
   line-height: 1.1;
   margin-bottom: 10px;
@@ -1096,11 +1096,27 @@ margin-top: 50px;
 }
 
 .case-studies-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 28px;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+.case-card {
+  flex: 0 1 calc((100% - 56px) / 3);
+  min-width: 280px;
+  max-width: 400px;
+}
+
+@media (max-width: 900px) {
+  .case-card { flex: 0 1 calc((100% - 28px) / 2); }
+}
+
+@media (max-width: 600px) {
+  .case-card { flex: 0 1 100%; }
+  .case-studies-main-heading { white-space: normal; }
 }
 
 .case-card {
@@ -1180,15 +1196,6 @@ margin-top: 50px;
 .case-studies-cta-center {
   text-align: center;
   margin-top: 40px;
-}
-
-@media (max-width: 900px) {
-  .case-studies-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-  .case-studies-grid { grid-template-columns: 1fr; }
-  .case-studies-main-heading { white-space: normal; }
 }
 
 .together-section {
@@ -1571,15 +1578,6 @@ margin-top: 50px;
   margin-top: 40px;
 }
 
-@media (max-width: 900px) {
-  .case-studies-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-  .case-studies-grid { grid-template-columns: 1fr; }
-  .case-studies-main-heading { white-space: normal; }
-}
-
 .site-footer {
   background: var(--bg-alt);
   padding: 48px 0 32px;
@@ -1722,13 +1720,4 @@ margin-top: 50px;
   .whatsapp-float { width: 170px; height: 48px; bottom: 20px; right: 20px; }
   .whatsapp-text-part { font-size: 0.8rem; }
   .scroll-top-btn { width: 46px; height: 46px; bottom: 20px; left: 20px; }
-}
-
-@media (max-width: 900px) {
-  .case-studies-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-  .case-studies-grid { grid-template-columns: 1fr; }
-  .case-studies-main-heading { white-space: normal; }
 }
