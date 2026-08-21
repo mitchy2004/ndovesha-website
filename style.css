@@ -18,10 +18,26 @@
   --shadow-lg: 0 8px 40px rgba(10,42,102,0.14);
   --radius: 14px;
   --radius-sm: 8px;
-  --before-bg: #FFF4F4;
-  --after-bg: #FFF8E8;
+    --before-bg: #FFF7F7;
+  --after-bg: #FFFBEF;
   --before-border: #F3CACA;
   --after-border: #F3D37A;
+
+  /* Shift section accents */
+  --deep-blue: #003366;
+  --old-red: #C94A4A;
+  --old-red-soft: #FDF4F4;
+  --old-red-border: #F2DADA;
+  --muted: #718096;
+  --card-shadow: 0 30px 80px rgba(0, 51, 102, 0.07), 0 8px 24px rgba(0, 51, 102, 0.035);
+
+  /* NEW — previously referenced throughout the "Shift" section but
+     never defined, which is why the description colour and the
+     title/description sizing weren't behaving as intended */
+  --problem-text: var(--text-light);
+  --problem-text-light: var(--text-light);
+  --panel-heading-size: 1.65rem;
+  --panel-desc-size: 1.02rem;
 
   /* Font weight tiers */
   --font-regular:   400;
@@ -29,7 +45,7 @@
   --font-semibold:  600;
   --font-bold:      700;
   --font-extrabold: 800;
-  --font-heading:   400; /* unified weight for all headings â€” matches the "What Will You Build" (.build-main-heading) weight */
+  --font-heading:   400; /* unified weight for all headings — matches the "What Will You Build" (.build-main-heading) weight */
   --font-h3:        600; /* h3s sit heavier than the rest of the heading scale */
 }
 
@@ -46,7 +62,7 @@ img { max-width: 100%; display: block; }
    Centralized here instead of on individual selectors.
 ============================================================ */
 
-/* Regular â€” 400 */
+/* Regular — 400 */
 .dropdown-menu li a,
 .hero-sub,
 .hire-ai-text,
@@ -56,7 +72,7 @@ p {
   font-weight: var(--font-regular);
 }
 
-/* Medium â€” 500 (non-heading UI elements) */
+/* Medium — 500 (non-heading UI elements) */
 .nav-center > li > a,
 .btn-login,
 .mobile-nav a,
@@ -64,7 +80,7 @@ p {
   font-weight: var(--font-medium);
 }
 
-/* Semibold â€” 600 (non-heading UI elements only) */
+/* Semibold — 600 (non-heading UI elements only) */
 .btn-cta,
 .mobile-get-started-btn,
 .result-chip,
@@ -72,7 +88,7 @@ p {
   font-weight: var(--font-semibold);
 }
 
-/* Bold â€” 700 (non-heading UI elements only) */
+/* Bold — 700 (non-heading UI elements only) */
 .mobile-section-title,
 .cap-icon-label,
 .btn,
@@ -84,16 +100,16 @@ p {
   font-weight: var(--font-bold);
 }
 
-/* Extrabold â€” 800 */
+/* Extrabold — 800 */
 .build-check,
 .chip-check {
   font-weight: var(--font-extrabold);
 }
 
 /* ============================================================
-   HEADINGS â€” unified to a single weight (400, matching the build
+   HEADINGS — unified to a single weight (400, matching the build
    section heading) across the page.
-   Covers both real h1â€“h6 tags and the custom "section heading"
+   Covers both real h1–h6 tags and the custom "section heading"
    classes (which wrap h1/h2/h3/h4 in markup). Declared last so
    it wins over the tier blocks above for any shared selectors.
 ============================================================ */
@@ -109,6 +125,7 @@ h1, h2, h4, h5, h6,
 .col-title,
 .result-heading {
   font-weight: var(--font-heading);
+  font-size: clamp(2.8rem, 5.6vw, 4.4rem);
 }
 
 /* h3s sit one step heavier than the rest of the heading scale */
@@ -255,7 +272,7 @@ h3,
 }
 
 .mobile-menu-btn {
-  display: none;        /* NEW â€” hidden by default (desktop) */
+  display: none;        /* NEW — hidden by default (desktop) */
   background: none;
   border: none;
   font-size: 1.6rem;
@@ -314,12 +331,12 @@ h3,
   .nav-right { display: none; }
   .mobile-nav-trigger { display: flex; }
   .mobile-get-started-btn { display: inline-block; }
-  .mobile-menu-btn { display: block; }   /* NEW â€” only shown at mobile width */
+  .mobile-menu-btn { display: block; }   /* NEW — only shown at mobile width */
 }
 
 .hero-section {
   min-height: auto;
-  background: var(--light-grey);
+  background: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -441,7 +458,7 @@ h3,
 
 .hire-section {
   padding: 48px 0 80px;
-  background: var(--bg-alt);
+  background: var(--light-grey);
 }
 
 .hire-heading-wrap {
@@ -537,13 +554,13 @@ h3,
   background: var(--white);
   border-radius: 16px;
   padding: 38px 26px 34px;
-  border: 1px solid var(--border);   /* navy outline removed */
+  border: 1.5px solid var(--primary);   /* Deep Blue outline */
   box-shadow: 0 4px 16px rgba(10,42,102,0.06);
   transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 .ai-card:hover {
   transform: translateY(-9px);
@@ -562,7 +579,7 @@ h3,
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 22px;
+  margin: 0 0 22px;
   transition: background 0.28s;
 }
 
@@ -641,178 +658,423 @@ margin-top: 50px;
   .hire-section { padding: 40px 0 60px; }
 }
 
-.challenges-section {
-  padding: 64px 0;
-  background: var(--light-grey);
-}
 
-.challenges-heading-wrap {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 36px;
+ 
+/* =========================================================
+   NDOVESHA — THE SHIFT
+========================================================= */
+ 
+.shift-section {
+    width: 100%;
+    background: var(--white);
+    padding: 100px 24px;
 }
+ 
+/* SECTION INTRO */
+.section-intro {
+    max-width: 900px;
+    margin: 0 auto 52px;
+    text-align: center;
+}
+.section-intro h2 {
+    margin: 0;
+    color: var(--primary);
+    font-size: clamp(2rem, 4.2vw, 3.9rem);
+    font-weight: var(--font-heading);
+    line-height: 1.1;
+    white-space: nowrap;
+}
+.gold-changing { color: var(--gold); }
+.section-intro p {
+    max-width: 600px;
+    margin: 18px auto 0;
+    color: var(--text-light);
+    font-size: clamp(1.08rem, 1.9vw, 1.28rem);
+    font-weight: var(--font-regular);
+    line-height: 1.6;
+}
+ 
+/* MAIN FLOATING CARD — background set to plain white per request
+   (was a red-to-gold gradient) */
+.shift-card {
+    width: min(1240px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 80px minmax(0, 1fr);
+    background: var(--white);
+    border: 1px solid #E6EAF0;
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+ 
+.old-way {
+    padding: 22px 44px 20px;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+ 
+.ndovesha-way {
+    padding: 22px 44px 20px;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+ 
+/* WAY LABELS — removed from markup; rules kept harmless in case
+   referenced elsewhere */
+.way-label {
+    display: none;
+}
+.old-label { color: var(--old-red); background: #FBE2E2; border: 1px solid var(--old-red-border); }
+.ndovesha-label { color: var(--gold); background: #003366; }
+ 
+/* =========================================================
+   SIDE HEADINGS — all 4 headings in the card share one size
+   ("Pay per project", "Use monthly credits",
+   "Products take months", "Minutes, not months")
+   Size bumped via --panel-heading-size for readability.
+========================================================= */
+.old-way h3,
+.ndovesha-way h3,
+.time-block h4 {
+    margin-top: 18px;
+    font-size: var(--panel-heading-size);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    text-align: left;
+}
+ 
+/* Problem-section headings are red; the rest of that section's text
+   stays a uniform grey */
+.old-way h3 { color: var(--old-red); }
+.ndovesha-way h3 { color: var(--deep-blue); }
+ 
+/* OLD WAY — COST LIST (icons and row dividers removed) */
+.cost-list { margin-top: 20px; display: flex; flex-direction: column; gap: 6px; }
+.cost-row {
+    min-height: 54px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 13px;
+    padding-bottom: 6px;
+    border-bottom: none;
+}
+.cost-row:last-child { border-bottom: none; }
+.cost-row span { color: var(--text-light); font-size: 18px; font-weight: 500; }
+.cost-row strong { color: var(--text-light); font-size: 17px; font-weight: 700; white-space: nowrap; }
+.cost-note { margin-top: 14px; color: var(--problem-text-light); font-size: var(--panel-desc-size); line-height: 1.6; }
+ 
+/* CENTER SHIFT */
+.shift-divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+ 
+/* Divider line runs the full height of the card — thin, plain grey */
+.shift-divider::before,
+.shift-divider::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 3px;
+    background: var(--border);
+}
+.shift-divider::before {
+    top: 0;
+    bottom: calc(50% + 46px);
+}
+.shift-divider::after {
+    top: calc(50% + 46px);
+    bottom: 0;
+}
+ 
+/* SHIFT ARROW */
+.shift-arrow {
+    position: relative;
+    z-index: 2;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--deep-blue);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    font-size: 24px;
+    font-weight: 400;
+    box-shadow: 0 12px 30px rgba(0, 51, 102, 0.14);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.shift-arrow:hover { transform: translateX(3px); box-shadow: 0 15px 34px rgba(0, 51, 102, 0.18); }
+ 
+/* NDOVESHA DESCRIPTION — same size as the old-way description below */
+.credit-description {
+    max-width: 500px;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: var(--panel-desc-size);
+    line-height: 1.6;
+}
+ 
+/* CREDIT SYSTEM */
+.credit-system { position: relative; margin-top: 15px; padding-top: 4px; }
+ 
+/* CREDIT HUB */
+.credit-hub {
+    position: relative;
+    z-index: 3;
+    width: 88px;
+    height: 88px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--deep-blue);
+    color: var(--white);
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 8px rgba(254, 191, 15, 0.07), 0 16px 36px rgba(0, 51, 102, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.credit-hub:hover { transform: translateY(-4px); box-shadow: 0 0 0 10px rgba(254, 191, 15, 0.09), 0 20px 42px rgba(0, 51, 102, 0.16); }
+.credit-icon { width: 18px; height: 18px; margin-bottom: 4px; color: var(--gold); }
+.credit-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.credit-hub span { color: var(--white); font-size: 11px; font-weight: 500; letter-spacing: 1px; }
+.credit-hub strong { color: var(--white); font-size: 14px; font-weight: 700; letter-spacing: 1px; }
+ 
+/* =========================================================
+   CREDIT FLOW ARROW — a single down-arrow connecting the
+   credits hub to the row of need chips below it. Simpler and
+   clearer than a multi-branch org-chart connector.
+========================================================= */
+.credit-flow-arrow {
+    display: flex;
+    justify-content: center;
+    width: 24px;
+    height: 30px;
+    margin: 2px auto 10px;
+    color: var(--gold);
+}
+.credit-flow-arrow svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+ 
+/* BUSINESS NEEDS — icon chips the credits flow into. Extra gap
+   added between each chip (solution) for breathing room. */
+.business-needs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 4px;
+}
+.need {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+    padding: 12px 6px;
+    border-radius: 12px;
+    background: #FFFDF5;
+    border: 1px solid var(--gold);
+}
+.need-icon {
+    width: 22px;
+    height: 22px;
+    color: var(--deep-blue);
+}
+.need-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.need span { color: var(--deep-blue); font-size: 12px; line-height: 1.25; font-weight: 600; }
+ 
+/* TIME BLOCK — min-height added so "Products take months" and
+   "Minutes, not months" land on the same horizontal level even
+   though the graphics above them (timeline vs. robot) differ in
+   height. Reset to 0 on mobile where the card stacks into one
+   column and alignment no longer matters.
+   padding-top increased to add more breathing room between the
+   two stacked "problems" (cost list + timeline) on the left and
+   the two stacked "solutions" (credit system + timeline) on the
+   right. */
+.time-block { margin-top: auto; padding-top: 48px; border-top: none; text-align: center; min-height: 260px; }
+.time-block h4 { margin-top: 7px; color: var(--deep-blue); }
+.old-time h4 { text-align: left; color: var(--old-red); }
+ 
+/* OLD TIMELINE */
+.old-timeline { display: flex; align-items: flex-start; width: 100%; margin-top: 20px; gap: 4px; }
+.timeline-item { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 7px; min-width: 45px; }
+.timeline-icon {
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    color: var(--text-light);
+    background: #F3F4F6;
+    font-size: 17px;
+}
+.timeline-item span { color: var(--text-light); font-size: 13px; font-weight: 500; }
+.timeline-line {
+    flex: 1;
+    height: 0;
+    margin-top: 18px;
+    min-width: 8px;
+    border-top: 3px dashed rgba(201, 74, 74, 0.4);
+}
+ 
+/* OLD TIME RESULT — removed from markup; rule kept harmless */
+.time-result { display: none; }
+.old-result span { background: #D1D5DB; }
+ 
+/* Descriptions under each time block — unified with credit-description.
+   Now grey via --problem-text-light instead of falling back to a
+   near-black default. */
+.time-block p { margin-top: 14px; color: var(--muted); font-size: var(--panel-desc-size); line-height: 1.6; }
+.old-time p { color: var(--problem-text-light); }
+ 
+/* NEW TIMELINE */
+.new-timeline { display: flex; align-items: center; width: 100%; margin-top: 22px; }
+.result-node { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 7px; }
+.result-icon {
+    width: 42px; height: 42px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    color: var(--deep-blue);
+    background: var(--white);
+    border: 1px solid var(--gold);
+    font-size: 17px;
+}
+.result-check { color: var(--deep-blue); }
+.result-node span { color: var(--deep-blue); font-size: 12px; font-weight: 500; }
+/* TIME TRANSFORMATION pipeline — Gold → Deep Blue, tracing the
+   Idea → AI Coworker → Result path */
+.new-line {
+    flex: 1;
+    height: 2px;
+    margin: 0 12px;
+    background: linear-gradient(
+        90deg,
+        #FEBF0F 0%,
+        #003366 100%
+    );
+}
+ 
+/* AI COWORKER */
+.ai-coworker { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+.robot {
+    width: 62px; height: 62px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gold);
+    box-shadow: 0 8px 22px rgba(0, 51, 102, 0.08);
+}
+.robot svg { width: 40px; height: 40px; fill: #F3F7FA; stroke: var(--deep-blue); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ai-coworker strong { margin-top: 8px; color: var(--deep-blue); font-size: 13px; font-weight: 700; white-space: nowrap; }
+ 
+/* MINUTES LABEL — removed from markup; rule kept harmless */
+.minutes-label { display: none; }
+ 
+/* RESPONSIVE — TABLET */
+@media (max-width: 1100px) {
+    .shift-card { grid-template-columns: minmax(0, 1fr) 65px minmax(0, 1fr); }
+    .old-way, .ndovesha-way { padding: 38px 28px 40px; }
+    .business-needs { grid-template-columns: repeat(3, 1fr); row-gap: 18px; }
+}
+ 
+/* RESPONSIVE — MOBILE */
+@media (max-width: 800px) {
+    .shift-section { padding: 70px 18px; }
+    .shift-card { grid-template-columns: 1fr; border-radius: 22px; }
+    .shift-divider { height: 82px; flex-direction: row; gap: 15px; }
+    .shift-divider::before,
+    .shift-divider::after {
+        top: 50%;
+        bottom: auto;
+        left: 0;
+        right: 0;
+        width: auto;
+        height: 3px;
+    }
+    .shift-divider::before { left: 10%; width: calc(50% - 10% - 38px); right: auto; }
+    .shift-divider::after { left: calc(50% + 38px); width: calc(50% - 10% - 38px); }
+    .shift-arrow { width: 50px; height: 50px; font-size: 21px; }
+ 
+    .shift-dots {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 130px;
+        transform: translateY(-50%);
+        background-image: radial-gradient(currentColor 1.4px, transparent 1.4px);
+        background-size: 9px 9px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .shift-dots-old { left: 0; color: var(--old-red); -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%); mask-image: linear-gradient(to left, black 0%, transparent 100%); }
+    .shift-dots-new { right: 0; color: var(--gold); -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%); mask-image: linear-gradient(to right, black 0%, transparent 100%); }
+ 
+    .old-way, .ndovesha-way { padding: 35px 24px; }
 
-.challenges-heading {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
-  color: var(--primary);
-  line-height: 1.1;
-  margin-bottom: 10px;
+    /* Card stacks into a single column here, so the forced
+       min-height used to align the two "time-block" titles on
+       desktop is no longer needed. Also dial back the extra
+       padding-top added above, since the card is one column now. */
+    .time-block { min-height: 0; padding-top: 28px; }
 }
-
-.gold-challenges { color: var(--gold); }
-
-.challenges-sub {
-  margin-top: 14px;
-  font-size: clamp(0.98rem, 1.7vw, 1.14rem);
-  color: var(--text-light);
-  line-height: 1.6;
+ 
+/* RESPONSIVE — SMALL MOBILE */
+@media (max-width: 520px) {
+    .shift-section { padding: 50px 12px; }
+    .section-intro { margin-bottom: 35px; }
+    .section-intro h2 { font-size: 30px; letter-spacing: -1px; white-space: normal; }
+    .section-intro p { font-size: 14px; }
+    .old-way, .ndovesha-way { padding: 28px 18px; }
+ 
+    .cost-row { grid-template-columns: minmax(0, 1fr) auto; gap: 9px; }
+    .cost-row span, .cost-row strong { font-size: 13px; }
+ 
+    .business-needs { grid-template-columns: repeat(3, 1fr); gap: 15px 5px; }
+    .need span { font-size: 10px; }
+ 
+    .old-timeline { overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+    .old-timeline::-webkit-scrollbar { display: none; }
+    .timeline-item { min-width: 45px; }
+    .new-line { margin: 0 6px; }
+    .robot { width: 62px; height: 62px; }
+    .robot svg { width: 40px; height: 40px; }
+    .ai-coworker strong { font-size: 10px; }
 }
-
-.challenges-col-headers {
-  display: grid;
-  grid-template-columns: 1fr 40px 1fr;
-  max-width: 1100px;
-  margin: 0 auto 14px;
-  padding: 0 4px;
-}
-.col-header-left {
-  grid-column: 1;
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-light);
-  text-align: center;
-}
-.col-header-right {
-  grid-column: 3;
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-light);
-  text-align: center;
-}
-
-.challenges-list {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.challenge-row {
-  display: grid;
-  grid-template-columns: 1fr 40px 1fr;
-  align-items: center;
-  gap: 0 14px;
-}
-
-.challenge-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-align: left;
-  width: 100%;
-  min-height: 96px;  
-  cursor: pointer;
-  border-radius: 14px;
-  padding: 12px 16px;
-  font-family: 'Ubuntu', sans-serif;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.challenge-btn-left {
-  background: none;
-  border: 2px solid var(--before-border);
-  box-shadow: none;
-  border-color: #ea3333;
-}
-.challenge-btn-left:hover {
-  transform: translateY(-2px);
-  border-color: #e65151;
-   box-shadow: 0 6px 18px rgba(237, 209, 68, 0.2);
-}
-
-.challenge-btn-right {
-  background: none;
-  border: 2px solid var(--after-border);
-  box-shadow: none;
-  border-color: var(--gold);
-}
-.challenge-btn-right:hover {
-  transform: translateY(-2px);
-  border-color: var(--gold);
-  box-shadow: 0 6px 18px rgba(218, 185, 22, 0.2);
-}
-
-.challenge-icon {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--light-grey);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #DC2626;
-}
-.challenge-icon svg { width: 15px; height: 15px; }
-
-.challenge-icon-right {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--light-grey);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold);
-}
-.challenge-icon-right svg { width: 15px; height: 15px; }
-
-.challenge-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.challenge-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--primary);
-}
-
-.challenge-desc {
-  font-size: 0.92rem;
-  line-height: 1.45;
-  color: var(--text-light);
-}
-.challenge-btn-right .challenge-desc {
-  color: var(--text-light);
-}
-
-.challenge-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 1px solid var(--border);
-  color: var(--gold);
-  margin: 0 auto;
-  align-self: center;
-  flex-shrink: 0;
-}
-.challenge-arrow svg { width: 16px; height: 16px; }
+ 
 
 .challenges-cta-center {
   text-align: center;
   margin-top: 44px;
 }
+
+
+
 .build-buttons-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -822,142 +1084,68 @@ margin-top: 50px;
   margin: 0 auto;
 }
 
-@media (max-width: 860px) {
-  .challenges-col-headers { display: none; }
-  .challenge-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  .challenge-arrow { display: none; }
-  .challenge-btn { border-radius: 12px; padding: 10px 14px; }
-}
 
-@media (max-width: 560px) {
-  .challenges-section { padding: 40px 0; }
-  .challenges-heading-wrap { margin-bottom: 28px; }
-  .challenge-title { font-size: 0.82rem; }
-  .challenge-desc { font-size: 0.72rem; }
-}
-
-.build-section {
-  padding: 60px 0 60px;
-  background: var(--bg-alt, #E9EAEE);
-}
-
-.build-heading-wrap {
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-.build-main-heading {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* reference size â€” 3rd section h2 */
-  color: var(--primary);
-  line-height: 1.1;
-  margin-bottom: 10px;
-  white-space: nowrap;
-}
-
-.gold-build {
-  color: var(--gold);
-  display: inline-block;
+.build-section { padding: 60px 0 60px; background: var(--light-grey); }
+.build-heading-wrap { text-align: center; margin-bottom: 32px; }
+.build-main-heading { font-size: clamp(2.4rem, 4.8vw, 3.9rem); color: var(--primary); line-height: 1.1; white-space: nowrap; }
+.gold-build { color: var(--gold); }
+ 
+.build-cards-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; max-width: 1100px; margin: 0 auto; }
+.build-card { flex: 0 1 calc((100% - 56px) / 3); min-width: 280px; max-width: 400px; display: flex; flex-direction: column; background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.build-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.build-card-image { width: 100%; height: 180px; flex-shrink: 0; overflow: hidden; }
+.build-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.build-card-content { width: 100%; flex: 1; padding: 26px 24px; display: flex; flex-direction: column; align-items: flex-start; text-align: left; justify-content: flex-start; }
+.build-card-content h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 12px; }
+.build-list { list-style: none; margin: 0; padding: 0; width: 100%; }
+.build-list li {
   position: relative;
-  padding-bottom: 8px;
-  vertical-align: baseline;
-  animation: growBuild 2s ease-in-out infinite;
+  padding-left: 24px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin-bottom: 8px;
 }
-
-@keyframes growBuild {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.08); }
-}
-
-.build-divider {
+.build-list li:last-child { margin-bottom: 0; }
+.build-list li::before {
+  content: '\2713';
   position: absolute;
   left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  overflow: hidden;
-  border-radius: 2px;
+  top: 0;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.9rem;
 }
-
-.build-divider::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -45%;
-  width: 45%;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(254,191,15,0.25) 20%,
-    rgba(254,191,15,1) 50%,
-    rgba(254,191,15,0.25) 80%,
-    transparent 100%
-  );
-  box-shadow: 0 0 10px 2px rgba(254,191,15,0.55), 0 0 4px 1px rgba(254,191,15,0.7);
-  will-change: transform;
-  animation: dividerTravel 0.6s linear infinite;
-}
-
-.build-sub-heading {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(1.18rem, 2.1vw, 1.5rem);
-  color: var(--text-light);
-  margin-bottom: 40px;
-}
-
-.build-btn {
-  display: flex;
+.build-card-content > .build-list { margin-bottom: 18px; }
+.build-card-link {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: 100%;
-  height: 100%;
-  min-height: 68px;
-  background: var(--white);
-  border-radius: 12px;
-  padding: 18px 24px;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 0.98rem;
-  color: var(--primary);
-  border: 0.5px solid var(--border);
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  gap: 6px;
+  margin-top: auto;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-.build-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(254,191,15,0.35);
-}
-
-.build-check {
-  color: var(--gold);
-  font-size: 1.1rem;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-@media (max-width: 860px) { .build-buttons-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .build-buttons-grid { grid-template-columns: 1fr; } }
-
-@media (max-width: 768px) {
-  .build-section { padding: 48px 0 48px; }
-}
-
-.build-cta-center {
-  text-align: center;
-  margin-top: 60px;
-}
+.build-card-link:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,51,102,0.25); }
+ 
+@media (max-width: 900px) { .build-card { flex: 0 1 calc((100% - 28px) / 2); } }
+@media (max-width: 600px) { .build-card { flex: 0 1 100%; } }
+ 
+.ai-cta-center { text-align: center; margin-top: 44px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 32px; border-radius: 50px; font-size: 0.95rem; text-decoration: none; cursor: pointer; transition: all 0.25s ease; border: 2px solid transparent; }
+.btn-navy { background: var(--primary); color: var(--white); border-color: var(--primary); }
+.btn-navy:hover { background: var(--primary-light); border-color: var(--primary-light); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(10,42,102,0.25); }
+ 
 
 .tutorial-section {
   padding: 60px 0 60px;
-  background: var(--light-grey);
+  background: var(--white);
 }
 
 .tutorial-heading-wrap {
@@ -1024,7 +1212,7 @@ margin-top: 50px;
 }
 
 .footer-links-section {
-  background: var(--light-grey);
+  background: var(--white);
   padding: 56px 0 40px;
 }
 
@@ -1070,12 +1258,11 @@ margin-top: 50px;
 
 .case-studies-section {
   padding: 64px 0 64px;
-  background: linear-gradient(
-    135deg,
-    #FFF8DD 0%,
-    #F8FBF8 50%,
-    #E7F8F0 100%
-  );
+  background: var(--light-grey);
+}
+
+.case-studies-section .container {
+  max-width: 1400px;
 }
 
 .case-studies-heading-wrap {
@@ -1095,33 +1282,74 @@ margin-top: 50px;
   color: var(--gold);
 }
 
-.case-studies-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 28px;
-  max-width: 1100px;
+/* ============================================================
+   CASE STUDIES — auto-rotating carousel. Page 1 (3 cards) shows
+   first, then cross-fades to page 2 (2 cards) after 5s and loops.
+   Both pages share the same CSS grid cell so the track height
+   is set by the taller page and switching never causes a jump.
+============================================================ */
+.case-studies-carousel {
+  max-width: 1030px;
   margin: 0 auto;
 }
 
-.case-card {
-  flex: 0 1 calc((100% - 56px) / 3);
-  min-width: 280px;
-  max-width: 400px;
+.case-studies-track {
+  display: grid;
 }
 
-@media (max-width: 900px) {
-  .case-card { flex: 0 1 calc((100% - 28px) / 2); }
+.case-page {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: start;
+  gap: 24px;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
 }
 
-@media (max-width: 600px) {
-  .case-card { flex: 0 1 100%; }
-  .case-studies-main-heading { white-space: normal; }
+.case-page.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.case-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.case-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, width 0.3s ease;
+}
+
+.case-dot:hover { background: var(--primary-light); }
+
+.case-dot.is-active {
+  background: var(--gold);
+  width: 22px;
+  border-radius: 5px;
 }
 
 .case-card {
   display: flex;
   flex-direction: column;
+  flex: 0 1 calc((100% - 48px) / 3);
+  min-width: 260px;
+  max-width: 330px;
   background: var(--white);
   border-radius: 16px;
   overflow: hidden;
@@ -1136,54 +1364,62 @@ margin-top: 50px;
 
 .case-card-image {
   width: 100%;
-  height: 180px;
-  flex-shrink: 0;
+  aspect-ratio: 16 / 9;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-grey);
   overflow: hidden;
 }
 
 .case-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
 }
 
 .case-card-content {
-  width: 100%;
   flex: 1;
-  padding: 26px 24px;
+  width: 100%;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .case-card-content h3 {
   color: var(--primary);
-  font-size: 1.2rem;
+  font-size: 1.12rem;
   margin-bottom: 10px;
+  line-height: 1.3;
 }
 
 .case-card-content p {
   color: var(--text-light);
-  font-size: 1rem;
-  line-height: 1.65;
-  margin-bottom: 22px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex: 1;
 }
 
 .case-card-btn-wrap {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .case-card-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 22px;
+  padding: 11px 22px;
   border-radius: 50px;
   background: var(--primary);
   color: var(--white);
-  font-size: 0.85rem;
+  font-size: 0.86rem;
+  font-weight: 700;
   text-decoration: none;
   transition: background 0.3s ease, transform 0.3s ease;
 }
@@ -1191,6 +1427,19 @@ margin-top: 50px;
 .case-card-btn:hover {
   background: var(--primary-light);
   transform: translateY(-2px);
+}
+
+@media (max-width: 980px) {
+  .case-studies-carousel { max-width: 420px; }
+  .case-card { flex: 0 1 100%; max-width: 380px; min-width: 0; }
+}
+
+@media (max-width: 480px) {
+  .case-studies-section .container { padding: 0 20px; }
+  .case-studies-main-heading { white-space: normal; }
+  .case-studies-carousel { max-width: 100%; }
+  .case-card { max-width: 100%; }
+  .case-page { gap: 18px; }
 }
 
 .case-studies-cta-center {
@@ -1474,7 +1723,7 @@ margin-top: 50px;
 
 .faq-section {
   padding: 64px 0 64px;
-  background: var(--bg-alt);
+  background: var(--light-grey);
 }
 
 .faq-heading-wrap {
@@ -1579,7 +1828,7 @@ margin-top: 50px;
 }
 
 .site-footer {
-  background: var(--bg-alt);
+  background: var(--light-grey);
   padding: 48px 0 32px;
 }
 
