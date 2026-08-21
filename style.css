@@ -347,7 +347,7 @@ h3,
 }
 .hero-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* was clamp(2.6rem, 5.5vw, 5.2rem) — now matches section 2 heading */
   line-height: 1.08;
   letter-spacing: -0.5px;
   color: var(--primary);
