@@ -50,6 +50,13 @@
   /* Single source of truth for every section heading (including the
      hero) so they can't drift out of sync with each other again */
   --heading-size: clamp(2.4rem, 4.8vw, 3.9rem);
+
+  /* Single source of truth for the vertical gap around every section.
+     clamp() scales it down smoothly on smaller screens instead of
+     jumping between hard-coded per-breakpoint numbers, so the gap
+     between any two sections stays the same everywhere and never
+     balloons into unused space on short/tall viewports. */
+  --section-py: clamp(48px, 6vw, 80px);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -324,13 +331,17 @@ h3,
 }
 
 .hero-section {
-  min-height: calc(100vh - 68px - 48px); /* trimmed slightly; kept under the workshop section's 72px top padding so its heading stays out of view */
+  /* Was a fixed 100vh-minus-constant, which left a huge, inconsistent
+     gap before the workshop section on tall/short screens alike.
+     clamp() keeps the hero comfortably tall without over-reserving
+     space, and pairs with --section-py below for a consistent gap. */
+  min-height: clamp(420px, 62vh, 640px);
   background: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 48px 24px 56px;
+  padding: var(--section-py) 24px;
   text-align: center;
   position: relative;
 }
@@ -440,7 +451,7 @@ h3,
   .hero-heading { white-space: normal; }
 }
 @media (max-width: 640px) {
-  .hero-section { min-height: auto; padding: 32px 16px 40px; }
+  .hero-section { min-height: auto; padding: var(--section-py) 16px; }
   .capability-icons { gap: 24px; }
   .hero-heading { white-space: normal; }
   .search-bar-wrap { max-width: 100%; }
@@ -451,7 +462,7 @@ h3,
 ============================================================ */
 .workshop-section {
   background: var(--light-grey);
-  padding: 72px 0;
+  padding: var(--section-py) 0;
 }
 
 .workshop-inner {
@@ -542,12 +553,13 @@ h3,
 .workshop-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   color: var(--primary);
   font-family: 'Ubuntu', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
-  padding: 9px 20px;
+  padding: 13px 32px; /* matches .btn so it's the same size as Reserve Your Seat */
   border-radius: 50px;
   border: 1.5px solid var(--border);
   background: var(--white);
@@ -565,7 +577,6 @@ h3,
 }
 
 @media (max-width: 480px) {
-  .workshop-section { padding: 56px 0; }
   .workshop-heading { white-space: normal; }
   .workshop-heading-line { white-space: normal; }
   .workshop-cta-row { flex-direction: column; width: 100%; }
@@ -574,7 +585,7 @@ h3,
 }
 
 .hire-section {
-  padding: 48px 0 80px;
+  padding: var(--section-py) 0;
   background: var(--white);
 }
 
@@ -772,9 +783,7 @@ margin-top: 50px;
   box-shadow: 0 12px 30px rgba(10,42,102,0.25);
 }
 
-@media (max-width: 768px) {
-  .hire-section { padding: 40px 0 60px; }
-}
+
 
 
  
@@ -785,7 +794,7 @@ margin-top: 50px;
 .shift-section {
     width: 100%;
     background: var(--light-grey);
-    padding: 100px 24px;
+    padding: var(--section-py) 24px;
 }
  
 /* SECTION INTRO */
@@ -929,7 +938,7 @@ margin-top: 50px;
 
 /* RESPONSIVE — MOBILE (stack the two cards, VS badge sits on the seam) */
 @media (max-width: 800px) {
-    .shift-section { padding: 70px 18px; }
+    .shift-section { padding: var(--section-py) 18px; }
     .shift-cards-wrap { grid-template-columns: 1fr; gap: 56px; }
     .problem-card, .solution-card { padding: 40px 30px; }
     .vs-badge { width: 62px; height: 62px; font-size: 1rem; }
@@ -937,7 +946,7 @@ margin-top: 50px;
 
 /* RESPONSIVE — SMALL MOBILE */
 @media (max-width: 520px) {
-    .shift-section { padding: 50px 12px; }
+    .shift-section { padding: var(--section-py) 12px; }
     .section-intro { margin-bottom: 35px; }
     .section-intro h2 { font-size: 30px; letter-spacing: -1px; white-space: normal; }
     .section-intro p { font-size: 14px; }
@@ -963,7 +972,7 @@ margin-top: 50px;
 }
 
 
-.build-section { padding: 60px 0 60px; background: var(--white); }
+.build-section { padding: var(--section-py) 0; background: var(--white); }
 .build-heading-wrap { text-align: center; margin-bottom: 32px; }
 .build-main-heading { font-weight: 800; font-size: var(--heading-size); color: var(--primary); line-height: 1.1; white-space: nowrap; }
 .gold-build { color: var(--gold); }
@@ -1022,7 +1031,7 @@ margin-top: 50px;
  
 
 .tutorial-section {
-  padding: 60px 0 60px;
+  padding: var(--section-py) 0;
   background: var(--light-grey);
 }
 
@@ -1098,13 +1107,11 @@ margin-top: 50px;
   .tutorial-video-grid { grid-template-columns: 1fr; max-width: 500px; gap: 22px; }
 }
 
-@media (max-width: 640px) {
-  .tutorial-section { padding: 40px 0 40px; }
-}
+
 
 .footer-links-section {
   background: var(--light-grey);
-  padding: 56px 0 40px;
+  padding: var(--section-py) 0 40px;
 }
 
 .footer-links-grid {
@@ -1148,7 +1155,7 @@ margin-top: 50px;
 }
 
 .case-studies-section {
-  padding: 64px 0 64px;
+  padding: var(--section-py) 0;
   background: var(--white);
 }
 
@@ -1384,7 +1391,7 @@ margin-top: 50px;
 }
 
 .together-section {
-  padding: 64px 0;
+  padding: var(--section-py) 0;
   background: var(--light-grey);
 }
 .together-heading-wrap {
@@ -1651,7 +1658,6 @@ margin-top: 50px;
 }
 
 @media (max-width: 480px) {
-  .together-section { padding: 72px 0; }
    .together-heading { white-space: normal; }
   .together-heading-wrap { margin-bottom: 36px; }
   .together-panel { padding: 32px 20px; }
@@ -1661,7 +1667,7 @@ margin-top: 50px;
 }
 
 .faq-section {
-  padding: 64px 0 64px;
+  padding: var(--section-py) 0;
   background: var(--white);
 }
 
