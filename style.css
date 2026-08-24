@@ -45,8 +45,11 @@
   --font-semibold:  600;
   --font-bold:      700;
   --font-extrabold: 800;
-  --font-heading:   400; /* unified weight for all headings — matches the "What Will You Build" (.build-main-heading) weight */
   --font-h3:        600; /* h3s sit heavier than the rest of the heading scale */
+
+  /* Single source of truth for every section heading (including the
+     hero) so they can't drift out of sync with each other again */
+  --heading-size: clamp(2.4rem, 4.8vw, 3.9rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -106,26 +109,12 @@ p {
   font-weight: var(--font-extrabold);
 }
 
-/* ============================================================
-   HEADINGS — unified to a single weight (400, matching the build
-   section heading) across the page.
-   Covers both real h1–h6 tags and the custom "section heading"
-   classes (which wrap h1/h2/h3/h4 in markup). Declared last so
-   it wins over the tier blocks above for any shared selectors.
-============================================================ */
+/* Default heading weight/size for any bare heading tags or
+   section headings not covered by their own specific rule below */
 h1, h2, h4, h5, h6,
-.hero-heading,
-.hire-main-heading,
-.challenges-heading,
-.build-main-heading,
-.tutorial-main-heading,
-.case-studies-main-heading,
-.faq-main-heading,
-.together-heading,
-.col-title,
-.result-heading {
-  font-weight: var(--font-heading);
-  font-size: clamp(2.8rem, 5.6vw, 4.4rem);
+.challenges-heading {
+  font-weight: 800;
+  font-size: var(--heading-size);
 }
 
 /* h3s sit one step heavier than the rest of the heading scale */
@@ -335,7 +324,7 @@ h3,
 }
 
 .hero-section {
-  min-height: auto;
+  min-height: calc(100vh - 68px - 48px); /* trimmed slightly; kept under the workshop section's 72px top padding so its heading stays out of view */
   background: var(--white);
   display: flex;
   flex-direction: column;
@@ -347,13 +336,12 @@ h3,
 }
 .hero-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* was clamp(2.6rem, 5.5vw, 5.2rem) — now matches section 2 heading */
+  font-weight: 800;
+  font-size: var(--heading-size);
   line-height: 1.08;
-  letter-spacing: -0.5px;
   color: var(--primary);
   margin-bottom: 14px;
   white-space: nowrap;
-  word-spacing: -2px;
 }
 .hero-heading .golden { color: var(--gold); }
 .hero-sub {
@@ -428,14 +416,15 @@ h3,
 .send-icon:hover { background: var(--primary-dark); transform: scale(1.05); }
 .send-icon svg { color: white; }
 
-.capability-icons { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 16px; }
+.capability-icons { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 56px; }
 .cap-icon-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.22s; }
 .cap-icon-item:hover { transform: translateY(-6px); }
+
 .cap-icon-circle {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: 2px solid var(--border);
+  border: 2px solid var(--primary);   /* was var(--border) */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -443,22 +432,150 @@ h3,
   transition: border-color 0.22s, box-shadow 0.22s;
 }
 .cap-icon-item:hover .cap-icon-circle { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(254,191,15,0.18); }
-.cap-icon-circle svg { color: var(--primary); }
+.cap-icon-circle svg { color: var(--gold); }   /* was var(--primary) */
 .cap-icon-label { font-size: 0.82rem; color: var(--text); letter-spacing: 0.01em; }
 
 @media (max-width: 968px) {
-  .hero-heading { font-size: clamp(2rem, 7vw, 3.5rem); white-space: normal; }
+  /* Wrap instead of shrink, same as every other section heading */
+  .hero-heading { white-space: normal; }
 }
 @media (max-width: 640px) {
-  .hero-section { padding: 32px 16px 40px; }
+  .hero-section { min-height: auto; padding: 32px 16px 40px; }
   .capability-icons { gap: 24px; }
-  .hero-heading { white-space: normal; font-size: 2rem; }
+  .hero-heading { white-space: normal; }
   .search-bar-wrap { max-width: 100%; }
+}
+
+/* ============================================================
+   IN-PERSON WORKSHOP SECTION
+============================================================ */
+.workshop-section {
+  background: var(--light-grey);
+  padding: 72px 0;
+}
+
+.workshop-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.workshop-section .workshop-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 800;
+  font-size: var(--heading-size);
+  line-height: 1.1;
+  color: var(--primary);
+  margin-bottom: 16px;
+  white-space: normal;
+  text-align: center;
+}
+.workshop-heading-line {
+  display: inline-block;
+  white-space: nowrap;
+}
+.gold-in-person {
+  color: var(--gold);
+  display: block;
+  white-space: nowrap;
+}
+
+.workshop-sub {
+  font-size: clamp(1.08rem, 1.9vw, 1.28rem);
+  color: var(--text-light);
+  max-width: 560px;
+  margin: 0 auto 44px;
+  line-height: 1.6;
+}
+
+/* Event details — horizontal row with vertical dividers between items */
+.workshop-details-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 44px;
+}
+
+.workshop-detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.workshop-detail-divider {
+  width: 3px;
+  height: 42px;
+  background: var(--border);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.workshop-detail-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.workshop-detail-item strong {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.workshop-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* UPDATED — now shares the same pill outline as .btn-login, instead
+   of being a bare text link, per request. Hover swaps the border to
+   gold (matching this section's accent) while keeping the existing
+   color + gap animation. */
+.workshop-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 9px 20px;
+  border-radius: 50px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  transition: color 0.2s ease, gap 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.workshop-link:hover {
+  color: var(--gold);
+  gap: 9px;
+  border-color: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .workshop-details-row { gap: 20px 24px; }
+  .workshop-detail-divider { display: none; }
+}
+
+@media (max-width: 480px) {
+  .workshop-section { padding: 56px 0; }
+  .workshop-heading { white-space: normal; }
+  .workshop-heading-line { white-space: normal; }
+  .workshop-cta-row { flex-direction: column; width: 100%; }
+  .workshop-cta-row .btn { width: 100%; }
+  .workshop-cta-row .workshop-link { width: 100%; justify-content: center; }
 }
 
 .hire-section {
   padding: 48px 0 80px;
-  background: var(--light-grey);
+  background: var(--white);
 }
 
 .hire-heading-wrap {
@@ -468,7 +585,8 @@ h3,
 
 .hire-main-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
+  font-weight: 800;
+  font-size: var(--heading-size);
   color: var(--primary);
   line-height: 1.1;
   margin-bottom: 0;
@@ -666,7 +784,7 @@ margin-top: 50px;
  
 .shift-section {
     width: 100%;
-    background: var(--white);
+    background: var(--light-grey);
     padding: 100px 24px;
 }
  
@@ -679,8 +797,8 @@ margin-top: 50px;
 .section-intro h2 {
     margin: 0;
     color: var(--primary);
-    font-size: clamp(2rem, 4.2vw, 3.9rem);
-    font-weight: var(--font-heading);
+    font-size: var(--heading-size);
+    font-weight: 800;
     line-height: 1.1;
     white-space: nowrap;
 }
@@ -693,378 +811,138 @@ margin-top: 50px;
     font-weight: var(--font-regular);
     line-height: 1.6;
 }
- 
-/* MAIN FLOATING CARD — background set to plain white per request
-   (was a red-to-gold gradient) */
-.shift-card {
-    width: min(1240px, 100%);
+
+/* =========================================================
+   PROBLEM / SOLUTION CARDS
+   Two independent cards side by side with a VS badge floating
+   between them, replacing the earlier single connected card.
+========================================================= */
+.shift-cards-wrap {
+    width: min(1100px, 100%);
     margin: 0 auto;
+    position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 80px minmax(0, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: stretch;
+}
+
+.problem-card,
+.solution-card {
+    border-radius: 24px;
+    padding: 52px 46px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+}
+
+.problem-card {
     background: var(--white);
     border: 1px solid #E6EAF0;
-    border-radius: 24px;
     box-shadow: var(--card-shadow);
-    overflow: hidden;
 }
- 
-.old-way {
-    padding: 22px 44px 20px;
-    display: flex;
-    flex-direction: column;
-    background: transparent;
+
+.solution-card {
+    background: var(--primary-light);
+    border: 1px solid var(--primary-light);
+    box-shadow: var(--card-shadow);
 }
- 
-.ndovesha-way {
-    padding: 22px 44px 20px;
-    display: flex;
-    flex-direction: column;
-    background: transparent;
-}
- 
-/* WAY LABELS — removed from markup; rules kept harmless in case
-   referenced elsewhere */
-.way-label {
-    display: none;
-}
-.old-label { color: var(--old-red); background: #FBE2E2; border: 1px solid var(--old-red-border); }
-.ndovesha-label { color: var(--gold); background: #003366; }
- 
-/* =========================================================
-   SIDE HEADINGS — all 4 headings in the card share one size
-   ("Pay per project", "Use monthly credits",
-   "Products take months", "Minutes, not months")
-   Size bumped via --panel-heading-size for readability.
-========================================================= */
-.old-way h3,
-.ndovesha-way h3,
-.time-block h4 {
-    margin-top: 18px;
+
+.problem-card h3,
+.solution-card h3 {
     font-size: var(--panel-heading-size);
-    line-height: 1.2;
-    letter-spacing: -0.5px;
     font-weight: 700;
-    text-align: left;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 6px;
 }
- 
-/* Problem-section headings are red; the rest of that section's text
-   stays a uniform grey */
-.old-way h3 { color: var(--old-red); }
-.ndovesha-way h3 { color: var(--deep-blue); }
- 
-/* OLD WAY — COST LIST (icons and row dividers removed) */
-.cost-list { margin-top: 20px; display: flex; flex-direction: column; gap: 6px; }
-.cost-row {
-    min-height: 54px;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    column-gap: 13px;
-    padding-bottom: 6px;
-    border-bottom: none;
-}
-.cost-row:last-child { border-bottom: none; }
-.cost-row span { color: var(--text-light); font-size: 18px; font-weight: 500; }
-.cost-row strong { color: var(--text-light); font-size: 17px; font-weight: 700; white-space: nowrap; }
-.cost-note { margin-top: 14px; color: var(--problem-text-light); font-size: var(--panel-desc-size); line-height: 1.6; }
- 
-/* CENTER SHIFT */
-.shift-divider {
-    position: relative;
+
+.problem-card h3 { color: var(--old-red); }
+.solution-card h3 { color: var(--gold); }
+
+.point-row {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
 }
- 
-/* Divider line runs the full height of the card — thin, plain grey */
-.shift-divider::before,
-.shift-divider::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    width: 3px;
-    background: var(--border);
-}
-.shift-divider::before {
-    top: 0;
-    bottom: calc(50% + 46px);
-}
-.shift-divider::after {
-    top: calc(50% + 46px);
-    bottom: 0;
-}
- 
-/* SHIFT ARROW */
-.shift-arrow {
-    position: relative;
-    z-index: 2;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.point-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background: var(--deep-blue);
-    color: var(--gold);
-    border: 2px solid var(--gold);
-    font-size: 24px;
-    font-weight: 400;
-    box-shadow: 0 12px 30px rgba(0, 51, 102, 0.14);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
 }
-.shift-arrow:hover { transform: translateX(3px); box-shadow: 0 15px 34px rgba(0, 51, 102, 0.18); }
- 
-/* NDOVESHA DESCRIPTION — same size as the old-way description below */
-.credit-description {
-    max-width: 500px;
-    margin-top: 10px;
-    color: var(--muted);
+.point-icon svg { width: 15px; height: 15px; }
+
+.point-icon-x {
+    background: var(--old-red-soft);
+    color: var(--old-red);
+    border: 1px solid var(--old-red-border);
+}
+
+.point-icon-check {
+    background: rgba(254, 191, 15, 0.14);
+    color: var(--gold);
+    border: 1px solid rgba(254, 191, 15, 0.5);
+}
+
+.problem-card p,
+.solution-card p {
     font-size: var(--panel-desc-size);
     line-height: 1.6;
 }
- 
-/* CREDIT SYSTEM */
-.credit-system { position: relative; margin-top: 15px; padding-top: 4px; }
- 
-/* CREDIT HUB */
-.credit-hub {
-    position: relative;
+
+.problem-card p { color: var(--text-light); }
+.solution-card p { color: var(--gold); }
+
+/* VS BADGE — floats between the two cards */
+.vs-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 3;
-    width: 88px;
-    height: 88px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 76px;
+    height: 76px;
     border-radius: 50%;
     background: var(--deep-blue);
-    color: var(--white);
-    border: 3px solid var(--gold);
-    box-shadow: 0 0 0 8px rgba(254, 191, 15, 0.07), 0 16px 36px rgba(0, 51, 102, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.credit-hub:hover { transform: translateY(-4px); box-shadow: 0 0 0 10px rgba(254, 191, 15, 0.09), 0 20px 42px rgba(0, 51, 102, 0.16); }
-.credit-icon { width: 18px; height: 18px; margin-bottom: 4px; color: var(--gold); }
-.credit-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.credit-hub span { color: var(--white); font-size: 11px; font-weight: 500; letter-spacing: 1px; }
-.credit-hub strong { color: var(--white); font-size: 14px; font-weight: 700; letter-spacing: 1px; }
- 
-/* =========================================================
-   CREDIT FLOW ARROW — a single down-arrow connecting the
-   credits hub to the row of need chips below it. Simpler and
-   clearer than a multi-branch org-chart connector.
-========================================================= */
-.credit-flow-arrow {
-    display: flex;
-    justify-content: center;
-    width: 24px;
-    height: 30px;
-    margin: 2px auto 10px;
     color: var(--gold);
-}
-.credit-flow-arrow svg {
-    width: 100%;
-    height: 100%;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2.2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
- 
-/* BUSINESS NEEDS — icon chips the credits flow into. Extra gap
-   added between each chip (solution) for breathing room. */
-.business-needs {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 14px;
-    margin-top: 4px;
-}
-.need {
+    border: 3px solid var(--gold);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    gap: 6px;
-    padding: 12px 6px;
-    border-radius: 12px;
-    background: #FFFDF5;
-    border: 1px solid var(--gold);
+    font-weight: 800;
+    font-size: 1.18rem;
+    letter-spacing: 0.03em;
+    box-shadow: 0 12px 32px rgba(0, 51, 102, 0.2);
 }
-.need-icon {
-    width: 22px;
-    height: 22px;
-    color: var(--deep-blue);
-}
-.need-icon svg {
-    width: 100%;
-    height: 100%;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-.need span { color: var(--deep-blue); font-size: 12px; line-height: 1.25; font-weight: 600; }
- 
-/* TIME BLOCK — min-height added so "Products take months" and
-   "Minutes, not months" land on the same horizontal level even
-   though the graphics above them (timeline vs. robot) differ in
-   height. Reset to 0 on mobile where the card stacks into one
-   column and alignment no longer matters.
-   padding-top increased to add more breathing room between the
-   two stacked "problems" (cost list + timeline) on the left and
-   the two stacked "solutions" (credit system + timeline) on the
-   right. */
-.time-block { margin-top: auto; padding-top: 48px; border-top: none; text-align: center; min-height: 260px; }
-.time-block h4 { margin-top: 7px; color: var(--deep-blue); }
-.old-time h4 { text-align: left; color: var(--old-red); }
- 
-/* OLD TIMELINE */
-.old-timeline { display: flex; align-items: flex-start; width: 100%; margin-top: 20px; gap: 4px; }
-.timeline-item { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 7px; min-width: 45px; }
-.timeline-icon {
-    width: 40px; height: 40px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
-    color: var(--text-light);
-    background: #F3F4F6;
-    font-size: 17px;
-}
-.timeline-item span { color: var(--text-light); font-size: 13px; font-weight: 500; }
-.timeline-line {
-    flex: 1;
-    height: 0;
-    margin-top: 18px;
-    min-width: 8px;
-    border-top: 3px dashed rgba(201, 74, 74, 0.4);
-}
- 
-/* OLD TIME RESULT — removed from markup; rule kept harmless */
-.time-result { display: none; }
-.old-result span { background: #D1D5DB; }
- 
-/* Descriptions under each time block — unified with credit-description.
-   Now grey via --problem-text-light instead of falling back to a
-   near-black default. */
-.time-block p { margin-top: 14px; color: var(--muted); font-size: var(--panel-desc-size); line-height: 1.6; }
-.old-time p { color: var(--problem-text-light); }
- 
-/* NEW TIMELINE */
-.new-timeline { display: flex; align-items: center; width: 100%; margin-top: 22px; }
-.result-node { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 7px; }
-.result-icon {
-    width: 42px; height: 42px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
-    color: var(--deep-blue);
-    background: var(--white);
-    border: 1px solid var(--gold);
-    font-size: 17px;
-}
-.result-check { color: var(--deep-blue); }
-.result-node span { color: var(--deep-blue); font-size: 12px; font-weight: 500; }
-/* TIME TRANSFORMATION pipeline — Gold → Deep Blue, tracing the
-   Idea → AI Coworker → Result path */
-.new-line {
-    flex: 1;
-    height: 2px;
-    margin: 0 12px;
-    background: linear-gradient(
-        90deg,
-        #FEBF0F 0%,
-        #003366 100%
-    );
-}
- 
-/* AI COWORKER */
-.ai-coworker { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
-.robot {
-    width: 62px; height: 62px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
-    background: var(--white);
-    border: 2px solid var(--gold);
-    box-shadow: 0 8px 22px rgba(0, 51, 102, 0.08);
-}
-.robot svg { width: 40px; height: 40px; fill: #F3F7FA; stroke: var(--deep-blue); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.ai-coworker strong { margin-top: 8px; color: var(--deep-blue); font-size: 13px; font-weight: 700; white-space: nowrap; }
- 
-/* MINUTES LABEL — removed from markup; rule kept harmless */
-.minutes-label { display: none; }
- 
+
 /* RESPONSIVE — TABLET */
 @media (max-width: 1100px) {
-    .shift-card { grid-template-columns: minmax(0, 1fr) 65px minmax(0, 1fr); }
-    .old-way, .ndovesha-way { padding: 38px 28px 40px; }
-    .business-needs { grid-template-columns: repeat(3, 1fr); row-gap: 18px; }
+    .problem-card, .solution-card { padding: 44px 34px; }
 }
- 
-/* RESPONSIVE — MOBILE */
+
+/* RESPONSIVE — MOBILE (stack the two cards, VS badge sits on the seam) */
 @media (max-width: 800px) {
     .shift-section { padding: 70px 18px; }
-    .shift-card { grid-template-columns: 1fr; border-radius: 22px; }
-    .shift-divider { height: 82px; flex-direction: row; gap: 15px; }
-    .shift-divider::before,
-    .shift-divider::after {
-        top: 50%;
-        bottom: auto;
-        left: 0;
-        right: 0;
-        width: auto;
-        height: 3px;
-    }
-    .shift-divider::before { left: 10%; width: calc(50% - 10% - 38px); right: auto; }
-    .shift-divider::after { left: calc(50% + 38px); width: calc(50% - 10% - 38px); }
-    .shift-arrow { width: 50px; height: 50px; font-size: 21px; }
- 
-    .shift-dots {
-        position: absolute;
-        top: 50%;
-        width: 40px;
-        height: 130px;
-        transform: translateY(-50%);
-        background-image: radial-gradient(currentColor 1.4px, transparent 1.4px);
-        background-size: 9px 9px;
-        pointer-events: none;
-        z-index: 1;
-    }
-    .shift-dots-old { left: 0; color: var(--old-red); -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%); mask-image: linear-gradient(to left, black 0%, transparent 100%); }
-    .shift-dots-new { right: 0; color: var(--gold); -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%); mask-image: linear-gradient(to right, black 0%, transparent 100%); }
- 
-    .old-way, .ndovesha-way { padding: 35px 24px; }
-
-    /* Card stacks into a single column here, so the forced
-       min-height used to align the two "time-block" titles on
-       desktop is no longer needed. Also dial back the extra
-       padding-top added above, since the card is one column now. */
-    .time-block { min-height: 0; padding-top: 28px; }
+    .shift-cards-wrap { grid-template-columns: 1fr; gap: 56px; }
+    .problem-card, .solution-card { padding: 40px 30px; }
+    .vs-badge { width: 62px; height: 62px; font-size: 1rem; }
 }
- 
+
 /* RESPONSIVE — SMALL MOBILE */
 @media (max-width: 520px) {
     .shift-section { padding: 50px 12px; }
     .section-intro { margin-bottom: 35px; }
     .section-intro h2 { font-size: 30px; letter-spacing: -1px; white-space: normal; }
     .section-intro p { font-size: 14px; }
-    .old-way, .ndovesha-way { padding: 28px 18px; }
- 
-    .cost-row { grid-template-columns: minmax(0, 1fr) auto; gap: 9px; }
-    .cost-row span, .cost-row strong { font-size: 13px; }
- 
-    .business-needs { grid-template-columns: repeat(3, 1fr); gap: 15px 5px; }
-    .need span { font-size: 10px; }
- 
-    .old-timeline { overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
-    .old-timeline::-webkit-scrollbar { display: none; }
-    .timeline-item { min-width: 45px; }
-    .new-line { margin: 0 6px; }
-    .robot { width: 62px; height: 62px; }
-    .robot svg { width: 40px; height: 40px; }
-    .ai-coworker strong { font-size: 10px; }
+    .problem-card, .solution-card { padding: 32px 22px; gap: 12px; }
+    .problem-card h3, .solution-card h3 { font-size: 1.4rem; }
 }
  
 
@@ -1085,9 +963,9 @@ margin-top: 50px;
 }
 
 
-.build-section { padding: 60px 0 60px; background: var(--light-grey); }
+.build-section { padding: 60px 0 60px; background: var(--white); }
 .build-heading-wrap { text-align: center; margin-bottom: 32px; }
-.build-main-heading { font-size: clamp(2.4rem, 4.8vw, 3.9rem); color: var(--primary); line-height: 1.1; white-space: nowrap; }
+.build-main-heading { font-weight: 800; font-size: var(--heading-size); color: var(--primary); line-height: 1.1; white-space: nowrap; }
 .gold-build { color: var(--gold); }
  
 .build-cards-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; max-width: 1100px; margin: 0 auto; }
@@ -1145,7 +1023,7 @@ margin-top: 50px;
 
 .tutorial-section {
   padding: 60px 0 60px;
-  background: var(--white);
+  background: var(--light-grey);
 }
 
 .tutorial-heading-wrap {
@@ -1155,7 +1033,8 @@ margin-top: 50px;
 
 .tutorial-main-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
+  font-weight: 800;
+  font-size: var(--heading-size);
   color: var(--primary);
   line-height: 1.1;
   margin-bottom: 16px;
@@ -1180,13 +1059,21 @@ margin-top: 50px;
   margin: 0 auto;
 }
 
+.tutorial-video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .tutorial-video-wrap {
-  max-width: 700px; /* reduced from 860px so the YouTube thumbnail displays at its
-                        native 16:9 crop instead of appearing stretched/cropped */
-  margin: 32px auto 0;
+  margin: 0;
   position: relative;
   width: 100%;
-  padding-bottom: 39.375%; /* 700 * 9/16, keeps a true 16:9 frame at the new width */
+  padding-bottom: 56.25%; /* 16:9 */
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -1207,12 +1094,16 @@ margin-top: 50px;
   border: none;
 }
 
+@media (max-width: 900px) {
+  .tutorial-video-grid { grid-template-columns: 1fr; max-width: 500px; gap: 22px; }
+}
+
 @media (max-width: 640px) {
   .tutorial-section { padding: 40px 0 40px; }
 }
 
 .footer-links-section {
-  background: var(--white);
+  background: var(--light-grey);
   padding: 56px 0 40px;
 }
 
@@ -1258,7 +1149,7 @@ margin-top: 50px;
 
 .case-studies-section {
   padding: 64px 0 64px;
-  background: var(--light-grey);
+  background: var(--white);
 }
 
 .case-studies-section .container {
@@ -1272,7 +1163,8 @@ margin-top: 50px;
 
 .case-studies-main-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
+  font-weight: 800;
+  font-size: var(--heading-size);
   color: var(--primary);
   line-height: 1.1;
   white-space: nowrap;
@@ -1283,163 +1175,207 @@ margin-top: 50px;
 }
 
 /* ============================================================
-   CASE STUDIES — auto-rotating carousel. Page 1 (3 cards) shows
-   first, then cross-fades to page 2 (2 cards) after 5s and loops.
-   Both pages share the same CSS grid cell so the track height
-   is set by the taller page and switching never causes a jump.
+   CASE STUDIES — horizontal carousel.
+   A translateX-based pager: each page's group of cards (a full
+   page or a short final page) is centered inside the fixed-width
+   viewport, so the arrows always sit the same distance from
+   whatever cards are showing — no leftover empty space on either
+   side, even on the last, partially-filled page.
+
+   UPDATED — viewport/wrap widened by 40px so that when a page is
+   exactly full (e.g. 3 cards at 340px + 24px gaps = 1068px, which
+   used to match the viewport width exactly), the centered row now
+   has ~20px of margin on each side inside the viewport. That margin
+   is what lets a card's hover box-shadow/outline (like the Spatial
+   card's right edge) bleed outward instead of getting clipped by
+   the viewport's overflow: hidden.
 ============================================================ */
-.case-studies-carousel {
-  max-width: 1030px;
+.case-carousel-wrap {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 1296px; /* was 1256px — +40px to match the viewport bump below */
+  margin: 0 auto;
+  padding: 28px 0 8px;
+}
+
+.case-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1108px; /* was 1068px — gives centered cards shadow-bleed room */
   margin: 0 auto;
 }
 
-.case-studies-track {
-  display: grid;
+.case-carousel-track {
+  display: flex;
+  transition: transform 0.45s ease;
 }
 
-.case-page {
-  grid-area: 1 / 1;
+/* Each page is exactly one viewport-width slot, so pages never
+   overlap. A short final page centers its cards inside its own
+   slot via justify-content — the leftover space is real empty
+   space, not a sliver of the previous/next page's card.
+   overflow: hidden is a hard stop: even if perPage is ever
+   miscalculated and a row of cards is wider than the page itself,
+   the excess is clipped instead of visually bleeding into the
+   neighboring page (e.g. Spatial spilling into Soft Touch/Murclean). */
+.case-carousel-page {
+  flex: 0 0 100%;
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-content: start;
   gap: 24px;
-  opacity: 0;
-  transform: translateY(10px) scale(0.98);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  pointer-events: none;
-}
-
-.case-page.is-active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: auto;
-  z-index: 1;
-}
-
-.case-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 28px;
-}
-
-.case-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: none;
-  padding: 0;
-  background: var(--border);
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease, width 0.3s ease;
-}
-
-.case-dot:hover { background: var(--primary-light); }
-
-.case-dot.is-active {
-  background: var(--gold);
-  width: 22px;
-  border-radius: 5px;
-}
-
-.case-card {
-  display: flex;
-  flex-direction: column;
-  flex: 0 1 calc((100% - 48px) / 3);
-  min-width: 260px;
-  max-width: 330px;
-  background: var(--white);
-  border-radius: 16px;
+  padding: 4px 0 12px;
+  box-sizing: border-box;
   overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.case-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-}
-
-.case-card-image {
-  width: 100%;
-  aspect-ratio: 16 / 9;
+.case-carousel-slide {
   flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--light-grey);
-  overflow: hidden;
-}
-
-.case-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
+  width: 340px;
   display: block;
 }
 
-.case-card-content {
-  flex: 1;
-  width: 100%;
-  padding: 18px 20px;
+/* Card outline/shadow reads as a proper floating card at rest
+   (not just on hover), with a stronger lift on hover. */
+.case-carousel-card-box {
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.case-carousel-slide:hover .case-carousel-card-box {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(10,42,102,0.18);
+}
+
+.case-carousel-image {
+  height: 50%;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--white);
+}
+.case-carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the top half completely, no letterboxing */
+  object-position: top center;
+  display: block;
+}
+
+.case-carousel-content {
+  height: 50%;
+  padding: 24px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.case-carousel-content h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.case-carousel-content p {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  line-height: 1.55;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.case-card-content h3 {
-  color: var(--primary);
-  font-size: 1.12rem;
-  margin-bottom: 10px;
-  line-height: 1.3;
-}
-
-.case-card-content p {
-  color: var(--text-light);
-  font-size: 0.92rem;
-  line-height: 1.55;
-  margin-bottom: 18px;
-  flex: 1;
-}
-
-.case-card-btn-wrap {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.case-card-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.case-carousel-badge {
+  align-self: flex-start;
+  margin-top: 16px;
   padding: 11px 22px;
   border-radius: 50px;
   background: var(--primary);
   color: var(--white);
-  font-size: 0.86rem;
   font-weight: 700;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease;
+  font-size: 0.86rem;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
-
-.case-card-btn:hover {
+.case-carousel-slide:hover .case-carousel-badge {
   background: var(--primary-light);
   transform: translateY(-2px);
 }
 
-@media (max-width: 980px) {
-  .case-studies-carousel { max-width: 420px; }
-  .case-card { flex: 0 1 100%; max-width: 380px; min-width: 0; }
+/* Prev/next arrows — flex siblings of the viewport, fully outside
+   the cards (not absolutely positioned over them anymore) */
+.case-carousel-arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.case-carousel-arrow svg { width: 20px; height: 20px; }
+.case-carousel-arrow:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: scale(1.08);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Dots below the track */
+.case-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.case-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.case-carousel-dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+@media (max-width: 900px) {
+  .case-carousel-wrap { gap: 10px; padding-left: 8px; padding-right: 8px; }
+}
+
+@media (max-width: 640px) {
+  .case-carousel-slide { width: 270px; }
+  .case-carousel-card-box { height: 360px; }
+  .case-carousel-arrow { width: 38px; height: 38px; }
+  .case-carousel-arrow svg { width: 17px; height: 17px; }
 }
 
 @media (max-width: 480px) {
   .case-studies-section .container { padding: 0 20px; }
   .case-studies-main-heading { white-space: normal; }
-  .case-studies-carousel { max-width: 100%; }
-  .case-card { max-width: 100%; }
-  .case-page { gap: 18px; }
+  .case-carousel-arrow { display: none; } /* swipe only on small screens */
 }
 
 .case-studies-cta-center {
@@ -1449,7 +1385,7 @@ margin-top: 50px;
 
 .together-section {
   padding: 64px 0;
-  background: var(--white);
+  background: var(--light-grey);
 }
 .together-heading-wrap {
   text-align: center;
@@ -1458,7 +1394,8 @@ margin-top: 50px;
 }
 .together-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
+  font-weight: 800;
+  font-size: var(--heading-size);
   color: var(--primary);
   line-height: 1.25;
   white-space: nowrap;
@@ -1538,6 +1475,7 @@ margin-top: 50px;
   stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
 }
 .col-title {
+  font-weight: 800;
   font-size: 1.3rem;
   color: var(--primary);
   margin-bottom: 22px;
@@ -1649,6 +1587,7 @@ margin-top: 50px;
 .together-section.in-view .result-panel { opacity: 1; transform: translateY(0); }
 
 .result-heading {
+  font-weight: 800;
   font-size: 1.15rem;
   color: var(--primary);
   margin-bottom: 22px;
@@ -1723,7 +1662,7 @@ margin-top: 50px;
 
 .faq-section {
   padding: 64px 0 64px;
-  background: var(--light-grey);
+  background: var(--white);
 }
 
 .faq-heading-wrap {
@@ -1733,7 +1672,8 @@ margin-top: 50px;
 
 .faq-main-heading {
   font-family: 'Ubuntu', sans-serif;
-  font-size: clamp(2.4rem, 4.8vw, 3.9rem); /* matched to 3rd section (.build-main-heading) */
+  font-weight: 800;
+  font-size: var(--heading-size);
   color: var(--primary);
   line-height: 1.2;
   max-width: 720px;
@@ -1828,7 +1768,7 @@ margin-top: 50px;
 }
 
 .site-footer {
-  background: var(--light-grey);
+  background: var(--white);
   padding: 48px 0 32px;
 }
 
