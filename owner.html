@@ -50,6 +50,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --red: #dc2626;
   --red-bg: #fef2f2;
   --green: #16a34a;
+
+  /* Font sizes brought in line with style.css so headings and
+     sub-copy scale identically across every page on the site. */
+  --heading-size: clamp(2.4rem, 4.8vw, 3.9rem);
+  --sub-size: clamp(1.08rem, 1.9vw, 1.28rem);
+  /* Unified size/weight for all section body copy (card descriptions,
+     FAQ answers, why-item text) so every description reads the same. */
+  --desc-size: 0.93rem;
+  --desc-weight: 400;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
@@ -58,10 +67,10 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .dev-note { background: var(--primary); color: rgba(255,255,255,0.85); text-align: center; padding: 12px 20px; font-size: 0.85rem; }
 .dev-note strong { color: var(--gold); }
 
-.section-title { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 800; color: var(--primary); line-height: 1.22; margin-bottom: 12px; }
+.section-title { font-size: var(--heading-size); font-weight: 800; color: var(--primary); line-height: 1.22; margin-bottom: 12px; }
 .section-title .gold { color: var(--gold); }
 .section-title .navy { color: var(--primary); }
-.section-sub { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1.02rem; }
+.section-sub { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: var(--sub-size); font-weight: var(--desc-weight); }
 .btn-gold {
   display: inline-flex; align-items: center; gap: 9px;
   background: var(--primary); color: var(--white); font-weight: 700; font-size: 1rem;
@@ -72,19 +81,19 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,51,102,0.45); }
 
 /* ===================== HERO: THE WEIGHT OF EVERY HAT ===================== */
-.hero-weight { padding: 60px 5% 50px; background: var(--white); }
+.hero-weight { padding: 56px 5% 48px; background: var(--white); }
 .hero-weight .container { text-align: center; max-width: 1080px; }
 
 .hero-weight h1 {
-  font-size: clamp(2.9rem, 4.8vw, 3.5rem);
+  font-size: var(--heading-size);
   font-weight: 800; line-height: 1.25; color: var(--primary);
-  max-width: 940px; margin: 0 auto 40px;
+  max-width: 940px; margin: 0 auto 30px;
 }
 .hero-weight h1 .gold { color: var(--gold); }
 
 .hero-weight-sub {
-  font-size: 1.05rem; font-weight: 0; color: var(--muted);
-  max-width: 720px; margin: 0 auto 32px;
+  font-size: var(--sub-size); font-weight: var(--desc-weight); color: var(--muted);
+  max-width: 720px; margin: 0 auto 24px;
 }
 
 /* Team row — coworkers and the owner shown side by side,
@@ -93,29 +102,30 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .team-row {
   position: relative;
   display: flex; justify-content: center; align-items: flex-start;
-  gap: 22px; margin-bottom: 40px; flex-wrap: wrap; row-gap: 22px;
+  gap: 18px; margin-bottom: 30px; flex-wrap: wrap; row-gap: 18px;
 }
 .team-node {
   position: relative; z-index: 1;
   display: flex; flex-direction: column; align-items: center; gap: 10px;
 }
 .team-badge {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: var(--white); border: 2px solid var(--border);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--primary);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem; color: var(--primary);
+  font-size: 0.85rem; color: var(--gold);
 }
 .team-badge.you {
+  width: 52px; height: 52px;
   background: var(--primary); color: var(--white);
-  width: 68px; height: 68px; font-weight: 800; font-size: 0.82rem;
+  font-weight: 800; font-size: 0.68rem;
   border: 3px solid var(--gold);
   box-shadow: 0 10px 24px rgba(0,51,102,0.3);
 }
 .team-plus {
   position: relative; z-index: 1; align-self: center;
   color: var(--gold); font-size: 0.9rem; font-weight: 800;
-  margin-top: 32px;
+  margin-top: 24px;
 }
 .team-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); }
 .team-node.owner .team-label { color: var(--primary); font-weight: 800; }
@@ -133,7 +143,7 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 }
 
 /* ===================== SECTION: DAY IN THE LIFE ===================== */
-.day-section { padding: 20px 5% 50px; background: var(--white); }
+.day-section { padding: 32px 5% 65px; background: var(--light-gray); }
 
 /* Column headers */
 .day-headers {
@@ -160,7 +170,7 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 
 .day-cell {
   padding: 18px 20px; margin: 8px 10px;
-  border-radius: 12px; font-size: 0.92rem; line-height: 1.5;
+  border-radius: 12px; font-size: var(--desc-size); font-weight: var(--desc-weight); line-height: 1.5;
   display: flex; align-items: center; gap: 10px;
 }
 .day-cell.without { background: var(--red-bg); color: #7f1d1d; border: 1px solid rgba(220,38,38,0.15); justify-content: flex-end; text-align: right; }
@@ -203,14 +213,14 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 }
 
 /* ===================== SECTION 3: MEET YOUR AI TEAM ===================== */
-.team-section { padding: 70px 5%; background: var(--light-gray); }
+.team-section { padding: 85px 5%; background: var(--white); }
 
 .team-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
   max-width: 1080px; margin: 40px auto 44px;
 }
 .coworker-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  background: var(--white); border: 2px solid var(--primary); border-radius: 16px;
   padding: 32px 26px; text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -221,14 +231,14 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 }
 .coworker-icon {
   width: 54px; height: 54px; border-radius: 12px;
-  background: rgba(0,51,102,0.06);
+  background: var(--primary);
   display: flex; align-items: center; justify-content: center;
-  color: var(--primary); font-size: 1.3rem; margin-bottom: 18px;
+  color: var(--gold); font-size: 1.3rem; margin-bottom: 18px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 .coworker-card:hover .coworker-icon { background: var(--gold); color: var(--primary); }
 .coworker-card h3 { font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
-.coworker-card p { font-size: 0.94rem; color: var(--muted); line-height: 1.55; }
+.coworker-card p { font-size: var(--desc-size); font-weight: var(--desc-weight); color: var(--muted); line-height: 1.55; }
 
 .team-cta-wrap { text-align: center; }
 .btn-navy {
@@ -245,7 +255,7 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 @media (max-width: 600px) { .team-grid { grid-template-columns: 1fr; } }
 
 /* ===================== SECTION 4: SEE AI COWORKERS IN ACTION ===================== */
-.showcase-section { padding: 70px 5%; background: var(--white); }
+.showcase-section { padding: 85px 5%; background: var(--light-gray); }
 .showcase-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
   max-width: 1080px; margin: 40px auto 0;
@@ -265,7 +275,7 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 @media (max-width: 900px) { .showcase-grid { grid-template-columns: 1fr; } }
 
 /* ===================== SECTION 5: WHY BUSINESS OWNERS CHOOSE NDOVESHA ===================== */
-.why-section { padding: 70px 5%; background: var(--white); }
+.why-section { padding: 85px 5%; background: var(--white); }
 .why-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px;
   max-width: 1080px; margin: 40px auto 0;
@@ -277,13 +287,13 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
 }
 .why-item h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
-.why-item p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+.why-item p { font-size: var(--desc-size); font-weight: var(--desc-weight); color: var(--muted); line-height: 1.55; }
 
 @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .why-grid { grid-template-columns: 1fr; } }
 
 /* ===================== SECTION 6: FAQ ===================== */
-.faq-section { padding: 70px 5% 80px; background: var(--light-gray); }
+.faq-section { padding: 85px 5% 95px; background: var(--light-gray); }
 .faq-list { max-width: 760px; margin: 40px auto 0; }
 .faq-question {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -304,7 +314,7 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   padding: 0 4px;
 }
 .faq-item.open .faq-answer { max-height: 260px; padding: 0 4px 22px; }
-.faq-answer p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+.faq-answer p { font-size: var(--desc-size); font-weight: var(--desc-weight); color: var(--muted); line-height: 1.6; }
 
 
 </style>
@@ -565,7 +575,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="showcase-section">
   <div class="container center">
     <h2 class="section-title">See <span class="navy">AI Coworkers</span> <span class="gold">in action</span></h2>
-    <p>See real workflows, real tasks, and real results as AI coworkers help businesses get more done.</p>
+    <p class="section-sub">See real workflows, real tasks, and real results as AI coworkers help businesses get more done.</p>
   </div>
 
   <div class="showcase-grid">
