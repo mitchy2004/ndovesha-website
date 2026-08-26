@@ -60,7 +60,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; font-weight: var(--font-regular); }
 ul { list-style: none; padding: 0; margin: 0; }
 a { text-decoration: none; color: inherit; }
@@ -450,6 +450,7 @@ h3,
   /* Wrap instead of shrink, same as every other section heading */
   .hero-heading { white-space: normal; }
 }
+
 @media (max-width: 640px) {
   .hero-section { min-height: auto; padding: var(--section-py) 16px; }
   .capability-icons { gap: 24px; }
@@ -1915,4 +1916,38 @@ margin-top: 50px;
   .whatsapp-float { width: 170px; height: 48px; bottom: 20px; right: 20px; }
   .whatsapp-text-part { font-size: 0.8rem; }
   .scroll-top-btn { width: 46px; height: 46px; bottom: 20px; left: 20px; }
+}
+
+/* ============================================================
+   MOBILE HORIZONTAL-SCROLL FIX
+   All six of these headings use `white-space: nowrap` in their
+   base rule so the text won't break mid-word on desktop. Several
+   had no mobile override at all, and others (.section-intro h2)
+   only unwrapped below 520px instead of the 640-968px used
+   elsewhere. Either way, below that width the single unbreakable
+   line was wider than the screen, which forced the whole page —
+   including the sticky, full-width nav bar — to scroll
+   horizontally, taking the Get Started button and hamburger
+   menu off-screen with it.
+
+   IMPORTANT — this block is placed at the very end of the
+   stylesheet on purpose. Each selector here has the exact same
+   specificity as its own base `nowrap` rule earlier in the file
+   (e.g. `.section-intro h2`), and CSS only lets a later media
+   query beat an earlier unconditional rule when it also comes
+   later in source order — position inside a @media block does
+   not, by itself, grant priority. Moving this fix above these
+   base rules (as an earlier draft of this file did) silently
+   loses the cascade and the wrap never applies. Keep any future
+   heading-wrap fix down here, after every base rule it targets.
+============================================================ */
+@media (max-width: 768px) {
+  .hire-main-heading,
+  .build-main-heading,
+  .tutorial-main-heading,
+  .section-intro h2,
+  .case-studies-main-heading,
+  .together-heading {
+    white-space: normal;
+  }
 }
