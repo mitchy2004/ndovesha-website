@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-K2HTVGXV');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Clarity Script -->
+<!-- Clarity Script -->
    <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -67,32 +66,47 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .dev-note { background: var(--primary); color: rgba(255,255,255,0.85); text-align: center; padding: 12px 20px; font-size: 0.85rem; }
 .dev-note strong { color: var(--gold); }
 
-.section-title { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 800; color: var(--primary); line-height: 1.22; margin-bottom: 12px; }
+.section-title { font-size: clamp(2.4rem, 4.8vw, 3.9rem); font-weight: 800; color: var(--primary); line-height: 1.22; margin-bottom: 12px; }
 .section-title .gold { color: var(--gold); }
 .section-title .navy { color: var(--primary); }
-.section-sub { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1.02rem; }
+.section-sub { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: clamp(1.08rem, 1.9vw, 1.28rem); }
 .btn-gold {
   display: inline-flex; align-items: center; gap: 9px;
   background: var(--primary); color: var(--white); font-weight: 700; font-size: 1rem;
   padding: 15px 30px; border-radius: 12px; text-decoration: none; border: none; cursor: pointer;
-  margin: 16px;
+  margin: 8px 16px;
   box-shadow: 0 8px 24px rgba(0,51,102,0.35); transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,51,102,0.45); }
 
 
 /* ===================== HERO ===================== */
-.hero-page { padding: 70px 5% 60px; background: var(--white); }
-.hero-page .container { max-width: 880px; }
+.hero-page { padding: 40px 5% 20px; background: var(--white); }
+.hero-page .container { max-width: 800px; }
+
 .hero-page h1 {
-  font-size: clamp(2.6rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.25;
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); font-weight: 800; line-height: 1.22;
   color: var(--primary); margin-bottom: 24px;
 }
 .hero-page h1 .gold { color: var(--gold); }
-.hero-page-sub { font-size: 1.08rem; color: var(--muted); max-width: 680px; margin: 0 auto 34px; }
+.hero-page-sub { font-size: clamp(1.08rem, 1.9vw, 1.28rem); color: var(--muted); max-width: 600px; margin: 0 auto 30px; }
+
+.hero-highlights {
+  display: flex; justify-content: center; align-items: flex-start;
+  gap: 32px; max-width: 620px; margin: 0 auto 30px;
+  flex-wrap: wrap;
+}
+.hero-highlight { display: flex; flex-direction: column; align-items: center; max-width: 170px; }
+.hero-highlight-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 2px solid var(--primary); color: var(--gold); background: var(--white);
+  display: flex; align-items: center; justify-content: center; font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+.hero-highlight span { font-size: 0.92rem; font-weight: 600; color: var(--primary); line-height: 1.4; }
 
 /* ===================== CHALLENGES (rows, not cards) ===================== */
-.challenges-rows { padding: 70px 5%; background: var(--light-gray); }
+.challenges-rows { padding: 55px 5% 40px; background: var(--light-gray); }
 .row-list {
   max-width: 1100px; margin: 44px auto 0;
   display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 20px 40px;
@@ -101,12 +115,17 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   display: flex; flex-direction: column; align-items: flex-start;
   height: 100%;
 }
+.row-item-header {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 14px;
+}
+.row-item-header h3 { margin-bottom: 0; }
 .row-icon {
-  width: 46px; height: 46px; border-radius: 12px;
-  background: rgba(0,51,102,0.06); color: var(--primary);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--primary); color: var(--gold);
   display: flex; align-items: center; justify-content: center; font-size: 1.15rem;
   transition: background 0.25s ease, color 0.25s ease;
-  margin-bottom: 20px;
+  flex-shrink: 0;
 }
 .row-item:hover .row-icon { background: var(--gold); color: var(--primary); }
 .row-item h3 { font-size: 1.28rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; line-height: 1.3; }
@@ -119,41 +138,40 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   .row-list { grid-template-columns: 1fr; gap: 34px; }
 }
 
-/* ===================== COWORKERS (5 cards, one row) ===================== */
-.coworkers-section { padding: 70px 5%; background: var(--white); }
+/* ===================== COWORKERS (4 cards, 2x2) ===================== */
+.coworkers-section { padding: 60px 5% 40px; background: var(--white); }
 .coworkers-grid {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
-  max-width: 1200px; margin: 40px auto 44px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 760px; margin: 40px auto 44px;
 }
 .coworker-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  background: var(--white); border: 2px solid var(--primary); border-radius: 16px;
   padding: 28px 22px; text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .coworker-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 16px 34px rgba(254,191,15,0.32);
-  border-color: rgba(254,191,15,0.5);
+  border-color: var(--gold);
 }
 .coworker-icon {
   width: 50px; height: 50px; border-radius: 12px;
-  background: rgba(0,51,102,0.06);
+  background: var(--primary);
   display: flex; align-items: center; justify-content: center;
-  color: var(--primary); font-size: 1.2rem; margin-bottom: 18px;
+  color: var(--gold); font-size: 1.2rem; margin-bottom: 18px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 .coworker-card:hover .coworker-icon { background: var(--gold); color: var(--primary); }
 .coworker-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
-.coworker-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+.coworker-card p { font-size: 1.02rem; color: var(--muted); line-height: 1.55; }
 
-@media (max-width: 1100px) { .coworkers-grid { grid-template-columns: repeat(3, 1fr); max-width: 760px; } }
 @media (max-width: 640px) { .coworkers-grid { grid-template-columns: 1fr; max-width: 420px; } }
 
 /* ===================== DEMO / VIDEO ===================== */
-.demo-section { padding: 70px 5%; background: var(--light-gray); }
+.demo-section { padding: 60px 5% 40px; background: var(--light-gray); }
 .demo-video-wrap { max-width: 860px; margin: 40px auto 0; }
 .demo-card {
-  border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden; border: 2px solid var(--primary);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: var(--white);
@@ -178,7 +196,7 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .faq-item.open .faq-toggle { transform: rotate(180deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 4px; }
 .faq-item.open .faq-answer { max-height: 260px; padding: 0 4px 22px; }
-.faq-answer p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+.faq-answer p { font-size: clamp(1.08rem, 1.9vw, 1.28rem); color: var(--muted); line-height: 1.6; }
 
 
 /* ============================================================
@@ -398,7 +416,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="hero-page">
   <div class="container center">
     <h1>Turn Every Campaign into <span class="gold">Results</span>.</h1>
-    <p class="hero-page-sub">Create compelling campaigns, attract more customers, and grow your brand with AI coworkers that help you plan, create, optimize, and scale your marketing efforts.</p>
+    <div class="hero-highlights">
+      <div class="hero-highlight">
+        <div class="hero-highlight-icon"><i class="fas fa-bullhorn"></i></div>
+        <span>Create compelling campaigns</span>
+      </div>
+      <div class="hero-highlight">
+        <div class="hero-highlight-icon"><i class="fas fa-users"></i></div>
+        <span>Attract more customers</span>
+      </div>
+      <div class="hero-highlight">
+        <div class="hero-highlight-icon"><i class="fas fa-chart-line"></i></div>
+        <span>Grow your brand</span>
+      </div>
+    </div>
+    <p class="hero-page-sub">with AI coworkers that help you plan, create, optimize, and scale your marketing efforts so every campaign lands.</p>
     <a class="btn-gold" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
@@ -407,55 +439,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="challenges-rows">
   <div class="container center">
     <h2 class="section-title">Every Campaign Has Its <span class="gold">Challenges</span>.</h2>
-    <p class="section-sub">Every successful marketing campaign requires careful planning, consistent execution, and continuous optimization. From creating content to measuring performance, marketers face daily challenges that can slow growth and limit results.</p>
   </div>
 
   <div class="row-list">
     <div class="row-item">
-      <div class="row-icon"><i class="fas fa-pen-nib"></i></div>
-      <div>
+      <div class="row-item-header">
+        <div class="row-icon"><i class="fas fa-pen-nib"></i></div>
         <h3>Content Creation</h3>
+      </div>
+      <div>
         <p>Creating high-quality blogs, emails, social media posts, and ad copy consistently takes significant time and creative effort.</p>
       </div>
     </div>
     <div class="row-item">
-      <div class="row-icon"><i class="fas fa-chess-board"></i></div>
-      <div>
+      <div class="row-item-header">
+        <div class="row-icon"><i class="fas fa-chess-board"></i></div>
         <h3>Campaign Planning</h3>
+      </div>
+      <div>
         <p>Developing campaigns that reach the right audience with the right message requires research, strategy, and coordination.</p>
       </div>
     </div>
     <div class="row-item">
-      <div class="row-icon"><i class="fas fa-diagram-project"></i></div>
-      <div>
+      <div class="row-item-header">
+        <div class="row-icon"><i class="fas fa-diagram-project"></i></div>
         <h3>Multi-Channel Marketing</h3>
+      </div>
+      <div>
         <p>Managing content across websites, social media, email and paid advertising can quickly become overwhelming.</p>
       </div>
     </div>
     <div class="row-item">
-      <div class="row-icon"><i class="fas fa-filter"></i></div>
-      <div>
+      <div class="row-item-header">
+        <div class="row-icon"><i class="fas fa-filter"></i></div>
         <h3>Lead Generation</h3>
+      </div>
+      <div>
         <p>Attracting qualified leads consistently while maintaining campaign performance is an ongoing challenge for every marketer.</p>
       </div>
     </div>
     <div class="row-item">
-      <div class="row-icon"><i class="fas fa-chart-line"></i></div>
-      <div>
+      <div class="row-item-header">
+        <div class="row-icon"><i class="fas fa-chart-line"></i></div>
         <h3>Performance Analysis</h3>
+      </div>
+      <div>
         <p>Tracking campaign metrics, interpreting data, and identifying opportunities for improvement demands constant attention.</p>
       </div>
     </div>
     <div class="row-item">
-      <div class="row-icon"><i class="fas fa-hourglass-half"></i></div>
-      <div>
+      <div class="row-item-header">
+        <div class="row-icon"><i class="fas fa-hourglass-half"></i></div>
         <h3>Tight Deadlines</h3>
+      </div>
+      <div>
         <p>Marketing campaigns often have fixed launch dates, leaving little room for revisions or unexpected delays.</p>
       </div>
     </div>
   </div>
 
-  <div class="container center" style="margin-top:16px;">
+  <div class="container center" style="margin-top:28px;">
     <a class="btn-gold" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
@@ -464,7 +507,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="coworkers-section">
   <div class="container center">
     <h2 class="section-title">Market Smarter with AI <span class="gold">Coworkers</span>.</h2>
-    <p class="section-sub">From planning campaigns to generating leads, AI coworkers help marketers work faster, stay organized, and deliver better results across every marketing channel.</p>
   </div>
 
   <div class="coworkers-grid">
@@ -477,11 +519,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="coworker-icon"><i class="fas fa-share-nodes"></i></div>
       <h3>Social Media Coworker</h3>
       <p>Generate captions, content calendars, campaign ideas, ad creatives, and engaging social media content.</p>
-    </div>
-    <div class="coworker-card">
-      <div class="coworker-icon"><i class="fas fa-filter"></i></div>
-      <h3>Lead Generation Coworker</h3>
-      <p>Create lead magnets, sales funnels, outreach campaigns, and customer acquisition strategies.</p>
     </div>
     <div class="coworker-card">
       <div class="coworker-icon"><i class="fas fa-palette"></i></div>
@@ -513,6 +550,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <iframe src="https://www.youtube.com/embed/2fCuDYU4Zqc?si=tDG0-BXRVEjNSf-F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
+  </div>
+
+  <div class="container center" style="margin-top:28px;">
+    <a class="btn-gold" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
@@ -769,6 +810,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"6892ca8ffd3b4ad7b1737418d2724ac1","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>
