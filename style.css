@@ -268,12 +268,15 @@ h3,
 }
 
 .mobile-menu-btn {
-  display: none;        /* NEW — hidden by default (desktop) */
+  display: none;        /* hidden by default (desktop) */
   background: none;
   border: none;
   font-size: 1.6rem;
   cursor: pointer;
   color: var(--text);
+  line-height: 1;
+  z-index: 1001;
+  position: relative;
 }
 .mobile-nav {
   display: none;
@@ -323,11 +326,22 @@ h3,
 .mobile-fold a { border-bottom: none; padding: 10px 8px; }
 
 @media (max-width: 968px) {
-  .nav-center { display: none; }
-  .nav-right { display: none; }
+  /* Hide only the individual desktop nav links/buttons — never their
+     containers (.nav-center, .nav-right). A container with
+     display:none hides every descendant regardless of that
+     descendant's own display value, so if the hamburger button
+     (.mobile-menu-btn) or its wrapper happens to be nested inside
+     .nav-right or .nav-center in the markup, hiding those whole
+     containers would have silently taken the hamburger down with
+     them — even though `.mobile-menu-btn { display: block; }` below
+     looks completely correct on its own. Targeting only the <li>/<a>
+     children removes the desktop links without risking any nested
+     mobile-nav trigger. */
+  .nav-center > li { display: none; }
+  .nav-right > a { display: none; }
   .mobile-nav-trigger { display: flex; }
-  .mobile-get-started-btn { display: inline-block; }
-  .mobile-menu-btn { display: block; }   /* NEW — only shown at mobile width */
+  .mobile-get-started-btn { display: inline-block !important; }
+  .mobile-menu-btn { display: block !important; }   /* only shown at mobile width */
 }
 
 .hero-section {
