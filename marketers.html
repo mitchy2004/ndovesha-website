@@ -73,7 +73,7 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .btn-gold {
   display: inline-flex; align-items: center; gap: 9px;
   background: var(--primary); color: var(--white); font-weight: 700; font-size: 1rem;
-  padding: 15px 30px; border-radius: 12px; text-decoration: none; border: none; cursor: pointer;
+  padding: 15px 30px; border-radius: 50px; text-decoration: none; border: none; cursor: pointer;
   margin: 8px 16px;
   box-shadow: 0 8px 24px rgba(0,51,102,0.35); transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -105,38 +105,14 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 }
 .hero-highlight span { font-size: 0.92rem; font-weight: 600; color: var(--primary); line-height: 1.4; }
 
-/* ===================== CHALLENGES (rows, not cards) ===================== */
+/* ===================== CHALLENGES (cards, matches coworker-card) ===================== */
 .challenges-rows { padding: 55px 5% 40px; background: var(--light-gray); }
-.row-list {
-  max-width: 1100px; margin: 44px auto 0;
-  display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 20px 40px;
+.challenges-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; gap: 20px;
+  max-width: 760px; margin: 44px auto 0;
 }
-.row-item {
-  display: flex; flex-direction: column; align-items: flex-start;
-  height: 100%;
-}
-.row-item-header {
-  display: flex; align-items: center; gap: 16px;
-  margin-bottom: 14px;
-}
-.row-item-header h3 { margin-bottom: 0; }
-.row-icon {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: var(--primary); color: var(--gold);
-  display: flex; align-items: center; justify-content: center; font-size: 1.15rem;
-  transition: background 0.25s ease, color 0.25s ease;
-  flex-shrink: 0;
-}
-.row-item:hover .row-icon { background: var(--gold); color: var(--primary); }
-.row-item h3 { font-size: 1.28rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; line-height: 1.3; }
-.row-item p { font-size: 1.02rem; color: var(--muted); line-height: 1.75; margin: 0; flex: 1; }
 
-@media (max-width: 900px) {
-  .row-list { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .row-list { grid-template-columns: 1fr; gap: 34px; }
-}
+@media (max-width: 640px) { .challenges-grid { grid-template-columns: 1fr; max-width: 420px; } }
 
 /* ===================== COWORKERS (4 cards, 2x2) ===================== */
 .coworkers-section { padding: 60px 5% 40px; background: var(--white); }
@@ -436,66 +412,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ===== CHALLENGES (rows) ===== -->
+<!-- ===== CHALLENGES (cards) ===== -->
 <section class="challenges-rows">
   <div class="container center">
     <h2 class="section-title">Every Campaign Has Its <span class="gold">Challenges</span>.</h2>
   </div>
 
-  <div class="row-list">
-    <div class="row-item">
-      <div class="row-item-header">
-        <div class="row-icon"><i class="fas fa-pen-nib"></i></div>
-        <h3>Content Creation</h3>
-      </div>
-      <div>
-        <p>Creating high-quality blogs, emails, social media posts, and ad copy consistently takes significant time and creative effort.</p>
-      </div>
+  <div class="challenges-grid">
+    <div class="coworker-card">
+      <div class="coworker-icon"><i class="fas fa-pen-nib"></i></div>
+      <h3>Content Creation</h3>
+      <p>Creating high-quality blogs, emails, social media posts, and ad copy consistently takes significant time and creative effort.</p>
     </div>
-    <div class="row-item">
-      <div class="row-item-header">
-        <div class="row-icon"><i class="fas fa-chess-board"></i></div>
-        <h3>Campaign Planning</h3>
-      </div>
-      <div>
-        <p>Developing campaigns that reach the right audience with the right message requires research, strategy, and coordination.</p>
-      </div>
+    <div class="coworker-card">
+      <div class="coworker-icon"><i class="fas fa-chess-board"></i></div>
+      <h3>Campaign Planning</h3>
+      <p>Developing campaigns that reach the right audience with the right message requires research, strategy, and coordination.</p>
     </div>
-    <div class="row-item">
-      <div class="row-item-header">
-        <div class="row-icon"><i class="fas fa-diagram-project"></i></div>
-        <h3>Multi-Channel Marketing</h3>
-      </div>
-      <div>
-        <p>Managing content across websites, social media, email and paid advertising can quickly become overwhelming.</p>
-      </div>
+    <div class="coworker-card">
+      <div class="coworker-icon"><i class="fas fa-diagram-project"></i></div>
+      <h3>Multi-Channel Marketing</h3>
+      <p>Managing content across websites, social media, email and paid advertising can quickly become overwhelming.</p>
     </div>
-    <div class="row-item">
-      <div class="row-item-header">
-        <div class="row-icon"><i class="fas fa-filter"></i></div>
-        <h3>Lead Generation</h3>
-      </div>
-      <div>
-        <p>Attracting qualified leads consistently while maintaining campaign performance is an ongoing challenge for every marketer.</p>
-      </div>
-    </div>
-    <div class="row-item">
-      <div class="row-item-header">
-        <div class="row-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Performance Analysis</h3>
-      </div>
-      <div>
-        <p>Tracking campaign metrics, interpreting data, and identifying opportunities for improvement demands constant attention.</p>
-      </div>
-    </div>
-    <div class="row-item">
-      <div class="row-item-header">
-        <div class="row-icon"><i class="fas fa-hourglass-half"></i></div>
-        <h3>Tight Deadlines</h3>
-      </div>
-      <div>
-        <p>Marketing campaigns often have fixed launch dates, leaving little room for revisions or unexpected delays.</p>
-      </div>
+    <div class="coworker-card">
+      <div class="coworker-icon"><i class="fas fa-filter"></i></div>
+      <h3>Lead Generation</h3>
+      <p>Attracting qualified leads consistently while maintaining campaign performance is an ongoing challenge for every marketer.</p>
     </div>
   </div>
 
@@ -551,10 +493,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <iframe src="https://www.youtube.com/embed/2fCuDYU4Zqc?si=tDG0-BXRVEjNSf-F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
-  </div>
-
-  <div class="container center" style="margin-top:28px;">
-    <a class="btn-gold" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
