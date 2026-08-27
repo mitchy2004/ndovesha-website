@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +60,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --light-gray: #f8f9fb;
   --red: #dc2626;
   --red-bg: #fef2f2;
-  --green: #16a34a;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
@@ -70,10 +68,10 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .dev-note { background: var(--primary); color: rgba(255,255,255,0.85); text-align: center; padding: 12px 20px; font-size: 0.85rem; }
 .dev-note strong { color: var(--gold); }
 
-.section-title { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 800; color: var(--primary); line-height: 1.22; margin-bottom: 12px; }
+.section-title { font-size: clamp(2.4rem, 4.8vw, 3.9rem); font-weight: 800; color: var(--primary); line-height: 1.22; margin-bottom: 12px; }
 .section-title .gold { color: var(--gold); }
 .section-title .navy { color: var(--primary); }
-.section-sub { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1.02rem; }
+.section-sub { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: clamp(1.08rem, 1.9vw, 1.28rem); }
 .btn-gold {
   display: inline-flex; align-items: center; gap: 9px;
   background: var(--primary); color: var(--white); font-weight: 700; font-size: 1rem;
@@ -88,7 +86,7 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .hero-weight .container { text-align: center; max-width: 1080px; }
 
 .hero-weight h1 {
-  font-size: clamp(2.9rem, 4.8vw, 3.5rem);
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem);
   font-weight: 800; line-height: 1.25; color: var(--primary);
   max-width: 940px; margin: 0 auto 40px;
 }
@@ -222,8 +220,9 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   max-width: 1080px; margin: 40px auto 44px;
 }
 .coworker-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  background: var(--white); border: 2px solid var(--primary); border-radius: 16px;
   padding: 32px 26px; text-align: left;
+  display: flex; flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .coworker-card:hover {
@@ -232,15 +231,15 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
   border-color: rgba(254,191,15,0.5);
 }
 .coworker-icon {
-  width: 54px; height: 54px; border-radius: 12px;
-  background: rgba(0,51,102,0.06);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--primary);
   display: flex; align-items: center; justify-content: center;
-  color: var(--primary); font-size: 1.3rem; margin-bottom: 18px;
+  color: var(--gold); font-size: 1.3rem; margin-bottom: 18px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 .coworker-card:hover .coworker-icon { background: var(--gold); color: var(--primary); }
-.coworker-card h3 { font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
-.coworker-card p { font-size: 0.94rem; color: var(--muted); line-height: 1.55; }
+.coworker-card h3 { font-size: 1.28rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; line-height: 1.3; }
+.coworker-card p { font-size: 1.02rem; color: var(--muted); line-height: 1.75; margin: 0; flex: 1; }
 
 .team-cta-wrap { text-align: center; }
 .btn-navy {
@@ -319,28 +318,53 @@ body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--
 .faq-answer p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
 
 /* ===================== DEVELOPER: HERO ===================== */
-.developer-hero { padding: 70px 5% 60px; background: var(--white); }
+.developer-hero { padding: 55px 5% 40px; background: var(--white); }
 .developer-hero .container { text-align: center; max-width: 880px; }
 .developer-hero h1 {
-  font-size: clamp(2.6rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.25;
+  font-size: clamp(2.4rem, 4.8vw, 3.9rem); font-weight: 800; line-height: 1.25;
   color: var(--primary); margin-bottom: 24px;
 }
 .developer-hero h1 .gold { color: var(--gold); }
-.developer-hero-sub { font-size: 1.08rem; color: var(--muted); max-width: 680px; margin: 0 auto 34px; }
+.developer-hero-sub { font-size: clamp(1.08rem, 1.9vw, 1.28rem); color: var(--muted); max-width: 680px; margin: 0 auto 26px; }
+
+.info-icons-row {
+  display: flex; justify-content: center; align-items: flex-start;
+  gap: 28px; margin: 0 auto 26px;
+}
+.info-icon-item {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  max-width: 150px;
+}
+.info-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 2px solid var(--primary);
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 1.35rem; flex-shrink: 0;
+}
+.info-icon-label {
+  font-size: 0.92rem; line-height: 1.4; font-weight: 600;
+  color: var(--primary); text-align: center;
+}
 
 /* ===================== DEVELOPER: TECHNICAL CHALLENGES (no cards) ===================== */
-.dev-challenges-section { padding: 70px 5%; background: var(--light-gray); }
+.dev-challenges-section { padding: 54px 5%; background: var(--light-gray); }
 .problem-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px;
   max-width: 1080px; margin: 40px auto 34px;
 }
-.problem-item { text-align: left; }
-.problem-item h3 {
-  font-size: 1.08rem; font-weight: 800; color: var(--primary); margin-bottom: 8px;
-  display: flex; align-items: center; gap: 10px;
+.problem-item { text-align: left; display: flex; flex-direction: column; }
+.problem-item:hover .problem-icon { background: var(--gold); color: var(--primary); }
+.problem-item-header { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.problem-item h3 { font-size: 1.28rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; line-height: 1.3; }
+.problem-item p { font-size: 1.02rem; color: var(--muted); line-height: 1.75; margin: 0; flex: 1; }
+.problem-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 1.3rem; flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease;
 }
-.problem-item h3 i { color: var(--gold); font-size: 1rem; }
-.problem-item p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
 
 @media (max-width: 900px) { .problem-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .problem-grid { grid-template-columns: 1fr; } }
@@ -488,7 +512,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="developer-hero">
   <div class="container">
     <h1>Turn Every Idea Into <span class="gold">Working Code.</span></h1>
-    <p class="developer-hero-sub">Ship features faster, write cleaner code, and complete projects more efficiently with AI coworkers that support every stage of your development workflow.</p>
+    <div class="info-icons-row">
+      <div class="info-icon-item">
+        <div class="info-icon" aria-label="Ship features faster"><i class="fas fa-rocket"></i></div>
+        <p class="info-icon-label">Ship features faster</p>
+      </div>
+      <div class="info-icon-item">
+        <div class="info-icon" aria-label="Write cleaner code"><i class="fas fa-code"></i></div>
+        <p class="info-icon-label">Write cleaner code</p>
+      </div>
+      <div class="info-icon-item">
+        <div class="info-icon" aria-label="Complete projects"><i class="fas fa-check-circle"></i></div>
+        <p class="info-icon-label">Complete projects</p>
+      </div>
+    </div>
+    <p class="developer-hero-sub">more efficiently with AI coworkers that support every stage of your development workflow.</p>
     <a class="btn-navy" href="https://chat.ndovesha.ai/signup">Get Your AI Teammate <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
@@ -497,37 +535,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="dev-challenges-section">
   <div class="container center">
     <h2 class="section-title">Writing Great Code Is Only <span class="gold">Half the Job</span></h2>
-    <p class="section-sub">The real challenge is balancing clean architecture with tight deadlines, endless bug fixes, and the constant demand for new features. Every project comes with obstacles that can slow even the most talented developers.</p>
   </div>
 
   <div class="problem-grid">
     <div class="problem-item">
-      <h3><i class="fas fa-bug"></i> Debugging Bottlenecks</h3>
+      <div class="problem-item-header">
+        <div class="problem-icon"><i class="fas fa-bug"></i></div>
+        <h3>Debugging Bottlenecks</h3>
+      </div>
       <p>Tracking down elusive bugs can eat up hours that should go toward building new features.</p>
     </div>
 
     <div class="problem-item">
-      <h3><i class="fas fa-clock"></i> Tight Deadlines</h3>
+      <div class="problem-item-header">
+        <div class="problem-icon"><i class="fas fa-clock"></i></div>
+        <h3>Tight Deadlines</h3>
+      </div>
       <p>Development projects often come with short turnaround times, leaving little room for testing, refactoring, or documentation.</p>
     </div>
 
     <div class="problem-item">
-      <h3><i class="fas fa-arrows-rotate"></i> Endless Code Reviews</h3>
+      <div class="problem-item-header">
+        <div class="problem-icon"><i class="fas fa-arrows-rotate"></i></div>
+        <h3>Endless Code Reviews</h3>
+      </div>
       <p>Pull request feedback and repeated revisions can consume valuable time and delay shipping.</p>
     </div>
 
     <div class="problem-item">
-      <h3><i class="fas fa-layer-group"></i> Multiple Projects</h3>
+      <div class="problem-item-header">
+        <div class="problem-icon"><i class="fas fa-layer-group"></i></div>
+        <h3>Multiple Projects</h3>
+      </div>
       <p>Managing several codebases, sprints, or client requests at once can quickly become overwhelming.</p>
     </div>
 
     <div class="problem-item">
-      <h3><i class="fas fa-repeat"></i> Repetitive Tasks</h3>
+      <div class="problem-item-header">
+        <div class="problem-icon"><i class="fas fa-repeat"></i></div>
+        <h3>Repetitive Tasks</h3>
+      </div>
       <p>Writing boilerplate code, configuring environments, and drafting documentation take time away from solving real problems.</p>
     </div>
 
     <div class="problem-item">
-      <h3><i class="fas fa-code-branch"></i> Version Control &amp; Dependencies</h3>
+      <div class="problem-item-header">
+        <div class="problem-icon"><i class="fas fa-code-branch"></i></div>
+        <h3>Version Control &amp; Dependencies</h3>
+      </div>
       <p>Keeping track of branches, dependencies, and environment configs can become difficult as projects grow.</p>
     </div>
   </div>
@@ -541,7 +596,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="developer-team-section">
   <div class="container center">
     <h2 class="section-title">Build Better with <span class="gold">AI Coworkers</span></h2>
-    <p class="section-sub">From the first line of code to final deployment, AI coworkers help you build faster, stay organized, and ship exceptional software without sacrificing quality.</p>
   </div>
 
   <div class="developer-team-grid">
