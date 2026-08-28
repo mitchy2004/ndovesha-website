@@ -740,6 +740,7 @@ h3,
 
 .ai-card:hover .ai-card-icon {
   background: var(--gold);   /* was: var(--primary-light) */
+  color: var(--primary);
 }
 .ai-card:hover .ai-card-icon svg {
   stroke: var(--primary);
@@ -753,16 +754,19 @@ h3,
   border-color: var(--gold);
 }
 .ai-card h3 {
-  font-size: 1.04rem;
+  font-size: 1.28rem;
+  font-weight: 800;
   color: var(--primary);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   line-height: 1.3;
 }
 
 .ai-card p {
-  font-size: 0.96rem;
-  color: var(--text-light);
-  line-height: 1.72;
+  font-size: 1.02rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin: 0;
+  flex: 1;
 }
 
 .ai-cta-center { text-align: center;
@@ -875,11 +879,11 @@ margin-top: 50px;
 
 .problem-card h3,
 .solution-card h3 {
-    font-size: var(--panel-heading-size);
-    font-weight: 700;
+    font-size: 1.28rem;
+    font-weight: 800;
     letter-spacing: -0.5px;
-    line-height: 1.2;
-    margin-bottom: 6px;
+    line-height: 1.3;
+    margin-bottom: 14px;
 }
 
 .problem-card h3 { color: var(--old-red); }
@@ -917,11 +921,13 @@ margin-top: 50px;
 
 .problem-card p,
 .solution-card p {
-    font-size: var(--panel-desc-size);
-    line-height: 1.6;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    margin: 0;
+    flex: 1;
 }
 
-.problem-card p { color: var(--text-light); }
+.problem-card p { color: var(--muted); }
 .solution-card p { color: var(--gold); }
 
 /* VS BADGE — floats between the two cards */
@@ -998,14 +1004,14 @@ margin-top: 50px;
 .build-card-image { width: 100%; height: 180px; flex-shrink: 0; overflow: hidden; }
 .build-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .build-card-content { width: 100%; flex: 1; padding: 26px 24px; display: flex; flex-direction: column; align-items: flex-start; text-align: left; justify-content: flex-start; }
-.build-card-content h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 12px; }
+.build-card-content h3 { color: var(--primary); font-size: 1.28rem; font-weight: 800; margin-bottom: 14px; line-height: 1.3; }
 .build-list { list-style: none; margin: 0; padding: 0; width: 100%; }
 .build-list li {
   position: relative;
   padding-left: 24px;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  color: var(--text-light);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--muted);
   margin-bottom: 8px;
 }
 .build-list li:last-child { margin-bottom: 0; }
@@ -1301,17 +1307,18 @@ margin-top: 50px;
 }
 
 .case-carousel-content h3 {
-  font-size: 1.15rem;
+  font-size: 1.28rem;
   font-weight: 800;
   color: var(--primary);
   line-height: 1.3;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .case-carousel-content p {
-  font-size: 0.92rem;
-  color: var(--text-light);
-  line-height: 1.55;
+  font-size: 1.02rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin: 0;
   flex: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -1498,9 +1505,10 @@ margin-top: 50px;
 }
 .col-title {
   font-weight: 800;
-  font-size: 1.3rem;
+  font-size: 1.28rem;
   color: var(--primary);
-  margin-bottom: 22px;
+  margin-bottom: 14px;
+  line-height: 1.3;
 }
 
 .col-list { list-style: none; margin: 0; padding: 0; }
@@ -1508,8 +1516,9 @@ margin-top: 50px;
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.93rem;
-  color: var(--text);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--muted);
   padding: 11px 10px;
   border-radius: 10px;
   opacity: 0;
@@ -1961,7 +1970,9 @@ margin-top: 50px;
   .tutorial-main-heading,
   .section-intro h2,
   .case-studies-main-heading,
-  .together-heading {
+  .together-heading,
+  .workshop-heading-line,
+  .gold-in-person {
     white-space: normal;
   }
 }

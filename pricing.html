@@ -106,7 +106,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .pricing-hero h1 {
-      font-size: clamp(2.8rem, 5vw, 3.8rem);
+      font-size: clamp(2.4rem, 4.8vw, 3.9rem);
       font-weight: 800;
       line-height: 1.25;
       color: var(--primary);
@@ -198,6 +198,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       height: 100%;
       min-width: 0;
       width: 100%;
+      /* NOTE: no overflow:hidden here — the "Most Popular" badge intentionally
+         sits at top:-12px, overlapping the card's top edge. Clipping overflow
+         at the card level would cut that badge off. The price wrap fix below
+         (white-space + block-level suffix span) is what keeps text from
+         spilling out, so we don't need to clip the whole card. */
     }
 
     .pricing-card.featured {
@@ -248,7 +253,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 800;
       color: var(--primary);
       margin-bottom: 4px;
-      white-space: nowrap;
+      white-space: normal; /* FIX: was nowrap, which pushed the period label outside the card */
+      overflow-wrap: break-word;
+    }
+
+    /* Price suffix ("/mo" or "/year") sits on its own line below the price.
+       The <wbr> inserted before this span in the markup/JS is harmless here
+       since block display already forces a line break; it just also covers
+       the (now unlikely) case of a very long converted-currency price. */
+    .pricing-card-price > span {
+      display: block;
+      font-size: 0.55em;
+      font-weight: 600;
+      margin-top: 4px;
+      color: var(--text-light);
     }
 
     .pricing-card-price.price-swap {
@@ -864,7 +882,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="pricing-card-name">Free</div>
           <div class="pricing-card-price" data-plan="free" data-base="0">Ksh0</div>
           <div class="pricing-card-credits">200</div>
-          <div class="pricing-card-credits-label"><i class="fas fa-info-circle"></i> credits per month</div>
           <a href="#" class="pricing-card-credits-label credits-info-link" style="color: var(--primary); text-decoration: none;"><i class="fas fa-info-circle"></i> How credits work</a>
         </div>
 
@@ -886,9 +903,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="pricing-card">
         <div class="pricing-card-header">
           <div class="pricing-card-name">Starter</div>
-          <div class="pricing-card-price" data-plan="starter" data-base="2585">Ksh2,585<span style="font-size: 0.6em; color: var(--text-light);">/mo</span></div>
-          <div class="pricing-card-credits">1,000</div>
-          <div class="pricing-card-credits-label"><i class="fas fa-info-circle"></i> credits per month</div>
+          <div class="pricing-card-price" data-plan="starter" data-base="2585">Ksh2,585<wbr><span style="font-size: 0.6em; color: var(--text-light);">/mo</span></div>
+          <div class="pricing-card-credits" data-plan="starter" data-base="1000">1,000</div>
+          <div class="pricing-card-credits-label credits-period-label"><i class="fas fa-info-circle"></i> <span class="credits-period-text">credits per month</span></div>
           <a href="#" class="pricing-card-credits-label credits-info-link" style="color: var(--primary); text-decoration: none;"><i class="fas fa-info-circle"></i> How credits work</a>
         </div>
 
@@ -911,9 +928,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="pricing-badge">Most Popular</div>
         <div class="pricing-card-header">
           <div class="pricing-card-name">Growth</div>
-          <div class="pricing-card-price" data-plan="growth" data-base="6464">Ksh6,464<span style="font-size: 0.6em; color: var(--text-light);">/mo</span></div>
-          <div class="pricing-card-credits">2,500</div>
-          <div class="pricing-card-credits-label"><i class="fas fa-info-circle"></i> credits per month</div>
+          <div class="pricing-card-price" data-plan="growth" data-base="6464">Ksh6,464<wbr><span style="font-size: 0.6em; color: var(--text-light);">/mo</span></div>
+          <div class="pricing-card-credits" data-plan="growth" data-base="2500">2,500</div>
+          <div class="pricing-card-credits-label credits-period-label"><i class="fas fa-info-circle"></i> <span class="credits-period-text">credits per month</span></div>
           <a href="#" class="pricing-card-credits-label credits-info-link" style="color: var(--primary); text-decoration: none;"><i class="fas fa-info-circle"></i> How credits work</a>
         </div>
 
@@ -935,9 +952,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="pricing-card">
         <div class="pricing-card-header">
           <div class="pricing-card-name">Team</div>
-          <div class="pricing-card-price" data-plan="team" data-base="12786">Ksh12,786<span style="font-size: 0.6em; color: var(--text-light);">/mo</span></div>
-          <div class="pricing-card-credits">4,500</div>
-          <div class="pricing-card-credits-label"><i class="fas fa-info-circle"></i> credits per month</div>
+          <div class="pricing-card-price" data-plan="team" data-base="12786">Ksh12,786<wbr><span style="font-size: 0.6em; color: var(--text-light);">/mo</span></div>
+          <div class="pricing-card-credits" data-plan="team" data-base="4500">4,500</div>
+          <div class="pricing-card-credits-label credits-period-label"><i class="fas fa-info-circle"></i> <span class="credits-period-text">credits per month</span></div>
           <a href="#" class="pricing-card-credits-label credits-info-link" style="color: var(--primary); text-decoration: none;"><i class="fas fa-info-circle"></i> How credits work</a>
         </div>
 
@@ -1578,6 +1595,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   });
 
+  // ===== Keep header dividers aligned across all cards =====
+  // Each card's header (name + price + credits + labels) can have a
+  // different number of lines — e.g. the Free card has no "credits per
+  // month/year" line, and a converted currency can occasionally wrap the
+  // price onto two lines. That makes headers different heights, which
+  // pushes the divider (border-top of .pricing-features) and everything
+  // below it to a different vertical position per card. Equalizing every
+  // header to the tallest one keeps the dividers — and the feature list
+  // below them — starting at the same height on every card.
+  function equalizeCardHeaders() {
+    var headers = document.querySelectorAll('.pricing-card-header');
+    if (!headers.length) return;
+    headers.forEach(function (h) { h.style.minHeight = ''; });
+    var maxH = 0;
+    headers.forEach(function (h) {
+      if (h.offsetHeight > maxH) maxH = h.offsetHeight;
+    });
+    headers.forEach(function (h) { h.style.minHeight = maxH + 'px'; });
+  }
+  window.ndoveshaEqualizeHeaders = equalizeCardHeaders;
+
   // ===== Billing period toggle (Monthly / Annual) =====
   window.ndoveshaBillingPeriod = 'monthly'; // 'monthly' | 'annual'
   var ANNUAL_DISCOUNT = 0.15; // 15% off when billed annually
@@ -1592,21 +1630,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     monthlyToggleBtn.setAttribute('aria-selected', period === 'monthly');
     annualToggleBtn.setAttribute('aria-selected', period === 'annual');
 
-    // Update the "/mo" suffix on each price to reflect billing cadence
+    // Update the price suffix to reflect billing cadence. The price itself
+    // is now the full annual total (see periodMultiplier below) when
+    // "Annual" is selected, so the suffix reads "/year" rather than "/mo".
     document.querySelectorAll('.pricing-card-price[data-plan]').forEach(function (el) {
       var span = el.querySelector('span');
       if (!span) return;
-      span.textContent = period === 'annual' ? '/mo, billed yearly' : '/mo';
+      span.textContent = period === 'annual' ? '/year' : '/mo';
+    });
+
+    // Credits should scale the same way the price total does: annual view
+    // shows the full year's worth of credits (monthly credits x 12), not
+    // the monthly allotment. This keeps "credits" and "price" consistent —
+    // both represent the full annual bundle when Annual is selected.
+    document.querySelectorAll('.pricing-card-credits[data-base]').forEach(function (el) {
+      var base = parseInt(el.dataset.base, 10);
+      if (isNaN(base)) return;
+      var total = period === 'annual' ? base * 12 : base;
+      el.textContent = total.toLocaleString();
+    });
+
+    document.querySelectorAll('.credits-period-text').forEach(function (el) {
+      el.textContent = period === 'annual' ? 'credits per year' : 'credits per month';
     });
 
     // Re-render prices using whatever currency system is active on the page
     if (typeof window.ndoveshaRenderPrices === 'function') {
       window.ndoveshaRenderPrices();
     }
+
+    // Header content just changed length (suffix, credit digit count) —
+    // re-measure so the dividers stay aligned.
+    equalizeCardHeaders();
   }
 
   monthlyToggleBtn.addEventListener('click', function () { setBillingPeriod('monthly'); });
   annualToggleBtn.addEventListener('click', function () { setBillingPeriod('annual'); });
+
+  // Initial pass once everything on the page has rendered, and again on
+  // resize since the card grid's responsive breakpoints change how much
+  // text wraps inside each header.
+  window.addEventListener('load', equalizeCardHeaders);
+  var headerResizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(headerResizeTimer);
+    headerResizeTimer = setTimeout(equalizeCardHeaders, 150);
+  });
 
 /* =====================================================================
    DROP-IN REPLACEMENT for the "USD-first pricing reveal" IIFE at the
@@ -1776,7 +1845,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // Formatting + rendering (kept from the original page's approach)
   // ---------------------------------------------------------------------
   function periodMultiplier() {
-    return window.ndoveshaBillingPeriod === 'annual' ? (1 - ANNUAL_DISCOUNT) : 1;
+    // Monthly view: show the plan's monthly price as-is (x1).
+    // Annual view: show the full YEARLY total — monthly price x 12 months,
+    // with the 15% annual discount applied to that total. This is
+    // deliberately NOT "monthly price x 0.85" (that would just be a
+    // discounted monthly rate); it's the actual amount billed for the year.
+    return window.ndoveshaBillingPeriod === 'annual' ? (12 * (1 - ANNUAL_DISCOUNT)) : 1;
   }
 
   function formatUSD(baseKes, kesPerUsd) {
@@ -1816,7 +1890,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     void el.offsetWidth; // force reflow so the fade animation replays
     el.classList.add('price-swap');
     el.textContent = text;
-    if (periodSpan) el.appendChild(periodSpan);
+    if (periodSpan) {
+      // FIX: a <wbr> here gives the browser a clean place to wrap if the
+      // line ever runs long (e.g. a converted currency + "/year"), so it
+      // wraps the whole suffix onto its own line instead of splitting a
+      // word like "/year" into "/ye" + "ar".
+      el.appendChild(document.createElement('wbr'));
+      el.appendChild(periodSpan);
+    }
+  }
+
+  function reequalizeHeaders() {
+    if (typeof window.ndoveshaEqualizeHeaders === 'function') {
+      window.ndoveshaEqualizeHeaders();
+    }
   }
 
   function showUSD(kesPerUsd) {
@@ -1824,6 +1911,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var base = parseFloat(el.dataset.base);
       if (!isNaN(base)) renderPrice(el, formatUSD(base, kesPerUsd));
     });
+    reequalizeHeaders();
   }
 
   function showKSH() {
@@ -1831,6 +1919,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var base = parseFloat(el.dataset.base);
       if (!isNaN(base)) renderPrice(el, formatKSH(base));
     });
+    reequalizeHeaders();
   }
 
   function showLocal(currency, kesPerUsd, usdPerCurrencyUnit) {
@@ -1838,6 +1927,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var base = parseFloat(el.dataset.base);
       if (!isNaN(base)) renderPrice(el, formatLocal(base, currency, kesPerUsd, usdPerCurrencyUnit));
     });
+    reequalizeHeaders();
   }
 
   // ---------------------------------------------------------------------
