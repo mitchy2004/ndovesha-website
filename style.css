@@ -1990,7 +1990,7 @@ margin-top: 50px;
    loses the cascade and the wrap never applies. Keep any future
    heading-wrap fix down here, after every base rule it targets.
 ============================================================ */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .hire-main-heading,
   .build-main-heading,
   .tutorial-main-heading,
@@ -2001,4 +2001,4 @@ margin-top: 50px;
   .gold-in-person {
     white-space: normal;
   }
-} */
+}
