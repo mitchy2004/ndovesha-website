@@ -1430,7 +1430,6 @@ margin-top: 50px;
 @media (max-width: 480px) {
   .case-studies-section .container { padding: 0 20px; }
   .case-studies-main-heading { white-space: normal; }
-  .case-carousel-arrow { display: none; } /* swipe only on small screens */
 }
 
 .case-studies-cta-center {
