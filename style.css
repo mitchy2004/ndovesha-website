@@ -319,6 +319,9 @@ h3,
 .mobile-nav a.btn-cta {
   color: var(--white);
 }
+.nav-container.mobile-menu-open .mobile-get-started-btn {
+  display: none;
+}
 .mobile-section-title {
   display: flex;
   align-items: center;

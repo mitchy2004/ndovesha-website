@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +54,18 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon-32x32.png">
   <link rel="apple-touch-icon" href="favicon-32x32.png">
+
+  <!-- Mobile menu fix: hide the "Get Started" button in the mobile nav
+       trigger while the mobile menu is expanded, so it doesn't compete
+       with the menu content for attention/space. !important is used
+       because style.css likely sets display on .mobile-get-started-btn
+       at the same or higher specificity for mobile widths. -->
+  <style>
+    .nav-container.mobile-menu-open .mobile-get-started-btn {
+      display: none !important;
+    }
+  </style>
+
   <!-- Meta Pixel Code -->
   <script>
     !function (f, b, e, v, n, t, s) {
@@ -238,7 +251,7 @@
       </ul>
       <div class="nav-right">
                <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
-        <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+        <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get Started</a>
       </div>
       <div class="mobile-nav-trigger">
         <a href="https://chat.ndovesha.ai/signup" class="mobile-get-started-btn">Get Started</a>
@@ -273,7 +286,7 @@
           <a href="/faq">FAQs</a>
         </div>
          <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
-        <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get an AI Teammate</a>
+        <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get Started</a>
       </div>
     </div>
   </nav>
@@ -425,7 +438,7 @@
   </div>
 </div>
       <div class="ai-cta-center">
-        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span
+        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
             aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -503,7 +516,7 @@
     </div>
 
     <div class="challenges-cta-center">
-      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
           aria-hidden="true">→</span></a>
     </div>
   </section>
@@ -529,7 +542,7 @@
               <li>Custom Business Tools</li>
               <li>Dashboards & Portals</li>
             </ul>
-            <a href="https://chat.ndovesha.ai/chat" class="build-card-link">Get Started <span
+            <a href="https://chat.ndovesha.ai/chat" class="build-card-link">Learn More <span
                 aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -545,7 +558,7 @@
               <li>Logos</li>
               <li>Social Media Post Videos</li>
             </ul>
-            <a href="https://chat.ndovesha.ai/chat" class="build-card-link">Get Started <span
+            <a href="https://chat.ndovesha.ai/chat" class="build-card-link">Learn More<span
                 aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -561,13 +574,13 @@
               <li>Informational Websites</li>
               <li>Landing Pages</li>
             </ul>
-            <a href="https://chat.ndovesha.ai/chat" class="build-card-link">Get Started <span
+            <a href="https://chat.ndovesha.ai/chat" class="build-card-link">Learn More<span
                 aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
       <div class="ai-cta-center">
-        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span
+        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
             aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -675,7 +688,7 @@
       </div>
       <div class="case-carousel-dots" id="caseCarouselDots"></div>
       <div class="case-studies-cta-center">
-        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span
+        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
             aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -812,7 +825,7 @@
         </div>
       </div>
       <div class="faq-cta-center">
-        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get An AI Teammate <span
+        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
             aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -1000,13 +1013,22 @@
       }
     });
     var mobileBtn = document.getElementById('mobileMenuBtn');
-    var mobileNav = document.getElementById('mobileNav');
-    mobileBtn.addEventListener('click', function () { mobileNav.classList.toggle('active'); });
-    document.addEventListener('click', function (e) {
-      if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
-        mobileNav.classList.remove('active');
-      }
-    });
+var mobileNav = document.getElementById('mobileNav');
+var navContainer = document.querySelector('.nav-container');
+
+function setMobileMenuState(open) {
+  mobileNav.classList.toggle('active', open);
+  navContainer.classList.toggle('mobile-menu-open', open);
+}
+
+mobileBtn.addEventListener('click', function () {
+  setMobileMenuState(!mobileNav.classList.contains('active'));
+});
+document.addEventListener('click', function (e) {
+  if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
+    setMobileMenuState(false);
+  }
+});
     document.querySelectorAll('.mobile-section-title').forEach(function (title) {
       title.addEventListener('click', function () {
         var fold = document.getElementById('fold-' + title.dataset.fold);
