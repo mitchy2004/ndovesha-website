@@ -1685,6 +1685,10 @@ margin-top: 50px;
   color: var(--gold);
   font-size: 0.8rem;
 }
+.together-cta-center {
+  text-align: center;
+  margin-top: 40px;
+}
 .handshake-badge svg {
   width: 28px;
   height: 28px;
