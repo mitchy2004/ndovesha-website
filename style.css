@@ -91,7 +91,6 @@ img { max-width: 100%; display: block; }
 .dropdown-menu li a,
 .hero-sub,
 .hire-ai-text,
-.challenges-sub,
 .tutorial-sub-heading,
 p {
   font-weight: var(--font-regular);
@@ -100,8 +99,7 @@ p {
 /* Medium — 500 (non-heading UI elements) */
 .nav-center > li > a,
 .btn-login,
-.mobile-nav a,
-.build-sub-heading {
+.mobile-nav a {
   font-weight: var(--font-medium);
 }
 
@@ -117,22 +115,13 @@ p {
 .mobile-section-title,
 .cap-icon-label,
 .btn,
-.col-header-left,
-.col-header-right,
-.case-card-btn,
 .faq-toggle-btn {
   font-weight: var(--font-bold);
 }
 
-/* Extrabold — 800 */
-.build-check {
-  font-weight: var(--font-extrabold);
-}
-
 /* Default heading weight/size for any bare heading tags or
    section headings not covered by their own specific rule below */
-h1, h2, h4, h5, h6,
-.challenges-heading {
+h1, h2, h4, h5, h6 {
   font-weight: 800;
   font-size: var(--heading-size);
 }
@@ -140,7 +129,6 @@ h1, h2, h4, h5, h6,
 /* h3s sit one step heavier than the rest of the heading scale */
 h3,
 .ai-card h3,
-.case-card-content h3,
 .faq-question-row h3 {
   font-weight: var(--font-h3);
 }
@@ -732,16 +720,6 @@ h3,
 .ai-card {
   flex: 0 1 calc((100% - 48px) / 3);
   min-width: 240px;
-}
-
-@media (max-width: 900px) {
-  .ai-card { flex: 0 1 calc((100% - 24px) / 2); }
-}
-@media (max-width: 560px) {
-  .ai-card { flex: 0 1 100%; }
-}
-
-.ai-card {
   background: var(--white);
   border-radius: 16px;
   padding: 38px 26px 34px;
@@ -753,15 +731,6 @@ h3,
   align-items: flex-start;
   text-align: left;
 }
-.ai-card:hover {
-  transform: translateY(-9px);
-  box-shadow:
-    0 20px 60px rgba(254,191,15,0.16),
-    0 8px 32px rgba(10,42,102,0.09),
-    0 0 0 1.5px rgba(254,191,15,0.28);
-  border-color: rgba(254,191,15,0.3);
-}
-
 .ai-card-icon {
   width: 66px;
   height: 66px;
@@ -800,6 +769,13 @@ h3,
     0 8px 32px rgba(10,42,102,0.10);
   border-color: var(--gold);
 }
+@media (max-width: 900px) {
+  .ai-card { flex: 0 1 calc((100% - 24px) / 2); }
+}
+@media (max-width: 560px) {
+  .ai-card { flex: 0 1 100%; }
+}
+
 .ai-card h3 {
   font-size: 1.28rem;
   font-weight: 800;
@@ -816,8 +792,9 @@ h3,
   flex: 1;
 }
 
-.ai-cta-center { text-align: center;
-margin-top: 50px;
+.ai-cta-center {
+  text-align: center;
+  margin-top: 44px;
 }
 
 .btn {
@@ -863,7 +840,7 @@ margin-top: 50px;
 
 .social-heading-wrap {
   text-align: center;
-  margin-bottom: 0;
+  margin-bottom: 48px;
 }
 
 .social-main-heading {
@@ -895,7 +872,6 @@ margin-top: 50px;
 }
 
 /* ----- Three brand cards (reuses the AI-coworker / review card language) ----- */
-.social-heading-wrap { margin-bottom: 48px; }
 
 .brand-cards-grid {
   display: grid;
@@ -950,7 +926,7 @@ margin-top: 50px;
   font-size: 1.02rem;
   color: var(--muted);
   line-height: 1.75;
-  margin: 0;
+  margin: 0 0 20px;
 }
 
 /* CTA under each brand post — pinned to the bottom of the card so all
@@ -959,7 +935,6 @@ margin-top: 50px;
   margin-top: auto;
   align-self: flex-start;
 }
-.brand-post-caption { margin-bottom: 20px; }
 
 @media (max-width: 900px) {
   .brand-cards-grid { grid-template-columns: 1fr; max-width: 520px; }
@@ -1144,16 +1119,6 @@ margin-top: 50px;
 
 
 
-.build-buttons-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 1fr;
-  gap: 22px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-
 /* ============================================================
    6. REVIEWS SECTION — grey
    Uses the same tokens, spacing and card language as the
@@ -1163,10 +1128,6 @@ margin-top: 50px;
   padding: var(--section-py) 0;
   background: var(--light-grey);
 }
-
-/* Background rhythm (alternating): shift white > reviews grey >
-   build white > tutorial grey > faq white. */
-.tutorial-section { background: var(--light-grey); }
 
 .reviews-heading-wrap {
   text-align: center;
@@ -1340,32 +1301,10 @@ margin-top: 50px;
   font-size: 0.9rem;
 }
 .build-card-content > .build-list { margin-bottom: 18px; }
-.build-card-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-top: auto;
-  padding: 10px 20px;
-  border-radius: 50px;
-  background: var(--primary);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--white);
-  text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-.build-card-link:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,51,102,0.25); }
  
 @media (max-width: 900px) { .build-card { flex: 0 1 calc((100% - 28px) / 2); } }
 @media (max-width: 600px) { .build-card { flex: 0 1 100%; } }
  
-.ai-cta-center { text-align: center; margin-top: 44px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 32px; border-radius: 50px; font-size: 0.95rem; text-decoration: none; cursor: pointer; transition: all 0.25s ease; border: 2px solid transparent; }
-.btn-navy { background: var(--primary); color: var(--white); border-color: var(--primary); }
-.btn-navy:hover { background: var(--primary-light); border-color: var(--primary-light); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(10,42,102,0.25); }
- 
-
 /* ============================================================
    8. TUTORIAL — grey
 ============================================================ */
@@ -1494,242 +1433,6 @@ margin-top: 50px;
 
 .footer-links-col ul li a:hover {
   color: var(--gold);
-}
-
-.case-studies-section {
-  padding: var(--section-py) 0;
-  background: var(--white);
-}
-
-.case-studies-section .container {
-  max-width: 1400px;
-}
-
-.case-studies-heading-wrap {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.case-studies-main-heading {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 800;
-  font-size: var(--heading-size);
-  color: var(--primary);
-  line-height: 1.1;
-  white-space: nowrap;
-}
-
-.gold-action {
-  color: var(--gold);
-}
-
-/* ============================================================
-   CASE STUDIES — horizontal carousel.
-   A translateX-based pager: each page's group of cards (a full
-   page or a short final page) is centered inside the fixed-width
-   viewport, so the arrows always sit the same distance from
-   whatever cards are showing — no leftover empty space on either
-   side, even on the last, partially-filled page.
-
-   UPDATED — viewport/wrap widened by 40px so that when a page is
-   exactly full (e.g. 3 cards at 340px + 24px gaps = 1068px, which
-   used to match the viewport width exactly), the centered row now
-   has ~20px of margin on each side inside the viewport. That margin
-   is what lets a card's hover box-shadow/outline (like the Spatial
-   card's right edge) bleed outward instead of getting clipped by
-   the viewport's overflow: hidden.
-============================================================ */
-.case-carousel-wrap {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  width: 100%;
-  max-width: 1296px; /* was 1256px — +40px to match the viewport bump below */
-  margin: 0 auto;
-  padding: 28px 0 8px;
-}
-
-.case-carousel-viewport {
-  overflow: hidden;
-  width: 100%;
-  max-width: 1108px; /* was 1068px — gives centered cards shadow-bleed room */
-  margin: 0 auto;
-}
-
-.case-carousel-track {
-  display: flex;
-  transition: transform 0.45s ease;
-}
-
-/* Each page is exactly one viewport-width slot, so pages never
-   overlap. A short final page centers its cards inside its own
-   slot via justify-content — the leftover space is real empty
-   space, not a sliver of the previous/next page's card.
-   overflow: hidden is a hard stop: even if perPage is ever
-   miscalculated and a row of cards is wider than the page itself,
-   the excess is clipped instead of visually bleeding into the
-   neighboring page (e.g. Spatial spilling into Soft Touch/Murclean). */
-.case-carousel-page {
-  flex: 0 0 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  padding: 4px 0 12px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.case-carousel-slide {
-  flex: 0 0 auto;
-  width: 340px;
-  display: block;
-}
-
-/* Card outline/shadow reads as a proper floating card at rest
-   (not just on hover), with a stronger lift on hover. */
-.case-carousel-card-box {
-  height: 420px;
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--white);
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.case-carousel-slide:hover .case-carousel-card-box {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(10,42,102,0.18);
-}
-
-.case-carousel-image {
-  height: 50%;
-  width: 100%;
-  overflow: hidden;
-  flex-shrink: 0;
-  background: var(--white);
-}
-.case-carousel-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* fills the top half completely, no letterboxing */
-  object-position: top center;
-  display: block;
-}
-
-.case-carousel-content {
-  height: 50%;
-  padding: 24px 24px 22px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.case-carousel-content h3 {
-  font-size: 1.28rem;
-  font-weight: 800;
-  color: var(--primary);
-  line-height: 1.3;
-  margin-bottom: 14px;
-}
-
-.case-carousel-content p {
-  font-size: 1.02rem;
-  color: var(--muted);
-  line-height: 1.75;
-  margin: 0;
-  flex: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.case-carousel-badge {
-  align-self: flex-start;
-  margin-top: 16px;
-  padding: 11px 22px;
-  border-radius: 50px;
-  background: var(--primary);
-  color: var(--white);
-  font-weight: 700;
-  font-size: 0.86rem;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-.case-carousel-slide:hover .case-carousel-badge {
-  background: var(--primary-light);
-  transform: translateY(-2px);
-}
-
-/* Prev/next arrows — flex siblings of the viewport, fully outside
-   the cards (not absolutely positioned over them anymore) */
-.case-carousel-arrow {
-  flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  box-shadow: var(--shadow);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-  cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-.case-carousel-arrow svg { width: 20px; height: 20px; }
-.case-carousel-arrow:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-  transform: scale(1.08);
-  box-shadow: var(--shadow-lg);
-}
-
-/* Dots below the track */
-.case-carousel-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
-}
-.case-carousel-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--border);
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-.case-carousel-dot.active {
-  background: var(--gold);
-  transform: scale(1.3);
-}
-
-@media (max-width: 900px) {
-  .case-carousel-wrap { gap: 10px; padding-left: 8px; padding-right: 8px; }
-}
-
-@media (max-width: 640px) {
-  .case-carousel-slide { width: 270px; }
-  .case-carousel-card-box { height: 360px; }
-  .case-carousel-arrow { width: 38px; height: 38px; }
-  .case-carousel-arrow svg { width: 17px; height: 17px; }
-}
-
-@media (max-width: 480px) {
-  .case-studies-section .container { padding: 0 20px; }
-  .case-studies-main-heading { white-space: normal; }
-}
-
-.case-studies-cta-center {
-  text-align: center;
-  margin-top: 40px;
 }
 
 /* ============================================================
@@ -1971,7 +1674,6 @@ margin-top: 50px;
 .scroll-top-btn:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
-  outline: #061a42;
 }
 
 .scroll-top-btn svg {
@@ -2017,7 +1719,6 @@ margin-top: 50px;
   .build-main-heading,
   .tutorial-main-heading,
   .section-intro h2,
-  .case-studies-main-heading,
   .workshop-heading-line,
   .gold-in-person {
     white-space: normal;
