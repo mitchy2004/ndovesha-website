@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +50,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Reviews section styles (loads after style.css) -->
+  <link rel="stylesheet" href="reviews-section.css">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon-32x32.png">
   <link rel="apple-touch-icon" href="favicon-32x32.png">
@@ -291,6 +292,7 @@
     </div>
   </nav>
 
+  <!-- 1. HERO — white -->
   <section class="hero-section">
     <h1 class="hero-heading" style="font-weight: 800;">What do you need done <span class="golden">today</span>?</h1>
     <p class="hero-sub">Describe your project. Your AI coworkers will take it from there.</p>
@@ -354,6 +356,7 @@
     </div>
   </section>
 
+  <!-- 2. WORKSHOP — grey -->
   <section class="workshop-section">
     <div class="container">
       <div class="workshop-inner">
@@ -390,6 +393,7 @@
     </div>
   </section>
 
+  <!-- 3. MEET YOUR AI COWORKERS — white -->
   <section class="hire-section">
     <div class="container">
       <div class="hire-heading-wrap">
@@ -445,6 +449,56 @@
   </section>
 
 
+  <!-- 4. THREE BRANDS ON AUTOPILOT — grey -->
+  <section class="social-section">
+    <div class="container">
+      <div class="social-heading-wrap">
+        <h2 class="social-main-heading" style="font-weight: 800;">Three Brands on <span class="gold-autopilot">Autopilot</span></h2>
+        <p class="social-sub-heading">Join Spatial Group Networks, Murclean Services and Joy's Hive and hand over your social media to our AI worker that creates and posts on Meta, X and LinkedIn.</p>
+      </div>
+
+      <div class="brand-cards-grid">
+        <article class="brand-card">
+          <div class="brand-post">
+            <div class="brand-post-image"><img src="post-spatial.png" alt="Land surveying infographic posted for Spatial Group Networks" loading="lazy"></div>
+            <div class="brand-post-body">
+              <h3 class="brand-name">Spatial Group Networks</h3>
+              <p class="brand-post-caption">A land surveying explainer designed and posted by the AI worker.</p>
+              <a href="https://www.facebook.com/spatialgroupnetworks" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Spatial Group Networks's latest posts on Facebook">Check Out Their Posts<span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="brand-card">
+          <div class="brand-post">
+            <div class="brand-post-image"><img src="post-murclean.png" alt="Commercial cleaning post created for Murclean Services" loading="lazy"></div>
+            <div class="brand-post-body">
+              <h3 class="brand-name">Murclean Services</h3>
+              <p class="brand-post-caption">A commercial cleaning post designed and posted by the AI worker.</p>
+              <a href="https://web.facebook.com/profile.php?id=61587891341400" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Murclean Services's latest posts on Facebook">Check Out Their Posts<span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="brand-card">
+          <div class="brand-post">
+            <div class="brand-post-image"><img src="post-joyhive.png" alt="Honey product post created for Joyhive" loading="lazy"></div>
+            <div class="brand-post-body">
+              <h3 class="brand-name">Joy's Hive</h3>
+              <p class="brand-post-caption">A honey product promo designed and posted by the AI worker.</p>
+              <a href="https://web.facebook.com/profile.php?id=61593398631034" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Joyhive's latest posts on Facebook">Check Out Their Posts<span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="ai-cta-center">
+        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 5. THE FUTURE OF WORK IS CHANGING — white -->
   <section class="shift-section">
 
     <!-- SECTION INTRO -->
@@ -522,8 +576,53 @@
   </section>
 
 
+  <!-- 6. WHAT OUR CLIENTS ARE SAYING — grey -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="reviews-heading-wrap">
+        <h2 class="reviews-main-heading" style="font-weight: 800;">What Our Clients Are <span class="gold-reviews">Saying</span></h2>
+        <p class="reviews-sub-heading">Honest feedback from teams using Ndovesha AI coworkers every day.</p>
+      </div>
+
+      <div class="reviews-grid">
+
+        <article class="review-card">
+          <div class="review-avatar" aria-hidden="true">MM</div>
+          <h3 class="review-name">Martin Mumbura</h3>
+          <span class="review-role">Head of Marketing, The Landmark Properties</span>
+          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars"><span style="width:100%"></span></div>
+          <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
+          <p>Ndovesha.ai helped us launch the Riverside Villas landing page, an SEO-driven investment guide and the Premium Homes social and flyer campaign far faster than before. Our marketing now reaches the market sooner with consistent, professional quality, freeing the team to focus on clients and closing sales.</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-avatar" aria-hidden="true">SK</div>
+          <h3 class="review-name">Sylivia Kimunei</h3>
+          <span class="review-role">Client Relations Manager, Omega Capital Ltd</span>
+          <div class="review-stars" role="img" aria-label="Rated 4 out of 5 stars"><span style="width:80%"></span></div>
+          <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
+          <p>Ndovesha AI is now central to our proposals, market outlooks and client presentations. Pitch decks take minutes instead of days, the AI blog writer keeps educational content flowing, and the branding tools keep our identity consistent. Content output has grown more than fivefold with minimal editing needed.</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-avatar" aria-hidden="true">JM</div>
+          <h3 class="review-name">James Mwangi</h3>
+          <span class="review-role">Operations Manager, The Landmark Properties</span>
+          <div class="review-stars" role="img" aria-label="Rated 4 out of 5 stars"><span style="width:80%"></span></div>
+          <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
+          <p>Ndovesha.ai lets us launch property microsites, social carousels and ad creatives from one platform, taking campaigns from concept to launch in hours instead of days while lowering costs. For premium luxury developments we still fine-tune imagery to our brand guidelines, and deeper real estate CRM integrations would be a welcome addition.</p>
+        </article>
+
+      </div>
+
+      <div class="reviews-cta-center">
+        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
 
 
+  <!-- 7. WHAT WILL YOU BUILD? — white -->
   <section class="build-section">
     <div class="container">
       <div class="build-heading-wrap">
@@ -582,6 +681,7 @@
     </div>
   </section>
 
+  <!-- 8. SEE NDOVESHA AI IN ACTION — grey -->
   <section class="tutorial-section">
     <div class="container">
       <div class="tutorial-heading-wrap">
@@ -611,160 +711,7 @@
     </div>
   </section>
 
-  <section class="case-studies-section">
-    <div class="container">
-      <div class="case-studies-heading-wrap">
-        <h2 class="case-studies-main-heading" style="font-weight: 800;">Businesses Building With <span class="gold-action">Ndovesha</span></h2>
-      </div>
-      <div class="case-carousel-wrap">
-        <button type="button" class="case-carousel-arrow case-carousel-arrow-left" id="caseCarouselPrev" aria-label="Previous business">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <div class="case-carousel-viewport">
-        <div class="case-carousel-track" id="caseCarouselTrack">
-          <a href="https://janekuriacoaching.com/" target="_blank" rel="noopener noreferrer" class="case-carousel-slide">
-            <div class="case-carousel-card-box">
-              <div class="case-carousel-image"><img src="Jane.png" alt="Jane Kuria Coaching website"></div>
-              <div class="case-carousel-content">
-                <h3>Jane Kuria Coaching</h3>
-                <p>Helping a coaching practice create a trusted online space for women seeking clarity, support and relief.</p>
-                <span class="case-carousel-badge">Visit Website</span>
-              </div>
-            </div>
-          </a>
-          <a href="https://houseofroyalty254.com/" target="_blank" rel="noopener noreferrer" class="case-carousel-slide">
-            <div class="case-carousel-card-box">
-              <div class="case-carousel-image"><img src="Royalty.png" alt="House of Royalty website"></div>
-              <div class="case-carousel-content">
-                <h3>House of Royalty</h3>
-                <p>Bringing a luxury interior design brand online with a presence that reflects its elegance and craftsmanship.</p>
-                <span class="case-carousel-badge">Visit Website</span>
-              </div>
-            </div>
-          </a>
-          <a href="https://spatialgroupnetworks.co.ke/" target="_blank" rel="noopener noreferrer" class="case-carousel-slide">
-            <div class="case-carousel-card-box">
-              <div class="case-carousel-image"><img src="Spatial.png" alt="Spatial Group Networks website"></div>
-              <div class="case-carousel-content">
-                <h3>Spatial Group Networks</h3>
-                <p>Showcasing trusted property expertise through a professional digital presence built for credibility and growth.</p>
-                <span class="case-carousel-badge">Visit Website</span>
-              </div>
-            </div>
-          </a>
-          <a href="https://softtouchcleaningservices.co.ke/" target="_blank" rel="noopener noreferrer" class="case-carousel-slide">
-            <div class="case-carousel-card-box">
-              <div class="case-carousel-image"><img src="SoftTouch.png" alt="Soft Touch Cleaning Services website"></div>
-              <div class="case-carousel-content">
-                <h3>Soft Touch Cleaning Services</h3>
-                <p>Helping a trusted cleaning service establish an online presence that makes its services easier to discover.</p>
-                <span class="case-carousel-badge">Visit Website</span>
-              </div>
-            </div>
-          </a>
-          <a href="https://murclean.co.ke/" target="_blank" rel="noopener noreferrer" class="case-carousel-slide">
-            <div class="case-carousel-card-box">
-              <div class="case-carousel-image"><img src="Murclean.png" alt="Murclean Services website"></div>
-              <div class="case-carousel-content">
-                <h3>Murclean Services</h3>
-                <p>Creating a professional digital presence for industrial cleaning and hygiene solutions built for modern businesses.</p>
-                <span class="case-carousel-badge">Visit Website</span>
-              </div>
-            </div>
-          </a>
-        </div>
-        </div>
-        <button type="button" class="case-carousel-arrow case-carousel-arrow-right" id="caseCarouselNext" aria-label="Next business">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-      <div class="case-carousel-dots" id="caseCarouselDots"></div>
-      <div class="case-studies-cta-center">
-        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
-            aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="together-section" id="togetherSection">
-    <div class="container">
-      <div class="together-heading-wrap">
-        <h2 class="together-heading" style="font-weight: 800;">The Future = <span class="gold-together">Humans + AI.</span></h2>
-        <p class="together-sub">Together, they get better results than either could alone.</p>
-      </div>
-      <div class="together-panel" id="togetherPanel">
-        <div class="together-cols">
-          <div class="together-col col-ai">
-            <div class="col-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 8V4H8"></path>
-                <rect width="16" height="12" x="4" y="8" rx="2"></rect>
-                <path d="M2 14h2"></path>
-                <path d="M20 14h2"></path>
-                <path d="M15 13v2"></path>
-                <path d="M9 13v2"></path>
-              </svg>
-            </div>
-            <h3 class="col-title">Ndovesha AI Coworkers</h3>
-            <ul class="col-list">
-              <li><span class="li-dot"></span>Build websites &amp; web applications</li>
-              <li><span class="li-dot"></span>Create landing pages that convert</li>
-              <li><span class="li-dot"></span>Develop custom business systems</li>
-              <li><span class="li-dot"></span>Launch eCommerce stores</li>
-            </ul>
-          </div>
-          <div class="together-divider">
-            <span class="divider-line"></span>
-            <div class="handshake-badge">
-              <svg viewBox="0 0 24 24" class="handshake-icon">
-                <path d="m11 17 2 2a1 1 0 1 0 3-3"></path>
-                <path
-                  d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4">
-                </path>
-                <path d="m21 3 1 11h-2"></path>
-                <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path>
-                <path d="M3 4h8"></path>
-              </svg>
-            </div>
-            <span class="divider-label">Working Together</span>
-            <span class="divider-line"></span>
-          </div>
-          <div class="together-col col-human">
-            <div class="col-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <h3 class="col-title">Your Team</h3>
-            <ul class="col-list">
-              <li><span class="li-dot"></span>Defines the vision</li>
-              <li><span class="li-dot"></span>Sets the strategy</li>
-              <li><span class="li-dot"></span>Understands the customer</li>
-              <li><span class="li-dot"></span>Makes the final decisions</li>
-            </ul>
-          </div>
-        </div>
-        <div class="result-panel">
-          <h4 class="result-heading">Better Together</h4>
-          <div class="result-chips">
-            <span class="result-chip"><span class="chip-check">✓</span>Faster delivery</span>
-            <span class="result-chip"><span class="chip-check">✓</span>Lower operational costs</span>
-            <span class="result-chip"><span class="chip-check">✓</span>Higher productivity</span>
-            <span class="result-chip"><span class="chip-check">✓</span>Consistent quality</span>
-            <span class="result-chip"><span class="chip-check">✓</span>More time for meaningful work</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- 9. FAQ — white -->
   <section class="faq-section">
     <div class="container">
       <div class="faq-heading-wrap">
@@ -827,6 +774,7 @@
     </div>
   </section>
 
+  <!-- 10. FOOTER LINKS — grey -->
   <section class="footer-links-section">
     <div class="container">
       <div class="footer-links-grid">
@@ -900,6 +848,7 @@
     </div>
   </section>
 
+  <!-- 11. SITE FOOTER — white -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-social-row">
@@ -1073,113 +1022,6 @@ document.addEventListener('click', function (e) {
       else if (document.activeElement !== heroInput) { startPlaceholderRotation(); }
     });
     startPlaceholderRotation();
-    (function () {
-      var togetherSection = document.getElementById('togetherSection');
-      if (!togetherSection) return;
-      var togetherObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            togetherSection.classList.add('in-view');
-            togetherObserver.unobserve(togetherSection);
-          }
-        });
-      }, { threshold: 0.15 });
-      togetherObserver.observe(togetherSection);
-    })();
-    (function () {
-      var track = document.getElementById('caseCarouselTrack');
-      if (!track) return;
-      var viewport = track.parentElement;
-      // Keep permanent references to the real slide elements — they get
-      // moved (not cloned) into page wrapper divs, so this list stays
-      // the source of truth across rebuilds.
-      var slides = Array.prototype.slice.call(track.querySelectorAll('.case-carousel-slide'));
-      var dotsWrap = document.getElementById('caseCarouselDots');
-      var prevBtn = document.getElementById('caseCarouselPrev');
-      var nextBtn = document.getElementById('caseCarouselNext');
-
-      var perPage = 1, currentPage = 0;
-
-      // FIX: floor (with a +gap allowance for the fact that the last
-      // card in a row doesn't need a trailing gap) instead of round.
-      // Rounding up could claim one more 340px+24px card fit per page
-      // than the viewport actually had room for, so that card's row
-      // overflowed its own page box and visually bled into the next
-      // page (e.g. the Spatial card spilling into Soft Touch/Murclean).
-      function measure() {
-        var slideWidth = slides[0].getBoundingClientRect().width;
-        var gap = 24;
-        var unitWidth = slideWidth + gap;
-        perPage = Math.max(1, Math.floor((viewport.clientWidth + gap) / unitWidth));
-      }
-
-      function totalPages() {
-        return Math.max(1, Math.ceil(slides.length / perPage));
-      }
-
-      // Rebuilds the track as a row of full-viewport-width "page" divs,
-      // each holding up to `perPage` cards centered with justify-content.
-      // Because pages are separate, non-overlapping flex items, a short
-      // final page (e.g. 2 of 5 cards) gets real empty space on either
-      // side instead of a sliver of the neighboring page's card.
-      function buildPages() {
-        track.innerHTML = '';
-        for (var i = 0; i < slides.length; i += perPage) {
-          var page = document.createElement('div');
-          page.className = 'case-carousel-page';
-          slides.slice(i, i + perPage).forEach(function (slide) {
-            page.appendChild(slide);
-          });
-          track.appendChild(page);
-        }
-      }
-
-      function goToPage(page) {
-        var pages = totalPages();
-        currentPage = Math.max(0, Math.min(pages - 1, page));
-        track.style.transform = 'translateX(-' + (currentPage * 100) + '%)';
-        updateActiveDot();
-      }
-
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        var pages = totalPages();
-        for (var p = 0; p < pages; p++) {
-          (function (pageIndex) {
-            var dot = document.createElement('button');
-            dot.type = 'button';
-            dot.className = 'case-carousel-dot' + (pageIndex === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', 'Go to page ' + (pageIndex + 1));
-            dot.addEventListener('click', function () { goToPage(pageIndex); });
-            dotsWrap.appendChild(dot);
-          })(p);
-        }
-      }
-
-      function updateActiveDot() {
-        var dots = Array.prototype.slice.call(dotsWrap.children);
-        dots.forEach(function (d, i) { d.classList.toggle('active', i === currentPage); });
-      }
-
-      function setup() {
-        measure();
-        buildPages();
-        buildDots();
-        goToPage(Math.min(currentPage, totalPages() - 1));
-      }
-
-      var resizeTimer;
-      window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(setup, 150);
-      });
-
-      function step(dir) { goToPage(currentPage + dir); }
-      if (prevBtn) prevBtn.addEventListener('click', function () { step(-1); });
-      if (nextBtn) nextBtn.addEventListener('click', function () { step(1); });
-
-      setup();
-    })();
 
     document.querySelectorAll('.faq-item').forEach(function (item) {
       var row = item.querySelector('.faq-question-row');
