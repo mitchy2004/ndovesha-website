@@ -490,7 +490,7 @@ h3,
 }
 .cap-icon-item:hover .cap-icon-circle { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(254,191,15,0.18); }
 .cap-icon-circle svg { color: var(--gold); }   /* was var(--primary) */
-.cap-icon-label { font-size: 0.82rem; color: var(--text); letter-spacing: 0.01em; }
+.cap-icon-label { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.01em; }
 
 @media (max-width: 968px) {
   /* Wrap instead of shrink, same as every other section heading */
@@ -546,45 +546,6 @@ h3,
   line-height: 1.6;
 }
 
-/* Event details — horizontal row with vertical dividers between items */
-.workshop-details-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 28px;
-  margin-bottom: 44px;
-}
-
-.workshop-detail-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.workshop-detail-divider {
-  width: 3px;
-  height: 42px;
-  background: var(--border);
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
-.workshop-detail-label {
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-light);
-}
-.workshop-detail-item strong {
-  font-size: 1.02rem;
-  font-weight: 700;
-  color: var(--primary);
-  line-height: 1.3;
-}
-
 .workshop-cta-row {
   display: flex;
   align-items: center;
@@ -593,42 +554,11 @@ h3,
   gap: 16px;
 }
 
-/* UPDATED — now shares the same pill outline as .btn-login, instead
-   of being a bare text link, per request. Hover swaps the border to
-   gold (matching this section's accent) while keeping the existing
-   color + gap animation. */
-.workshop-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  color: var(--primary);
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  padding: 13px 32px; /* matches .btn so it's the same size as Reserve Your Seat */
-  border-radius: 50px;
-  border: 1.5px solid var(--border);
-  background: var(--white);
-  transition: color 0.2s ease, gap 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-}
-.workshop-link:hover {
-  color: var(--gold);
-  gap: 9px;
-  border-color: var(--gold);
-}
-
-@media (max-width: 900px) {
-  .workshop-details-row { gap: 20px 24px; }
-  .workshop-detail-divider { display: none; }
-}
-
 @media (max-width: 480px) {
   .workshop-heading { white-space: normal; }
   .workshop-heading-line { white-space: normal; }
   .workshop-cta-row { flex-direction: column; width: 100%; }
   .workshop-cta-row .btn { width: 100%; }
-  .workshop-cta-row .workshop-link { width: 100%; justify-content: center; }
 }
 
 /* ============================================================
@@ -1246,7 +1176,7 @@ h3,
 
 .review-card p {
   font-size: 1.02rem;
-  color: var(--text);
+  color: var(--muted);
   line-height: 1.75;
   margin: 0;
   flex: 1;
