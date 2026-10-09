@@ -49,7 +49,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6">
+  <!-- Cache-buster: bump the ?v= number whenever style.css changes so browsers fetch the new file -->
+  <link rel="stylesheet" href="style.css?v=17">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon-32x32.png">
@@ -63,6 +64,99 @@
   <style>
     .nav-container.mobile-menu-open .mobile-get-started-btn {
       display: none !important;
+    }
+
+    /* ===== Built with Ndovesha — carousel ===== */
+    .built-carousel {
+      position: relative;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 70px;
+    }
+    .built-track {
+      display: flex;
+      gap: 28px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: 20px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      /* breathing room so the hover lift + glow aren't clipped */
+      padding: 24px 20px 50px;
+      margin: -24px -20px -50px;
+    }
+    .built-track::-webkit-scrollbar { display: none; }
+    .built-track .built-card {
+      flex: 0 0 calc((100% - 56px) / 3);
+      min-width: 0;
+      max-width: none;
+      scroll-snap-align: start;
+    }
+    .built-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid var(--primary);
+      background: var(--white);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background 0.22s, color 0.22s, border-color 0.22s, box-shadow 0.22s, opacity 0.22s;
+    }
+    .built-arrow svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .built-arrow-prev { left: 0; }
+    .built-arrow-next { right: 0; }
+    .built-arrow:hover:not(:disabled),
+    .built-arrow:focus-visible {
+      background: var(--primary);
+      color: var(--gold);
+      border-color: var(--gold);
+      box-shadow: 0 0 18px rgba(254,191,15,0.45);
+      outline: none;
+    }
+    .built-arrow:disabled { opacity: 0.35; cursor: default; box-shadow: none; }
+
+    @media (max-width: 900px) {
+      .built-carousel { padding: 0 60px; }
+      .built-track .built-card { flex: 0 0 calc((100% - 28px) / 2); }
+    }
+    @media (max-width: 600px) {
+      .built-carousel { padding: 0 48px; }
+      .built-track { gap: 20px; padding-left: 12px; padding-right: 12px; margin-left: -12px; margin-right: -12px; scroll-padding-left: 12px; }
+      .built-track .built-card { flex: 0 0 100%; }
+      .built-arrow { width: 40px; height: 40px; }
+      .built-arrow svg { width: 18px; height: 18px; }
+    }
+  </style>
+
+  <!-- White outlined button style (used by "Learn More" in the workshop section).
+       Inline so style.css does not need to be re-uploaded. -->
+  <style>
+    .btn-white {
+      background: var(--white);
+      color: var(--primary);
+      border-color: var(--border);
+    }
+    .btn-white:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(10,42,102,0.15);
     }
   </style>
 
@@ -293,8 +387,8 @@
 
   <!-- 1. HERO — white -->
   <section class="hero-section">
-    <h1 class="hero-heading" style="font-weight: 800;">What do you need done <span class="golden">today</span>?</h1>
-    <p class="hero-sub">Describe your project. Your AI coworkers will take it from there.</p>
+    <h1 class="hero-heading">Your AI team for every business need,<br class="hero-br"> in<span class="golden"> one affordable platform.</span></h1>
+    <p class="hero-sub">Describe what your business needs and let your AI coworkers handle the work.</p>
     <div class="search-bar-wrap">
       <div class="search-bar">
         <button class="search-icon-btn" title="Upload file" type="button" id="uploadBtn">
@@ -317,40 +411,22 @@
         </button>
       </div>
      <div class="capability-icons">
-  <a href="/software" class="cap-icon-item">
-    <div class="cap-icon-circle">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-        stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="16 18 22 12 16 6"></polyline>
-        <polyline points="8 6 2 12 8 18"></polyline>
-      </svg>
-    </div>
-    <span class="cap-icon-label">Software</span>
-  </a>
-  <a href="/graphic" class="cap-icon-item">
-    <div class="cap-icon-circle">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-        stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-        <polyline points="21 15 16 10 5 21"></polyline>
-      </svg>
-    </div>
-    <span class="cap-icon-label">Graphic Design</span>
-  </a>
-  <a href="/web" class="cap-icon-item">
-    <div class="cap-icon-circle">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-        stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="2" y1="12" x2="22" y2="12"></line>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-        </path>
-      </svg>
-    </div>
-    <span class="cap-icon-label">Web Design</span>
-  </a>
-</div>
+        <a href="https://chat.ndovesha.ai/signup" class="cap-item">
+          <span class="cap-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 3 12 9 6"></polyline><polyline points="15 6 21 12 15 18"></polyline></svg></span>
+          <span class="cap-label">Software</span>
+        </a>
+        <a href="https://chat.ndovesha.ai/signup" class="cap-item">
+          <span class="cap-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg></span>
+          <span class="cap-label">Graphic Design</span>
+        </a>
+        <a href="https://chat.ndovesha.ai/signup" class="cap-item">
+          <span class="cap-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14.5 14.5 0 0 1 3.5 9 14.5 14.5 0 0 1-3.5 9 14.5 14.5 0 0 1-3.5-9A14.5 14.5 0 0 1 12 3z"></path></svg></span>
+          <span class="cap-label">Web Design</span>
+        </a>
+        <a href="https://chat.ndovesha.ai/signup" class="cap-item">
+          <span class="cap-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></span>
+          <span class="cap-label">Social Media</span>
+        </a>
       </div>
     </div>
   </section>
@@ -360,10 +436,17 @@
     <div class="container">
       <div class="workshop-inner">
         <h2 class="workshop-heading" style="font-weight: 800;">Experience It <span class="gold-in-person">In Person</span></h2>
-        <p class="workshop-sub">Join us for a hands-on physical workshop and discover how AI coworkers can change the way your business gets work done.</p>
+        <p class="workshop-sub">Join us for a hands-on, in-person workshop and see AI coworkers tackle real business tasks. Leave knowing where AI can work in your business and where to start.</p>
+
+        <div class="workshop-tagline">
+          <span class="workshop-tagline-item">You bring the business</span>
+          <span class="workshop-tagline-item">You bring the problem</span>
+          <span class="workshop-tagline-item workshop-tagline-ai">We bring the AI</span>
+        </div>
 
         <div class="workshop-cta-row">
-          <a href="/workshop" class="btn btn-navy">Learn More <span aria-hidden="true">→</span></a>
+          <a href="https://paystack.shop/pay/ndovesha-ai-masterclass-7th-nov" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Click To Attend The Next Workshop <span aria-hidden="true">→</span></a>
+          <a href="/workshop" class="btn btn-white">Learn More <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -425,41 +508,57 @@
   </section>
 
 
-  <!-- 4. THREE BRANDS ON AUTOPILOT — grey -->
+  <!-- 4. BRAND PRESENCE ON AUTOPILOT (three brand examples) — grey
+       CHANGE: each brand card now holds three posts and swaps
+       every 5 seconds (see the brand-slider script at the bottom of the page).
+       All three cards now rotate (Spatial, Murclean and Joy's Hive).
+       To change the speed, edit data-interval (milliseconds) on each slider. -->
   <section class="social-section">
     <div class="container">
       <div class="social-heading-wrap">
-        <h2 class="social-main-heading" style="font-weight: 800;">Three Brands on <span class="gold-autopilot">Autopilot</span></h2>
-        <p class="social-sub-heading">Join Spatial Group Networks, Murclean Services and Joy's Hive and hand over your social media to our AI worker that creates and posts on Meta, X and LinkedIn.</p>
+        <h2 class="social-main-heading" style="font-weight: 800;">Your online brand presence, <span class="gold-autopilot">on autopilot</span></h2>
+        <p class="social-sub-heading">Hiring a social media manager is expensive, and doing it yourself eats your week. Our AI worker designs and posts on Meta, X and LinkedIn for you, with content built to attract customers and bring in leads.</p>
       </div>
 
       <div class="brand-cards-grid">
         <article class="brand-card">
           <div class="brand-post">
-            <div class="brand-post-image"><img src="post-spatial.png" alt="Land surveying infographic posted for Spatial Group Networks" loading="lazy"></div>
+            <div class="brand-post-image brand-slider" data-interval="5000">
+              <img class="brand-slide is-active" src="post-spatial-1.jpg" alt="The blueprint for success starts below the surface: topographic survey post for Spatial Group Networks" loading="lazy">
+              <img class="brand-slide" src="post-spatial-2.jpg" alt="Don't build on assumptions, build on data: topographic survey post for Spatial Group Networks" loading="lazy">
+              <img class="brand-slide" src="post-spatial-3.jpg" alt="The essentials of land surveying: how land surveying works, post for Spatial Group Networks" loading="lazy">
+            </div>
             <div class="brand-post-body">
               <h3 class="brand-name">Spatial Group Networks</h3>
-              <p class="brand-post-caption">A land surveying explainer designed and posted by the AI worker.</p>
+              <p class="brand-post-caption">Land surveying explainers designed and posted by the AI worker.</p>
               <a href="https://www.facebook.com/spatialgroupnetworks" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Spatial Group Networks's latest posts on Facebook">Check out their posts<span aria-hidden="true">→</span></a>
             </div>
           </div>
         </article>
         <article class="brand-card">
           <div class="brand-post">
-            <div class="brand-post-image"><img src="post-murclean.png" alt="Commercial cleaning post created for Murclean Services" loading="lazy"></div>
+            <div class="brand-post-image brand-slider" data-interval="5000">
+              <img class="brand-slide is-active" src="post-murclean-1.jpg" alt="Pride Multiplus concentrated cleaner post created for Murclean Services" loading="lazy">
+              <img class="brand-slide" src="post-murclean-2.jpg" alt="Purix Shower Gel post created for Murclean Services" loading="lazy">
+              <img class="brand-slide" src="post-murclean-3.jpg" alt="Steris cleaner and disinfectant post created for Murclean Services" loading="lazy">
+            </div>
             <div class="brand-post-body">
               <h3 class="brand-name">Murclean Services</h3>
-              <p class="brand-post-caption">A commercial cleaning post designed and posted by the AI worker.</p>
+              <p class="brand-post-caption">Commercial cleaning posts designed and posted by the AI worker.</p>
               <a href="https://web.facebook.com/profile.php?id=61587891341400" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Murclean Services's latest posts on Facebook">Check out their posts <span aria-hidden="true">→</span></a>
             </div>
           </div>
         </article>
         <article class="brand-card">
           <div class="brand-post">
-            <div class="brand-post-image"><img src="post-joyhive.png" alt="Honey product post created for Joyhive" loading="lazy"></div>
+            <div class="brand-post-image brand-slider" data-interval="5000">
+              <img class="brand-slide is-active" src="post-joyhive-1.jpg" alt="Pour a little joy: pure natural honey post created for Joy's Hive" loading="lazy">
+              <img class="brand-slide" src="post-joyhive-2.jpg" alt="Quality you can taste: natural honey post created for Joy's Hive" loading="lazy">
+              <img class="brand-slide" src="post-joyhive-3.jpg" alt="Indulge in nature's sweet whisper: pure honey post created for Joy's Hive" loading="lazy">
+            </div>
             <div class="brand-post-body">
               <h3 class="brand-name">Joy's Hive</h3>
-              <p class="brand-post-caption">A honey product promo designed and posted by the AI worker.</p>
+              <p class="brand-post-caption">Honey product promos designed and posted by the AI worker.</p>
               <a href="https://web.facebook.com/profile.php?id=61593398631034" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Joyhive's latest posts on Facebook">Check out their posts<span aria-hidden="true">→</span></a>
             </div>
           </div>
@@ -473,8 +572,86 @@
   </section>
 
 
+  <!-- 4b. BUILT WITH NDOVESHA — white -->
+  <section class="built-section">
+    <div class="container">
+      <div class="built-heading-wrap">
+        <h2 class="built-main-heading" style="font-weight: 800;">Websites Built with <span class="gold-built">Ndovesha</span></h2>
+        <p class="built-sub-heading">Explore websites created with Ndovesha and see what’s possible when AI coworkers turn ideas into reality. Your website could be next.
+</p>
+      </div>
 
-  <!-- 5. THE FUTURE OF WORK IS CHANGING — white -->
+      <div class="built-carousel" id="builtCarousel" role="region" aria-roledescription="carousel" aria-label="Websites built with Ndovesha">
+        <button type="button" class="built-arrow built-arrow-prev" id="builtPrev" aria-label="Previous websites"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <div class="built-track" id="builtTrack">
+          <article class="built-card">
+            <div class="built-card-image">
+              <img src="built-mamboleo.png" alt="Mambo Leo Graphics Media website homepage" loading="lazy">
+            </div>
+            <div class="built-card-body">
+              <h3 class="built-card-title">Mambo Leo Graphics Media</h3>
+              <p class="built-card-text">A print and branding studio website that turns visitors into quote requests.</p>
+              <a href="https://mamboleographix.co.ke/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="built-card">
+            <div class="built-card-image">
+              <img src="built-dripmasters.png" alt="DripMasters East Africa website homepage" loading="lazy">
+            </div>
+            <div class="built-card-body">
+              <h3 class="built-card-title">DripMasters East Africa</h3>
+              <p class="built-card-text">A clear, professional site for water storage, irrigation and greenhouse solutions.</p>
+              <a href="https://dripmasterseastafrica.com/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="built-card">
+            <div class="built-card-image">
+              <img src="built-yourplotplug254.png" alt="Your Plot Plug 254 website homepage" loading="lazy">
+            </div>
+            <div class="built-card-body">
+              <h3 class="built-card-title">Your Plot Plug 254</h3>
+              <p class="built-card-text">A land investment website showcasing plots in Diani, Lukenya and Naivasha.</p>
+              <a href="https://yourplotplug254.com/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="built-card">
+            <div class="built-card-image">
+              <img src="built-murclean.png" alt="Murclean Services website homepage" loading="lazy">
+            </div>
+            <div class="built-card-body">
+              <h3 class="built-card-title">Murclean Services</h3>
+              <p class="built-card-text">An industrial cleaning and hygiene supplier site that drives quote requests.</p>
+              <a href="https://murclean.co.ke/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="built-card">
+            <div class="built-card-image">
+              <img src="built-wina.png" alt="WINA AutoMax &amp; Spares website homepage" loading="lazy">
+            </div>
+            <div class="built-card-body">
+              <h3 class="built-card-title">WINA AutoMax &amp; Spares</h3>
+              <p class="built-card-text">An auto spares and vehicles site for parts, tyres and cars for sale in Kenya.</p>
+              <a href="https://winaautomaxspares.co.ke/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="built-card">
+            <div class="built-card-image">
+              <img src="built-spatial.png" alt="Spatial Group Networks website homepage" loading="lazy">
+            </div>
+            <div class="built-card-body">
+              <h3 class="built-card-title">Spatial Group Networks</h3>
+              <p class="built-card-text">A land surveying and property services site that turns visitors into quote requests.</p>
+              <a href="https://spatialgroupnetworks.co.ke/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+        <button type="button" class="built-arrow built-arrow-next" id="builtNext" aria-label="Next websites"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 5. THE FUTURE OF WORK IS CHANGING — grey -->
   <section class="shift-section">
 
     <!-- SECTION INTRO -->
@@ -552,7 +729,7 @@
   </section>
 
 
-  <!-- 6. WHAT OUR CLIENTS ARE SAYING — grey -->
+  <!-- 6. WHAT OUR CLIENTS ARE SAYING — white -->
   <section class="reviews-section" id="reviews">
     <div class="container">
       <div class="reviews-heading-wrap">
@@ -563,27 +740,27 @@
       <div class="reviews-grid">
 
         <article class="review-card">
-          <div class="review-avatar" aria-hidden="true">IK</div>
-          <h3 class="review-name">Ipss Kenya</h3>
+          <div class="review-avatar" aria-hidden="true">AO</div>
+          <h3 class="review-name">Agu Ogonna</h3>
           <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars"><span style="width:100%"></span></div>
           <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
-          <p>Their team is incredibly knowledgeable and developed targeted strategies that reached exactly the right audience. If you're looking to grow your business online, don't hesitate to partner with them.</p>
+          <p>Ndovesha is a great platform for Markerters to make speedy growth and am glad for the different opportunities it present. Easy to navigate user interface and smooth ride all the way.</p>
         </article>
 
         <article class="review-card">
-          <div class="review-avatar" aria-hidden="true">VM</div>
-          <h3 class="review-name">Violet Mathenge</h3>
+          <div class="review-avatar" aria-hidden="true">GN</div>
+          <h3 class="review-name">Grace Kui Nderitu</h3>
           <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars"><span style="width:100%"></span></div>
           <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
-          <p>Excellent quality of work, with attention to detail and timely delivery. Experienced professionals. Highly recommend.</p>
+          <p>This is the best platform that has been created and the best thing it's authentically Kenyan</p>
         </article>
 
         <article class="review-card">
-          <div class="review-avatar" aria-hidden="true">BM</div>
-          <h3 class="review-name">Bentena Mshairi</h3>
+          <div class="review-avatar" aria-hidden="true">IA</div>
+          <h3 class="review-name">Ibrahim Abdirahman</h3>
           <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars"><span style="width:100%"></span></div>
           <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
-          <p>The team's expertise and know-how were evident from the start. They took the time to understand my specific needs.</p>
+          <p>Absolutely amazing. Using Ndovesha Ai to build our comprehensive feedback</p>
         </article>
 
       </div>
@@ -595,7 +772,7 @@
   </section>
 
 
-  <!-- 7. WHAT WILL YOU BUILD? — white -->
+  <!-- 7. WHAT WILL YOU BUILD? — grey -->
   <section class="build-section">
     <div class="container">
       <div class="build-heading-wrap">
@@ -654,7 +831,7 @@
     </div>
   </section>
 
-  <!-- 8. SEE NDOVESHA AI IN ACTION — grey -->
+  <!-- 8. SEE NDOVESHA AI IN ACTION — white -->
   <section class="tutorial-section">
     <div class="container">
       <div class="tutorial-heading-wrap">
@@ -684,7 +861,7 @@
     </div>
   </section>
 
-  <!-- 9. FAQ — white -->
+  <!-- 9. FAQ — grey -->
   <section class="faq-section">
     <div class="container">
       <div class="faq-heading-wrap">
@@ -747,7 +924,7 @@
     </div>
   </section>
 
-  <!-- 10. FOOTER LINKS — grey -->
+  <!-- 10. FOOTER LINKS — white -->
   <section class="footer-links-section">
     <div class="container">
       <div class="footer-links-grid">
@@ -821,7 +998,7 @@
     </div>
   </section>
 
-  <!-- 11. SITE FOOTER — white -->
+  <!-- 11. SITE FOOTER — grey -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-social-row">
@@ -1007,6 +1184,25 @@ document.addEventListener('click', function (e) {
       });
     });
 
+    /*
+     * Brand post sliders ("Three Brands on Autopilot")
+     * Each .brand-slider holds 2+ .brand-slide images (currently 3). Every
+     * data-interval milliseconds (default 5000 = 5 seconds) the
+     * active slide fades out and the next one fades in.
+     * Sliders with only one image are left alone.
+     */
+    document.querySelectorAll('.brand-slider').forEach(function (slider) {
+      var slides = slider.querySelectorAll('.brand-slide');
+      if (slides.length < 2) return;
+      var current = 0;
+      var delay = parseInt(slider.getAttribute('data-interval'), 10) || 5000;
+      setInterval(function () {
+        slides[current].classList.remove('is-active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('is-active');
+      }, delay);
+    });
+
     document.addEventListener("DOMContentLoaded", () => {
 
       /*
@@ -1028,6 +1224,43 @@ document.addEventListener('click', function (e) {
       });
 
     });
+  </script>
+  <script>
+    /* Built with Ndovesha carousel: each arrow press moves one full "page"
+       (3 cards on desktop, 2 on tablet, 1 on phones), so cards 1-3 show first
+       and cards 4-6 show after pressing next. Arrows disable at either end. */
+    (function () {
+      var track = document.getElementById('builtTrack');
+      var prev = document.getElementById('builtPrev');
+      var next = document.getElementById('builtNext');
+      if (!track || !prev || !next) return;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function perView() {
+        var w = window.innerWidth;
+        return w <= 600 ? 1 : (w <= 900 ? 2 : 3);
+      }
+      function pageStep() {
+        var card = track.querySelector('.built-card');
+        var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        return card ? (card.getBoundingClientRect().width + gap) * perView() : track.clientWidth;
+      }
+      function update() {
+        prev.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      }
+      function go(dir) {
+        var step = pageStep();
+        var page = Math.round(track.scrollLeft / step) + dir;
+        var max = Math.max(0, track.scrollWidth - track.clientWidth);
+        var target = Math.min(Math.max(page * step, 0), max);
+        track.scrollTo({ left: target, behavior: reduce ? 'auto' : 'smooth' });
+      }
+      prev.addEventListener('click', function () { go(-1); });
+      next.addEventListener('click', function () { go(1); });
+      track.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
   </script>
   <script type="module"
     src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496"

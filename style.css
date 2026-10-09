@@ -69,17 +69,18 @@ img { max-width: 100%; display: block; }
 
 /* ============================================================
    SECTION BACKGROUND ORDER (alternating white / light grey)
-   1  Hero ............ white
-   2  Workshop ........ grey
-   3  Hire ............ white
-   4  Social .......... grey
-   5  Shift ........... white
-   6  Reviews ......... grey
-   7  Build ........... white
-   8  Tutorial ........ grey
-   9  FAQ ............. white
-   10 Footer links .... grey
-   11 Site footer ..... white
+   1   Hero ............... white
+   2   Workshop ........... grey
+   3   Hire ............... white
+   4   Social ............. grey
+   4b  Built with Ndovesha  white
+   5   Shift .............. grey
+   6   Reviews ............ white
+   7   Build .............. grey
+   8   Tutorial ........... white
+   9   FAQ ................ grey
+   10  Footer links ....... white
+   11  Site footer ........ grey
 ============================================================ */
 
 /* ============================================================
@@ -394,11 +395,14 @@ h3,
 .hero-heading {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 800;
-  font-size: var(--heading-size);
-  line-height: 1.08;
+  /* Slightly smaller than the other section headings so the title fits on 2 lines */
+  font-size: clamp(1.7rem, 3.9vw, 3.3rem);
+  line-height: 1.12;
   color: var(--primary);
   margin-bottom: 14px;
-  white-space: nowrap;
+  max-width: 1150px;
+  white-space: normal;
+  text-wrap: balance;
 }
 .hero-heading .golden { color: var(--gold); }
 .hero-sub {
@@ -473,33 +477,75 @@ h3,
 .send-icon:hover { background: var(--primary-dark); transform: scale(1.05); }
 .send-icon svg { color: white; }
 
-.capability-icons { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 40px; } /* margin-top was 56px — increased gap below the search bar */
-.cap-icon-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.22s; }
-.cap-icon-item:hover { transform: translateY(-6px); }
-
-.cap-icon-circle {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 2px solid var(--primary);   /* was var(--border) */
+/* Hero capability buttons: 52px x 52px circles with a deep blue outline and
+   a gold line icon, each with a bold label underneath. The generous
+   column gap keeps the labels from crowding each other. */
+.capability-icons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px clamp(14px, 2.5vw, 28px);
+  margin-top: 56px;
+}
+.cap-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 52px;
+  cursor: pointer;
+}
+.cap-circle {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1.5px solid var(--primary);
+  border-radius: 50%;
   background: var(--white);
-  transition: border-color 0.22s, box-shadow 0.22s;
+  color: var(--gold);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.cap-icon-item:hover .cap-icon-circle { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(254,191,15,0.18); }
-.cap-icon-circle svg { color: var(--gold); }   /* was var(--primary) */
-.cap-icon-label { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.01em; }
+.cap-circle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cap-label {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.95rem;
+  font-weight: var(--font-medium);
+  line-height: 1.2;
+  color: var(--text-light);
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.cap-item:hover .cap-circle,
+.cap-item:focus-visible .cap-circle {
+  border-color: var(--gold);
+  background: var(--light-grey);
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(254,191,15,0.45);
+}
+.cap-item:hover .cap-label,
+.cap-item:focus-visible .cap-label { color: var(--primary); }
+.cap-item { text-decoration: none; }
+.cap-item:focus-visible { outline: none; }
 
-@media (max-width: 968px) {
-  /* Wrap instead of shrink, same as every other section heading */
-  .hero-heading { white-space: normal; }
+@media (max-width: 768px) {
+  .hero-br { display: none; }
 }
 
 @media (max-width: 640px) {
   .hero-section { min-height: auto; padding: var(--section-py) 16px; }
-  .capability-icons { gap: 24px; }
+  /* 2 x 2 grid on phones so the four labelled circles stay evenly spaced */
+  .capability-icons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; max-width: 300px; margin-left: auto; margin-right: auto; }
   .hero-heading { white-space: normal; }
   .search-bar-wrap { max-width: 100%; }
 }
@@ -524,7 +570,7 @@ h3,
   font-size: var(--heading-size);
   line-height: 1.1;
   color: var(--primary);
-  margin-bottom: 16px;
+  margin-bottom: 28px;   /* was: 16px — small gap before the supporting paragraph */
   white-space: normal;
   text-align: center;
 }
@@ -542,8 +588,52 @@ h3,
   font-size: clamp(1.08rem, 1.9vw, 1.28rem);
   color: var(--text-light);
   max-width: 560px;
-  margin: 0 auto 44px;
+  margin: 0 auto 48px;   /* was: 0 auto 28px — larger gap before the tagline */
   line-height: 1.6;
+}
+
+/* "You bring the business | You bring the problem | We bring the AI" */
+.workshop-tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin: 0 auto 44px;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: var(--font-bold);
+  line-height: 1.3;
+  color: var(--primary);
+}
+
+.workshop-tagline-item {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  white-space: nowrap;
+}
+
+/* Gold divider before the 2nd and 3rd phrases */
+.workshop-tagline-item + .workshop-tagline-item::before {
+  content: '';
+  width: 2px;
+  height: 1.2em;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* Punchline in gold */
+.workshop-tagline-ai { color: var(--gold); }
+
+@media (max-width: 768px) {
+  .workshop-sub { margin-bottom: 32px; }   /* tighter gap when the tagline stacks */
+  .workshop-tagline {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .workshop-tagline-item + .workshop-tagline-item::before {
+    display: none;   /* no dividers when stacked */
+  }
 }
 
 .workshop-cta-row {
@@ -779,11 +869,16 @@ h3,
   font-size: var(--heading-size);
   color: var(--primary);
   line-height: 1.1;
-  margin-bottom: 16px;
-  white-space: nowrap;
+  margin: 0 auto 16px;
+  max-width: 900px;
+  /* The new headline is longer than the old one, so it is allowed to wrap
+     (balanced across two lines) instead of forcing one long nowrap line
+     that would overflow on tablets and small laptops. */
+  white-space: normal;
+  text-wrap: balance;
 }
 
-/* No animation — "Autopilot" stays a fixed size */
+/* No animation — "on autopilot" stays a fixed size and never splits across lines */
 .gold-autopilot {
   color: var(--gold);
   display: inline-block;
@@ -839,6 +934,26 @@ h3,
 .brand-post-image { aspect-ratio: 1 / 1; overflow: hidden; background: var(--light-grey); }
 .brand-post-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
+/* NEW — alternating posts (Spatial + Murclean).
+   The slides are stacked on top of each other inside the square image
+   area; the one with .is-active is visible and the rest are transparent.
+   The script in index.html moves .is-active to the next slide every
+   5 seconds, and this transition makes the swap a smooth cross-fade. */
+.brand-slider { position: relative; }
+.brand-post-image.brand-slider img.brand-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease-in-out;
+}
+.brand-post-image.brand-slider img.brand-slide.is-active { opacity: 1; }
+
+/* Respect visitors who ask their device to reduce motion: swap instantly */
+@media (prefers-reduced-motion: reduce) {
+  .brand-post-image.brand-slider img.brand-slide { transition: none; }
+}
+
 .brand-post-body {
   display: flex;
   flex-direction: column;
@@ -871,14 +986,121 @@ h3,
 }
 
 
+/* ============================================================
+   4b. BUILT WITH NDOVESHA — white
+============================================================ */
+.built-section {
+  padding: var(--section-py) 0;
+  background: var(--white);
+}
+
+.built-heading-wrap {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.built-main-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 800;
+  font-size: var(--heading-size);
+  color: var(--primary);
+  line-height: 1.1;
+  margin: 0 auto 16px;
+  max-width: 900px;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+.gold-built {
+  color: var(--gold);
+  display: inline-block;
+}
+
+.built-sub-heading {
+  font-size: clamp(1.08rem, 1.9vw, 1.28rem);
+  color: var(--text-light);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ----- Built with Ndovesha cards: image top 50%, details bottom 50% ----- */
+.built-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.built-card {
+  flex: 0 1 calc((100% - 56px) / 3);
+  min-width: 280px;
+  max-width: 400px;
+  min-height: 520px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;      /* exact 50 / 50 split */
+  background: var(--white);
+  border: 1.5px solid var(--primary);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(10,42,102,0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+.built-card:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 0 42px rgba(254,191,15,0.5), 0 8px 32px rgba(10,42,102,0.10);
+  border-color: var(--gold);
+}
+
+.built-card-image {
+  overflow: hidden;
+  background: var(--light-grey);
+  border-bottom: 1px solid var(--border);
+}
+.built-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;      /* keeps the site's nav + headline visible */
+}
+
+.built-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px 24px 26px;
+}
+.built-card h3.built-card-title {
+  font-size: 1.28rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+.built-card-text {
+  font-size: 1.02rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+.built-card-body .built-card-cta {
+  margin-top: auto;                 /* pins the button to the bottom */
+}
+
+@media (max-width: 900px) { .built-card { flex: 0 1 calc((100% - 28px) / 2); } }
+@media (max-width: 600px) { .built-card { flex: 0 1 100%; max-width: 440px; } }
+
+
  
 /* =========================================================
-   5. NDOVESHA — THE SHIFT — white
+   5. NDOVESHA — THE SHIFT — grey
 ========================================================= */
  
 .shift-section {
     width: 100%;
-    background: var(--white);
+    background: var(--light-grey);
     padding: var(--section-py) 24px;
 }
  
@@ -1050,13 +1272,13 @@ h3,
 
 
 /* ============================================================
-   6. REVIEWS SECTION — grey
+   6. REVIEWS SECTION — white
    Uses the same tokens, spacing and card language as the
    "What Will You Build?" and "Meet your AI Coworkers" sections.
 ============================================================ */
 .reviews-section {
   padding: var(--section-py) 0;
-  background: var(--light-grey);
+  background: var(--white);
 }
 
 .reviews-heading-wrap {
@@ -1197,9 +1419,9 @@ h3,
 
 
 /* ============================================================
-   7. BUILD — white
+   7. BUILD — grey
 ============================================================ */
-.build-section { padding: var(--section-py) 0; background: var(--white); }
+.build-section { padding: var(--section-py) 0; background: var(--light-grey); }
 .build-heading-wrap { text-align: center; margin-bottom: 32px; }
 .build-main-heading { font-weight: 800; font-size: var(--heading-size); color: var(--primary); line-height: 1.1; white-space: nowrap; }
 .gold-build { color: var(--gold); }
@@ -1236,11 +1458,11 @@ h3,
 @media (max-width: 600px) { .build-card { flex: 0 1 100%; } }
  
 /* ============================================================
-   8. TUTORIAL — grey
+   8. TUTORIAL — white
 ============================================================ */
 .tutorial-section {
   padding: var(--section-py) 0;
-  background: var(--light-grey);
+  background: var(--white);
 }
 
 .tutorial-heading-wrap {
@@ -1318,10 +1540,10 @@ h3,
 
 
 /* ============================================================
-   10. FOOTER LINKS — grey
+   10. FOOTER LINKS — white
 ============================================================ */
 .footer-links-section {
-  background: var(--light-grey);
+  background: var(--white);
   padding: var(--section-py) 0 40px;
 }
 
@@ -1366,11 +1588,11 @@ h3,
 }
 
 /* ============================================================
-   9. FAQ — white
+   9. FAQ — grey
 ============================================================ */
 .faq-section {
   padding: var(--section-py) 0;
-  background: var(--white);
+  background: var(--light-grey);
 }
 
 .faq-heading-wrap {
@@ -1476,10 +1698,10 @@ h3,
 }
 
 /* ============================================================
-   11. SITE FOOTER — white
+   11. SITE FOOTER — grey
 ============================================================ */
 .site-footer {
-  background: var(--white);
+  background: var(--light-grey);
   padding: 48px 0 32px;
 }
 
