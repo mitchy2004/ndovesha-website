@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
   <!-- Cache-buster: bump the ?v= number whenever style.css changes so browsers fetch the new file -->
-  <link rel="stylesheet" href="style.css?v=17">
+  <link rel="stylesheet" href="style.css?v=23">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon-32x32.png">
@@ -66,93 +66,17 @@
       display: none !important;
     }
 
-    /* ===== Built with Ndovesha — carousel ===== */
-    .built-carousel {
-      position: relative;
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 70px;
-    }
-    .built-track {
-      display: flex;
-      gap: 28px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
-      scroll-padding-left: 20px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      /* breathing room so the hover lift + glow aren't clipped */
-      padding: 24px 20px 50px;
-      margin: -24px -20px -50px;
-    }
-    .built-track::-webkit-scrollbar { display: none; }
-    .built-track .built-card {
-      flex: 0 0 calc((100% - 56px) / 3);
-      min-width: 0;
-      max-width: none;
-      scroll-snap-align: start;
-    }
-    .built-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 5;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1.5px solid var(--primary);
-      background: var(--white);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      transition: background 0.22s, color 0.22s, border-color 0.22s, box-shadow 0.22s, opacity 0.22s;
-    }
-    .built-arrow svg {
-      width: 22px;
-      height: 22px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2.4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .built-arrow-prev { left: 0; }
-    .built-arrow-next { right: 0; }
-    .built-arrow:hover:not(:disabled),
-    .built-arrow:focus-visible {
-      background: var(--primary);
-      color: var(--gold);
-      border-color: var(--gold);
-      box-shadow: 0 0 18px rgba(254,191,15,0.45);
-      outline: none;
-    }
-    .built-arrow:disabled { opacity: 0.35; cursor: default; box-shadow: none; }
-
-    @media (max-width: 900px) {
-      .built-carousel { padding: 0 60px; }
-      .built-track .built-card { flex: 0 0 calc((100% - 28px) / 2); }
-    }
-    @media (max-width: 600px) {
-      .built-carousel { padding: 0 48px; }
-      .built-track { gap: 20px; padding-left: 12px; padding-right: 12px; margin-left: -12px; margin-right: -12px; scroll-padding-left: 12px; }
-      .built-track .built-card { flex: 0 0 100%; }
-      .built-arrow { width: 40px; height: 40px; }
-      .built-arrow svg { width: 18px; height: 18px; }
-    }
-  </style>
+     </style>
 
   <!-- White outlined button style (used by "Learn More" in the workshop section).
        Inline so style.css does not need to be re-uploaded. -->
   <style>
     .btn-white {
-      background: var(--white);
-      color: var(--primary);
-      border-color: var(--border);
-    }
+  background: var(--white);
+  color: var(--primary);
+  border: 1.5px solid var(--border);
+  padding: 13.5px 32.5px;
+}
     .btn-white:hover {
       border-color: var(--primary-light);
       transform: translateY(-4px);
@@ -385,49 +309,21 @@
     </div>
   </nav>
 
-  <!-- 1. HERO — white -->
+ <!-- 1. HERO — white, centered editorial layout
+       Replaces the old hero (search bar and circle buttons removed).
+       Structure: headline, supporting paragraph, two buttons. -->
   <section class="hero-section">
-    <h1 class="hero-heading">Your AI team for every business need,<br class="hero-br"> in<span class="golden"> one affordable platform.</span></h1>
-    <p class="hero-sub">Describe what your business needs and let your AI coworkers handle the work.</p>
-    <div class="search-bar-wrap">
-      <div class="search-bar">
-        <button class="search-icon-btn" title="Upload file" type="button" id="uploadBtn">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="17 8 12 3 7 8"></polyline>
-            <line x1="12" y1="3" x2="12" y2="15"></line>
-          </svg>
-        </button>
-        <input type="file" id="fileInput" style="display:none;">
-        <input type="text" class="search-input" id="heroInput" placeholder="Design a logo and flyer for my restaurant"
-          autocomplete="off">
-        <button class="send-icon" type="button" title="Send" id="sendBtn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
-        </button>
+    <div class="container hero-inner">
+
+      <h1 class="hero-heading">Your AI team for every business need,<br class="hero-br"> in<span class="golden"> one affordable platform.</span></h1>
+
+      <p class="hero-sub">Describe what your business needs and your AI coworkers handle the work.</p>
+
+      <div class="hero-cta-row">
+        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span aria-hidden="true">→</span></a>
+        <a href="https://chat.ndovesha.ai/signup" class="btn btn-white">Try It Free with 200 Credits</a>
       </div>
-     <div class="capability-icons">
-        <a href="https://chat.ndovesha.ai/signup" class="cap-item">
-          <span class="cap-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 3 12 9 6"></polyline><polyline points="15 6 21 12 15 18"></polyline></svg></span>
-          <span class="cap-label">Software</span>
-        </a>
-        <a href="https://chat.ndovesha.ai/signup" class="cap-item">
-          <span class="cap-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg></span>
-          <span class="cap-label">Graphic Design</span>
-        </a>
-        <a href="https://chat.ndovesha.ai/signup" class="cap-item">
-          <span class="cap-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14.5 14.5 0 0 1 3.5 9 14.5 14.5 0 0 1-3.5 9 14.5 14.5 0 0 1-3.5-9A14.5 14.5 0 0 1 12 3z"></path></svg></span>
-          <span class="cap-label">Web Design</span>
-        </a>
-        <a href="https://chat.ndovesha.ai/signup" class="cap-item">
-          <span class="cap-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></span>
-          <span class="cap-label">Social Media</span>
-        </a>
-      </div>
+
     </div>
   </section>
 
@@ -499,6 +395,17 @@
     <h3>AI Graphic Designer</h3>
     <p>Design logos, flyers, and social graphics for a polished brand look.</p>
   </div>
+    <div class="ai-card">
+    <div class="ai-card-icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        <line x1="8" y1="8" x2="16" y2="8"></line>
+        <line x1="8" y1="12" x2="13" y2="12"></line>
+      </svg>
+    </div>
+    <h3>AI Social Media Manager</h3>
+    <p>Creates and publishes content on Meta, LinkedIn and X, so your brand stays active and attracts leads.</p>
+  </div>
 </div>
       <div class="ai-cta-center">
         <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
@@ -514,144 +421,143 @@
        All three cards now rotate (Spatial, Murclean and Joy's Hive).
        To change the speed, edit data-interval (milliseconds) on each slider. -->
   <section class="social-section">
-    <div class="container">
-      <div class="social-heading-wrap">
-        <h2 class="social-main-heading" style="font-weight: 800;">Your online brand presence, <span class="gold-autopilot">on autopilot</span></h2>
-        <p class="social-sub-heading">Hiring a social media manager is expensive, and doing it yourself eats your week. Our AI worker designs and posts on Meta, X and LinkedIn for you, with content built to attract customers and bring in leads.</p>
-      </div>
+  <div class="container">
+    <div class="social-heading-wrap">
+      <h2 class="social-main-heading" style="font-weight: 800;">Your online brand presence, <span class="gold-autopilot">on autopilot</span></h2>
+      <p class="social-sub-heading">Hiring a social media manager is expensive, and doing it yourself eats your week. Our AI worker designs and posts on Meta, X and LinkedIn for you, with content built to attract customers and bring in leads.</p>
+    </div>
 
-      <div class="brand-cards-grid">
-        <article class="brand-card">
-          <div class="brand-post">
-            <div class="brand-post-image brand-slider" data-interval="5000">
-              <img class="brand-slide is-active" src="post-spatial-1.jpg" alt="The blueprint for success starts below the surface: topographic survey post for Spatial Group Networks" loading="lazy">
-              <img class="brand-slide" src="post-spatial-2.jpg" alt="Don't build on assumptions, build on data: topographic survey post for Spatial Group Networks" loading="lazy">
-              <img class="brand-slide" src="post-spatial-3.jpg" alt="The essentials of land surveying: how land surveying works, post for Spatial Group Networks" loading="lazy">
-            </div>
-            <div class="brand-post-body">
-              <h3 class="brand-name">Spatial Group Networks</h3>
-              <p class="brand-post-caption">Land surveying explainers designed and posted by the AI worker.</p>
-              <a href="https://www.facebook.com/spatialgroupnetworks" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Spatial Group Networks's latest posts on Facebook">Check out their posts<span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-        </article>
-        <article class="brand-card">
-          <div class="brand-post">
-            <div class="brand-post-image brand-slider" data-interval="5000">
-              <img class="brand-slide is-active" src="post-murclean-1.jpg" alt="Pride Multiplus concentrated cleaner post created for Murclean Services" loading="lazy">
-              <img class="brand-slide" src="post-murclean-2.jpg" alt="Purix Shower Gel post created for Murclean Services" loading="lazy">
-              <img class="brand-slide" src="post-murclean-3.jpg" alt="Steris cleaner and disinfectant post created for Murclean Services" loading="lazy">
-            </div>
-            <div class="brand-post-body">
-              <h3 class="brand-name">Murclean Services</h3>
-              <p class="brand-post-caption">Commercial cleaning posts designed and posted by the AI worker.</p>
-              <a href="https://web.facebook.com/profile.php?id=61587891341400" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Murclean Services's latest posts on Facebook">Check out their posts <span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-        </article>
-        <article class="brand-card">
-          <div class="brand-post">
-            <div class="brand-post-image brand-slider" data-interval="5000">
-              <img class="brand-slide is-active" src="post-joyhive-1.jpg" alt="Pour a little joy: pure natural honey post created for Joy's Hive" loading="lazy">
-              <img class="brand-slide" src="post-joyhive-2.jpg" alt="Quality you can taste: natural honey post created for Joy's Hive" loading="lazy">
-              <img class="brand-slide" src="post-joyhive-3.jpg" alt="Indulge in nature's sweet whisper: pure honey post created for Joy's Hive" loading="lazy">
-            </div>
-            <div class="brand-post-body">
-              <h3 class="brand-name">Joy's Hive</h3>
-              <p class="brand-post-caption">Honey product promos designed and posted by the AI worker.</p>
-              <a href="https://web.facebook.com/profile.php?id=61593398631034" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Joyhive's latest posts on Facebook">Check out their posts<span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-        </article>
-      </div>
+    <div class="brand-bento-wrap">
+      <div class="brand-bento">
 
-      <div class="ai-cta-center">
-        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span aria-hidden="true">→</span></a>
+        <a href="https://www.facebook.com/spatialgroupnetworks" target="_blank" rel="noopener noreferrer"
+           class="bento-tile bento-spatial-1" aria-label="See Spatial Group Networks on Facebook">
+          <img src="post-spatial-1.jpg" alt="The blueprint for success starts below the surface: topographic survey post for Spatial Group Networks" loading="lazy">
+          <span class="bento-label">Spatial Group Networks</span>
+        </a>
+
+        <a href="https://web.facebook.com/profile.php?id=61587891341400" target="_blank" rel="noopener noreferrer"
+           class="bento-tile bento-murclean-1" aria-label="See Murclean Services on Facebook">
+          <img src="post-murclean-1.jpg" alt="Pride Multiplus concentrated cleaner post created for Murclean Services" loading="lazy">
+          <span class="bento-label">Murclean Services</span>
+        </a>
+
+        <a href="https://web.facebook.com/profile.php?id=61587891341400" target="_blank" rel="noopener noreferrer"
+           class="bento-tile bento-murclean-2" aria-label="See Murclean Services on Facebook">
+          <img src="post-murclean-2.jpg" alt="Purix Shower Gel post created for Murclean Services" loading="lazy">
+          <span class="bento-label">Murclean Services</span>
+        </a>
+
+        <a href="https://web.facebook.com/profile.php?id=61593398631034" target="_blank" rel="noopener noreferrer"
+           class="bento-tile bento-joyhive-1" aria-label="See Joy's Hive on Facebook">
+          <img src="post-joyhive-1.jpg" alt="Pour a little joy: pure natural honey post created for Joy's Hive" loading="lazy">
+          <span class="bento-label">Joy's Hive</span>
+        </a>
+
+        <a href="https://www.facebook.com/spatialgroupnetworks" target="_blank" rel="noopener noreferrer"
+           class="bento-tile bento-spatial-2" aria-label="See Spatial Group Networks on Facebook">
+          <img src="post-spatial-2.jpg" alt="Don't build on assumptions, build on data: topographic survey post for Spatial Group Networks" loading="lazy">
+          <span class="bento-label">Spatial Group Networks</span>
+        </a>
+
+        <a href="https://web.facebook.com/profile.php?id=61593398631034" target="_blank" rel="noopener noreferrer"
+           class="bento-tile bento-joyhive-2" aria-label="See Joy's Hive on Facebook">
+          <img src="post-joyhive-2.jpg" alt="Quality you can taste: natural honey post created for Joy's Hive" loading="lazy">
+          <span class="bento-label">Joy's Hive</span>
+        </a>
+
       </div>
     </div>
-  </section>
 
+    <div class="ai-cta-center">
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
 
-  <!-- 4b. BUILT WITH NDOVESHA — white -->
+    <!-- 4b. BUILT WITH NDOVESHA — white
+       Center-focus carousel: one site large in the middle, its neighbours cropped on
+       either side. Auto-advances every 3 seconds (see built-section.js).
+       To change the speed, edit data-interval (milliseconds) on #builtCarousel.
+       To add a site: copy one <a class="built-card"> and one <button class="built-dot">. -->
   <section class="built-section">
     <div class="container">
       <div class="built-heading-wrap">
         <h2 class="built-main-heading" style="font-weight: 800;">Websites Built with <span class="gold-built">Ndovesha</span></h2>
-        <p class="built-sub-heading">Explore websites created with Ndovesha and see what’s possible when AI coworkers turn ideas into reality. Your website could be next.
-</p>
+      </div>
+    </div>
+
+    <div class="built-carousel" id="builtCarousel" data-interval="3000" role="region" aria-roledescription="carousel" aria-label="Websites built with Ndovesha">
+      <div class="built-stage" id="builtStage">
+
+        <a class="built-card" href="https://mamboleographix.co.ke/" target="_blank" rel="noopener noreferrer" aria-label="Visit Mambo Leo Graphics Media website">
+          <img src="built-mamboleo.png" alt="Mambo Leo Graphics Media website homepage" decoding="async">
+          <span class="built-card-info">
+            <span class="built-card-name">Mambo Leo Graphics Media</span>
+            <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <a class="built-card" href="https://dripmasterseastafrica.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit DripMasters East Africa website">
+          <img src="built-dripmasters.png" alt="DripMasters East Africa website homepage" decoding="async">
+          <span class="built-card-info">
+            <span class="built-card-name">DripMasters East Africa</span>
+            <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <a class="built-card" href="https://yourplotplug254.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Your Plot Plug 254 website">
+          <img src="built-yourplotplug254.png" alt="Your Plot Plug 254 website homepage" decoding="async">
+          <span class="built-card-info">
+            <span class="built-card-name">Your Plot Plug 254</span>
+            <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <a class="built-card" href="https://murclean.co.ke/" target="_blank" rel="noopener noreferrer" aria-label="Visit Murclean Services website">
+          <img src="built-murclean.png" alt="Murclean Services website homepage" decoding="async">
+          <span class="built-card-info">
+            <span class="built-card-name">Murclean Services</span>
+            <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <a class="built-card" href="https://winaautomaxspares.co.ke/" target="_blank" rel="noopener noreferrer" aria-label="Visit WINA AutoMax and Spares website">
+          <img src="built-wina.png" alt="WINA AutoMax &amp; Spares website homepage" decoding="async">
+          <span class="built-card-info">
+            <span class="built-card-name">WINA AutoMax &amp; Spares</span>
+            <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <a class="built-card" href="https://spatialgroupnetworks.co.ke/" target="_blank" rel="noopener noreferrer" aria-label="Visit Spatial Group Networks website">
+          <img src="built-spatial.png" alt="Spatial Group Networks website homepage" decoding="async">
+          <span class="built-card-info">
+            <span class="built-card-name">Spatial Group Networks</span>
+            <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
       </div>
 
-      <div class="built-carousel" id="builtCarousel" role="region" aria-roledescription="carousel" aria-label="Websites built with Ndovesha">
-        <button type="button" class="built-arrow built-arrow-prev" id="builtPrev" aria-label="Previous websites"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-        <div class="built-track" id="builtTrack">
-          <article class="built-card">
-            <div class="built-card-image">
-              <img src="built-mamboleo.png" alt="Mambo Leo Graphics Media website homepage" loading="lazy">
-            </div>
-            <div class="built-card-body">
-              <h3 class="built-card-title">Mambo Leo Graphics Media</h3>
-              <p class="built-card-text">A print and branding studio website that turns visitors into quote requests.</p>
-              <a href="https://mamboleographix.co.ke/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="built-card">
-            <div class="built-card-image">
-              <img src="built-dripmasters.png" alt="DripMasters East Africa website homepage" loading="lazy">
-            </div>
-            <div class="built-card-body">
-              <h3 class="built-card-title">DripMasters East Africa</h3>
-              <p class="built-card-text">A clear, professional site for water storage, irrigation and greenhouse solutions.</p>
-              <a href="https://dripmasterseastafrica.com/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="built-card">
-            <div class="built-card-image">
-              <img src="built-yourplotplug254.png" alt="Your Plot Plug 254 website homepage" loading="lazy">
-            </div>
-            <div class="built-card-body">
-              <h3 class="built-card-title">Your Plot Plug 254</h3>
-              <p class="built-card-text">A land investment website showcasing plots in Diani, Lukenya and Naivasha.</p>
-              <a href="https://yourplotplug254.com/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="built-card">
-            <div class="built-card-image">
-              <img src="built-murclean.png" alt="Murclean Services website homepage" loading="lazy">
-            </div>
-            <div class="built-card-body">
-              <h3 class="built-card-title">Murclean Services</h3>
-              <p class="built-card-text">An industrial cleaning and hygiene supplier site that drives quote requests.</p>
-              <a href="https://murclean.co.ke/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="built-card">
-            <div class="built-card-image">
-              <img src="built-wina.png" alt="WINA AutoMax &amp; Spares website homepage" loading="lazy">
-            </div>
-            <div class="built-card-body">
-              <h3 class="built-card-title">WINA AutoMax &amp; Spares</h3>
-              <p class="built-card-text">An auto spares and vehicles site for parts, tyres and cars for sale in Kenya.</p>
-              <a href="https://winaautomaxspares.co.ke/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="built-card">
-            <div class="built-card-image">
-              <img src="built-spatial.png" alt="Spatial Group Networks website homepage" loading="lazy">
-            </div>
-            <div class="built-card-body">
-              <h3 class="built-card-title">Spatial Group Networks</h3>
-              <p class="built-card-text">A land surveying and property services site that turns visitors into quote requests.</p>
-              <a href="https://spatialgroupnetworks.co.ke/" target="_blank" rel="noopener noreferrer" class="btn btn-navy built-card-cta">Visit Website <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-        </div>
-        <button type="button" class="built-arrow built-arrow-next" id="builtNext" aria-label="Next websites"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      <div class="built-dots" id="builtDots">
+        <button type="button" class="built-dot" aria-label="Show Mambo Leo Graphics Media"></button>
+        <button type="button" class="built-dot" aria-label="Show DripMasters East Africa"></button>
+        <button type="button" class="built-dot" aria-label="Show Your Plot Plug 254"></button>
+        <button type="button" class="built-dot" aria-label="Show Murclean Services"></button>
+        <button type="button" class="built-dot" aria-label="Show WINA AutoMax and Spares"></button>
+        <button type="button" class="built-dot" aria-label="Show Spatial Group Networks"></button>
       </div>
+    </div>
+    
+    <div class="challenges-cta-center">
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
+          aria-hidden="true">→</span></a>
     </div>
   </section>
 
 
-  <!-- 5. THE FUTURE OF WORK IS CHANGING — grey -->
+      <!-- 5. THE FUTURE OF WORK IS CHANGING — white -->
   <section class="shift-section">
 
     <!-- SECTION INTRO -->
@@ -742,7 +648,6 @@
         <article class="review-card">
           <div class="review-avatar" aria-hidden="true">AO</div>
           <h3 class="review-name">Agu Ogonna</h3>
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars"><span style="width:100%"></span></div>
           <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
           <p>Ndovesha is a great platform for Markerters to make speedy growth and am glad for the different opportunities it present. Easy to navigate user interface and smooth ride all the way.</p>
         </article>
@@ -750,15 +655,13 @@
         <article class="review-card">
           <div class="review-avatar" aria-hidden="true">GN</div>
           <h3 class="review-name">Grace Kui Nderitu</h3>
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars"><span style="width:100%"></span></div>
-          <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
+           <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
           <p>This is the best platform that has been created and the best thing it's authentically Kenyan</p>
         </article>
 
         <article class="review-card">
           <div class="review-avatar" aria-hidden="true">IA</div>
           <h3 class="review-name">Ibrahim Abdirahman</h3>
-          <div class="review-stars" role="img" aria-label="Rated 5 out of 5 stars"><span style="width:100%"></span></div>
           <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
           <p>Absolutely amazing. Using Ndovesha Ai to build our comprehensive feedback</p>
         </article>
@@ -1132,46 +1035,6 @@ document.addEventListener('click', function (e) {
         if (!isOpen) fold.classList.add('open');
       });
     });
-    document.getElementById('uploadBtn').addEventListener('click', function () {
-      document.getElementById('fileInput').click();
-    });
-    var heroInput = document.getElementById('heroInput');
-    var sendBtn = document.getElementById('sendBtn');
-    sendBtn.addEventListener('click', function () {
-      window.location.href = 'https://chat.ndovesha.ai/signup';
-    });
-    var placeholders = [
-      'Design a logo and a flyer for my restaurant',
-      'Write social media captions for my clothing brand',
-      'Create a salon management system with bookings and client records',
-      'Design banners and social graphics for a product launch',
-      'Build a school management system with student and staff records',
-      'Build a company website for my real estate business',
-      'Create a restaurant reservation app with table management',
-      'Build a CRM to track leads, deals, and customer follow-ups'
-    ];
-    var placeholderIndex = 0;
-    var placeholderTimer = null;
-    function canRotatePlaceholder() { return document.activeElement !== heroInput && !heroInput.value.trim(); }
-    function rotatePlaceholder() {
-      if (!canRotatePlaceholder()) return;
-      placeholderIndex = (placeholderIndex + 1) % placeholders.length;
-      heroInput.placeholder = placeholders[placeholderIndex];
-    }
-    function startPlaceholderRotation() {
-      if (placeholderTimer) return;
-      placeholderTimer = setInterval(rotatePlaceholder, 5000);
-    }
-    function stopPlaceholderRotation() {
-      if (placeholderTimer) { clearInterval(placeholderTimer); placeholderTimer = null; }
-    }
-    heroInput.addEventListener('focus', stopPlaceholderRotation);
-    heroInput.addEventListener('blur', function () { if (canRotatePlaceholder()) startPlaceholderRotation(); });
-    heroInput.addEventListener('input', function () {
-      if (this.value.trim()) { stopPlaceholderRotation(); }
-      else if (document.activeElement !== heroInput) { startPlaceholderRotation(); }
-    });
-    startPlaceholderRotation();
 
     document.querySelectorAll('.faq-item').forEach(function (item) {
       var row = item.querySelector('.faq-question-row');
@@ -1184,83 +1047,131 @@ document.addEventListener('click', function (e) {
       });
     });
 
-    /*
-     * Brand post sliders ("Three Brands on Autopilot")
-     * Each .brand-slider holds 2+ .brand-slide images (currently 3). Every
-     * data-interval milliseconds (default 5000 = 5 seconds) the
-     * active slide fades out and the next one fades in.
-     * Sliders with only one image are left alone.
-     */
-    document.querySelectorAll('.brand-slider').forEach(function (slider) {
-      var slides = slider.querySelectorAll('.brand-slide');
-      if (slides.length < 2) return;
-      var current = 0;
-      var delay = parseInt(slider.getAttribute('data-interval'), 10) || 5000;
-      setInterval(function () {
-        slides[current].classList.remove('is-active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('is-active');
-      }, delay);
+
+    /* Websites Built with Ndovesha: center-focus carousel (mobile-friendly version).
+   Replaces the inline <script> block that starts with the comment
+   "Built with Ndovesha: center-focus carousel" in index.html.
+
+   What changed for phones and tablets:
+   - Autoplay no longer freezes after a tap. Phones fire an emulated "mouseenter"
+     on tap that never gets a matching "mouseleave", so the old script stayed paused
+     forever. Hover-pausing now only reacts to a real mouse.
+   - Autoplay pauses while a finger is on the carousel, then resumes.
+   - Swipes only count when they are mostly sideways, so scrolling the page up or
+     down no longer flips the carousel by accident.
+   - Tapping a faded neighbour card brings it to the centre instead of opening its
+     site by mistake; tapping the centre card still opens the site.
+   - Keyboard focus still pauses autoplay (focus-visible only, not tap focus). */
+(function () {
+  var root = document.getElementById('builtCarousel');
+  if (!root) return;
+  var stage = document.getElementById('builtStage');
+  var cards = Array.prototype.slice.call(stage.querySelectorAll('.built-card'));
+  var dots = Array.prototype.slice.call(root.querySelectorAll('.built-dot'));
+  var n = cards.length;
+  if (n < 2) return;
+
+  var interval = parseInt(root.getAttribute('data-interval'), 10) || 3000;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var active = 0;
+  var timer = null;
+  var hovering = false, focused = false, touching = false;
+  var hidden = document.hidden, offscreen = false;
+
+  function render() {
+    cards.forEach(function (card, i) {
+      var d = ((i - active) % n + n) % n;
+      if (d > n / 2) d -= n;
+      var pos = d === 0 ? 'active' : (Math.abs(d) === 1 ? 'near' : 'far');
+      card.style.setProperty('--o', d);
+      card.setAttribute('data-pos', pos);
+      card.setAttribute('aria-hidden', pos === 'far' ? 'true' : 'false');
+      card.tabIndex = pos === 'far' ? -1 : 0;
     });
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-      /*
-       * Subtle entrance animation
-       */
-      const cards = document.querySelectorAll(".problem-card, .solution-card");
-
-      cards.forEach(function (card, i) {
-        card.style.opacity = "0";
-        card.style.transform = "translateY(20px)";
-
-        requestAnimationFrame(() => {
-          card.style.transition =
-            "opacity 0.7s ease " + (i * 0.12) + "s, transform 0.7s ease " + (i * 0.12) + "s";
-
-          card.style.opacity = "1";
-          card.style.transform = "translateY(0)";
-        });
-      });
-
+    dots.forEach(function (dot, i) {
+      if (i === active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
     });
-  </script>
-  <script>
-    /* Built with Ndovesha carousel: each arrow press moves one full "page"
-       (3 cards on desktop, 2 on tablet, 1 on phones), so cards 1-3 show first
-       and cards 4-6 show after pressing next. Arrows disable at either end. */
-    (function () {
-      var track = document.getElementById('builtTrack');
-      var prev = document.getElementById('builtPrev');
-      var next = document.getElementById('builtNext');
-      if (!track || !prev || !next) return;
-      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      function perView() {
-        var w = window.innerWidth;
-        return w <= 600 ? 1 : (w <= 900 ? 2 : 3);
+    stage.classList.add('is-ready');
+  }
+
+  function goTo(i) { active = (i + n) % n; render(); }
+
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function start() {
+    stop();
+    if (reduce || hovering || focused || touching || hidden || offscreen) return;
+    timer = setInterval(function () { goTo(active + 1); }, interval);
+  }
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () { goTo(i); start(); });
+  });
+
+  /* Pause on hover: real mouse only (touch taps must not freeze autoplay) */
+  root.addEventListener('pointerenter', function (e) {
+    if (e.pointerType === 'mouse') { hovering = true; start(); }
+  });
+  root.addEventListener('pointerleave', function (e) {
+    if (e.pointerType === 'mouse') { hovering = false; start(); }
+  });
+
+  /* Pause on keyboard focus only */
+  root.addEventListener('focusin', function (e) {
+    if (e.target.matches && e.target.matches(':focus-visible')) { focused = true; start(); }
+  });
+  root.addEventListener('focusout', function () { focused = false; start(); });
+
+  document.addEventListener('visibilitychange', function () { hidden = document.hidden; start(); });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      offscreen = !entries[0].isIntersecting;
+      start();
+    }, { threshold: 0.2 }).observe(root);
+  }
+
+  /* Swipe: mostly-horizontal drags move one card; vertical drags just scroll the page */
+  var startX = null, startY = null;
+  stage.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    touching = true;
+    start();
+  }, { passive: true });
+
+  stage.addEventListener('touchend', function (e) {
+    touching = false;
+    if (startX !== null) {
+      var dx = e.changedTouches[0].clientX - startX;
+      var dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        goTo(active + (dx < 0 ? 1 : -1));
       }
-      function pageStep() {
-        var card = track.querySelector('.built-card');
-        var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-        return card ? (card.getBoundingClientRect().width + gap) * perView() : track.clientWidth;
-      }
-      function update() {
-        prev.disabled = track.scrollLeft <= 2;
-        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
-      }
-      function go(dir) {
-        var step = pageStep();
-        var page = Math.round(track.scrollLeft / step) + dir;
-        var max = Math.max(0, track.scrollWidth - track.clientWidth);
-        var target = Math.min(Math.max(page * step, 0), max);
-        track.scrollTo({ left: target, behavior: reduce ? 'auto' : 'smooth' });
-      }
-      prev.addEventListener('click', function () { go(-1); });
-      next.addEventListener('click', function () { go(1); });
-      track.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', update);
-      update();
-    })();
+    }
+    startX = startY = null;
+    start();
+  }, { passive: true });
+
+  stage.addEventListener('touchcancel', function () {
+    touching = false;
+    startX = startY = null;
+    start();
+  }, { passive: true });
+
+  /* Tapping a faded neighbour centres it instead of opening its site */
+  stage.addEventListener('click', function (e) {
+    var card = e.target.closest ? e.target.closest('.built-card') : null;
+    if (card && card.getAttribute('data-pos') === 'near') {
+      e.preventDefault();
+      goTo(cards.indexOf(card));
+      start();
+    }
+  });
+
+  render();
+  start();
+})();
   </script>
   <script type="module"
     src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496"
