@@ -31,9 +31,6 @@
   --muted: #718096;
   --card-shadow: 0 30px 80px rgba(0, 51, 102, 0.07), 0 8px 24px rgba(0, 51, 102, 0.035);
 
-  /* NEW — previously referenced throughout the "Shift" section but
-     never defined, which is why the description colour and the
-     title/description sizing weren't behaving as intended */
   --problem-text: var(--text-light);
   --problem-text-light: var(--text-light);
   --panel-heading-size: 1.65rem;
@@ -47,15 +44,10 @@
   --font-extrabold: 800;
   --font-h3:        600; /* h3s sit heavier than the rest of the heading scale */
 
-  /* Single source of truth for every section heading (including the
-     hero) so they can't drift out of sync with each other again */
+  /* Single source of truth for every section heading (including the hero) */
   --heading-size: clamp(2.4rem, 4.8vw, 3.9rem);
 
-  /* Single source of truth for the vertical gap around every section.
-     clamp() scales it down smoothly on smaller screens instead of
-     jumping between hard-coded per-breakpoint numbers, so the gap
-     between any two sections stays the same everywhere and never
-     balloons into unused space on short/tall viewports. */
+  /* Single source of truth for the vertical gap around every section */
   --section-py: clamp(48px, 6vw, 80px);
 }
 
@@ -85,7 +77,6 @@ img { max-width: 100%; display: block; }
 
 /* ============================================================
    GLOBAL FONT-WEIGHT ASSIGNMENTS
-   Centralized here instead of on individual selectors.
 ============================================================ */
 
 /* Regular — 400 */
@@ -376,70 +367,133 @@ h3,
 @media (max-width: 414px){
   .logo-img{max-width: 180px; height: auto;}
 }
-
 /* ============================================================
-   1. HERO — white
-============================================================ */
-/* ============================================================
-   1. HERO — white, centered editorial layout
-   Replace the whole old hero block in style.css (from the
-   "1. HERO" comment down to just before "2. IN-PERSON WORKSHOP")
-   with this. Fonts, sizes and colours reuse your existing tokens.
-   Needs the .btn-white rule already inlined in index.html's <head>.
+   1. HERO — white, centered layout with soft brand glows
 ============================================================ */
 .hero-section {
+  position: relative;
+  overflow: hidden;
   background: var(--white);
-  min-height: clamp(420px, 62vh, 640px);
+  min-height: clamp(560px, 80vh, 760px);
   display: flex;
   align-items: center;
   padding: var(--section-py) 0;
 }
 
-.hero-inner {
+.hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
 }
 
+/* ----- Title and description ----- */
 .hero-heading {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 800;
-  font-size: clamp(1.7rem, 3.9vw, 3.3rem);
+  font-size: var(--heading-size);
   line-height: 1.12;
   color: var(--primary);
-  max-width: 1000px;
-  margin: 0 0 22px;
-  white-space: normal;
-  text-wrap: balance;
+  margin: 0 0 clamp(24px, 3vw, 36px);   /* title → description */
 }
 .hero-heading .golden { color: var(--gold); }
 
 .hero-sub {
-  font-size: clamp(1.08rem, 1.9vw, 1.28rem);
+  font-size: clamp(1.02rem, 1.5vw, 1.2rem);
   color: var(--text-light);
-  max-width: 560px;
-  margin: 0 0 34px;
-  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto clamp(36px, 4.5vw, 52px);   /* description → CTA */
+  line-height: 1.65;
 }
 
 .hero-cta-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
+  width: 100%;
+  margin-bottom: clamp(64px, 8vw, 104px);   /* CTA → logo marquee */
 }
 
-@media (max-width: 768px) {
-  .hero-br { display: none; }
+/* ----- Trusted by ----- */
+.hero-trusted-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin: 0 0 clamp(20px, 2.5vw, 28px);   /* "Trusted by:" → logos */
+}
+
+.hero-trusted-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 22px 40px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ----- Logo marquee ----- */
+.hero-trusted { width: 100%; max-width: 900px; }
+
+.hero-marquee {
+  overflow: hidden;
+  width: 100%;
+  /* fade the logos in and out at both edges */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.hero-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: heroMarquee 28s linear infinite;
+}
+.hero-marquee:hover .hero-marquee-track { animation-play-state: paused; }
+
+.hero-marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 56px;
+  padding-right: 56px;   /* equals the gap, so the two copies join evenly */
+}
+
+.hero-marquee-group img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+.hero-marquee-group a:hover img { transform: scale(1.06); }
+
+@keyframes heroMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 @media (max-width: 640px) {
-  .hero-section { min-height: auto; padding: var(--section-py) 0; }
-  .hero-cta-row { flex-direction: column; width: 100%; max-width: 320px; }
-  .hero-cta-row .btn { width: 100%; }
+  .hero-marquee-group { gap: 36px; padding-right: 36px; }
+  .hero-marquee-group img { height: 36px; }
+  .hero-marquee-track { animation-duration: 22s; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-marquee-track { animation: none; }
+  .hero-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+}
+
+/* ----- Tablet and below ----- */
+@media (max-width: 968px) {
+  .hero-section { min-height: auto; }
+}
+
+@media (max-width: 640px) {
+  .hero-bg { width: 70%; }
+  .hero-cta-row { margin-bottom: 56px; }
+  .hero-cta-row .btn { width: 100%; max-width: 320px; }
+}
+
 
 /* ============================================================
    2. IN-PERSON WORKSHOP SECTION — grey
@@ -461,7 +515,7 @@ h3,
   font-size: var(--heading-size);
   line-height: 1.1;
   color: var(--primary);
-  margin-bottom: 28px;   /* was: 16px — small gap before the supporting paragraph */
+  margin-bottom: 28px;
   white-space: normal;
   text-align: center;
 }
@@ -471,7 +525,7 @@ h3,
 }
 .gold-in-person {
   color: var(--gold);
-  display: inline;   /* was: block — that forced "In Person" onto its own line */
+  display: inline;
   white-space: nowrap;
 }
 
@@ -479,7 +533,7 @@ h3,
   font-size: clamp(1.08rem, 1.9vw, 1.28rem);
   color: var(--text-light);
   max-width: 560px;
-  margin: 0 auto 48px;   /* was: 0 auto 28px — larger gap before the tagline */
+  margin: 0 auto 48px;
   line-height: 1.6;
 }
 
@@ -517,13 +571,13 @@ h3,
 .workshop-tagline-ai { color: var(--gold); }
 
 @media (max-width: 768px) {
-  .workshop-sub { margin-bottom: 32px; }   /* tighter gap when the tagline stacks */
+  .workshop-sub { margin-bottom: 32px; }
   .workshop-tagline {
     flex-direction: column;
     gap: 6px;
   }
   .workshop-tagline-item + .workshop-tagline-item::before {
-    display: none;   /* no dividers when stacked */
+    display: none;
   }
 }
 
@@ -642,9 +696,10 @@ h3,
   text-align: left;
 }
 .ai-card-icon {
-  width: 66px;
-  height: 66px;
-  border-radius: 16px;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
   background: var(--primary);
   display: flex;
   align-items: center;
@@ -654,10 +709,10 @@ h3,
 }
 
 .ai-card-icon svg {
-  width: 30px;
-  height: 30px;
-  stroke: var(--gold);   /* was: var(--white) */
-  color: var(--gold);    /* was: var(--white) */
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+  color: var(--gold);
   fill: none;
   stroke-width: 1.8;
   stroke-linecap: round;
@@ -665,7 +720,7 @@ h3,
 }
 
 .ai-card:hover .ai-card-icon {
-  background: var(--gold);   /* was: var(--primary-light) */
+  background: var(--gold);
   color: var(--primary);
 }
 .ai-card:hover .ai-card-icon svg {
@@ -743,7 +798,6 @@ h3,
   background: var(--light-grey);
 }
 
-/* ----- Heading + supporting paragraph ----- */
 .social-heading-wrap {
   text-align: center;
   margin-bottom: 48px;
@@ -763,7 +817,7 @@ h3,
 
 .gold-autopilot {
   color: var(--gold);
-  display: inline-block;   /* keeps "on autopilot" together on one line */
+  display: inline-block;
 }
 
 .social-sub-heading {
@@ -775,26 +829,63 @@ h3,
   line-height: 1.6;
 }
 
-/* ----- Bento grid ----- */
-.brand-bento-wrap {
-  max-width: 1000px;
+/* ----- Brand switcher ----- */
+.brand-switcher {
+  max-width: 920px;
   margin: 0 auto;
-  container-type: inline-size;   /* lets tiles stay perfectly square at any width */
+}
+.brand-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
 }
 
-.brand-bento {
-  --cols: 4;
-  --gap: 16px;
-  --cell: calc((100cqw - (var(--cols) - 1) * var(--gap)) / var(--cols));
+.brand-tab {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.95rem;
+  font-weight: var(--font-bold);
+  padding: 12px 26px;
+  border-radius: 50px;
+  background: var(--white);
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.brand-tab:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+.brand-tab.active {
+  background: var(--primary);
+  color: var(--gold);
+  border-color: var(--primary);
+}
+.brand-tab:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Only the active brand is shown; its two posts sit side by side */
+.brand-panel {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.brand-panel.active {
   display: grid;
-  grid-template-columns: repeat(var(--cols), 1fr);
-  grid-auto-rows: var(--cell);
-  gap: var(--gap);
+  animation: brandFade 0.5s ease;
+}
+@keyframes brandFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.bento-tile {
-  position: relative;
+.brand-post {
   display: block;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border: 1.5px solid var(--primary);
   border-radius: 16px;
@@ -802,64 +893,32 @@ h3,
   box-shadow: 0 4px 16px rgba(10,42,102,0.06);
   transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
-.bento-tile img {
+.brand-post img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
-.bento-tile:hover,
-.bento-tile:focus-visible {
+.brand-post:hover,
+.brand-post:focus-visible {
   transform: translateY(-6px);
   border-color: var(--gold);
   box-shadow: 0 0 42px rgba(254,191,15,0.5), 0 8px 32px rgba(10,42,102,0.10);
   outline: none;
-  z-index: 2;
 }
-.bento-tile:hover img,
-.bento-tile:focus-visible img { transform: scale(1.05); }
+.brand-post:hover img,
+.brand-post:focus-visible img { transform: scale(1.05); }
 
-/* Brand name chip that slides up on hover */
-.bento-label {
-  position: absolute;
-  left: 12px;
-  bottom: 12px;
-  padding: 6px 14px;
-  border-radius: 50px;
-  background: var(--primary);
-  color: var(--gold);
-  font-size: 0.82rem;
-  font-weight: var(--font-bold);
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-.bento-tile:hover .bento-label,
-.bento-tile:focus-visible .bento-label {
-  opacity: 1;
-  transform: translateY(0);
+@media (max-width: 600px) {
+  .brand-tabs { gap: 8px; margin-bottom: 24px; }
+  .brand-tab { font-size: 0.85rem; padding: 10px 16px; }
+  .brand-panel { gap: 12px; }
 }
 
-/* Desktop placement: two big 2x2 tiles on opposite corners */
-@media (min-width: 701px) {
-  .bento-spatial-1  { grid-column: 1 / 3; grid-row: 1 / 3; }
-  .bento-murclean-1 { grid-column: 3;     grid-row: 1; }
-  .bento-murclean-2 { grid-column: 4;     grid-row: 1; }
-  .bento-joyhive-1  { grid-column: 3 / 5; grid-row: 2 / 4; }
-  .bento-spatial-2  { grid-column: 1;     grid-row: 3; }
-  .bento-joyhive-2  { grid-column: 2;     grid-row: 3; }
+@media (prefers-reduced-motion: reduce) {
+  .brand-panel.active { animation: none; }
+  .brand-tab, .brand-post, .brand-post img { transition: none; }
 }
-
-/* Mobile: 2 columns, big tiles span the full width */
-@media (max-width: 700px) {
-  .brand-bento { --cols: 2; --gap: 12px; }
-  .bento-spatial-1,
-  .bento-joyhive-1 { grid-column: span 2; grid-row: span 2; }
-  /* no hover on touch, so the brand chip is always visible */
-  .bento-label { opacity: 1; transform: none; font-size: 0.75rem; left: 8px; bottom: 8px; }
-}
-
 /* ----- CTA button ----- */
 .social-section .ai-cta-center {
   text-align: center;
@@ -895,28 +954,29 @@ h3,
   .social-section .ai-cta-center .btn { width: 100%; max-width: 320px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .bento-tile, .bento-tile img, .bento-label { transition: none; }
-}
 
 /* ============================================================
    4b. BUILT WITH NDOVESHA — white
-   Center-focus carousel (Apple TV style): one wide card in the middle,
-   the previous / next cards at the same height, faded and cropped by
-   the screen edges. Auto-advances every 3 seconds.
+   CENTER-FOCUS CAROUSEL: the active card sits in the middle at full
+   size; the cards either side are smaller and faded. Every 3 seconds
+   (data-interval on #builtCarousel) the cards rotate one place and the
+   loop never ends. See the script at the bottom of index.html.
 
+   How it works: all cards are stacked in the same grid cell. JS gives each
+   card a data-pos (0 = centre, -1/1 = next to it, -2/2 = further out,
+   -3/3 = hidden) and the CSS below turns that into a position, size and fade.
 ============================================================ */
 .built-section {
   padding: var(--section-py) 0;
   background: var(--white);
-  overflow: hidden;   /* cropped side cards never cause sideways page scroll */
+  overflow: hidden;   /* never causes sideways page scroll */
 }
- 
+
 .built-heading-wrap {
   text-align: center;
   margin-bottom: 24px;
 }
- 
+
 .built-main-heading {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 800;
@@ -928,138 +988,162 @@ h3,
   white-space: normal;
   text-wrap: balance;
 }
- 
+
 .gold-built {
   color: var(--gold);
   display: inline-block;
 }
- 
-/* --gap  = space between neighbouring cards
-   --side = how much of each neighbour peeks in, as a fraction of its width
-   --card-radius = corner rounding (0 = square) */
+
+/* --cw    = width of a card (as a share of the carousel)
+   --shift = how far each step moves a card sideways (as a share of the card's own width) */
 .built-section .built-carousel {
-  --gap: 18px;
-  --side: 0.23;
-  --card-radius: 0;
+  --cw: 34%;
+  --shift: 104%;
   width: 100%;
-  margin: 0;
-  padding: 0;
 }
-@media (max-width: 1000px) { .built-section .built-carousel { --side: 0.15; --gap: 12px; } }
-@media (max-width: 700px)  { .built-section .built-carousel { --side: 0.1;  --gap: 8px; } }
- 
-/* ----- Stage -----
-   All cards share one grid cell, so the stage is exactly one card tall.
-   JS sets --o (offset from the active card) on every card:
-   0 = centre, -1 / 1 = the peeking neighbours, anything else is hidden. */
+@media (max-width: 900px) { .built-section .built-carousel { --cw: 52%; --shift: 100%; } }
+@media (max-width: 600px) { .built-section .built-carousel { --cw: 78%; --shift: 92%; } }
+
+/* ----- Viewport: clips cards that slide past the edges.
+   Vertical padding leaves room for the hover lift and glow. ----- */
+.built-viewport {
+  overflow: hidden;
+  padding: 26px 0 32px;
+  touch-action: pan-y;   /* vertical scroll stays native, horizontal is the swipe */
+}
+
+/* ----- Stage: every card shares one grid cell, so the stage is as tall as the
+   tallest card and all cards come out the same height ----- */
 .built-stage {
   display: grid;
-  overflow: hidden;
-  padding: 24px 0 32px;
+  justify-items: center;
 }
- 
+
+/* ----- Card (white, deep-blue outline, 16px corners) ----- */
 .built-card {
   grid-area: 1 / 1;
-  justify-self: center;
-  position: relative;
-  isolation: isolate;
-  display: block;
-  width: min(calc((100% - 2 * var(--gap)) / (1 + 2 * var(--side))), 1500px);
-  aspect-ratio: 16 / 9;
-  border-radius: var(--card-radius);
+  width: var(--cw);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1.5px solid var(--primary);
+  border-radius: 16px;
   overflow: hidden;
-  background: var(--primary-dark);
-  transform: translateX(calc(var(--o, 0) * (100% + var(--gap))));
-  opacity: 0;
-  pointer-events: none;
-  z-index: 1;
-  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.8s ease;
+  box-shadow: 0 4px 16px rgba(10,42,102,0.06);
+
+  /* position / size / fade come from the data-pos rules below */
+  --p: 0;
+  --s: 1;
+  --o: 1;
+  --z: 0;
+  --lift: 0px;
+  transform: translateX(calc(var(--p) * var(--shift))) scale(var(--s)) translateY(var(--lift));
+  opacity: var(--o);
+  z-index: var(--z);
+  will-change: transform, opacity;
+  transition:
+    transform 0.8s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.8s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
 }
-/* Before the script runs, show the first card instead of an empty stage */
-.built-stage:not(.is-ready) .built-card:first-child { opacity: 1; pointer-events: auto; }
- 
-/* Neighbours: same size, washed out against the white page */
-.built-card[data-pos="near"]   { opacity: 0.4; pointer-events: auto; }
-.built-card[data-pos="active"] { opacity: 1; pointer-events: auto; z-index: 2; }
- 
-.built-card img {
-  position: absolute;
-  inset: 0;
+
+/* Used by JS when a card has to jump from one end of the row to the other:
+   the move is instant, only the fade is animated */
+.built-card.no-move {
+  transition: opacity 0.8s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+/* ----- Positions ----- */
+.built-card[data-pos="0"]  { --p: 0;  --s: 1;    --o: 1;    --z: 3; box-shadow: 0 14px 44px rgba(10,42,102,0.18); }
+.built-card[data-pos="-1"] { --p: -1; --s: 0.86; --o: 1;  --z: 2; }
+.built-card[data-pos="1"]  { --p: 1;  --s: 0.86; --o: 1;  --z: 2; }
+.built-card[data-pos="-2"] { --p: -2; --s: 0.72; --o: 0.25; --z: 1; }
+.built-card[data-pos="2"]  { --p: 2;  --s: 0.72; --o: 0.25; --z: 1; }
+.built-card[data-pos="-3"] { --p: -3; --s: 0.6;  --o: 0;    --z: 0; pointer-events: none; }
+.built-card[data-pos="3"]  { --p: 3;  --s: 0.6;  --o: 0;    --z: 0; pointer-events: none; }
+
+/* Side cards: click brings them to the centre */
+.built-card:not([data-pos="0"]) { cursor: pointer; }
+.built-card:not([data-pos="0"]):hover { border-color: var(--primary-light); }
+
+/* Centre card: gold outline + glow + lift on hover/focus */
+.built-card[data-pos="0"]:hover,
+.built-card[data-pos="0"]:focus-visible {
+  --lift: -6px;
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(254,191,15,0.5), 0 8px 32px rgba(10,42,102,0.10);
+  outline: none;
+}
+.built-card:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+/* ----- Screenshot ----- */
+.built-card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-bottom: 1.5px solid var(--border);
+  background: var(--light-grey);
+}
+.built-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  transition: transform 0.7s ease;
+  transition: transform 0.6s ease;
 }
- 
-/* Dark gradient so the name stays readable on any screenshot */
-.built-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to top,
-    rgba(0, 22, 51, 0.92) 0%,
-    rgba(0, 22, 51, 0.5) 22%,
-    rgba(0, 22, 51, 0) 45%
-  );
-  pointer-events: none;
-}
- 
-/* Site name on top, "Visit site" pill underneath, pinned bottom-left.
-   The name comes first in the HTML, so a plain column keeps that order. */
+.built-card[data-pos="0"]:hover .built-card-image img,
+.built-card[data-pos="0"]:focus-visible .built-card-image img { transform: scale(1.04); }
+
+/* ----- Text: name, short description, button (all left-aligned) ----- */
 .built-card-info {
-  position: absolute;
-  left: 28px;
-  bottom: 28px;
-  right: auto;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-end;
+  flex: 1;
+  padding: 24px 22px 26px;
   text-align: left;
-  gap: 14px;
 }
- 
+
+.built-card-name {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.28rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.built-card-desc {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+/* margin-top:auto keeps every button on the same line even when
+   descriptions are different lengths */
 .built-pill {
+  margin-top: auto;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   min-height: 44px;
   padding: 0 26px;
   border-radius: 50px;
-  background: var(--white);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--white);
   font-family: 'Ubuntu', sans-serif;
   font-size: 0.95rem;
   font-weight: var(--font-bold);
-  transition: background 0.25s ease, transform 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease;
 }
- 
-.built-card-name {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 1.35rem;
-  font-weight: var(--font-bold);
-  line-height: 1.25;
-  color: var(--white);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
-}
- 
-.built-card[data-pos="active"]:hover img,
-.built-card[data-pos="active"]:focus-visible img { transform: scale(1.03); }
-.built-card:hover .built-pill,
-.built-card:focus-visible .built-pill { background: var(--gold); transform: translateY(-2px); }
-.built-card:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
- 
-/* Spatial Group Networks: its screenshot is mostly white, so a thin blue line
-   on top keeps the card from blending into the white page.
-   Matches by link, so no HTML change is needed. Change 3px to make it thinner/thicker. */
-.built-card[href*="spatialgroupnetworks"] {
-  border-top: 3px solid var(--primary);
-}
- 
+.built-card[data-pos="0"]:hover .built-pill,
+.built-card[data-pos="0"]:focus-visible .built-pill { background: var(--gold); color: var(--primary); }
+
 /* ----- Dots ----- */
 .built-dots {
   display: flex;
@@ -1086,61 +1170,19 @@ h3,
 .built-dot:hover::before { background: var(--primary-light); }
 .built-dot[aria-current="true"]::before { width: 28px; background: var(--gold); }
 .built-dot:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 8px; }
- 
-/* ----- Phones -----
-   A tall 4:5 crop cut most of each website screenshot away. On phones the
-   card is now a compact stack instead: the screenshot shows in full at the
-   top, and the site name + "Visit site" pill sit underneath, left-aligned
-   on a navy panel. Rounded corners, bigger tap targets, and the stage lets
-   the page scroll vertically while swiping sideways moves the carousel. */
-@media (max-width: 700px) {
-  .built-section .built-carousel { --side: 0.08; --gap: 10px; --card-radius: 14px; }
- 
-  .built-stage {
-    padding: 16px 0 8px;
-    touch-action: pan-y;   /* vertical scroll stays native, horizontal is the swipe */
-  }
- 
-  .built-card {
-    aspect-ratio: auto;
-    display: flex;
-    flex-direction: column;
-  }
- 
-  .built-card img {
-    position: static;
-    inset: auto;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 10;
-    flex-shrink: 0;
-    object-fit: cover;
-    object-position: center top;
-  }
- 
-  .built-card::after { display: none; }   /* gradient not needed: text is on its own panel */
- 
-  .built-card-info {
-    position: static;
-    flex: 1;
-    padding: 16px 18px 18px;
-    gap: 12px;
-    background: var(--primary-dark);
-  }
- 
-  .built-card-name {
-    flex: 1;   /* pushes the pill to the bottom so pills line up across cards */
-    font-size: 1.1rem;
-    text-shadow: none;
-  }
- 
-  .built-pill { min-height: 44px; padding: 0 22px; }
+
+/* ----- Phones: slightly tighter text ----- */
+@media (max-width: 600px) {
+  .built-card-info { padding: 20px 18px 22px; }
+  .built-card-name { font-size: 1.15rem; }
+  .built-card-desc { font-size: 0.96rem; line-height: 1.65; margin-bottom: 18px; }
 }
- 
-/* Reduced motion: no sliding or fading */
+
+/* Reduced motion: no sliding */
 @media (prefers-reduced-motion: reduce) {
-  .built-card, .built-card img, .built-pill, .built-dot::before { transition: none; }
+  .built-card, .built-card.no-move, .built-card-image img, .built-pill, .built-dot::before { transition: none; }
 }
+
  
 
  
@@ -1180,8 +1222,6 @@ h3,
 
 /* =========================================================
    PROBLEM / SOLUTION CARDS
-   Two independent cards side by side with a VS badge floating
-   between them, replacing the earlier single connected card.
 ========================================================= */
 .shift-cards-wrap {
     width: min(1100px, 100%);
@@ -1205,7 +1245,7 @@ h3,
 
 .problem-card {
     background: var(--white);
-    border: 1px solid var(--border);   /* slightly stronger edge now that the section is white */
+    border: 1px solid var(--border);
     box-shadow: var(--card-shadow);
 }
 
@@ -1323,8 +1363,6 @@ h3,
 
 /* ============================================================
    6. REVIEWS SECTION — white
-   Uses the same tokens, spacing and card language as the
-   "What Will You Build?" and "Meet your AI Coworkers" sections.
 ============================================================ */
 .reviews-section {
   padding: var(--section-py) 0;
@@ -1366,10 +1404,10 @@ h3,
 .review-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   background: var(--white);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--primary);
   border-radius: 20px;
   padding: 44px 32px 36px;
   box-shadow: var(--shadow);
@@ -1381,44 +1419,52 @@ h3,
   box-shadow: 0 0 42px rgba(254, 191, 15, 0.35), var(--shadow-lg);
 }
 
-/* Avatar: swap the initials for <img src="..." alt="Name"> to use a photo */
+/* Author header: avatar on top, name (and position) underneath, top-left of the card */
+.review-author {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.review-author-text { min-width: 0; text-align: left; }
+
+/* Avatar: 52px circle, same size and shape as the coworker icons.
+   Swap the initials for <img src="..." alt="Name"> to use a photo */
 .review-avatar {
-  width: 84px;
-  height: 84px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
   border-radius: 50%;
   background: var(--primary);
   color: var(--gold);
-  border: 4px solid var(--white);
-  box-shadow: 0 4px 18px rgba(10, 42, 102, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: var(--font-bold);
   letter-spacing: 0.04em;
   overflow: hidden;
-  margin-bottom: 18px;
 }
 .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
 .review-card h3.review-name {
-  font-size: 1.28rem;
+   font-size: 1.28rem;
   font-weight: 800;
   color: var(--primary);
   line-height: 1.3;
-  margin-bottom: 6px;
+  margin: 0;
 }
 
 .review-role {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-light);
   line-height: 1.4;
-  margin-bottom: 14px;
+  margin: 2px 0 0;
 }
 
-/* Stars: grey base, gold fill clipped to the rating percentage
-   (100% = 5, 80% = 4, 70% = 3.5) */
+/* Stars: grey base, gold fill clipped to the rating percentage */
 .review-stars {
   position: relative;
   display: inline-block;
@@ -1807,28 +1853,32 @@ h3,
   color: var(--primary);
 }
 
+/* WhatsApp: compact round button; expands to show "Chat with us" on hover / keyboard focus */
 .whatsapp-float {
   position: fixed;
   bottom: 28px;
   right: 28px;
   z-index: 9999;
   display: flex;
-  width: 200px;
-  height: 54px;
-  border-radius: 27px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
   overflow: hidden;
   text-decoration: none;
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: width 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.whatsapp-float:hover {
-  transform: translateY(-5px) scale(1.05);
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+  width: 184px;
+  transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
 
 .whatsapp-icon-part {
-  width: 25%;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
   background: #25D366;
   display: flex;
@@ -1837,23 +1887,25 @@ h3,
 }
 
 .whatsapp-icon-part svg {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   fill: var(--white);
 }
 
 .whatsapp-text-part {
-  width: 75%;
+  flex: 1;
   background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-right: 8px;
   color: #000000;
   font-family: 'Ubuntu', sans-serif;
   font-size: 0.88rem;
   white-space: nowrap;
 }
 
+/* Back-to-top: hidden until the visitor has scrolled down (see script at the bottom of index.html) */
 .scroll-top-btn {
   position: fixed;
   bottom: 28px;
@@ -1870,10 +1922,21 @@ h3,
   box-shadow: var(--shadow);
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.scroll-top-btn:hover {
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-top-btn.is-visible:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
@@ -1888,33 +1951,20 @@ h3,
 }
 
 @media (max-width: 480px) {
-  .whatsapp-float { width: 170px; height: 48px; bottom: 20px; right: 20px; }
-  .whatsapp-text-part { font-size: 0.8rem; }
+  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; border-radius: 25px; }
+  .whatsapp-icon-part { width: 50px; height: 50px; }
   .scroll-top-btn { width: 46px; height: 46px; bottom: 20px; left: 20px; }
 }
 
 /* ============================================================
    MOBILE HORIZONTAL-SCROLL FIX
-   All of these headings use `white-space: nowrap` in their
-   base rule so the text won't break mid-word on desktop. Several
-   had no mobile override at all, and others (.section-intro h2)
-   only unwrapped below 520px instead of the 640-968px used
-   elsewhere. Either way, below that width the single unbreakable
-   line was wider than the screen, which forced the whole page —
-   including the sticky, full-width nav bar — to scroll
-   horizontally, taking the Get Started button and hamburger
-   menu off-screen with it.
+   Headings that use `white-space: nowrap` must be allowed to wrap
+   on small screens, otherwise the page scrolls sideways and pushes
+   the nav (Get Started + hamburger) off-screen.
 
-   IMPORTANT — this block is placed at the very end of the
-   stylesheet on purpose. Each selector here has the exact same
-   specificity as its own base `nowrap` rule earlier in the file
-   (e.g. `.section-intro h2`), and CSS only lets a later media
-   query beat an earlier unconditional rule when it also comes
-   later in source order — position inside a @media block does
-   not, by itself, grant priority. Moving this fix above these
-   base rules (as an earlier draft of this file did) silently
-   loses the cascade and the wrap never applies. Keep any future
-   heading-wrap fix down here, after every base rule it targets.
+   IMPORTANT — keep this block at the very end of the stylesheet.
+   Its selectors have the same specificity as the base `nowrap`
+   rules above, so it only wins by coming later in the file.
 ============================================================ */
 @media (max-width: 768px) {
   .hire-main-heading,
