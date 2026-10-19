@@ -689,7 +689,7 @@ h3,
 .trusted-label {
   text-align: center;
   margin: 0 0 28px;
-  font-size: 0.95rem;
+  font-size: 1.25rem;
   font-weight: var(--font-medium);
   color: var(--text-light);
 }
