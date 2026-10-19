@@ -49,7 +49,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6">
+  <!-- Cache-buster: bump the ?v= number whenever style.css changes so browsers fetch the new file -->
+  <link rel="stylesheet" href="style.css?v=26">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon-32x32.png">
@@ -195,6 +196,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2HTVGXV" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
 
+  <!-- STICKY NAV: pinned to the top while scrolling (see .nav in style.css) -->
   <nav class="nav">
     <div class="nav-container">
       <div class="logo">
@@ -291,79 +293,178 @@
     </div>
   </nav>
 
-  <!-- 1. HERO — white -->
-  <section class="hero-section">
-    <h1 class="hero-heading" style="font-weight: 800;">What do you need done <span class="golden">today</span>?</h1>
-    <p class="hero-sub">Describe your project. Your AI coworkers will take it from there.</p>
-    <div class="search-bar-wrap">
-      <div class="search-bar">
-        <button class="search-icon-btn" title="Upload file" type="button" id="uploadBtn">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="17 8 12 3 7 8"></polyline>
-            <line x1="12" y1="3" x2="12" y2="15"></line>
-          </svg>
-        </button>
-        <input type="file" id="fileInput" style="display:none;">
-        <input type="text" class="search-input" id="heroInput" placeholder="Design a logo and flyer for my restaurant"
-          autocomplete="off">
-        <button class="send-icon" type="button" title="Send" id="sendBtn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
-        </button>
+
+<!-- Landing hero: title, heading, 10X stats, CTA and the animated app demo (second nav removed) -->
+<section class="ndl" aria-labelledby="ndl-title">
+
+  <!-- Background: grain at the top and soft grid patches that fade out (decorative) -->
+  <div class="ndl-deco" aria-hidden="true">
+    <svg class="ndl-grain" width="100%" height="260">
+      <filter id="ndl-noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+        <feColorMatrix values="0 0 0 0 0.11  0 0 0 0 0.23  0 0 0 0 0.44  0 0 0 0.18 0"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#ndl-noise)"/>
+    </svg>
+    <div class="ndl-grid ndl-grid-left"></div>
+    <div class="ndl-grid ndl-grid-right"></div>
+  </div>
+
+  <div class="ndl-copy">
+    <h1 id="ndl-title">
+      <span class="ndl-sr">Software, websites, and marketing. Built by your AI coworker.</span>
+      <span aria-hidden="true"><span class="ndl-rotor" id="ndl-rotor"><span class="ndl-word is-active">Software</span><span class="ndl-word">Websites</span><span class="ndl-word">Marketing</span></span> built by your AI coworker.</span>
+    </h1>
+    <div class="ndl-stats">
+      <div class="ndl-stat"><strong>10X</strong><span>the speed.</span></div>
+      <div class="ndl-stat-divider" aria-hidden="true"></div>
+      <div class="ndl-stat"><strong>10X</strong><span>less the cost.</span></div>
+    </div>
+    <div class="ndl-ctas">
+      <a class="ndl-primary" href="https://chat.ndovesha.ai/signup">
+        Try It Free with 200 Credits
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="ndl-demo" id="ndl-demo">
+    <div class="ndl-glow" aria-hidden="true"></div>
+
+    <div class="ndl-chip-left ndl-bob">
+      <span class="ndl-check"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <span class="ndl-chip-text"><b id="ndl-done">Poster ready</b><small>just now</small></span>
+    </div>
+    <div class="ndl-chip-right ndl-bob2">
+      <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FEBF0F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3l1.8 4.6L16.5 9l-4.7 1.4L10 15l-1.8-4.6L3.5 9l4.7-1.4Z"/><path d="M18 14l.8 2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z"/></svg>
+      <span>Your AI team is online and ready to work</span>
+    </div>
+
+    <!-- Mini version of the Ndovesha app -->
+    <div class="ndl-app">
+
+      <aside class="ndl-side">
+        <div class="ndl-side-logo">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 26 26"><path d="M9 3 3 13l6 10" fill="none" stroke="#FEBF0F" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 3l6 10-6 10" fill="none" stroke="#FEBF0F" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          NDOVESHA
+        </div>
+        <div class="ndl-newtask">
+          <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          New Task
+        </div>
+        <div class="ndl-side-menu"><span>Coworkers</span><span>Planner</span><span>Library</span></div>
+        <div class="ndl-side-label">Recents</div>
+        <div class="ndl-recents" role="group" aria-label="Sample tasks">
+          <button type="button" data-i="0">Honey poster</button>
+          <button type="button" data-i="1">Survey website</button>
+          <button type="button" data-i="2">LinkedIn launch post</button>
+        </div>
+        <div class="ndl-credits"><b>1,560</b> credits</div>
+      </aside>
+
+      <div class="ndl-main">
+        <div class="ndl-titlebar"><span id="ndl-title-text">New Task</span><em>Share</em></div>
+
+        <div class="ndl-chat" aria-live="polite">
+          <div class="ndl-greet" id="ndl-greet">What's on the bench, <span id="ndl-owner">Joy</span>?</div>
+          <div class="ndl-bubble" id="ndl-bubble"></div>
+          <div class="ndl-working" id="ndl-working"><span class="ndl-dot ndl-pulse"></span><span id="ndl-working-text">Designing your poster</span></div>
+
+          <!-- Result 0: graphic design -->
+          <div class="ndl-result" data-result="0">
+            <div class="ndl-design">
+              <img src="post-joyhive.png" alt="Honey poster designed for Joy's Hive">
+              <div class="ndl-notes"><b>Instagram poster</b><span>1080 × 1080</span><span>Brand colours applied</span><span>Caption drafted</span></div>
+            </div>
+            <div class="ndl-actions"><span class="a-navy">Post to socials</span><span>Save to Drive</span><span>Edit</span></div>
+          </div>
+
+          <!-- Result 1: website -->
+          <div class="ndl-result" data-result="1">
+            <div class="ndl-site">
+              <div class="ndl-site-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>Spatial Group · Land Surveys</span></div>
+              <div class="ndl-site-hero">
+                <small>SURVEYING · MAPPING · PLANNING</small>
+                <b>Know the ground before you build</b>
+                <span>Topographic and land surveys across Kenya</span>
+                <div><em class="solid">Book a survey</em><em>Our projects</em></div>
+              </div>
+            </div>
+            <div class="ndl-actions"><span class="a-green">Published</span><span class="a-yellow">View</span><span>Analytics</span><span>Connect Domain</span></div>
+          </div>
+
+          <!-- Result 2: writing -->
+          <div class="ndl-result" data-result="2">
+            <div class="ndl-post">
+              <div class="ndl-post-head"><span>MS</span><div><b>Murclean Services</b><small>LinkedIn draft</small></div></div>
+              <p>Clean spaces build trust. This month we are rolling out our new professional range for hotels, gyms and offices: concentrated cleaners that do more with less, and gentle shower gels your guests will notice.</p>
+              <span class="ndl-tags">#Hospitality #FacilitiesManagement</span>
+            </div>
+            <div class="ndl-actions"><span class="a-navy">Post to socials</span><span>Edit</span></div>
+          </div>
+        </div>
+
+        <div class="ndl-input">
+          <div class="ndl-input-text"><span id="ndl-typed"></span><span class="ndl-ph" id="ndl-ph"></span><span class="ndl-caret" id="ndl-caret">|</span></div>
+          <div class="ndl-input-row">
+            <span class="ndl-sq" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+            <span class="ndl-improve"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4Z"/></svg>Improve prompt</span>
+            <span class="ndl-sq" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></span>
+          </div>
+        </div>
+      </div><!-- /.ndl-main -->
+
+    </div><!-- /.ndl-app -->
+  </div><!-- /.ndl-demo -->
+
+</section><!-- /.ndl hero -->
+
+<!-- 1b. TRUSTED BRANDS MARQUEE: sits right after the hero section (white) -->
+<section class="trusted-section" aria-label="Brands that trust Ndovesha">
+  <div class="container">
+    <p class="trusted-label">Trusted by growing businesses</p>
+    <div class="trusted-marquee">
+      <!-- The list is repeated once so the loop never shows a gap.
+           Speed: change the animation time (30s) in style.css. -->
+      <div class="trusted-track">
+        <ul class="trusted-group">
+          <li><img src="logo-mambo-leo.png" alt="Mambo Leo Graphix Media" style="--h:68px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-drip-masters.png" alt="Drip Masters Engineering" style="--h:58px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-yourplot.png" alt="Your Plot Plug 254" style="--h:54px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-murclean.png" alt="Murclean Services" style="--h:62px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-wina.png" alt="WINA Autospares" style="--h:64px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-spatial.png" alt="Spatial Group Networks" style="--h:56px" loading="lazy" decoding="async"></li>
+        </ul>
+        <ul class="trusted-group" aria-hidden="true">
+          <li><img src="logo-mambo-leo.png" alt="" style="--h:68px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-drip-masters.png" alt="" style="--h:58px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-yourplot.png" alt="" style="--h:54px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-murclean.png" alt="" style="--h:62px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-wina.png" alt="" style="--h:64px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-spatial.png" alt="" style="--h:56px" loading="lazy" decoding="async"></li>
+        </ul>
       </div>
-     <div class="capability-icons">
-  <a href="/software" class="cap-icon-item">
-    <div class="cap-icon-circle">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-        stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="16 18 22 12 16 6"></polyline>
-        <polyline points="8 6 2 12 8 18"></polyline>
-      </svg>
     </div>
-    <span class="cap-icon-label">Software</span>
-  </a>
-  <a href="/graphic" class="cap-icon-item">
-    <div class="cap-icon-circle">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-        stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-        <polyline points="21 15 16 10 5 21"></polyline>
-      </svg>
-    </div>
-    <span class="cap-icon-label">Graphic Design</span>
-  </a>
-  <a href="/web" class="cap-icon-item">
-    <div class="cap-icon-circle">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-        stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="2" y1="12" x2="22" y2="12"></line>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-        </path>
-      </svg>
-    </div>
-    <span class="cap-icon-label">Web Design</span>
-  </a>
-</div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- 2. WORKSHOP — grey -->
   <section class="workshop-section">
     <div class="container">
       <div class="workshop-inner">
         <h2 class="workshop-heading" style="font-weight: 800;">Experience It <span class="gold-in-person">In Person</span></h2>
-        <p class="workshop-sub">Join us for a hands-on physical workshop and discover how AI coworkers can change the way your business gets work done.</p>
+        <p class="workshop-sub">Join us for a hands-on, in-person workshop and see AI coworkers tackle real business tasks. Leave knowing where AI can work in your business and where to start.</p>
+
+        <div class="workshop-tagline">
+          <span class="workshop-tagline-item">You bring the business</span>
+          <span class="workshop-tagline-item">You bring the problem</span>
+          <span class="workshop-tagline-item workshop-tagline-ai">We bring the AI</span>
+        </div>
 
         <div class="workshop-cta-row">
-          <a href="/workshop" class="btn btn-navy">Learn More <span aria-hidden="true">→</span></a>
+          <a href="https://paystack.shop/pay/ndovesha-ai-masterclass-7th-nov" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Reserve your Seat<span aria-hidden="true">→</span></a>
+          <a href="/workshop" class="btn btn-white">Learn More <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -416,6 +517,17 @@
     <h3>AI Graphic Designer</h3>
     <p>Design logos, flyers, and social graphics for a polished brand look.</p>
   </div>
+    <div class="ai-card">
+    <div class="ai-card-icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        <line x1="8" y1="8" x2="16" y2="8"></line>
+        <line x1="8" y1="12" x2="13" y2="12"></line>
+      </svg>
+    </div>
+    <h3>AI Social Media Manager</h3>
+    <p>Creates and publishes content on Meta, LinkedIn and X, so your brand stays active and attracts leads.</p>
+  </div>
 </div>
       <div class="ai-cta-center">
         <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
@@ -425,134 +537,175 @@
   </section>
 
 
-  <!-- 4. THREE BRANDS ON AUTOPILOT — grey -->
-  <section class="social-section">
+<!-- 4. BRAND PRESENCE ON AUTOPILOT: three-up row of sample posts - grey -->
+<section class="social-section">
+  <div class="container">
+    <div class="social-heading-wrap">
+      <h2 class="social-main-heading" style="font-weight: 800;">Your online brand presence, <span class="gold-autopilot">on autopilot</span></h2>
+      <p class="social-sub-heading">Our AI worker designs and posts on Meta, X and LinkedIn for you, with content designed to attract customers and bring in leads.</p>
+    </div>
+ 
+    <!-- Cards are built by the script below from the POSTS list; each card is a link to the business's Facebook page.
+         Speed: data-interval (ms). Shows 3 cards on desktop, 2 on tablet, 1 on phones. -->
+    <div class="post-feed" id="postFeed" data-interval="3500">
+      <div class="post-viewport">
+        <div class="post-track" id="postTrack"></div>
+      </div>
+      <div class="post-dots" id="postDots" role="group" aria-label="Choose a sample post"></div>
+    </div>
+ 
+    <div class="ai-cta-center">
+      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+
+
+   
+  <!-- 4b. BUILT WITH NDOVESHA — white
+       CENTER-FOCUS CAROUSEL: the active card sits in the middle at full size; the cards
+       either side are smaller and faded. The loop never ends (see the carousel script at the bottom of the page).
+       To change the speed, edit data-interval (milliseconds) on #builtCarousel.
+       To add a site: copy one <a class="built-card"> (dots are created automatically). -->
+  <section class="built-section">
     <div class="container">
-      <div class="social-heading-wrap">
-        <h2 class="social-main-heading" style="font-weight: 800;">Three Brands on <span class="gold-autopilot">Autopilot</span></h2>
-        <p class="social-sub-heading">Join Spatial Group Networks, Murclean Services and Joy's Hive and hand over your social media to our AI worker that creates and posts on Meta, X and LinkedIn.</p>
+      <div class="built-heading-wrap">
+        <h2 class="built-main-heading" style="font-weight: 800;">Websites Built with <span class="gold-built">Ndovesha</span></h2>
       </div>
 
-      <div class="brand-cards-grid">
-        <article class="brand-card">
-          <div class="brand-post">
-            <div class="brand-post-image"><img src="post-spatial.png" alt="Land surveying infographic posted for Spatial Group Networks" loading="lazy"></div>
-            <div class="brand-post-body">
-              <h3 class="brand-name">Spatial Group Networks</h3>
-              <p class="brand-post-caption">A land surveying explainer designed and posted by the AI worker.</p>
-              <a href="https://www.facebook.com/spatialgroupnetworks" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Spatial Group Networks's latest posts on Facebook">Check out their posts<span aria-hidden="true">→</span></a>
-            </div>
+      <div class="built-carousel" id="builtCarousel" data-interval="3000" role="region" aria-roledescription="carousel" aria-label="Websites built with Ndovesha">
+        <div class="built-viewport">
+          <div class="built-stage" id="builtStage">
+
+            <a class="built-card" href="https://mamboleographix.co.ke/" target="_blank" rel="noopener noreferrer" aria-label="Visit Mambo Leo Graphics Media website">
+              <span class="built-card-image"><img src="built-mamboleo.png" alt="Mambo Leo Graphics Media website homepage" decoding="async"></span>
+              <span class="built-card-info">
+                <span class="built-card-name">Mambo Leo Graphics Media</span>
+                <span class="built-card-desc">A creative studio website showcasing graphic design, branding and media services.</span>
+                <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+              </span>
+            </a>
+
+            <a class="built-card" href="https://dripmasterseastafrica.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit DripMasters East Africa website">
+              <span class="built-card-image"><img src="built-dripmasters.png" alt="DripMasters East Africa website homepage" decoding="async"></span>
+              <span class="built-card-info">
+                <span class="built-card-name">DripMasters East Africa</span>
+                <span class="built-card-desc">A business website presenting drip irrigation products and services to farmers across the region.</span>
+                <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+              </span>
+            </a>
+
+            <a class="built-card" href="https://yourplotplug254.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Your Plot Plug 254 website">
+              <span class="built-card-image"><img src="built-yourplotplug254.png" alt="Your Plot Plug 254 website homepage" decoding="async"></span>
+              <span class="built-card-info">
+                <span class="built-card-name">Your Plot Plug 254</span>
+                <span class="built-card-desc">A real estate website that lists land and plots for sale and helps buyers get in touch fast.</span>
+                <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+              </span>
+            </a>
+
+            <a class="built-card" href="https://murclean.co.ke/" target="_blank" rel="noopener noreferrer" aria-label="Visit Murclean Services website">
+              <span class="built-card-image"><img src="built-murclean.png" alt="Murclean Services website homepage" decoding="async"></span>
+              <span class="built-card-info">
+                <span class="built-card-name">Murclean Services</span>
+                <span class="built-card-desc">A cleaning company website featuring its services and cleaning products, built to win new customers.</span>
+                <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+              </span>
+            </a>
+
+            <a class="built-card" href="https://winaautomaxspares.co.ke/" target="_blank" rel="noopener noreferrer" aria-label="Visit WINA AutoMax and Spares website">
+              <span class="built-card-image"><img src="built-wina.png" alt="WINA AutoMax &amp; Spares website homepage" decoding="async"></span>
+              <span class="built-card-info">
+                <span class="built-card-name">WINA AutoMax &amp; Spares</span>
+                <span class="built-card-desc">An automotive website for browsing vehicles and spare parts, with easy ways to enquire.</span>
+                <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+              </span>
+            </a>
+
+            <a class="built-card" href="https://spatialgroupnetworks.co.ke/" target="_blank" rel="noopener noreferrer" aria-label="Visit Spatial Group Networks website">
+              <span class="built-card-image"><img src="built-spatial.png" alt="Spatial Group Networks website homepage" decoding="async"></span>
+              <span class="built-card-info">
+                <span class="built-card-name">Spatial Group Networks</span>
+                <span class="built-card-desc">A professional website for a land survey and geospatial company, showing its services and expertise.</span>
+                <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+              </span>
+            </a>
+
           </div>
-        </article>
-        <article class="brand-card">
-          <div class="brand-post">
-            <div class="brand-post-image"><img src="post-murclean.png" alt="Commercial cleaning post created for Murclean Services" loading="lazy"></div>
-            <div class="brand-post-body">
-              <h3 class="brand-name">Murclean Services</h3>
-              <p class="brand-post-caption">A commercial cleaning post designed and posted by the AI worker.</p>
-              <a href="https://web.facebook.com/profile.php?id=61587891341400" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Murclean Services's latest posts on Facebook">Check out their posts <span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-        </article>
-        <article class="brand-card">
-          <div class="brand-post">
-            <div class="brand-post-image"><img src="post-joyhive.png" alt="Honey product post created for Joyhive" loading="lazy"></div>
-            <div class="brand-post-body">
-              <h3 class="brand-name">Joy's Hive</h3>
-              <p class="brand-post-caption">A honey product promo designed and posted by the AI worker.</p>
-              <a href="https://web.facebook.com/profile.php?id=61593398631034" target="_blank" rel="noopener noreferrer" class="btn btn-navy brand-cta" aria-label="See Joyhive's latest posts on Facebook">Check out their posts<span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-        </article>
+        </div>
+
+        <!-- One dot per page of 3 cards; the script fills this in -->
+        <div class="built-dots" id="builtDots"></div>
       </div>
 
-      <div class="ai-cta-center">
-        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span aria-hidden="true">→</span></a>
+      <div class="challenges-cta-center">
+        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
+            aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
 
 
+    <!-- 5. THE FUTURE OF WORK IS CHANGING — grey
+     Without Ndovesha (left) vs With Ndovesha (right), down a line with one marker per point (Cost, Speed). -->
+<section class="shift-section">
 
-  <!-- 5. THE FUTURE OF WORK IS CHANGING — white -->
-  <section class="shift-section">
+  <div class="section-intro">
+    <h2 style="font-weight: 800;"> The Future of Work Is <span class="gold-changing">Changing.</span></h2>
+    <p> The old way is expensive and slow. Ndovesha makes it faster and more affordable.</p>
+  </div>
 
-    <!-- SECTION INTRO -->
-    <div class="section-intro">
+  <div class="day-compare">
 
-      <h2 style="font-weight: 800;"> The Future of Work Is <span class="gold-changing">Changing.</span></h2>
-
-      <p> The old way is expensive and slow. Ndovesha makes it faster and more affordable.
-      </p>
-
+    <!-- Column headings (hidden on phones, where each card carries its own label) -->
+    <div class="day-heads" aria-hidden="true">
+      <div class="day-pill day-pill-bad">
+        <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="11" fill="currentColor"/><circle cx="8.5" cy="9.5" r="1.5" fill="#fff"/><circle cx="15.5" cy="9.5" r="1.5" fill="#fff"/><path d="M7.5 17c1.2-2.2 3-3.2 4.5-3.2s3.3 1 4.5 3.2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        Without Ndovesha
+      </div>
+      <div class="day-pill day-pill-good">
+        <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="11" fill="currentColor"/><circle cx="8.5" cy="9.5" r="1.5" fill="#F8F0D6"/><circle cx="15.5" cy="9.5" r="1.5" fill="#F8F0D6"/><path d="M7.5 13.5c1.2 2.2 3 3.2 4.5 3.2s3.3-1 4.5-3.2" fill="none" stroke="#F8F0D6" stroke-width="2" stroke-linecap="round"/></svg>
+        With Ndovesha
+      </div>
     </div>
 
+    <div class="day-list">
 
-    <!-- PROBLEM / SOLUTION CARDS -->
-    <div class="shift-cards-wrap">
-
-      <!-- =========================
-             PROBLEM CARD
-        ========================== -->
-
-      <div class="problem-card">
-        <h3>The Old Way</h3>
-        <div class="point-row">
-          <span class="point-icon point-icon-x" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-            </svg>
-          </span>
-          <p>Pay hundreds of thousands to millions for different business tasks.</p>
+      <div class="day-row">
+        <div class="day-card day-bad">
+          <svg class="day-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DC2626"/><path d="M8 8l8 8M16 8l-8 8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>
+          <span class="day-text"><small class="day-tag">Without Ndovesha</small>Pay hundreds of thousands to millions for different business tasks.</span>
         </div>
-        <div class="point-row">
-          <span class="point-icon point-icon-x" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-            </svg>
-          </span>
-          <p>Wait months to years to get results.</p>
+        <div class="day-time"><span class="day-dot"></span><span class="day-clock">Cost</span></div>
+        <div class="day-card day-good">
+          <svg class="day-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#FEBF0F"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="day-text"><small class="day-tag">With Ndovesha</small>Use monthly credits across different business tasks.</span>
         </div>
       </div>
 
-      <div class="vs-badge" aria-hidden="true">VS</div>
-
-      <!-- =========================
-             SOLUTION CARD
-        ========================== -->
-
-      <div class="solution-card">
-        <h3>With Ndovesha</h3>
-        <div class="point-row">
-          <span class="point-icon point-icon-check" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </span>
-          <p>Use monthly credits across different business tasks.</p>
+      <div class="day-row">
+        <div class="day-card day-bad">
+          <svg class="day-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#DC2626"/><path d="M8 8l8 8M16 8l-8 8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>
+          <span class="day-text"><small class="day-tag">Without Ndovesha</small>Wait months to years to get results.</span>
         </div>
-        <div class="point-row">
-          <span class="point-icon point-icon-check" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </span>
-          <p>Get working results in minutes.</p>
+        <div class="day-time"><span class="day-dot"></span><span class="day-clock">Speed</span></div>
+        <div class="day-card day-good">
+          <svg class="day-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#FEBF0F"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="day-text"><small class="day-tag">With Ndovesha</small>Get working results in minutes.</span>
         </div>
       </div>
 
     </div>
+  </div>
 
-    <div class="challenges-cta-center">
-      <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
-          aria-hidden="true">→</span></a>
-    </div>
-  </section>
+  <div class="challenges-cta-center">
+    <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span aria-hidden="true">→</span></a>
+  </div>
+</section>
 
 
-  <!-- 6. WHAT OUR CLIENTS ARE SAYING — grey -->
+  <!-- 6. WHAT OUR CLIENTS ARE SAYING — white -->
   <section class="reviews-section" id="reviews">
     <div class="container">
       <div class="reviews-heading-wrap">
@@ -563,26 +716,39 @@
       <div class="reviews-grid">
 
         <article class="review-card">
-          <div class="review-avatar" aria-hidden="true">IK</div>
-          <h3 class="review-name">Ipss Kenya</h3>
-        
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">AO</div>
+            <div class="review-author-text">
+              <h3 class="review-name">Agu Ogonna</h3>
+              <!-- <p class="review-role">Position, Company</p> -->
+            </div>
+          </div>
           <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
-          <p>Their team is incredibly knowledgeable and developed targeted strategies that reached exactly the right audience. If you're looking to grow your business online, don't hesitate to partner with them.</p>
+          <p>Ndovesha is a great platform for Markerters to make speedy growth and am glad for the different opportunities it present. Easy to navigate user interface and smooth ride all the way.</p>
         </article>
 
         <article class="review-card">
-          <div class="review-avatar" aria-hidden="true">VM</div>
-          <h3 class="review-name">Violet Mathenge</h3>
-
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">GN</div>
+            <div class="review-author-text">
+              <h3 class="review-name">Grace Kui Nderitu</h3>
+              <!-- <p class="review-role">Position, Company</p> -->
+            </div>
+          </div>
           <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
-          <p>Excellent quality of work, with attention to detail and timely delivery. Experienced professionals. Highly recommend.</p>
+          <p>This is the best platform that has been created and the best thing it's authentically Kenyan</p>
         </article>
 
         <article class="review-card">
-          <div class="review-avatar" aria-hidden="true">BM</div>
-          <h3 class="review-name">Bentena Mshairi</h3>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">IA</div>
+            <div class="review-author-text">
+              <h3 class="review-name">Ibrahim Abdirahman</h3>
+              <!-- <p class="review-role">Position, Company</p> -->
+            </div>
+          </div>
           <i class="fa-solid fa-quote-left review-quote-icon" aria-hidden="true"></i>
-          <p>The team's expertise and know-how were evident from the start. They took the time to understand my specific needs.</p>
+          <p>Absolutely amazing. Using Ndovesha Ai to build our comprehensive feedback</p>
         </article>
 
       </div>
@@ -594,66 +760,7 @@
   </section>
 
 
-  <!-- 7. WHAT WILL YOU BUILD? — white -->
-  <section class="build-section">
-    <div class="container">
-      <div class="build-heading-wrap">
-        <h2 class="build-main-heading" style="font-weight: 800;">What Will You <span class="gold-build">Build?</span></h2>
-      </div>
-      <div class="build-cards-grid">
-        <div class="build-card">
-          <div class="build-card-image">
-            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Software Development">
-          </div>
-          <div class="build-card-content">
-            <h3>Software Development</h3>
-            <ul class="build-list">
-              <li>CRMs & Booking Systems</li>
-              <li>Management Systems</li>
-              <li>Custom Business Tools</li>
-              <li>Dashboards & Portals</li>
-            </ul>
-            
-          </div>
-        </div>
-        <div class="build-card">
-          <div class="build-card-image">
-            <img src="case-study-glow.png" alt="Graphic Design">
-          </div>
-          <div class="build-card-content">
-            <h3>Graphic Design</h3>
-            <ul class="build-list">
-              <li>Social Media ad & post Images</li>
-              <li>Flyers</li>
-              <li>Logos</li>
-              <li>Social Media Post Videos</li>
-            </ul>
-           
-          </div>
-        </div>
-        <div class="build-card">
-          <div class="build-card-image">
-            <img src="jane-kuria-coaching.png" alt="Web Design">
-          </div>
-          <div class="build-card-content">
-            <h3>Web Design</h3>
-            <ul class="build-list">
-              <li>Web Applications</li>
-              <li>Ecommerce Stores</li>
-              <li>Informational Websites</li>
-              <li>Landing Pages</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="ai-cta-center">
-        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
-            aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. SEE NDOVESHA AI IN ACTION — grey -->
+  <!-- 7. SEE NDOVESHA AI IN ACTION — grey -->
   <section class="tutorial-section">
     <div class="container">
       <div class="tutorial-heading-wrap">
@@ -683,7 +790,7 @@
     </div>
   </section>
 
-  <!-- 9. FAQ — white -->
+  <!-- 8. FAQ — white -->
   <section class="faq-section">
     <div class="container">
       <div class="faq-heading-wrap">
@@ -739,14 +846,10 @@
           </div>
         </div>
       </div>
-      <div class="faq-cta-center">
-        <a href="https://chat.ndovesha.ai/signup" class="btn btn-navy">Get Started <span
-            aria-hidden="true">→</span></a>
-      </div>
     </div>
   </section>
 
-  <!-- 10. FOOTER LINKS — grey -->
+  <!-- 9. FOOTER LINKS — grey -->
   <section class="footer-links-section">
     <div class="container">
       <div class="footer-links-grid">
@@ -820,7 +923,7 @@
     </div>
   </section>
 
-  <!-- 11. SITE FOOTER — white -->
+  <!-- 10. SITE FOOTER — white -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-social-row">
@@ -954,46 +1057,6 @@ document.addEventListener('click', function (e) {
         if (!isOpen) fold.classList.add('open');
       });
     });
-    document.getElementById('uploadBtn').addEventListener('click', function () {
-      document.getElementById('fileInput').click();
-    });
-    var heroInput = document.getElementById('heroInput');
-    var sendBtn = document.getElementById('sendBtn');
-    sendBtn.addEventListener('click', function () {
-      window.location.href = 'https://chat.ndovesha.ai/signup';
-    });
-    var placeholders = [
-      'Design a logo and a flyer for my restaurant',
-      'Write social media captions for my clothing brand',
-      'Create a salon management system with bookings and client records',
-      'Design banners and social graphics for a product launch',
-      'Build a school management system with student and staff records',
-      'Build a company website for my real estate business',
-      'Create a restaurant reservation app with table management',
-      'Build a CRM to track leads, deals, and customer follow-ups'
-    ];
-    var placeholderIndex = 0;
-    var placeholderTimer = null;
-    function canRotatePlaceholder() { return document.activeElement !== heroInput && !heroInput.value.trim(); }
-    function rotatePlaceholder() {
-      if (!canRotatePlaceholder()) return;
-      placeholderIndex = (placeholderIndex + 1) % placeholders.length;
-      heroInput.placeholder = placeholders[placeholderIndex];
-    }
-    function startPlaceholderRotation() {
-      if (placeholderTimer) return;
-      placeholderTimer = setInterval(rotatePlaceholder, 5000);
-    }
-    function stopPlaceholderRotation() {
-      if (placeholderTimer) { clearInterval(placeholderTimer); placeholderTimer = null; }
-    }
-    heroInput.addEventListener('focus', stopPlaceholderRotation);
-    heroInput.addEventListener('blur', function () { if (canRotatePlaceholder()) startPlaceholderRotation(); });
-    heroInput.addEventListener('input', function () {
-      if (this.value.trim()) { stopPlaceholderRotation(); }
-      else if (document.activeElement !== heroInput) { startPlaceholderRotation(); }
-    });
-    startPlaceholderRotation();
 
     document.querySelectorAll('.faq-item').forEach(function (item) {
       var row = item.querySelector('.faq-question-row');
@@ -1005,35 +1068,596 @@ document.addEventListener('click', function (e) {
         if (!isOpen) item.classList.add('open');
       });
     });
+/* Websites Built with Ndovesha: center-focus carousel.
 
-    document.addEventListener("DOMContentLoaded", () => {
+   - The card in the middle is full size; the cards either side are smaller and faded.
+   - Every data-interval ms (3000 by default) the cards rotate one place and loop forever.
+   - Each card is given a data-pos (0 = centre, -1/1, -2/2 = beside it, -3/3 = hidden);
+     the CSS in style.css turns that into a position, size and fade.
+   - Pauses while a real mouse hovers, while a finger is down, on keyboard focus,
+     while the tab is hidden, and while the carousel is off screen.
+   - Dots jump to a card; swiping sideways moves one card; clicking a side card
+     brings it to the centre; clicking the centre card opens its site. */
+(function () {
+  var root = document.getElementById('builtCarousel');
+  if (!root) return;
+  var stage = document.getElementById('builtStage');
+  var viewport = root.querySelector('.built-viewport') || stage;
+  var cards = Array.prototype.slice.call(stage.querySelectorAll('.built-card'));
+  var dotsBox = document.getElementById('builtDots');
+var dots = cards.map(function (card, k) {
+  var d = document.createElement('button');
+  d.type = 'button';
+  d.className = 'built-dot';
+  d.setAttribute('aria-label', 'Show website ' + (k + 1));
+  dotsBox.appendChild(d);
+  return d;
+});
+  var n = cards.length;
+  if (n < 2) return;
 
-      /*
-       * Subtle entrance animation
-       */
-      const cards = document.querySelectorAll(".problem-card, .solution-card");
+  var interval = parseInt(root.getAttribute('data-interval'), 10) || 3000;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i = 0;                 /* index of the centre card */
+  var prevPos = [];
+  var timer = null;
+  var hovering = false, focused = false, touching = false;
+  var hidden = document.hidden, offscreen = false;
 
-      cards.forEach(function (card, i) {
-        card.style.opacity = "0";
-        card.style.transform = "translateY(20px)";
+  /* Position of card k relative to the centre card, wrapped so the loop is endless */
+  function posOf(k) {
+    var p = ((k - i) % n + n) % n;
+    if (p > n / 2) p -= n;
+    return Math.max(-3, Math.min(3, p));
+  }
 
-        requestAnimationFrame(() => {
-          card.style.transition =
-            "opacity 0.7s ease " + (i * 0.12) + "s, transform 0.7s ease " + (i * 0.12) + "s";
-
-          card.style.opacity = "1";
-          card.style.transform = "translateY(0)";
-        });
-      });
-
+  function render() {
+    var jumped = [];
+    cards.forEach(function (card, k) {
+      var p = posOf(k);
+      var old = prevPos[k];
+      /* A card wrapping from one end of the row to the other moves instantly
+         (only its fade is animated) so it never flies across the stage */
+      if (old !== undefined && Math.abs(p - old) >= n - 1) {
+        card.classList.add('no-move');
+        jumped.push(card);
+      }
+      card.setAttribute('data-pos', p);
+      prevPos[k] = p;
+      var centre = (p === 0);
+      card.setAttribute('aria-hidden', centre ? 'false' : 'true');
+      card.tabIndex = centre ? 0 : -1;
     });
+    if (jumped.length) {
+      void stage.offsetWidth;                 /* force reflow so the instant move is applied */
+      jumped.forEach(function (card) { card.classList.remove('no-move'); });
+    }
+    dots.forEach(function (dot, k) {
+      if (k === i) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+  }
+
+  function go(to) { i = ((to % n) + n) % n; render(); }
+  function next() { go(i + 1); }
+  function prev() { go(i - 1); }
+
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function start() {
+    stop();
+    if (reduce || hovering || focused || touching || hidden || offscreen) return;
+    timer = setInterval(next, interval);
+  }
+
+  dots.forEach(function (dot, k) {
+    dot.addEventListener('click', function () { go(k); start(); });
+  });
+
+  /* Clicking a side card brings it to the centre instead of opening its site */
+  cards.forEach(function (card, k) {
+    card.addEventListener('click', function (e) {
+      if (posOf(k) !== 0) {
+        e.preventDefault();
+        go(k);
+        start();
+      }
+    });
+  });
+
+  /* Pause on hover: real mouse only (touch taps must not freeze autoplay) */
+  root.addEventListener('pointerenter', function (e) {
+    if (e.pointerType === 'mouse') { hovering = true; start(); }
+  });
+  root.addEventListener('pointerleave', function (e) {
+    if (e.pointerType === 'mouse') { hovering = false; start(); }
+  });
+
+  /* Pause on keyboard focus only */
+  root.addEventListener('focusin', function (e) {
+    if (e.target.matches && e.target.matches(':focus-visible')) { focused = true; start(); }
+  });
+  root.addEventListener('focusout', function () { focused = false; start(); });
+
+  document.addEventListener('visibilitychange', function () { hidden = document.hidden; start(); });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      offscreen = !entries[0].isIntersecting;
+      start();
+    }, { threshold: 0.2 }).observe(root);
+  }
+
+  /* Swipe: mostly-horizontal drags move one card; vertical drags just scroll the page */
+  var startX = null, startY = null;
+  viewport.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    touching = true;
+    start();
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', function (e) {
+    touching = false;
+    if (startX !== null) {
+      var dx = e.changedTouches[0].clientX - startX;
+      var dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        if (dx < 0) next(); else prev();
+      }
+    }
+    startX = startY = null;
+    start();
+  }, { passive: true });
+
+  viewport.addEventListener('touchcancel', function () {
+    touching = false;
+    startX = startY = null;
+    start();
+  }, { passive: true });
+
+  render();
+  start();
+})();
+
+/* Hero dashboard demo: idle -> typing -> pointer -> working -> done, then a soft reset.
+   Visual only: no network calls. Pauses off-screen / in background tabs; static in reduced motion. */
+(function () {
+  var root = document.getElementById('heroDemo');
+  if (!root) return;
+  var frame = root.querySelector('.hd-frame');
+  var typed = root.querySelector('.hd-typed');
+  var send = root.querySelector('.hd-send');
+  var ptr = root.querySelector('.hd-pointer');
+  var PROMPT = 'Create a premium website for a cleaning company.';
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var run = 0, timers = [], onscreen = false;
+
+  function stage(s) { root.setAttribute('data-stage', s); }
+  function sleep(ms) {
+    return new Promise(function (res) { timers.push(setTimeout(res, ms)); });
+  }
+  function clearAll() { timers.forEach(clearTimeout); timers = []; }
+
+  function sendPoint() {
+    var f = frame.getBoundingClientRect(), s = send.getBoundingClientRect();
+    return { x: s.left - f.left + s.width / 2 - 4, y: s.top - f.top + s.height / 2 - 3, w: f.width, h: f.height };
+  }
+
+  function resetVisuals() {
+    typed.textContent = '';
+    ptr.classList.remove('is-moving');
+    send.classList.remove('is-pressed');
+    root.classList.remove('is-fading');
+    stage('idle');
+  }
+
+  async function cycle(id) {
+    var ok = function () { return id === run; };
+    resetVisuals();
+    await sleep(700); if (!ok()) return;                 /* dashboard appears */
+    stage('typing');
+    for (var i = 1; i <= PROMPT.length; i++) {           /* Stage 1: ~38-52 ms per character */
+      typed.textContent = PROMPT.slice(0, i);
+      await sleep(38 + Math.random() * 14); if (!ok()) return;
+    }
+    await sleep(750); if (!ok()) return;                 /* pause so the prompt can be read */
+    var p = sendPoint();                                 /* Stage 2: pointer -> click -> processing */
+    stage('pointer');
+    ptr.style.transform = 'translate(' + (p.w * 0.62) + 'px,' + (p.h * 0.55) + 'px)';
+    void ptr.offsetWidth;
+    ptr.classList.add('is-moving');
+    ptr.style.transform = 'translate(' + p.x + 'px,' + p.y + 'px)';
+    await sleep(750); if (!ok()) return;
+    send.classList.add('is-pressed');
+    await sleep(160); if (!ok()) return;
+    send.classList.remove('is-pressed');
+    stage('working');
+    await sleep(1500); if (!ok()) return;
+    stage('done');                                       /* Stage 3: success + website preview */
+    await sleep(4200); if (!ok()) return;
+    root.classList.add('is-fading');                     /* smooth reset */
+    await sleep(450); if (!ok()) return;
+    return cycle(id);
+  }
+
+  function start() {
+    stop();
+    if (mq.matches) { showFinal(); return; }
+    run++;
+    cycle(run);
+  }
+  function stop() { run++; clearAll(); }
+  function showFinal() {
+    typed.textContent = PROMPT;
+    root.classList.remove('is-fading');
+    stage('done');
+  }
+  function sync() {
+    if (onscreen && !document.hidden) start(); else { stop(); }
+  }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { onscreen = e[0].isIntersecting; sync(); }, { threshold: 0.25 }).observe(root);
+  } else { onscreen = true; sync(); }
+  document.addEventListener('visibilitychange', sync);
+  window.addEventListener('pagehide', stop);
+  if (mq.addEventListener) mq.addEventListener('change', sync);
+  window.addEventListener('resize', function () { if (root.getAttribute('data-stage') === 'pointer') sync(); });
+  showFinal();   /* sensible state before the observer fires, and for no-JS-motion fallbacks */
+})();
+/* Ndovesha landing page scripts
+   1. Landing hero app demo
+   2. Social media showcase post stack */
+
+/* Ndovesha landing hero: a mini version of the app that types a prompt,
+   sends it, shows the coworker working, reveals the result and moves on.
+   Plain JavaScript, no libraries. */
+(function () {
+  'use strict';
+
+  var TYPE_SPEED_MS = 35;      // time per typed character
+  var THINK_MS = 900;          // "working" pause before the result shows
+  var SHOW_RESULT_MS = 4200;   // how long each result stays up
+  var IDLE_PLACEHOLDER = 'Ask for changes or start something new...';
+
+  var ITEMS = [
+    { title: 'Joy’s Hive Instagram Poster', owner: 'Joy', prompt: 'Design an Instagram poster for my honey brand, Joy’s Hive', done: 'Poster ready', working: 'Designing your poster' },
+    { title: 'Spatial Group Website', owner: 'Brian', prompt: 'Build a website for my survey company in Nairobi', done: 'Website published', working: 'Building your website' },
+    { title: 'Murclean LinkedIn Post', owner: 'Peter', prompt: 'Write a LinkedIn post launching our new cleaning range', done: 'Post drafted', working: 'Writing your post' }
+  ];
+
+  var demo = document.getElementById('ndl-demo');
+  if (!demo) return;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var titleText = $('ndl-title-text');
+  var greet = $('ndl-greet');
+  var owner = $('ndl-owner');
+  var bubble = $('ndl-bubble');
+  var working = $('ndl-working');
+  var workingText = $('ndl-working-text');
+  var typed = $('ndl-typed');
+  var ph = $('ndl-ph');
+  var caret = $('ndl-caret');
+  var doneEl = $('ndl-done');
+  var recents = demo.querySelectorAll('.ndl-recents button');
+  var results = demo.querySelectorAll('.ndl-result');
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var paused = false;
+  var timer = null;
+
+  function on(el, yes) { el.classList.toggle('is-on', !!yes); }
+
+  // A timeout that waits while the visitor hovers or the tab is hidden
+  function later(fn, ms) {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function () {
+      if (paused || document.hidden) { later(fn, 250); return; }
+      fn();
+    }, ms);
+  }
+
+  function setRecent(i) {
+    recents.forEach(function (b, k) { b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+  }
+
+  function showResult(i) {
+    results.forEach(function (r) { on(r, Number(r.getAttribute('data-result')) === i); });
+  }
+
+  // Stage 1: empty task, greeting, prompt typing in the box
+  function stageTyping(i) {
+    var item = ITEMS[i];
+    setRecent(i);
+    titleText.textContent = 'New Task';
+    owner.textContent = item.owner;
+    on(greet, true); on(bubble, false); on(working, false); showResult(-1);
+    typed.textContent = ''; ph.textContent = ''; caret.classList.remove('is-off');
+  }
+
+  // Stage 2: prompt sent, shown as a chat bubble, coworker working
+  function stageSent(i) {
+    var item = ITEMS[i];
+    titleText.textContent = item.title;
+    on(greet, false);
+    bubble.textContent = item.prompt; on(bubble, true);
+    workingText.textContent = item.working; on(working, true);
+    typed.textContent = ''; ph.textContent = IDLE_PLACEHOLDER; caret.classList.add('is-off');
+  }
+
+  // Stage 3: result in
+  function stageDone(i) {
+    on(working, false);
+    showResult(i);
+    doneEl.textContent = ITEMS[i].done;
+  }
+
+  function play(i) {
+    var item = ITEMS[i];
+    stageTyping(i);
+    var n = 0;
+    function type() {
+      n += 1;
+      typed.textContent = item.prompt.slice(0, n);
+      if (n < item.prompt.length) { later(type, TYPE_SPEED_MS); return; }
+      later(function () {
+        stageSent(i);
+        later(function () {
+          stageDone(i);
+          later(function () { play((i + 1) % ITEMS.length); }, SHOW_RESULT_MS);
+        }, THINK_MS);
+      }, 350);
+    }
+    later(type, 500);
+  }
+
+  // Jump straight to a finished task (clicks and reduced motion)
+  function showInstant(i) {
+    if (timer) clearTimeout(timer);
+    setRecent(i);
+    stageSent(i);
+    stageDone(i);
+  }
+
+  recents.forEach(function (btn, i) {
+    btn.addEventListener('click', function () {
+      showInstant(i);
+      if (!reduce) later(function () { play((i + 1) % ITEMS.length); }, SHOW_RESULT_MS + 2000);
+    });
+  });
+
+  demo.addEventListener('mouseenter', function () { paused = true; });
+  demo.addEventListener('mouseleave', function () { paused = false; });
+  demo.addEventListener('focusin', function () { paused = true; });
+  demo.addEventListener('focusout', function () { paused = false; });
+
+  if (reduce) showInstant(0); else play(0);
+})();
+
+/* Online presence: three-up row of sample social posts.
+   Cards glide one at a time in an endless loop. To add a sample, add an entry to
+   POSTS (at least 4). platform: Instagram | LinkedIn | Facebook | X */
+(function () {
+  var root = document.getElementById('postFeed');
+  var track = document.getElementById('postTrack');
+  var dotsBox = document.getElementById('postDots');
+  if (!root || !track || !dotsBox) return;
+ 
+  var ACTIONS = {
+    Instagram: ['Like', 'Comment', 'Share', 'Save'],
+    LinkedIn: ['Like', 'Comment', 'Repost', 'Send'],
+    Facebook: ['Like', 'Comment', 'Share'],
+    X: ['Reply', 'Repost', 'Like']
+  };
+ 
+  /* Facebook page for each business (the whole card links here) */
+  var PAGES = {
+    'Joy’s Hive': 'https://web.facebook.com/profile.php?id=61593398631034',
+    'Spatial Group Networks': 'https://www.facebook.com/spatialgroupnetworks',
+    'Murclean Services': 'https://web.facebook.com/profile.php?id=61587891341400'
+  };
+ 
+  var POSTS = [
+    { platform: 'Instagram', business: 'Joy’s Hive', initials: 'JH', color: '#8A4B12', image: 'post-joyhive-1.jpg',
+      alt: 'Joy’s Hive honey poster: Pour a little joy',
+      caption: 'Turn an ordinary breakfast into a little moment of joy. Pure, natural honey from Joy’s Hive.' },
+    { platform: 'LinkedIn', business: 'Spatial Group Networks', initials: 'SG', color: '#C2571A', image: 'post-spatial-1.jpg',
+      alt: 'Spatial Group Networks topographic survey poster',
+      caption: 'Every strong build starts with knowing the ground beneath it. Accurate survey data before the first foundation is dug.' },
+    { platform: 'Facebook', business: 'Murclean Services', initials: 'MS', color: '#1F6B3A', image: 'post-murclean-1.jpg',
+      alt: 'Murclean Services poster for Pride Multiplus concentrated cleaner',
+      caption: 'One cleaner, every job in the kitchen. Pride Multiplus cuts through grease and stays safe on food surfaces.' },
+    { platform: 'X', business: 'Spatial Group Networks', initials: 'SG', color: '#C2571A', image: 'post-spatial-2.jpg',
+      alt: 'Spatial Group Networks poster: build on data',
+      caption: 'Don’t build on assumptions. Build on data.' },
+    { platform: 'Facebook', business: 'Joy’s Hive', initials: 'JH', color: '#8A4B12', image: 'post-joyhive-2.jpg',
+      alt: 'Joy’s Hive honey poster: Quality you can taste',
+      caption: 'Hotels and restaurants, this one is for you. Honey your guests can taste the difference in.' },
+    { platform: 'Instagram', business: 'Murclean Services', initials: 'MS', color: '#1F6B3A', image: 'post-murclean-2.jpg',
+      alt: 'Murclean Services poster for Purix Shower Gel',
+      caption: 'Fresh showers your guests notice. Purix Shower Gel, made for hotels, gyms and spas.' }
+  ];
+ 
+  var interval = parseInt(root.getAttribute('data-interval'), 10) || 3500;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mqPhone = window.matchMedia('(max-width: 600px)');
+  var mqTablet = window.matchMedia('(max-width: 900px)');
+  var n = POSTS.length;
+  var cards = [], dots = [], prevPos = [];
+  var index = 0, timer = null;
+  var hovering = false, focused = false, touching = false, hidden = document.hidden, offscreen = false;
+ 
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+ 
+  POSTS.forEach(function (post, i) {
+    var card = el('a', 'post-card');
+    card.href = PAGES[post.business] || '#';
+    card.target = '_blank';
+    card.rel = 'noopener noreferrer';
+    card.setAttribute('aria-label', 'See ' + post.business + ' on Facebook');
+ 
+    var head = el('div', 'post-head');
+    var avatar = el('div', 'post-avatar', post.initials);
+    avatar.style.background = post.color;
+    avatar.setAttribute('aria-hidden', 'true');
+    var who = el('div', 'post-who');
+    who.appendChild(el('div', 'post-business', post.business));
+    who.appendChild(el('div', 'post-meta', 'Posted by Ndovesha'));
+    var badge = el('span', 'post-badge', post.platform);
+    badge.setAttribute('data-platform', post.platform);
+    head.appendChild(avatar); head.appendChild(who); head.appendChild(badge);
+ 
+    var img = el('img');
+    img.src = post.image; img.alt = post.alt;
+    img.loading = i < 4 ? 'eager' : 'lazy';
+    img.decoding = 'async';
+ 
+    var caption = el('p', 'post-caption', post.caption);
+ 
+    var actions = el('div', 'post-actions');
+    (ACTIONS[post.platform] || []).forEach(function (a) { actions.appendChild(el('span', null, a)); });
+ 
+    card.appendChild(head); card.appendChild(img); card.appendChild(caption); card.appendChild(actions);
+    track.appendChild(card);
+    cards.push(card);
+ 
+    var dot = el('button', 'post-dot');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', 'Start at ' + post.business + ' ' + post.platform + ' post');
+    dot.addEventListener('click', function () { go(i); start(); });
+    dotsBox.appendChild(dot);
+    dots.push(dot);
+  });
+ 
+  /* Position of card k relative to the first visible card, wrapped so the loop
+     never ends: -1 = just off the left, 0..perPage-1 = visible, the rest wait on the right */
+  function posOf(k) { return (((k - index + 1) % n) + n) % n - 1; }
+ 
+  function render() {
+    var perPage = parseInt(getComputedStyle(root).getPropertyValue('--pp'), 10) || 3;
+    var jumped = [];
+    cards.forEach(function (card, k) {
+      var p = posOf(k), old = prevPos[k];
+      /* A card wrapping from one end of the line to the other moves instantly,
+         off screen, so it never flies back across the row */
+      if (old !== undefined && Math.abs(p - old) >= n - 1) { card.classList.add('no-move'); jumped.push(card); }
+      card.style.setProperty('--p', p);
+      prevPos[k] = p;
+      var shown = (p >= 0 && p < perPage);
+      card.setAttribute('aria-hidden', shown ? 'false' : 'true');
+      card.tabIndex = shown ? 0 : -1;   /* off-screen cards can't be tabbed to */
+    });
+    if (jumped.length) {
+      void track.offsetWidth;
+      jumped.forEach(function (card) { card.classList.remove('no-move'); });
+    }
+    dots.forEach(function (d, i) { d.setAttribute('aria-current', i === index ? 'true' : 'false'); });
+  }
+ 
+  function go(k) { index = ((k % n) + n) % n; render(); }
+ 
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function start() {
+    stop();
+    if (reduce || hovering || focused || touching || hidden || offscreen) return;
+    timer = setInterval(function () { go(index + 1); }, interval);
+  }
+ 
+  root.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hovering = true; start(); } });
+  root.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { hovering = false; start(); } });
+  root.addEventListener('focusin', function (e) { if (e.target.matches && e.target.matches(':focus-visible')) { focused = true; start(); } });
+  root.addEventListener('focusout', function () { focused = false; start(); });
+  document.addEventListener('visibilitychange', function () { hidden = document.hidden; start(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { offscreen = !e[0].isIntersecting; start(); }, { threshold: 0.2 }).observe(root);
+  }
+ 
+  /* Swipe sideways to move one card */
+  var sx = null, sy = null;
+  track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; touching = true; start(); }, { passive: true });
+  track.addEventListener('touchend', function (e) {
+    touching = false;
+    if (sx !== null) {
+      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? index + 1 : index - 1);
+    }
+    sx = sy = null; start();
+  }, { passive: true });
+ 
+  [mqPhone, mqTablet].forEach(function (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', render);
+  });
+ 
+  render();
+  start();
+})();
+
   </script>
+
+  <!-- Sticky nav shadow, hero word rotation and scroll reveal.
+       - The nav gets a soft shadow once the page scrolls.
+       - The hero word swaps Software -> Websites -> Marketing every 3 seconds.
+       - Headings, cards, grids and CTAs fade and rise into view as they enter the
+         screen every time you scroll past them (styles: .rv in style.css). -->
+  <script>
+  (function () {
+    var nav = document.querySelector('.nav');
+    function navShadow() { if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 8); }
+    window.addEventListener('scroll', navShadow, { passive: true });
+    navShadow();
+
+    /* Hero word rotation (every 3 seconds) */
+    var words = document.querySelectorAll('#ndl-rotor .ndl-word');
+    if (words.length > 1) {
+      var w = 0;
+      setInterval(function () {
+        if (document.hidden) return;
+        words[w].classList.remove('is-active');
+        w = (w + 1) % words.length;
+        words[w].classList.add('is-active');
+      }, 3000);
+    }
+
+    /* Scroll reveal */
+    if (!('IntersectionObserver' in window)) return;
+    var els = document.querySelectorAll(
+      '.workshop-heading, .workshop-sub, .workshop-tagline, .workshop-cta-row, ' +
+      '.hire-heading-wrap, .ai-card, .social-heading-wrap, .brand-switcher, ' +
+      '.built-heading-wrap, .built-carousel, .section-intro, .problem-card, .vs-badge, .solution-card, ' +
+      '.reviews-heading-wrap, .review-card, ' +
+      '.tutorial-heading-wrap, .tutorial-video-wrap, .faq-heading-wrap, .faq-item, .footer-links-col, ' +
+      '.ai-cta-center, .challenges-cta-center, .reviews-cta-center');
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        /* add on enter, remove on leave, so the animation replays every time */
+        e.target.classList.toggle('is-in', e.isIntersecting);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+
+    var seen = new Map();
+    els.forEach(function (el) {
+      var k = seen.get(el.parentNode) || 0;          /* stagger neighbours: 0, 110, 220... ms */
+      seen.set(el.parentNode, k + 1);
+      el.style.setProperty('--d', Math.min(k, 4) * 110 + 'ms');
+      if (el.classList.contains('vs-badge')) el.classList.add('rv-fade');
+      el.classList.add('rv');
+      io.observe(el);
+    });
+  })();
+  </script>
+
   <script type="module"
     src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496"
     integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ=="
     data-cf-beacon='{"version":"2024.11.0","token":"6892ca8ffd3b4ad7b1737418d2724ac1","r":1}'
     crossorigin="anonymous"></script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"6892ca8ffd3b4ad7b1737418d2724ac1","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 
 </html>

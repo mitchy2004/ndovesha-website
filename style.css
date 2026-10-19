@@ -31,9 +31,6 @@
   --muted: #718096;
   --card-shadow: 0 30px 80px rgba(0, 51, 102, 0.07), 0 8px 24px rgba(0, 51, 102, 0.035);
 
-  /* NEW â€” previously referenced throughout the "Shift" section but
-     never defined, which is why the description colour and the
-     title/description sizing weren't behaving as intended */
   --problem-text: var(--text-light);
   --problem-text-light: var(--text-light);
   --panel-heading-size: 1.65rem;
@@ -47,21 +44,20 @@
   --font-extrabold: 800;
   --font-h3:        600; /* h3s sit heavier than the rest of the heading scale */
 
-  /* Single source of truth for every section heading (including the
-     hero) so they can't drift out of sync with each other again */
+  /* Single source of truth for every section heading (including the hero) */
   --heading-size: clamp(2.4rem, 4.8vw, 3.9rem);
 
-  /* Single source of truth for the vertical gap around every section.
-     clamp() scales it down smoothly on smaller screens instead of
-     jumping between hard-coded per-breakpoint numbers, so the gap
-     between any two sections stays the same everywhere and never
-     balloons into unused space on short/tall viewports. */
+  /* Single source of truth for the vertical gap around every section */
   --section-py: clamp(48px, 6vw, 80px);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
-body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; font-weight: var(--font-regular); }
+
+/* STICKY NAV FIX: overflow-x:hidden on html/body stops position:sticky from working.
+   overflow-x:clip still prevents sideways scrolling but keeps the nav sticky.
+   scroll-padding-top keeps anchor jumps from hiding under the 68px nav. */
+html { scroll-behavior: smooth; overflow-x: clip; scroll-padding-top: 76px; }
+body { font-family: 'Ubuntu', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: clip; font-weight: var(--font-regular); }
 ul { list-style: none; padding: 0; margin: 0; }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
@@ -69,25 +65,24 @@ img { max-width: 100%; display: block; }
 
 /* ============================================================
    SECTION BACKGROUND ORDER (alternating white / light grey)
-   1  Hero ............ white
-   2  Workshop ........ grey
-   3  Hire ............ white
-   4  Social .......... grey
-   5  Shift ........... white
-   6  Reviews ......... grey
-   7  Build ........... white
-   8  Tutorial ........ grey
-   9  FAQ ............. white
-   10 Footer links .... grey
-   11 Site footer ..... white
+   1   Hero ............... white
+   2   Workshop ........... grey
+   3   Hire ............... white
+   4   Social ............. grey
+   5   Built with Ndovesha  white
+   6   Shift .............. grey
+   7   Reviews ............ white
+   8   Tutorial ........... grey
+   9   FAQ ................ white
+   10  Footer links ....... grey
+   11  Site footer ........ white
 ============================================================ */
 
 /* ============================================================
    GLOBAL FONT-WEIGHT ASSIGNMENTS
-   Centralized here instead of on individual selectors.
 ============================================================ */
 
-/* Regular â€” 400 */
+/* Regular — 400 */
 .dropdown-menu li a,
 .hero-sub,
 .hire-ai-text,
@@ -96,14 +91,14 @@ p {
   font-weight: var(--font-regular);
 }
 
-/* Medium â€” 500 (non-heading UI elements) */
+/* Medium — 500 (non-heading UI elements) */
 .nav-center > li > a,
 .btn-login,
 .mobile-nav a {
   font-weight: var(--font-medium);
 }
 
-/* Semibold â€” 600 (non-heading UI elements only) */
+/* Semibold — 600 (non-heading UI elements only) */
 .btn-cta,
 .mobile-get-started-btn,
 .whatsapp-text-part {
@@ -111,7 +106,7 @@ p {
 }
 
 
-/* Bold â€” 700 (non-heading UI elements only) */
+/* Bold — 700 (non-heading UI elements only) */
 .mobile-section-title,
 .cap-icon-label,
 .btn,
@@ -133,6 +128,8 @@ h3,
   font-weight: var(--font-h3);
 }
 
+/* STICKY NAV: stays pinned to the top while scrolling; a soft shadow
+   appears once the page has scrolled (class toggled by the script in index.html) */
 .nav {
   position: sticky;
   top: 0;
@@ -142,7 +139,9 @@ h3,
   height: 68px;
   display: flex;
   align-items: center;
+  transition: box-shadow 0.3s ease;
 }
+.nav.is-scrolled { box-shadow: 0 4px 18px rgba(0, 51, 102, 0.10); }
 .nav-container {
   display: flex;
   align-items: center;
@@ -375,137 +374,382 @@ h3,
 @media (max-width: 414px){
   .logo-img{max-width: 180px; height: auto;}
 }
-
 /* ============================================================
-   1. HERO â€” white
+   1. LANDING HERO — white
+   Everything is scoped under .ndl so it won't clash with the rest
+   of the site. Replaces the old "2. Landing hero" block in style.css.
+   The second nav (.ndl-nav, .ndl-brand, .ndl-links, .ndl-auth,
+   .ndl-login, .ndl-outline) has been removed.
 ============================================================ */
-.hero-section {
-  min-height: clamp(420px, 62vh, 640px);
-  background: var(--white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  padding: var(--section-py) 24px calc(var(--section-py) / 2);
-  text-align: center;
-  position: relative;
-}
-.hero-heading {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 800;
-  font-size: var(--heading-size);
-  line-height: 1.08;
-  color: var(--primary);
-  margin-bottom: 14px;
-  white-space: nowrap;
-}
-.hero-heading .golden { color: var(--gold); }
-.hero-sub {
-  font-size: clamp(1.08rem, 1.9vw, 1.28rem);
-  color: var(--text-light);
-  margin-bottom: 22px;
-  max-width: 500px;
-}
 
-.search-bar-wrap { width: 100%; max-width: 720px; position: relative; margin-bottom: 20px; }
-.search-bar {
-  display: flex;
-  align-items: center;
-  background: var(--white);
-  border-radius: 14px;
-  border: 1.5px solid transparent;
-  background-clip: padding-box;
+.ndl {
+  --navy: #003366;   /* brand Deep Blue (same as --primary) */
+  --navy-deep: #13294B;
+  --ink: #14213D;
+  --body: #2A3550;
+  --muted: #4A5878;
+  --faint: #6B7896;
+  --line: #DCE2EC;
+  --soft: #F7F9FC;
+  --app-bg: #EEF1F5;
+  --accent: #FEBF0F; /* brand Savanna Gold (same as --gold) */
+  --cream: #FDF6E3;
+  --grid-line: rgba(29, 59, 112, 0.08);
+
   position: relative;
-  padding: 10px 14px;
-  gap: 10px;
-  box-shadow: 0 2px 20px rgba(10,42,102,0.08);
+  overflow: hidden;
+  font-family: 'Ubuntu', system-ui, sans-serif;
+  color: var(--navy);
+  background: #FFFFFF;   /* white: first in the white / grey alternation */
 }
-.search-bar::before {
-  content: '';
+.ndl *, .ndl *::before, .ndl *::after { box-sizing: border-box; }
+.ndl a { color: var(--navy); }
+.ndl a:hover { color: var(--primary-light); }
+.ndl a:focus-visible, .ndl button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Background: grain and faded grid patches (unchanged) ---------- */
+.ndl-deco { position: absolute; inset: 0; pointer-events: none; }
+.ndl-grain {
+  position: absolute; top: 0; left: 0; opacity: 0.35;
+  -webkit-mask-image: linear-gradient(#000, transparent);
+          mask-image: linear-gradient(#000, transparent);
+}
+.ndl-grid {
   position: absolute;
-  inset: -1.5px;
-  border-radius: 15px;
-  padding: 1.5px;
-  background: linear-gradient(90deg, var(--primary), var(--gold));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 92px 92px;
 }
-.search-icon-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  color: var(--text-light);
-  flex-shrink: 0;
-  transition: color 0.2s;
+.ndl-grid-left {
+  top: 0; left: 0; width: 40%; height: 70%;
+  -webkit-mask-image: radial-gradient(ellipse 85% 80% at 0% 20%, #000 35%, transparent 75%);
+          mask-image: radial-gradient(ellipse 85% 80% at 0% 20%, #000 35%, transparent 75%);
 }
-.search-icon-btn:hover { color: var(--primary); }
-.search-input {
-  flex: 1;
-  border: none;
-  outline: none;
+.ndl-grid-right {
+  top: 30%; right: 0; width: 32%; height: 70%;
+  background-position: right top;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 100% 50%, #000 35%, transparent 75%);
+          mask-image: radial-gradient(ellipse 90% 70% at 100% 50%, #000 35%, transparent 75%);
+}
+
+/* ---------- Centred copy ---------- */
+.ndl-copy {
+  position: relative; z-index: 1;
+  max-width: 1400px; margin: 0 auto; padding: 64px 24px 0;   /* was 88px: the removed nav no longer needs the space */
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px;
+}
+/* Hero title: identical size, weight and colour to every other section title
+   (var(--heading-size), 800, Deep Blue). One word rotates in gold every 3 seconds. */
+.ndl h1 {
+  margin: 0; max-width: none;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 1rem;
-  color: var(--text);
-  background: transparent;
-  padding: 4px 0;
-  min-width: 0;
+  font-size: var(--heading-size); line-height: 1.1; font-weight: 800;
+  color: var(--primary);
+  text-wrap: balance;
 }
-.search-input::placeholder { color: #9CA3AF; }
-.send-icon {
-  background: var(--primary);
-  border: none;
-  border-radius: 8px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: background 0.2s, transform 0.18s;
+.ndl-accent { color: var(--gold); }
+.ndl-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* The three words share one grid cell, so the title never jumps in width when the word changes */
+.ndl-rotor { display: inline-grid; vertical-align: baseline; text-align: center; }
+.ndl-word {
+  grid-area: 1 / 1; color: var(--gold);
+  opacity: 0; transform: translateY(0.35em);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
-.send-icon:hover { background: var(--primary-dark); transform: scale(1.05); }
-.send-icon svg { color: white; }
+.ndl-word.is-active { opacity: 1; transform: none; }
 
-.capability-icons { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 40px; } /* margin-top was 56px â€” increased gap below the search bar */
-.cap-icon-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.22s; }
-.cap-icon-item:hover { transform: translateY(-6px); }
+/* "10X the speed | 10X less the cost" stat row */
+.ndl-stats { display: flex; align-items: center; justify-content: center; gap: 48px; margin-top: 8px; }
+.ndl-stat { text-align: left; }
+.ndl-stat strong { display: block; font-size: clamp(40px, 5vw, 56px); line-height: 1; font-weight: 700; color: var(--accent); }
+.ndl-stat span { display: block; margin-top: 6px; font-size: clamp(17px, 2vw, 22px); color: var(--text-light); }
+.ndl-stat-divider { width: 2px; height: 64px; background: var(--accent); flex: none; }
 
-.cap-icon-circle {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 2px solid var(--primary);   /* was var(--border) */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--white);
-  transition: border-color 0.22s, box-shadow 0.22s;
+.ndl-ctas { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; margin-top: 12px; }
+.ndl-primary, .ndl-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 58px; border-radius: 999px;
+  font-size: 17px; font-weight: 700; text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
-.cap-icon-item:hover .cap-icon-circle { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(254,191,15,0.18); }
-.cap-icon-circle svg { color: var(--gold); }   /* was var(--primary) */
-.cap-icon-label { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.01em; }
+.ndl-primary {
+  padding: 0 32px; background: var(--navy); color: #FFFFFF !important;
+  box-shadow: 0 10px 24px rgba(29, 59, 112, 0.25);
+}
+.ndl-primary:hover { background: var(--primary-light); transform: translateY(-2px); }
+.ndl-secondary { padding: 0 28px; background: #FFFFFF; border: 1.5px solid #C9D2E3; }
+.ndl-secondary:hover { border-color: var(--navy); }
+.ndl-fine { margin: 0; font-size: 14px; color: var(--faint); }
 
-@media (max-width: 968px) {
-  /* Wrap instead of shrink, same as every other section heading */
-  .hero-heading { white-space: normal; }
+/* ---------- Demo: mini Ndovesha app ---------- */
+.ndl-demo {
+  position: relative; z-index: 1;
+  max-width: 940px; margin: 88px auto 0; padding: 0 24px 120px;
+}
+.ndl-glow {
+  position: absolute; left: 50%; top: 42%; width: 980px; height: 980px; max-width: 160%;
+  transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(29, 59, 112, 0.06) 0%, rgba(29, 59, 112, 0.035) 45%, rgba(29, 59, 112, 0) 70%);
+}
+.ndl-app {
+  position: relative; z-index: 2; height: 580px; display: flex;
+  background: var(--app-bg); border: 1px solid #D5DCE8; border-radius: 22px;
+  box-shadow: 0 40px 80px rgba(29, 59, 112, 0.16); overflow: hidden;
 }
 
+/* Sidebar */
+.ndl-side {
+  width: 210px; flex: none; padding: 18px 14px;
+  display: flex; flex-direction: column; gap: 14px;
+  background: #F9FAFC; border-right: 1px solid var(--line);
+}
+.ndl-side-logo { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 16px; letter-spacing: 0.02em; }
+.ndl-newtask {
+  display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-radius: 10px;
+  background: var(--navy); color: #FFFFFF; font-size: 13px; font-weight: 700;
+}
+.ndl-side-menu {
+  display: flex; flex-direction: column; gap: 12px; padding: 4px 6px 14px;
+  font-size: 13px; font-weight: 500; border-bottom: 1px solid #E6EAF2;
+}
+.ndl-side-label { padding: 0 6px; font-size: 12px; font-weight: 700; color: var(--faint); }
+.ndl-recents { display: flex; flex-direction: column; gap: 6px; }
+.ndl-recents button {
+  text-align: left; min-height: 36px; padding: 8px 10px; border-radius: 9px; cursor: pointer;
+  font-family: inherit; font-size: 13px; font-weight: 700; color: var(--muted);
+  background: transparent; border: 1px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.ndl-recents button[aria-pressed="true"] {
+  background: #FFFFFF; color: var(--navy); border-color: var(--line);
+  box-shadow: 0 2px 6px rgba(29, 59, 112, 0.08);
+}
+.ndl-credits {
+  margin-top: auto; padding: 10px 12px; border-radius: 10px; font-size: 12px; color: var(--muted);
+  background: var(--cream); border: 1px solid #F5E2B0;
+}
+.ndl-credits b { font-size: 15px; color: var(--ink); }
+
+/* Chat area */
+.ndl-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.ndl-titlebar {
+  margin: 16px 20px 0; padding: 9px 10px 9px 14px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--cream); border-left: 3px solid var(--accent);
+  font-size: 13px; font-weight: 700; color: var(--ink);
+}
+.ndl-titlebar span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ndl-titlebar em { flex: none; font-style: normal; font-size: 12px; color: #FFFFFF; background: var(--navy); border-radius: 8px; padding: 5px 10px; }
+
+.ndl-chat { flex: 1; min-height: 0; padding: 20px; display: flex; flex-direction: column; gap: 14px; overflow: hidden; }
+.ndl-greet { flex: 1; display: none; align-items: center; justify-content: center; font-size: 24px; font-weight: 500; color: var(--ink); }
+.ndl-greet span { color: var(--accent); margin-left: 6px; }
+.ndl-bubble {
+  display: none; align-self: flex-end; max-width: 78%; padding: 10px 14px; border-radius: 14px;
+  background: #DCE6F5; color: var(--ink); font-size: 14px; line-height: 1.5;
+}
+.ndl-working { display: none; align-items: center; gap: 10px; padding: 4px 2px; font-size: 14px; color: var(--faint); }
+.ndl-result {
+  display: none; align-self: flex-start; max-width: 100%; flex-direction: column; gap: 14px; padding: 14px;
+  border-radius: 16px; background: var(--soft); border: 1px solid #E1E6EF;
+}
+.ndl-greet.is-on, .ndl-working.is-on { display: flex; }
+.ndl-bubble.is-on { display: block; animation: ndl-fade 0.4s ease both; }
+.ndl-result.is-on { display: flex; animation: ndl-fade 0.5s ease both; }
+
+.ndl-design { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+.ndl-design img { width: 210px; height: 210px; object-fit: cover; border-radius: 12px; display: block; }
+.ndl-notes { display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--muted); }
+.ndl-notes b { font-size: 15px; color: var(--ink); }
+
+.ndl-actions { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12.5px; font-weight: 700; }
+.ndl-actions span { padding: 8px 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid var(--line); }
+.ndl-actions .a-navy { background: var(--navy); color: var(--accent); border-color: var(--navy); }
+.ndl-actions .a-yellow { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+.ndl-actions .a-green { background: #EAF6EE; color: #1F6B3A; border-color: #B9DEC5; }
+
+.ndl-site { width: 460px; max-width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+.ndl-site-bar { display: flex; align-items: center; gap: 5px; padding: 8px 10px; background: #1A1A1F; }
+.ndl-site-bar i { width: 8px; height: 8px; border-radius: 50%; }
+.ndl-site-bar .r { background: #E5534B; } .ndl-site-bar .y { background: #E5B84B; } .ndl-site-bar .g { background: #5BBF6A; }
+.ndl-site-bar span { margin-left: 10px; font-size: 11px; color: #C9CDD6; }
+.ndl-site-hero { display: flex; flex-direction: column; gap: 8px; padding: 22px 20px 24px; background: var(--navy-deep); color: #FFFFFF; }
+.ndl-site-hero small { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: #E8792B; }
+.ndl-site-hero b { font-size: 24px; line-height: 1.15; }
+.ndl-site-hero span { font-size: 12.5px; opacity: 0.85; }
+.ndl-site-hero div { display: flex; gap: 8px; margin-top: 6px; }
+.ndl-site-hero em { font-style: normal; font-size: 11px; font-weight: 700; border-radius: 999px; padding: 7px 14px; border: 1px solid rgba(255, 255, 255, 0.6); }
+.ndl-site-hero em.solid { background: #FFFFFF; color: var(--navy-deep); border-color: #FFFFFF; }
+
+.ndl-post { width: 460px; max-width: 100%; display: flex; flex-direction: column; gap: 12px; padding: 16px 18px; border-radius: 12px; background: #FFFFFF; border: 1px solid var(--line); }
+.ndl-post-head { display: flex; align-items: center; gap: 10px; }
+.ndl-post-head > span {
+  width: 36px; height: 36px; border-radius: 50%; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: #1F6B3A; color: #FFFFFF; font-weight: 700; font-size: 12px;
+}
+.ndl-post-head div { display: flex; flex-direction: column; gap: 2px; }
+.ndl-post-head b { font-size: 14px; color: var(--ink); }
+.ndl-post-head small { font-size: 12px; color: var(--faint); }
+.ndl-post p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--body); }
+.ndl-tags { font-size: 14px; font-weight: 500; color: #0B4F8A; }
+
+/* Prompt box */
+.ndl-input {
+  margin: 0 20px 20px; padding: 14px; border-radius: 14px;
+  display: flex; flex-direction: column; gap: 14px;
+  background: #FFFFFF; border: 1px solid var(--line); box-shadow: 0 4px 12px rgba(29, 59, 112, 0.06);
+}
+.ndl-input-text { min-height: 20px; font-size: 14px; line-height: 1.4; color: var(--ink); }
+.ndl-ph { color: #8A95AD; }
+.ndl-caret { color: var(--accent); font-weight: 700; animation: ndl-caret 1s steps(1) infinite; }
+.ndl-caret.is-off { display: none; }
+.ndl-input-row { display: flex; align-items: center; gap: 8px; }
+.ndl-sq {
+  width: 32px; height: 32px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--navy); color: #FFFFFF;
+}
+.ndl-improve {
+  margin-left: auto; display: flex; align-items: center; gap: 6px;
+  padding: 7px 11px; border-radius: 9px; border: 1px solid var(--line);
+  font-size: 12px; font-weight: 700;
+}
+
+/* Floating cards beside the app */
+.ndl-chip-left {
+  position: absolute; z-index: 3; left: -110px; top: 110px;
+  width: 250px; display: flex; align-items: center; gap: 14px; padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.92); border: 1px solid var(--line); border-radius: 16px;
+  box-shadow: 0 16px 36px rgba(29, 59, 112, 0.12);
+}
+.ndl-check {
+  width: 42px; height: 42px; border-radius: 50%; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: #E3F4EA; color: #1F6B3A;
+}
+.ndl-chip-text { display: flex; flex-direction: column; gap: 3px; }
+.ndl-chip-text b { font-size: 15px; color: var(--ink); }
+.ndl-chip-text small { font-size: 13px; color: var(--faint); }
+.ndl-chip-right {
+  position: absolute; z-index: 3; right: -110px; top: 250px;
+  width: 210px; display: flex; flex-direction: column; gap: 12px; padding: 20px;
+  background: var(--navy); color: #FFFFFF; border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(29, 59, 112, 0.25);
+  font-size: 15px; line-height: 1.45; font-weight: 500;
+}
+.ndl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex: none; }
+.ndl-bob { animation: ndl-bob 5s ease-in-out infinite; }
+.ndl-bob2 { animation: ndl-bob 6s ease-in-out 1.2s infinite; }
+.ndl-pulse { animation: ndl-pulse 1.2s ease-in-out infinite; }
+
+/* ---------- Animations ---------- */
+@keyframes ndl-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes ndl-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes ndl-caret { 50% { opacity: 0; } }
+@keyframes ndl-pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+/* ---------- Smaller screens ---------- */
+@media (max-width: 1180px) {
+  .ndl-chip-left { left: -12px; top: -28px; }
+  .ndl-chip-right { right: -12px; top: auto; bottom: 92px; }
+}
+@media (max-width: 900px) {
+  .ndl-copy { padding-top: 48px; }
+  .ndl-demo { margin-top: 72px; padding-bottom: 88px; }
+}
 @media (max-width: 640px) {
-  .hero-section { min-height: auto; padding: var(--section-py) 16px; }
-  .capability-icons { gap: 24px; }
-  .hero-heading { white-space: normal; }
-  .search-bar-wrap { max-width: 100%; }
+  .ndl-primary, .ndl-secondary { width: 100%; justify-content: center; }
+  .ndl-stats { gap: 24px; }
+  .ndl-stat-divider { height: 48px; }
+  .ndl-side, .ndl-chip-right { display: none; }
+  .ndl-chip-left { width: auto; }
+  .ndl-app { height: 600px; }
+  .ndl-design img { width: 100%; height: auto; max-width: 240px; }
+  .ndl-grid-right { width: 60%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ndl-word { transform: none; }
+  .ndl-bob, .ndl-bob2, .ndl-caret, .ndl-pulse, .ndl-bubble.is-on, .ndl-result.is-on { animation: none; }
+  .ndl-primary:hover { transform: none; }
 }
 
 /* ============================================================
-   2. IN-PERSON WORKSHOP SECTION â€” grey
+   1b. TRUSTED BRANDS MARQUEE — white (continues straight on from the hero)
+   Logos glide right to left in an endless loop. Pauses on hover.
+============================================================ */
+.trusted-section {
+  padding: 0 0 var(--section-py);
+  background: var(--white);
+}
+
+.trusted-label {
+  text-align: center;
+  margin: 0 0 28px;
+  font-size: 0.95rem;
+  font-weight: var(--font-medium);
+  color: var(--text-light);
+}
+
+/* Soft fade at both ends so logos drift in and out instead of cutting off */
+.trusted-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+}
+
+/* Two identical groups side by side; sliding by exactly one group (-50%) loops seamlessly */
+.trusted-track {
+  --gap: 72px;
+  --scale: 1;
+  display: flex;
+  width: max-content;
+  animation: trustedScroll 30s linear infinite;
+}
+.trusted-marquee:hover .trusted-track { animation-play-state: paused; }
+
+.trusted-group {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  padding-right: var(--gap);   /* keeps the gap between the two groups equal to the gap between logos */
+  list-style: none;
+  margin: 0;
+}
+
+/* Each logo sets its own height with --h so they all look the same visual size */
+.trusted-group img {
+  display: block;
+  height: calc(var(--h, 56px) * var(--scale));
+  width: auto;
+  max-width: none;
+  opacity: 0.9;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.trusted-group img:hover { opacity: 1; transform: scale(1.06); }
+
+@keyframes trustedScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 600px) {
+  .trusted-track { --gap: 48px; --scale: 0.8; }
+  .trusted-label { margin-bottom: 20px; }
+}
+
+/* Reduced motion: no scrolling, show the logos in a centred, wrapped row */
+@media (prefers-reduced-motion: reduce) {
+  .trusted-track { animation: none; width: auto; justify-content: center; }
+  .trusted-group { flex-wrap: wrap; justify-content: center; padding-right: 0; row-gap: 24px; }
+  .trusted-group[aria-hidden="true"] { display: none; }
+  .trusted-marquee { -webkit-mask-image: none; mask-image: none; }
+}
+/* ============================================================
+   2. IN-PERSON WORKSHOP SECTION — grey
 ============================================================ */
 .workshop-section {
   background: var(--light-grey);
@@ -524,7 +768,7 @@ h3,
   font-size: var(--heading-size);
   line-height: 1.1;
   color: var(--primary);
-  margin-bottom: 16px;
+  margin-bottom: 28px;
   white-space: normal;
   text-align: center;
 }
@@ -534,7 +778,7 @@ h3,
 }
 .gold-in-person {
   color: var(--gold);
-  display: inline;   /* was: block â€” that forced "In Person" onto its own line */
+  display: inline;
   white-space: nowrap;
 }
 
@@ -542,8 +786,52 @@ h3,
   font-size: clamp(1.08rem, 1.9vw, 1.28rem);
   color: var(--text-light);
   max-width: 560px;
-  margin: 0 auto 44px;
+  margin: 0 auto 48px;
   line-height: 1.6;
+}
+
+/* "You bring the business | You bring the problem | We bring the AI" */
+.workshop-tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin: 0 auto 44px;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: var(--font-bold);
+  line-height: 1.3;
+  color: var(--primary);
+}
+
+.workshop-tagline-item {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  white-space: nowrap;
+}
+
+/* Gold divider before the 2nd and 3rd phrases */
+.workshop-tagline-item + .workshop-tagline-item::before {
+  content: '';
+  width: 2px;
+  height: 1.2em;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* Punchline in gold */
+.workshop-tagline-ai { color: var(--gold); }
+
+@media (max-width: 768px) {
+  .workshop-sub { margin-bottom: 32px; }
+  .workshop-tagline {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .workshop-tagline-item + .workshop-tagline-item::before {
+    display: none;
+  }
 }
 
 .workshop-cta-row {
@@ -562,7 +850,7 @@ h3,
 }
 
 /* ============================================================
-   3. HIRE / AI COWORKERS â€” white
+   3. HIRE / AI COWORKERS — white
 ============================================================ */
 .hire-section {
   padding: var(--section-py) 0;
@@ -640,16 +928,15 @@ h3,
 }
 
 .ai-cards-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-bottom: 52px;
+  max-width: 900px;
+  margin: 0 auto 52px;
 }
 
 .ai-card {
-  flex: 0 1 calc((100% - 48px) / 3);
-  min-width: 240px;
+
   background: var(--white);
   border-radius: 16px;
   padding: 38px 26px 34px;
@@ -662,9 +949,10 @@ h3,
   text-align: left;
 }
 .ai-card-icon {
-  width: 66px;
-  height: 66px;
-  border-radius: 16px;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
   background: var(--primary);
   display: flex;
   align-items: center;
@@ -674,10 +962,10 @@ h3,
 }
 
 .ai-card-icon svg {
-  width: 30px;
-  height: 30px;
-  stroke: var(--gold);   /* was: var(--white) */
-  color: var(--gold);    /* was: var(--white) */
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+  color: var(--gold);
   fill: none;
   stroke-width: 1.8;
   stroke-linecap: round;
@@ -685,7 +973,7 @@ h3,
 }
 
 .ai-card:hover .ai-card-icon {
-  background: var(--gold);   /* was: var(--primary-light) */
+  background: var(--gold);
   color: var(--primary);
 }
 .ai-card:hover .ai-card-icon svg {
@@ -699,11 +987,8 @@ h3,
     0 8px 32px rgba(10,42,102,0.10);
   border-color: var(--gold);
 }
-@media (max-width: 900px) {
-  .ai-card { flex: 0 1 calc((100% - 24px) / 2); }
-}
-@media (max-width: 560px) {
-  .ai-card { flex: 0 1 100%; }
+@media (max-width: 640px) {
+  .ai-cards-grid { grid-template-columns: 1fr; }
 }
 
 .ai-card h3 {
@@ -756,12 +1041,23 @@ h3,
   box-shadow: 0 12px 30px rgba(10,42,102,0.25);
 }
 
-
-
+/* White outlined button (used by "Learn More" in the workshop section) */
+.btn-white {
+  background: var(--white);
+  color: var(--primary);
+  border: 1.5px solid var(--border);
+  padding: 13.5px 32.5px;
+}
+.btn-white:hover {
+  border-color: var(--primary-light);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(10,42,102,0.15);
+}
 /* ============================================================
-   4. SOCIAL MEDIA AUTOPILOT SECTION â€” grey
-   UPDATED: grey background (was white), top border removed, and
-   the "Autopilot" word no longer pulses/enlarges.
+   4. SOCIAL MEDIA AUTOPILOT SECTION — grey
+   Heading + supporting paragraph + three-up row of sample posts
+   (glides one card at a time, endless loop) + CTA. Replaces the entire old section 4
+   block in style.css (from ".social-section" to the end of its CTA rules).
 ============================================================ */
 .social-section {
   padding: var(--section-py) 0;
@@ -779,11 +1075,12 @@ h3,
   font-size: var(--heading-size);
   color: var(--primary);
   line-height: 1.1;
-  margin-bottom: 16px;
-  white-space: nowrap;
+  margin: 0 auto 16px;
+  max-width: 900px;
+  white-space: normal;
+  text-wrap: balance;
 }
 
-/* No animation â€” "Autopilot" stays a fixed size */
 .gold-autopilot {
   color: var(--gold);
   display: inline-block;
@@ -791,97 +1088,515 @@ h3,
 
 .social-sub-heading {
   font-size: clamp(1.08rem, 1.9vw, 1.28rem);
+  font-weight: var(--font-regular);
   color: var(--text-light);
   max-width: 760px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-  .social-main-heading { white-space: normal; }
-}
-
-/* ----- Three brand cards (reuses the AI-coworker / review card language) ----- */
-
-.brand-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1100px;
+/* ----- Post feed: an endless row that glides one card at a time -----
+   --pp = cards visible (3 desktop, 2 tablet, 1 phone). Each card gets --p from
+   the script: -1 = just off the left, 0..pp-1 = visible, higher = waiting on the right. */
+.post-feed {
+  --pp: 3;
+  --gap: 20px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-.brand-card {
+/* Clips the cards sliding in and out; the edges fade softly instead of cutting off.
+   Padding leaves room for the hover lift and glow. */
+.post-viewport {
+  overflow: hidden;
+  padding: 26px 14px 32px;
+  touch-action: pan-y;   /* vertical scroll stays native, horizontal is the swipe */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%);
+}
+
+/* All cards share one grid cell, so every card is as tall as the tallest */
+.post-track { display: grid; }
+
+.post-card {
+  grid-area: 1 / 1;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  width: calc((100% - (var(--pp) - 1) * var(--gap)) / var(--pp));
   display: flex;
   flex-direction: column;
   background: var(--white);
   border: 1.5px solid var(--primary);
   border-radius: 16px;
-  padding: 0;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(10,42,102,0.06);
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+
+  --p: 0;
+  --lift: 0px;
+  transform: translateX(calc(var(--p) * (100% + var(--gap)))) translateY(var(--lift));
+  will-change: transform;
+  /* long, gentle ease: starts and stops softly */
+  transition:
+    transform 1.1s cubic-bezier(0.45, 0, 0.15, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
 }
-.brand-card:hover {
-  transform: translateY(-9px);
-  box-shadow: 0 0 42px rgba(254,191,15,0.5), 0 8px 32px rgba(10,42,102,0.10);
+/* Used by the script when a card wraps from one end to the other: the move is instant (off screen) */
+.post-card.no-move { transition: box-shadow 0.28s ease, border-color 0.28s ease; }
+
+.post-card:hover,
+.post-card:focus-visible {
+  --lift: -6px;
   border-color: var(--gold);
+  box-shadow: 0 0 42px rgba(254,191,15,0.5), 0 8px 32px rgba(10,42,102,0.10);
 }
 
-/* The example post */
-.brand-post {
-  flex: 1;
-  display: grid;
-  grid-template-rows: auto 1fr;   /* square image on top, compact details below */
-  min-height: 0;
-  background: var(--white);
-}
-.brand-post-image { aspect-ratio: 1 / 1; overflow: hidden; background: var(--light-grey); }
-.brand-post-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+/* The whole card is a link: keyboard focus gets the same gold outline as hover */
+.post-card:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 
-.brand-post-body {
+/* Card header: avatar, business name, platform badge */
+.post-head {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 22px 24px 26px;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
 }
-.brand-card h3.brand-name {
-  font-size: 1.28rem;
-  font-weight: 800;
+.post-avatar {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: var(--font-bold);
+}
+.post-who { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1; }
+.post-business {
+  font-size: 0.95rem;
+  font-weight: var(--font-bold);
   color: var(--primary);
   line-height: 1.3;
-  margin: 0 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.brand-post-caption {
-  font-size: 1.02rem;
+.post-meta { font-size: 0.78rem; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Poster image */
+.post-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--light-grey);
+}
+
+/* Caption: flex:1 pushes the action row to the bottom so all cards line up */
+.post-caption {
+  flex: 1;
+  margin: 0;
+  padding: 14px 16px 12px;
+  font-size: 0.93rem;
+  line-height: 1.55;
   color: var(--muted);
-  line-height: 1.75;
-  margin: 0 0 20px;
 }
 
-/* CTA under each brand post â€” pinned to the bottom of the card so all
-   three buttons line up even if captions wrap differently */
-.brand-post-body .brand-cta {
-  margin-top: auto;
-  align-self: flex-start;
+/* Action row (Like / Comment / Share ...) */
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 11px 8px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  font-weight: var(--font-medium);
+  color: var(--text-light);
 }
 
+/* Platform badge colours */
+.post-badge {
+  flex: none;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: var(--font-bold);
+  background: var(--pf-tint);
+  color: var(--pf-ink);
+}
+.post-badge[data-platform="Instagram"] { --pf-tint: #FCE7F1; --pf-ink: #9C1F5A; }
+.post-badge[data-platform="LinkedIn"]  { --pf-tint: #E3EEFA; --pf-ink: #0B4F8A; }
+.post-badge[data-platform="Facebook"]  { --pf-tint: #E6EDFB; --pf-ink: #1E4BA3; }
+.post-badge[data-platform="X"]         { --pf-tint: #E9EAEC; --pf-ink: #14171A; }
+
+/* ----- Dots (same style as the "Websites Built" carousel) ----- */
+.post-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+.post-dot {
+  display: flex;
+  align-items: center;
+  padding: 18px 5px;   /* 44px-tall touch target around an 8px dot */
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.post-dot::before {
+  content: '';
+  height: 8px;
+  width: 8px;
+  border-radius: 4px;
+  background: #D1D5DB;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.post-dot:hover::before { background: var(--primary-light); }
+.post-dot[aria-current="true"]::before { width: 28px; background: var(--gold); }
+.post-dot:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 8px; }
+
+/* ----- CTA button ----- */
+.social-section .ai-cta-center {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.social-section .ai-cta-center .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 32px;
+  border-radius: 50px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.95rem;
+  font-weight: var(--font-bold);
+  letter-spacing: 0.01em;
+  background: var(--primary);
+  color: var(--white);
+  border: 2px solid var(--primary);
+  transition: all 0.25s ease;
+}
+.social-section .ai-cta-center .btn:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(10,42,102,0.25);
+}
+
+/* ----- Tablet: two cards per page (--pp is what the script reads) ----- */
 @media (max-width: 900px) {
-  .brand-cards-grid { grid-template-columns: 1fr; max-width: 520px; }
+  .post-feed { --pp: 2; max-width: 640px; }
 }
 
+/* ----- Phones: one card per page ----- */
+@media (max-width: 600px) {
+  .social-heading-wrap { margin-bottom: 28px; }
+  .post-feed { --pp: 1; --gap: 16px; max-width: 380px; }
+  .post-viewport {
+    padding-left: 10px;
+    padding-right: 10px;
+    /* one card on screen: keep the edge fade inside the padding so the card stays crisp */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 10px), transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 10px), transparent 100%);
+  }
+  .post-caption { font-size: 0.95rem; }
+  .social-section .ai-cta-center { margin-top: 12px; }
+  .social-section .ai-cta-center .btn { width: 100%; max-width: 320px; }
+}
 
- 
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  .post-card, .post-card.no-move, .post-dot::before { transition: none; }
+}
+/* ============================================================
+   4b. BUILT WITH NDOVESHA — white
+   CENTER-FOCUS CAROUSEL: the active card sits in the middle at full
+   size; the cards either side are smaller and faded. Every 3 seconds
+   (data-interval on #builtCarousel) the cards rotate one place and the
+   loop never ends. See the script at the bottom of index.html.
+
+   Replaces the ENTIRE old "4b" block in style.css (from ".built-section"
+   down to the end of its reduced-motion rule). Nothing else needed.
+
+   How it works: all cards are stacked in the same grid cell. JS gives each
+   card a data-pos (0 = centre, -1/1 = next to it, -2/2 = further out,
+   -3/3 = hidden) and the CSS below turns that into a position, size and fade.
+============================================================ */
+.built-section {
+  padding: var(--section-py) 0;
+  background: var(--white);
+  overflow: hidden;   /* never causes sideways page scroll */
+}
+
+/* The carousel uses the full screen width so cards slide out past the screen
+   edge instead of being cut off inside the 1200px container.
+   The heading and the button keep their normal side margins. */
+.built-section .container { max-width: none; padding: 0; }
+.built-heading-wrap,
+.built-section .challenges-cta-center { padding: 0 28px; }
+/* CTA: always centred on the page (flex, so it doesn't depend on any shared rule) */
+.built-section .challenges-cta-center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 44px;
+}
+
+.built-heading-wrap {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.built-main-heading {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 800;
+  font-size: var(--heading-size);
+  color: var(--primary);
+  line-height: 1.1;
+  margin: 0 auto;
+  max-width: 900px;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+.gold-built {
+  color: var(--gold);
+  display: inline-block;
+}
+
+/* --cw    = width of a card (a share of the screen, capped on very wide screens)
+   --shift = how far each step moves a card sideways (as a share of the card's own width) */
+.built-section .built-carousel {
+  --cw: min(30%, 380px);
+  --shift: 104%;
+  width: 100%;
+}
+@media (max-width: 900px) { .built-section .built-carousel { --cw: 46%; --shift: 100%; } }
+@media (max-width: 600px) { .built-section .built-carousel { --cw: 74%; --shift: 94%; } }
+
+/* ----- Viewport: clips cards that slide past the edges, with a soft fade at
+   both screen edges so cards glide out instead of being cut.
+   Vertical padding leaves room for the hover lift and glow. ----- */
+.built-viewport {
+  overflow: hidden;
+  padding: 26px 0 32px;
+  touch-action: pan-y;   /* vertical scroll stays native, horizontal is the swipe */
+}
+/* Tablet and phone: the neighbouring cards reach the screen edge, so they fade out softly there */
+@media (max-width: 900px) {
+  .built-viewport {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+  }
+}
+
+/* ----- Stage: every card shares one grid cell, so the stage is as tall as the
+   tallest card and all cards come out the same height ----- */
+.built-stage {
+  display: grid;
+  justify-items: center;
+}
+
+/* ----- Card (white, deep-blue outline, 16px corners) ----- */
+.built-card {
+  grid-area: 1 / 1;
+  width: var(--cw);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1.5px solid var(--primary);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(10,42,102,0.06);
+
+  /* position / size / fade come from the data-pos rules below */
+  --p: 0;
+  --s: 1;
+  --o: 1;
+  --z: 0;
+  --lift: 0px;
+  transform: translateX(calc(var(--p) * var(--shift))) scale(var(--s)) translateY(var(--lift));
+  opacity: var(--o);
+  z-index: var(--z);
+  will-change: transform, opacity;
+  transition:
+    transform 0.8s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.8s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+/* Used by JS when a card has to jump from one end of the row to the other:
+   the move is instant, only the fade is animated */
+.built-card.no-move {
+  transition: opacity 0.8s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+/* ----- Positions ----- */
+.built-card[data-pos="0"]  { --p: 0;  --s: 1;    --o: 1;    --z: 3; box-shadow: 0 14px 44px rgba(10,42,102,0.18); }
+.built-card[data-pos="-1"] { --p: -1; --s: 0.86; --o: 1;    --z: 2; }
+.built-card[data-pos="1"]  { --p: 1;  --s: 0.86; --o: 1;    --z: 2; }
+/* Cards two places out are fully hidden (no faded cards peeking in at the screen edges) */
+.built-card[data-pos="-2"] { --p: -2; --s: 0.72; --o: 0;    --z: 1; pointer-events: none; }
+.built-card[data-pos="2"]  { --p: 2;  --s: 0.72; --o: 0;    --z: 1; pointer-events: none; }
+.built-card[data-pos="-3"] { --p: -3; --s: 0.6;  --o: 0;    --z: 0; pointer-events: none; }
+.built-card[data-pos="3"]  { --p: 3;  --s: 0.6;  --o: 0;    --z: 0; pointer-events: none; }
+
+/* Phones: the neighbours only hint that there is more; the centre card is the focus */
+@media (max-width: 600px) {
+  .built-card[data-pos="-1"],
+  .built-card[data-pos="1"]  { --o: 0.45; }
+  .built-card[data-pos="-2"],
+  .built-card[data-pos="2"]  { --o: 0; }
+}
+
+/* Side cards: click brings them to the centre */
+.built-card:not([data-pos="0"]) { cursor: pointer; }
+.built-card:not([data-pos="0"]):hover { border-color: var(--primary-light); }
+
+/* Centre card: gold outline + glow + lift on hover/focus */
+.built-card[data-pos="0"]:hover,
+.built-card[data-pos="0"]:focus-visible {
+  --lift: -6px;
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(254,191,15,0.5), 0 8px 32px rgba(10,42,102,0.10);
+  outline: none;
+}
+.built-card:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+/* ----- Screenshot ----- */
+.built-card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-bottom: 1.5px solid var(--border);
+  background: var(--light-grey);
+}
+.built-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease;
+}
+.built-card[data-pos="0"]:hover .built-card-image img,
+.built-card[data-pos="0"]:focus-visible .built-card-image img { transform: scale(1.04); }
+
+/* ----- Text: name, short description, button (all left-aligned) ----- */
+.built-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  padding: 24px 22px 26px;
+  text-align: left;
+}
+
+.built-card-name {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.28rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.built-card-desc {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+/* margin-top:auto keeps every button on the same line even when
+   descriptions are different lengths */
+.built-pill {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 26px;
+  border-radius: 50px;
+  background: var(--primary);
+  color: var(--white);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.95rem;
+  font-weight: var(--font-bold);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.built-card[data-pos="0"]:hover .built-pill,
+.built-card[data-pos="0"]:focus-visible .built-pill { background: var(--gold); color: var(--primary); }
+
+/* ----- Dots (created by the script, one per card) ----- */
+.built-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+.built-dot {
+  display: flex;
+  align-items: center;
+  padding: 18px 5px;   /* 44px-tall touch target around an 8px dot */
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.built-dot::before {
+  content: '';
+  height: 8px;
+  width: 8px;
+  border-radius: 4px;
+  background: #D1D5DB;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.built-dot:hover::before { background: var(--primary-light); }
+.built-dot[aria-current="true"]::before { width: 28px; background: var(--gold); }
+.built-dot:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 8px; }
+
+/* ----- Phones: slightly tighter text ----- */
+@media (max-width: 600px) {
+  .built-card-info { padding: 20px 18px 22px; }
+  .built-card-name { font-size: 1.15rem; }
+  .built-card-desc { font-size: 0.96rem; line-height: 1.65; margin-bottom: 18px; }
+}
+
+/* Reduced motion: no sliding */
+@media (prefers-reduced-motion: reduce) {
+  .built-card, .built-card.no-move, .built-card-image img, .built-pill, .built-dot::before { transition: none; }
+}
+
 /* =========================================================
-   5. NDOVESHA â€” THE SHIFT â€” white
+   5. NDOVESHA — THE FUTURE OF WORK IS CHANGING — grey
+   Without vs With Ndovesha side by side down a line (one marker per point: Cost, Speed). Replaces the ENTIRE old section 5
+   block in style.css (from ".shift-section" to the end of its small-mobile
+   rules), including the old .problem-card / .solution-card / .vs-badge rules.
+   Keep the separate ".challenges-cta-center" rule that follows it.
 ========================================================= */
- 
+
 .shift-section {
     width: 100%;
-    background: var(--white);
+    background: var(--light-grey);
     padding: var(--section-py) 24px;
+
+    /* section colours: "without" = soft red, "with" = soft gold */
+    --bad-bg: #FFF1F1;
+    --bad-line: #F6CFCF;
+    --bad-text: #8A1C1C;
+    --bad-accent: #DC2626;
+    --good-bg: #FFFBE6;
+    --good-line: #FBE08A;
+    --good-pill: #F8F0D6;
 }
- 
+
 /* SECTION INTRO */
 .section-intro {
     max-width: 900px;
@@ -907,156 +1622,205 @@ h3,
 }
 
 /* =========================================================
-   PROBLEM / SOLUTION CARDS
-   Two independent cards side by side with a VS badge floating
-   between them, replacing the earlier single connected card.
+   DAY COMPARISON
+   Three columns: without (left) | time line (middle) | with (right)
 ========================================================= */
-.shift-cards-wrap {
+.day-compare {
     width: min(1100px, 100%);
     margin: 0 auto;
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    align-items: stretch;
 }
 
-.problem-card,
-.solution-card {
-    border-radius: 24px;
-    padding: 52px 46px;
+.day-heads,
+.day-row {
+    display: grid;
+    grid-template-columns: 1fr 132px 1fr;
+    align-items: center;
+}
+
+/* Column headings: two pills with a gap in the middle */
+.day-heads { margin-bottom: 22px; }
+.day-pill {
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 66px;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    font-weight: var(--font-bold);
+}
+.day-pill-bad  { grid-column: 1; background: var(--bad-bg);   color: var(--bad-accent); }
+.day-pill-good { grid-column: 3; background: var(--good-pill); color: var(--primary); }
+.day-pill svg  { flex: none; }
+
+/* The list: a thin vertical line runs behind the middle column */
+.day-list {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    justify-content: center;
+    gap: 22px;
 }
-
-.problem-card {
-    background: var(--white);
-    border: 1px solid var(--border);   /* slightly stronger edge now that the section is white */
-    box-shadow: var(--card-shadow);
-}
-
-.solution-card {
-    background: var(--primary-light);
-    border: 1px solid var(--primary-light);
-    box-shadow: var(--card-shadow);
-}
-
-.problem-card h3,
-.solution-card h3 {
-    font-size: 1.28rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    line-height: 1.3;
-    margin-bottom: 14px;
-}
-
-.problem-card h3 { color: var(--old-red); }
-.solution-card h3 { color: var(--gold); }
-
-.point-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-}
-
-.point-icon {
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2px;
-}
-.point-icon svg { width: 15px; height: 15px; }
-
-.point-icon-x {
-    background: var(--old-red-soft);
-    color: var(--old-red);
-    border: 1px solid var(--old-red-border);
-}
-
-.point-icon-check {
-    background: rgba(254, 191, 15, 0.14);
-    color: var(--gold);
-    border: 1px solid rgba(254, 191, 15, 0.5);
-}
-
-.problem-card p,
-.solution-card p {
-    font-size: 1.02rem;
-    line-height: 1.75;
-    margin: 0;
-    flex: 1;
-}
-
-.problem-card p { color: var(--muted); }
-.solution-card p { color: var(--gold); }
-
-/* VS BADGE â€” floats between the two cards */
-.vs-badge {
+.day-list::before {
+    content: '';
     position: absolute;
-    top: 50%;
+    top: 56px;       /* starts at the first dot and ends at the last one */
+    bottom: 56px;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    width: 76px;
-    height: 76px;
-    border-radius: 50%;
-    background: var(--deep-blue);
-    color: var(--gold);
-    border: 3px solid var(--gold);
+    width: 3px;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    background: var(--border);
+}
+
+/* Cards */
+.day-card {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 1.18rem;
-    letter-spacing: 0.03em;
-    box-shadow: 0 12px 32px rgba(0, 51, 102, 0.2);
+    justify-content: flex-start;   /* icon and text sit together at the start, in both columns */
+    text-align: left;
+    gap: 14px;                     /* same icon-to-text gap on both sides */
+    min-height: 112px;
+    padding: 22px 26px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    font-size: 1.08rem;
+    line-height: 1.55;
+    margin: 0 14px;
+}
+.day-text { flex: 1; min-width: 0; }
+.day-ico  { width: 22px; height: 22px; flex: none; }
+
+/* Without: pink, red X at the start of the text, text left-aligned like the "with" cards */
+.day-bad {
+    background: var(--bad-bg);
+    border-color: var(--bad-line);
+    color: var(--bad-text);
 }
 
-/* RESPONSIVE â€” TABLET */
+/* With: cream, bold navy text, gold check on the left */
+.day-good {
+    background: var(--good-bg);
+    border-color: var(--good-line);
+    color: var(--primary);
+    font-weight: var(--font-bold);
+}
+
+/* Marker in the middle: navy dot with its label (Cost / Speed) under it.
+   Its background hides the line around the label. */
+.day-time {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+    background: var(--light-grey);
+}
+.day-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 4px solid var(--primary);
+    box-shadow: inset 0 0 0 3px var(--white);
+}
+.day-clock {
+    font-size: 0.95rem;
+    font-weight: var(--font-bold);
+    letter-spacing: 0.01em;
+    color: #4B5563;
+    white-space: nowrap;
+}
+
+/* Small labels used only on phones */
+.day-tag { display: none; }
+
+/* CTA: centred under the cards (self-contained, so it works even if the shared
+   ".challenges-cta-center" rule was removed from style.css) */
+.shift-section .challenges-cta-center {
+    text-align: center;
+    margin-top: 52px;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
 @media (max-width: 1100px) {
-    .problem-card, .solution-card { padding: 44px 34px; }
+    .day-heads, .day-row { grid-template-columns: 1fr 112px 1fr; }
+    .day-card { padding: 20px 20px; font-size: 1.02rem; margin: 0 10px; }
 }
 
-/* RESPONSIVE â€” MOBILE (stack the two cards, VS badge sits on the seam) */
+/* =========================================================
+   RESPONSIVE — PHONES: one column. Each time slot shows its time on the
+   line, then the "without" card, then the "with" card, each labelled.
+========================================================= */
 @media (max-width: 800px) {
     .shift-section { padding: var(--section-py) 18px; }
-    .shift-cards-wrap { grid-template-columns: 1fr; gap: 56px; }
-    .problem-card, .solution-card { padding: 40px 30px; }
-    .vs-badge { width: 62px; height: 62px; font-size: 1rem; }
+    .day-heads { display: none; }
+
+    .day-list { gap: 30px; }
+    .day-list::before { left: 10px; top: 11px; bottom: 0; transform: none; }   /* line runs through the dots */
+
+    .day-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        align-items: stretch;
+    }
+    .day-time {
+        grid-row: 1;
+        flex-direction: row;
+        gap: 12px;
+        padding: 0;
+        background: none;
+    }
+    .day-bad  { grid-row: 2; }
+    .day-good { grid-row: 3; }
+
+    .day-card {
+        margin: 0 0 0 34px;         /* clears the time line */
+        min-height: 0;
+        padding: 16px 18px;
+        font-size: 1rem;
+        justify-content: flex-start;
+        text-align: left;
+        align-items: flex-start;
+    }
+    .day-ico { margin-top: 3px; }
+
+    .day-tag {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.72rem;
+        font-weight: var(--font-bold);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+    .day-bad .day-tag  { color: var(--bad-accent); }
+    .day-good .day-tag { color: #B8860B; }
 }
 
-/* RESPONSIVE â€” SMALL MOBILE */
+/* RESPONSIVE — SMALL MOBILE */
 @media (max-width: 520px) {
-    .shift-section { padding: var(--section-py) 12px; }
+    .shift-section { padding: var(--section-py) 14px; }
     .section-intro { margin-bottom: 35px; }
     .section-intro h2 { font-size: 30px; letter-spacing: -1px; white-space: normal; }
     .section-intro p { font-size: 14px; }
-    .problem-card, .solution-card { padding: 32px 22px; gap: 12px; }
-    .problem-card h3, .solution-card h3 { font-size: 1.4rem; }
-}
- 
-
-.challenges-cta-center {
-  text-align: center;
-  margin-top: 44px;
+    .day-card { margin-left: 30px; padding: 14px 16px; }
 }
 
+@media (max-width: 768px) {
+    .section-intro h2 { white-space: normal; }
+}
 
 
 /* ============================================================
-   6. REVIEWS SECTION â€” grey
-   Uses the same tokens, spacing and card language as the
-   "What Will You Build?" and "Meet your AI Coworkers" sections.
+   6. REVIEWS SECTION — white
 ============================================================ */
 .reviews-section {
   padding: var(--section-py) 0;
-  background: var(--light-grey);
+  background: var(--white);
 }
 
 .reviews-heading-wrap {
@@ -1094,10 +1858,10 @@ h3,
 .review-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   background: var(--white);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--primary);
   border-radius: 20px;
   padding: 44px 32px 36px;
   box-shadow: var(--shadow);
@@ -1109,44 +1873,52 @@ h3,
   box-shadow: 0 0 42px rgba(254, 191, 15, 0.35), var(--shadow-lg);
 }
 
-/* Avatar: swap the initials for <img src="..." alt="Name"> to use a photo */
+/* Author header: avatar on top, name (and position) underneath, top-left of the card */
+.review-author {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.review-author-text { min-width: 0; text-align: left; }
+
+/* Avatar: 52px circle, same size and shape as the coworker icons.
+   Swap the initials for <img src="..." alt="Name"> to use a photo */
 .review-avatar {
-  width: 84px;
-  height: 84px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
   border-radius: 50%;
   background: var(--primary);
   color: var(--gold);
-  border: 4px solid var(--white);
-  box-shadow: 0 4px 18px rgba(10, 42, 102, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: var(--font-bold);
   letter-spacing: 0.04em;
   overflow: hidden;
-  margin-bottom: 18px;
 }
 .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
 .review-card h3.review-name {
-  font-size: 1.28rem;
+   font-size: 1.28rem;
   font-weight: 800;
   color: var(--primary);
   line-height: 1.3;
-  margin-bottom: 6px;
+  margin: 0;
 }
 
 .review-role {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-light);
   line-height: 1.4;
-  margin-bottom: 14px;
+  margin: 2px 0 0;
 }
 
-/* Stars: grey base, gold fill clipped to the rating percentage
-   (100% = 5, 80% = 4, 70% = 3.5) */
+/* Stars: grey base, gold fill clipped to the rating percentage */
 .review-stars {
   position: relative;
   display: inline-block;
@@ -1156,7 +1928,7 @@ h3,
   color: var(--border);
   margin-bottom: 18px;
 }
-.review-stars::before { content: 'â˜…â˜…â˜…â˜…â˜…'; }
+.review-stars::before { content: '★★★★★'; }
 .review-stars span {
   position: absolute;
   top: 0;
@@ -1166,7 +1938,7 @@ h3,
   white-space: nowrap;
   color: var(--gold);
 }
-.review-stars span::before { content: 'â˜…â˜…â˜…â˜…â˜…'; }
+.review-stars span::before { content: '★★★★★'; }
 
 .review-quote-icon {
   color: var(--gold);
@@ -1197,46 +1969,7 @@ h3,
 
 
 /* ============================================================
-   7. BUILD â€” white
-============================================================ */
-.build-section { padding: var(--section-py) 0; background: var(--white); }
-.build-heading-wrap { text-align: center; margin-bottom: 32px; }
-.build-main-heading { font-weight: 800; font-size: var(--heading-size); color: var(--primary); line-height: 1.1; white-space: nowrap; }
-.gold-build { color: var(--gold); }
- 
-.build-cards-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; max-width: 1100px; margin: 0 auto; }
-.build-card { flex: 0 1 calc((100% - 56px) / 3); min-width: 280px; max-width: 400px; display: flex; flex-direction: column; background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.build-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-.build-card-image { width: 100%; height: 180px; flex-shrink: 0; overflow: hidden; }
-.build-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.build-card-content { width: 100%; flex: 1; padding: 26px 24px; display: flex; flex-direction: column; align-items: flex-start; text-align: left; justify-content: flex-start; }
-.build-card-content h3 { color: var(--primary); font-size: 1.28rem; font-weight: 800; margin-bottom: 14px; line-height: 1.3; }
-.build-list { list-style: none; margin: 0; padding: 0; width: 100%; }
-.build-list li {
-  position: relative;
-  padding-left: 24px;
-  font-size: 1.02rem;
-  line-height: 1.75;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.build-list li:last-child { margin-bottom: 0; }
-.build-list li::before {
-  content: '\2713';
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--gold);
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-.build-card-content > .build-list { margin-bottom: 18px; }
- 
-@media (max-width: 900px) { .build-card { flex: 0 1 calc((100% - 28px) / 2); } }
-@media (max-width: 600px) { .build-card { flex: 0 1 100%; } }
- 
-/* ============================================================
-   8. TUTORIAL â€” grey
+   7. TUTORIAL — grey
 ============================================================ */
 .tutorial-section {
   padding: var(--section-py) 0;
@@ -1318,7 +2051,7 @@ h3,
 
 
 /* ============================================================
-   10. FOOTER LINKS â€” grey
+   9. FOOTER LINKS — grey
 ============================================================ */
 .footer-links-section {
   background: var(--light-grey);
@@ -1366,7 +2099,7 @@ h3,
 }
 
 /* ============================================================
-   9. FAQ â€” white
+   8. FAQ — white
 ============================================================ */
 .faq-section {
   padding: var(--section-py) 0;
@@ -1476,7 +2209,7 @@ h3,
 }
 
 /* ============================================================
-   11. SITE FOOTER â€” white
+   10. SITE FOOTER — white
 ============================================================ */
 .site-footer {
   background: var(--white);
@@ -1535,28 +2268,32 @@ h3,
   color: var(--primary);
 }
 
+/* WhatsApp: compact round button; expands to show "Chat with us" on hover / keyboard focus */
 .whatsapp-float {
   position: fixed;
   bottom: 28px;
   right: 28px;
   z-index: 9999;
   display: flex;
-  width: 200px;
-  height: 54px;
-  border-radius: 27px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
   overflow: hidden;
   text-decoration: none;
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: width 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.whatsapp-float:hover {
-  transform: translateY(-5px) scale(1.05);
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+  width: 184px;
+  transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
 
 .whatsapp-icon-part {
-  width: 25%;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
   background: #25D366;
   display: flex;
@@ -1565,23 +2302,25 @@ h3,
 }
 
 .whatsapp-icon-part svg {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   fill: var(--white);
 }
 
 .whatsapp-text-part {
-  width: 75%;
+  flex: 1;
   background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-right: 8px;
   color: #000000;
   font-family: 'Ubuntu', sans-serif;
   font-size: 0.88rem;
   white-space: nowrap;
 }
 
+/* Back-to-top: hidden until the visitor has scrolled down (see script at the bottom of index.html) */
 .scroll-top-btn {
   position: fixed;
   bottom: 28px;
@@ -1598,10 +2337,21 @@ h3,
   box-shadow: var(--shadow);
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.scroll-top-btn:hover {
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-top-btn.is-visible:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
@@ -1616,41 +2366,107 @@ h3,
 }
 
 @media (max-width: 480px) {
-  .whatsapp-float { width: 170px; height: 48px; bottom: 20px; right: 20px; }
-  .whatsapp-text-part { font-size: 0.8rem; }
+  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; border-radius: 25px; }
+  .whatsapp-icon-part { width: 50px; height: 50px; }
   .scroll-top-btn { width: 46px; height: 46px; bottom: 20px; left: 20px; }
 }
 
 /* ============================================================
-   MOBILE HORIZONTAL-SCROLL FIX
-   All of these headings use `white-space: nowrap` in their
-   base rule so the text won't break mid-word on desktop. Several
-   had no mobile override at all, and others (.section-intro h2)
-   only unwrapped below 520px instead of the 640-968px used
-   elsewhere. Either way, below that width the single unbreakable
-   line was wider than the screen, which forced the whole page â€”
-   including the sticky, full-width nav bar â€” to scroll
-   horizontally, taking the Get Started button and hamburger
-   menu off-screen with it.
+   SCROLL TRANSITIONS
+   Every heading, card, grid and CTA fades and rises into view each
+   time it scrolls onto the screen (and replays when you scroll back
+   past it). The .rv class is added by the script at the bottom of
+   index.html, so with JavaScript off nothing is hidden. It uses a CSS
+   animation (not a transition), so card hover lifts and the carousel
+   keep working. With "reduce motion" on, items fade without moving.
+============================================================ */
+.rv { opacity: 0; }
+.rv.is-in { opacity: 1; animation: rvUp 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0ms) backwards; }
+.rv.rv-fade.is-in { animation-name: rvFade; }
+@keyframes rvUp   { from { opacity: 0; transform: translateY(44px); } to { opacity: 1; transform: none; } }
+@keyframes rvFade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .rv.is-in { animation-name: rvFade; animation-duration: 0.5s; }
+}
 
-   IMPORTANT â€” this block is placed at the very end of the
-   stylesheet on purpose. Each selector here has the exact same
-   specificity as its own base `nowrap` rule earlier in the file
-   (e.g. `.section-intro h2`), and CSS only lets a later media
-   query beat an earlier unconditional rule when it also comes
-   later in source order â€” position inside a @media block does
-   not, by itself, grant priority. Moving this fix above these
-   base rules (as an earlier draft of this file did) silently
-   loses the cascade and the wrap never applies. Keep any future
-   heading-wrap fix down here, after every base rule it targets.
+/* ============================================================
+   DEFINED SECTION BACKGROUNDS
+   White sections are pure white; grey sections use a very light,
+   neutral grey; a thin line marks every boundary so each section
+   reads as its own band. To change the grey, edit --section-grey.
+
+   Order: Hero (white), Workshop (grey), Hire (white), Social (grey),
+   Built (white), Shift (grey), Reviews (white), Tutorial (grey),
+   FAQ (white), Footer links (grey), Site footer (white).
+============================================================ */
+:root {
+  --section-grey: #F8F9FB;   /* lighter grey (was #F0F2F5) */
+  --section-line: #E9ECF1;   /* softer boundary line (was #DDE1E7) */
+}
+
+/* white: hero, hire, built, reviews, faq, site footer */
+.ndl, .hire-section, .built-section, .reviews-section, .faq-section, .site-footer {
+  background: var(--white);
+}
+/* grey: workshop, social, shift, tutorial, footer links */
+.workshop-section, .social-section, .shift-section, .tutorial-section, .footer-links-section {
+  background: var(--section-grey);
+}
+/* boundary line at the top of every section after the hero */
+.workshop-section, .hire-section, .social-section, .built-section, .shift-section,
+.reviews-section, .tutorial-section, .faq-section, .footer-links-section, .site-footer {
+  border-top: 1px solid var(--section-line);
+}
+/* keep dividers inside sections visible against their background */
+.faq-item { border-bottom-color: var(--section-line); }
+.footer-bottom-row { border-top-color: var(--section-line); }
+
+/* the footer is now white, so give the social buttons a light fill to stay visible */
+.footer-social-btn { background: var(--section-grey); }
+
+/* ============================================================
+   MOBILE HORIZONTAL-SCROLL FIX
+   Headings that use `white-space: nowrap` must be allowed to wrap
+   on small screens, otherwise the page scrolls sideways and pushes
+   the nav (Get Started + hamburger) off-screen.
+
+   IMPORTANT — keep this block at the very end of the stylesheet.
+   Its selectors have the same specificity as the base `nowrap`
+   rules above, so it only wins by coming later in the file.
 ============================================================ */
 @media (max-width: 768px) {
   .hire-main-heading,
-  .build-main-heading,
   .tutorial-main-heading,
   .section-intro h2,
   .workshop-heading-line,
   .gold-in-person {
     white-space: normal;
   }
+}
+/* ============================================================
+   MOBILE FIXES
+   Paste at the very END of style.css (after the existing
+   "MOBILE HORIZONTAL-SCROLL FIX" block) so these rules win.
+============================================================ */
+
+/* Open mobile menu: scrolls inside itself when its folds are expanded,
+   instead of running off the bottom of short phone screens */
+.mobile-nav {
+  max-height: calc(100vh - 68px);
+  max-height: calc(100dvh - 68px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* FAQ: the last answer has four paragraphs and two long links, which on a
+   narrow phone are taller than 600px and got cut off. Let links wrap too. */
+.faq-item.open .faq-answer { max-height: 1200px; }
+.faq-answer a { overflow-wrap: anywhere; }
+
+/* Small phones: keep the floating buttons off the content edges and the
+   footer copyright clear of them */
+@media (max-width: 480px) {
+  .site-footer { padding-bottom: 88px; }
+  .footer-social-btn { width: 40px; height: 40px; }
+  .footer-social-row { gap: 12px; }
 }
