@@ -450,14 +450,46 @@ h3,
 }
 .ndl-accent { color: var(--gold); }
 .ndl-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-/* The three words share one grid cell, so the title never jumps in width when the word changes */
-.ndl-rotor { display: inline-grid; vertical-align: baseline; text-align: center; }
-.ndl-word {
-  grid-area: 1 / 1; color: var(--gold);
-  opacity: 0; transform: translateY(0.35em);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+/* ============================================================
+   HERO TITLE: rolling word reel (three words at a time)
+   In style.css, DELETE the typing rules (.ndl-typer, .ndl-size, .ndl-typed,
+   .ndl-typed::after, .ndl-typed.is-typing::after, @keyframes ndlBlink and the
+   ".ndl-typed::after" line in the reduced-motion block), then paste this in their place.
+============================================================ */
+
+/* The three words share one grid cell, so the line is as wide as the widest word
+   and the rest of the title never moves. */
+.ndl-reel {
+  display: inline-grid;
+  vertical-align: baseline;
+  text-align: left;
+  margin-block: 0.55em;     /* room for the faded words above and below */
 }
-.ndl-word.is-active { opacity: 1; transform: none; }
+
+.ndl-rw {
+  grid-area: 1 / 1;
+  color: var(--gold);
+  white-space: nowrap;
+  opacity: 0;
+  --p: 0;                   /* position: -1 above, 0 main, 1 below */
+  --s: 1;                   /* size */
+  transform: translateY(calc(var(--p) * 0.85em)) scale(var(--s));
+  transform-origin: 0 50%;
+  transition: transform 0.7s cubic-bezier(0.45, 0, 0.15, 1), opacity 0.7s ease;
+}
+.ndl-rw:first-child { opacity: 1; }     /* before the script runs, show the first word only */
+
+.ndl-rw[data-pos="0"]  { opacity: 1;    --p: 0;  --s: 1; }
+.ndl-rw[data-pos="-1"] { opacity: 0.3;  --p: -1; --s: 0.55; }
+.ndl-rw[data-pos="1"]  { opacity: 0.3;  --p: 1;  --s: 0.55; }
+
+/* Used by the script when a word jumps from the top to the bottom of the reel:
+   it moves instantly while invisible, then fades back in */
+.ndl-rw.no-move { transition: none; opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ndl-rw { transition: none; }
+}
 
 /* "10X the speed | 10X less the cost" stat row */
 .ndl-stats { display: flex; align-items: center; justify-content: center; gap: 48px; margin-top: 8px; }
@@ -676,7 +708,6 @@ h3,
   .ndl-bob, .ndl-bob2, .ndl-caret, .ndl-pulse, .ndl-bubble.is-on, .ndl-result.is-on { animation: none; }
   .ndl-primary:hover { transform: none; }
 }
-
 /* ============================================================
    1b. TRUSTED BRANDS MARQUEE — white (continues straight on from the hero)
    Logos glide right to left in an endless loop. Pauses on hover.
@@ -689,7 +720,7 @@ h3,
 .trusted-label {
   text-align: center;
   margin: 0 0 28px;
-  font-size: 1.25rem;
+  font-size: 0.95rem;
   font-weight: var(--font-medium);
   color: var(--text-light);
 }
@@ -707,7 +738,7 @@ h3,
   --scale: 1;
   display: flex;
   width: max-content;
-  animation: trustedScroll 30s linear infinite;
+  animation: trustedScroll 45s linear infinite;
 }
 .trusted-marquee:hover .trusted-track { animation-play-state: paused; }
 

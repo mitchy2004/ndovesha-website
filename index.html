@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
   <!-- Cache-buster: bump the ?v= number whenever style.css changes so browsers fetch the new file -->
-  <link rel="stylesheet" href="style.css?v=29">
+  <link rel="stylesheet" href="style.css?v=32">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon-32x32.png">
@@ -311,9 +311,9 @@
   </div>
 
   <div class="ndl-copy">
-    <h1 id="ndl-title">
-      <span class="ndl-sr">Software, websites, and marketing. Built by your AI coworker.</span>
-      <span aria-hidden="true"><span class="ndl-rotor" id="ndl-rotor"><span class="ndl-word is-active">Software</span><span class="ndl-word">Websites</span><span class="ndl-word">Marketing</span></span> built by your AI coworker.</span>
+      <h1 id="ndl-title">
+      <span class="ndl-sr">Software, websites, and marketing done by your AI coworker.</span>
+      <span aria-hidden="true"><span class="ndl-reel" id="ndl-reel"><span class="ndl-rw">Software</span><span class="ndl-rw">Websites</span><span class="ndl-rw">Marketing</span></span> done by your AI coworker.</span>
     </h1>
     <div class="ndl-stats">
       <div class="ndl-stat"><strong>10X</strong><span>the speed.</span></div>
@@ -425,21 +425,27 @@
     <p class="trusted-label">Trusted by growing businesses</p>
     <div class="trusted-marquee">
       <!-- The list is repeated once so the loop never shows a gap.
-           Speed: change the animation time (30s) in style.css. -->
+           Speed: change the animation time (45s) in style.css. -->
       <div class="trusted-track">
         <ul class="trusted-group">
           <li><img src="logo-mambo-leo.png" alt="Mambo Leo Graphix Media" style="--h:68px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-drip-masters.png" alt="Drip Masters Engineering" style="--h:58px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-yourplot.png" alt="Your Plot Plug 254" style="--h:54px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-murclean.png" alt="Murclean Services" style="--h:62px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-mcm-advocates.png" alt="MCM Advocates LLP" style="--h:72px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-drip-masters.png" alt="Drip Masters Engineering" style="--h:54px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-yourplot.png" alt="Your Plot Plug 254" style="--h:60px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-joys-hive.png" alt="Joy’s Hive" style="--h:66px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-marvelrise.png" alt="Marvelrise Interior Decor" style="--h:78px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-murclean.png" alt="Murclean Services" style="--h:56px" loading="lazy" decoding="async"></li>
           <li><img src="logo-wina.png" alt="WINA Autospares" style="--h:64px" loading="lazy" decoding="async"></li>
           <li><img src="logo-spatial.png" alt="Spatial Group Networks" style="--h:56px" loading="lazy" decoding="async"></li>
         </ul>
         <ul class="trusted-group" aria-hidden="true">
           <li><img src="logo-mambo-leo.png" alt="" style="--h:68px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-drip-masters.png" alt="" style="--h:58px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-yourplot.png" alt="" style="--h:54px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-murclean.png" alt="" style="--h:62px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-mcm-advocates.png" alt="" style="--h:72px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-drip-masters.png" alt="" style="--h:54px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-yourplot.png" alt="" style="--h:60px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-joys-hive.png" alt="" style="--h:66px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-marvelrise.png" alt="" style="--h:78px" loading="lazy" decoding="async"></li>
+          <li><img src="logo-murclean.png" alt="" style="--h:56px" loading="lazy" decoding="async"></li>
           <li><img src="logo-wina.png" alt="" style="--h:64px" loading="lazy" decoding="async"></li>
           <li><img src="logo-spatial.png" alt="" style="--h:56px" loading="lazy" decoding="async"></li>
         </ul>
@@ -1613,17 +1619,49 @@ var dots = cards.map(function (card, k) {
     window.addEventListener('scroll', navShadow, { passive: true });
     navShadow();
 
-    /* Hero word rotation (every 3 seconds) */
-    var words = document.querySelectorAll('#ndl-rotor .ndl-word');
-    if (words.length > 1) {
-      var w = 0;
-      setInterval(function () {
-        if (document.hidden) return;
-        words[w].classList.remove('is-active');
-        w = (w + 1) % words.length;
-        words[w].classList.add('is-active');
-      }, 3000);
+    <!-- Typing effect for the hero word.-->
+
+(function () {
+  var reel = document.getElementById('ndl-reel');
+  if (!reel) return;
+  var words = Array.prototype.slice.call(reel.querySelectorAll('.ndl-rw'));
+  var n = words.length;
+  if (n < 3) return;
+ 
+  /* How long each word stays in the main position (ms). Give each word its own time if you like. */
+  var HOLD = [3000, 3000, 3000];
+ 
+  var current = 0, prevPos = [];
+ 
+  function posOf(k) { return (((k - current + 1) % n) + n) % n - 1; }   // -1, 0, 1 for three words
+ 
+  function render() {
+    var jumped = [];
+    words.forEach(function (w, k) {
+      var p = posOf(k), old = prevPos[k];
+      if (old !== undefined && Math.abs(p - old) > 1) { w.classList.add('no-move'); jumped.push(w); }
+      w.setAttribute('data-pos', p);
+      prevPos[k] = p;
+    });
+    if (jumped.length) {
+      void reel.offsetWidth;                       // apply the instant move first
+      jumped.forEach(function (w) { w.classList.remove('no-move'); });
     }
+  }
+ 
+  render();
+ 
+  // Reduced motion: keep the first word in the main position, no rolling
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+ 
+  function step() {
+    if (document.hidden) { setTimeout(step, 300); return; }   // wait while the tab is in the background
+    current = (current + 1) % n;
+    render();
+    setTimeout(step, HOLD[current] || 3000);
+  }
+  setTimeout(step, HOLD[0]);
+})();
 
     /* Scroll reveal */
     if (!('IntersectionObserver' in window)) return;
@@ -1652,6 +1690,8 @@ var dots = cards.map(function (card, k) {
       io.observe(el);
     });
   })();
+
+  
   </script>
 
   <script type="module"
