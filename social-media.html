@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>AI Social Media Manager | Ndovesha AI</title>
+  <meta name="description"
+    content="Social media managers are expensive, posting takes time from your business and results fall short. Meet the Ndovesha AI Social Media Manager.">
+  <meta name="author" content="Ndovesha">
+  <link rel="canonical" href="https://ndovesha.ai/social">
+  <!-- Open Graph / WhatsApp / Facebook Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ndovesha.ai/social">
+  <meta property="og:title" content="AI Social Media Manager | Ndovesha AI">
+  <meta property="og:description"
+    content="Social media managers are expensive, posting takes time from your business and results fall short. Meet the Ndovesha AI Social Media Manager.">
+  <meta property="og:image" content="https://ndovesha.ai/image.png">
+  <meta property="og:site_name" content="Ndovesha">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Social Media Manager | Ndovesha AI">
+  <meta name="twitter:image" content="https://ndovesha.ai/image.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Global site styles (same file as the home page) -->
+  <link rel="stylesheet" href="style.css?v=31">
+
+  <link rel="icon" type="image/png" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="favicon-32x32.png">
+
+  <!-- Same mobile menu fix as the home page -->
+  <style>
+    .nav-container.mobile-menu-open .mobile-get-started-btn { display: none !important; }
+  </style>
+
+  <!-- Social page sections (hero, animated demo, closing CTA). Scoped under .nds so nothing clashes with style.css.
+       Aligned with the global rules: --heading-size / weight 800 headings, --section-py padding,
+       --section-grey / --section-line bands, global card style, --text-light body copy. -->
+  <style>
+/* ============================================================
+   BASE + VARIABLES
+============================================================ */
+.nds{
+  /* Ndovesha brand colours: Deep Blue + Savanna Gold, locked for this page */
+  --primary:#003366;
+  --gold:#FEBF0F;
+  --navy:#003366;
+  --grey:#4A5878;
+  --line:#E3E8F2;
+  --nav-h:68px;          /* matches the sticky nav height */
+}
+.nds *{box-sizing:border-box}
+.nds{margin:0;font-family:Ubuntu,sans-serif;color:var(--navy);background:#fff;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.nds .wrap{width:100%;max-width:1152px;margin:0 auto;padding:0 24px}
+.nds section{text-align:center}
+
+/* Headings: global rule (--heading-size, weight 800), shared by hero, demo and closing */
+.nds h1,
+.nds h2{
+  font-family:'Ubuntu',sans-serif;
+  font-size:var(--heading-size);
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:0;
+  text-wrap:balance;
+}
+.nds h1{margin:0 auto;max-width:1100px;color:#003366}
+.nds h1 span,
+.nds h2 span{color:#FEBF0F}
+.nds h2{margin:0 auto;max-width:900px;color:#003366}
+
+/* ============================================================
+   1. HERO
+   Spacing taken from the Websites page hero:
+   padding 40px 3% 30px | title +24px | statement +22px | icons (48px apart, 10px to label) +26px
+   | statement +22px | button (8px top margin)
+============================================================ */
+.nds .hero{
+  display:flex;align-items:center;justify-content:center;
+  min-height:65vh;
+  min-height:65dvh;
+  padding:56px 3% 44px;
+  background:var(--white,#fff);
+}
+
+/* Title: exactly the same size as every other section title (the global --heading-size, set above) */
+.nds .hero h1{margin:0 auto 34px}
+
+/* Opening and closing statements: ONE shared size variable, so the two paragraphs can never differ.
+   Fixed px values (no vw/clamp), applied to the paragraphs and anything inside them, with higher-specificity
+   selectors and !important so nothing in style.css can override them, plus text-size-adjust and the
+   max-height trick to stop phone browsers (Android Chrome / iOS Safari) from enlarging the longer paragraph. */
+.nds .hero{--hero-copy-size:20px}
+html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%}
+.nds .hero p.hero-copy,
+.nds .hero p.hero-copy *,
+.nds .hero p.lead,
+.nds .hero p.sol{
+  font-family:'Ubuntu',sans-serif !important;
+  font-size:var(--hero-copy-size) !important;
+  font-weight:400 !important;
+  line-height:1.6 !important;
+  letter-spacing:0 !important;
+  -webkit-text-size-adjust:100%;
+  -moz-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+.nds .hero p.hero-copy,
+.nds .hero p.lead,
+.nds .hero p.sol{
+  max-width:900px;
+  color:var(--text-light,#6B7280);
+  text-wrap:balance;
+  max-height:999999px; /* stops Android Chrome font boosting */
+}
+.nds .lead{margin:0 auto 32px}
+
+/* Problem icons: 52px ring, 48px between items, 10px between ring and label */
+.nds .ind{
+  list-style:none;margin:0 auto 36px;padding:0;
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;
+  gap:20px 48px;
+}
+.nds .ind li{display:flex;flex-direction:column;align-items:center;gap:10px}
+.nds .ind b{
+  font-size:.92rem;font-weight:600;line-height:1.3;
+  color:var(--primary,#003366);text-align:center;
+}
+.nds .ring{
+  width:52px;height:52px;border:2px solid var(--primary,#003366);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:var(--white,#fff);
+  box-shadow:0 8px 20px rgba(0,51,102,.18);
+  transition:transform .25s ease,background .25s ease;
+}
+.nds .ring svg{width:24px;height:24px;fill:none;stroke:var(--gold,#FEBF0F);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nds .ind li:hover .ring{transform:translateY(-4px);background:var(--primary,#003366)}
+
+.nds .sol{margin:0 auto 32px}
+.nds .sol b{color:var(--primary,#003366)}
+
+.nds .cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:60px;margin-top:8px;padding:0 36px;
+  border-radius:999px;background:var(--primary,#003366);color:var(--white,#fff);
+  font-size:1.1rem;font-weight:700;text-decoration:none;
+  box-shadow:0 10px 24px rgba(29,59,112,.25);
+  transition:background-color .2s,transform .2s;
+}
+.nds .cta:hover{background:var(--primary-light,#0A4A8A);color:var(--white,#fff);transform:translateY(-2px)}
+.nds .cta.gold{background:var(--gold,#FEBF0F);color:var(--primary,#003366);box-shadow:none}
+.nds .cta.gold:hover{background:#FFCB3D;color:var(--primary,#003366)}
+
+/* ============================================================
+   1b. MEET THE COWORKER: grey band between the hero and the demo
+   Global card style (Deep Blue outline, 52px circle icons, gold hover) in a 2 x 2 grid
+============================================================ */
+.nds .meet{
+  background:var(--section-grey,#F8F9FB);
+  border-top:1px solid var(--section-line,#E9ECF1);
+  padding:var(--section-py,64px) 0;
+}
+.nds .meet .sub{
+  max-width:760px;margin:16px auto 0;
+  font-size:clamp(1.08rem,1.9vw,1.28rem);font-weight:400;line-height:1.6;
+  color:var(--text-light,#6B7280);
+}
+.nds .meet-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+  max-width:900px;margin:40px auto 0;
+}
+.nds .meet-card{
+  display:flex;flex-direction:column;align-items:flex-start;text-align:left;
+  background:var(--white,#fff);
+  border:1.5px solid var(--primary,#003366);border-radius:16px;
+  padding:34px 28px 30px;
+  box-shadow:0 4px 16px rgba(10,42,102,.06);
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+.nds .meet-card:hover{
+  transform:translateY(-9px);
+  border-color:var(--gold,#FEBF0F);
+  box-shadow:0 0 42px rgba(254,191,15,.5),0 8px 32px rgba(10,42,102,.10);
+}
+.nds .meet-icon{
+  width:52px;height:52px;flex-shrink:0;border-radius:50%;
+  background:var(--primary,#003366);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;transition:background .28s;
+}
+.nds .meet-icon svg{width:24px;height:24px;fill:none;stroke:var(--gold,#FEBF0F);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .28s}
+.nds .meet-card:hover .meet-icon{background:var(--gold,#FEBF0F)}
+.nds .meet-card:hover .meet-icon svg{stroke:var(--primary,#003366)}
+.nds .meet-card h3{margin:0 0 12px;font-size:1.28rem;font-weight:800;line-height:1.3;color:var(--primary,#003366)}
+.nds .meet-card p{margin:0;flex:1;font-size:1.02rem;line-height:1.75;color:var(--text-light,#6B7280)}
+.nds .plat{display:flex;align-items:center;gap:16px;margin-top:18px;font-size:1.35rem;line-height:1}
+.nds .plat svg{display:block;flex:none}
+.nds .meet-cta{margin-top:44px}
+.nds .meet-cta .cta{margin-top:0}
+
+/* ============================================================
+   2. DEMO SECTION: white band (backgrounds alternate: hero white, meet grey, demo white, FAQ grey)
+============================================================ */
+.nds .demo{
+  background:var(--white,#fff);
+  border-top:1px solid var(--section-line,#E9ECF1);
+  padding:var(--section-py,64px) 0;
+}
+
+/* heading -> steps: 40px, the same gap the global heading wraps use */
+.nds .steps{
+  list-style:none;margin:40px 0 0;padding:0;
+  display:flex;justify-content:center;flex-wrap:wrap;gap:14px 36px;
+}
+.nds .steps li{
+  display:flex;align-items:center;gap:12px;
+  font-size:18px;font-weight:var(--font-medium,500);
+  color:var(--text-light,#6B7280);
+  transition:color .3s;
+}
+.nds .steps li i{
+  width:36px;height:36px;border-radius:50%;
+  border:2px solid var(--line);background:#fff;
+  font-style:normal;font-size:16px;font-weight:var(--font-bold,700);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;
+}
+.nds .steps li.on{color:var(--navy)}
+.nds .steps li.on i{background:var(--gold,#FEBF0F);border-color:var(--gold,#FEBF0F);color:var(--navy)}
+
+/* steps -> demo window: 32px. Global card style, centred at the stage's native 1000px so it draws at 1:1.
+   content-box keeps the height set by the script exact (no clipped bottom edge). */
+.nds .frame{
+  position:relative;box-sizing:content-box;
+  max-width:1000px;margin:32px auto 0;
+  border:1.5px solid var(--primary,#003366);border-radius:16px;
+  background:#fff;box-shadow:var(--shadow-lg,0 8px 40px rgba(10,42,102,.14));
+  overflow:hidden;text-align:left;
+}
+
+/* ---------- Mock app (product UI keeps its own colours) ---------- */
+.nds .stage{position:absolute;left:0;top:0;width:1000px;height:600px;transform-origin:0 0;font-size:13px;color:var(--navy);background:#fff}
+.nds .side{position:absolute;left:0;top:0;bottom:0;width:200px;background:#F8F9FC;border-right:1px solid var(--line);padding:18px 14px}
+.nds .logo{font-weight:700;font-size:17px;letter-spacing:.02em;display:flex;align-items:center;gap:6px;margin:0 0 16px 4px}
+.nds .logo b{color:var(--gold,#FEBF0F);font-size:18px}
+.nds .nt{background:var(--navy);color:#fff;border-radius:10px;padding:11px 14px;font-weight:700;margin-bottom:12px}
+.nds .it{padding:9px 12px;border-radius:8px;font-weight:700;display:flex;justify-content:space-between;transition:background .2s}
+.nds .it.hot{background:#FFF3CF}
+.nds #sub{max-height:0;overflow:hidden;transition:max-height .35s}
+.nds #sub.open{max-height:44px}
+.nds #smc{margin:2px 0 4px 10px;padding:8px 12px;border-radius:8px;background:#FFF3CF;font-weight:700;font-size:12.5px}
+.nds .rec{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);color:var(--grey);font-size:12px;font-weight:500}
+.nds .rec div{padding:8px 12px;font-weight:700;color:#4A5878;font-size:12.5px}
+.nds .main{position:absolute;left:200px;right:0;top:0;bottom:0;background:#EEF1F7}
+.nds .home{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px}
+.nds .home h3{margin:0;font-size:30px;font-weight:500}
+.nds .home h3 span{color:var(--gold,#FEBF0F)}
+.nds .prompt{width:560px;height:110px;background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(0,51,102,.07);padding:18px 20px;color:#8A93A8;font-size:14px;position:relative}
+.nds .prompt i{position:absolute;right:14px;bottom:14px;width:30px;height:30px;border-radius:9px;background:var(--navy)}
+.nds .cal{position:absolute;inset:0;background:#FFF9EA;padding:18px 20px;opacity:0;pointer-events:none;transition:opacity .5s}
+.nds .cal.show{opacity:1}
+/* h4: the global heading rule sets weight 800 and heading size, so size and weight are stated here */
+.nds .cal h4,
+.nds .rowa h4{margin:0;font-size:19px;font-weight:700;line-height:1.3;letter-spacing:0}
+.nds .bar{display:flex;align-items:center;gap:8px;margin:8px 0 6px}
+.nds .chip{padding:6px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:700;font-size:12px}
+.nds .chip.a{background:var(--navy);color:#fff;border-color:var(--navy)}
+.nds .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.nds .dh{font-size:10.5px;letter-spacing:.1em;font-weight:700;color:var(--grey);text-align:center;padding:2px 0}
+.nds .d{height:82px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:5px 7px;font-weight:700;font-size:12px;position:relative}
+.nds .d.m{color:#B0B8C8;background:#FAFBFD}
+.nds .pc{position:absolute;left:4px;right:4px;top:22px;bottom:4px;border:2px solid var(--gold,#FEBF0F);background:#FFF6D6;border-radius:8px;padding:4px 6px;font-size:10.5px;opacity:0;transform:scale(.85);transition:all .4s}
+.nds .pc.show{opacity:1;transform:none}
+.nds .pc.gone{opacity:0;transform:scale(.8)}
+.nds .pc .th{width:22px;height:22px;border-radius:5px;background:linear-gradient(135deg,var(--navy),#3C6BB0);float:left;margin-right:6px}
+.nds .pc small{display:block;font-weight:500;color:#6B4A00}
+.nds .pc .dots{position:absolute;left:6px;bottom:4px;display:flex;gap:3px}
+.nds .pc .dots u{width:9px;height:9px;border-radius:50%;display:block}
+.nds .pc.sched{background:#E6F4EA;border-color:#2E8B57}
+.nds .pc.sched small{color:#1F6B42}
+.nds .rowa{display:flex;align-items:center;gap:14px}
+.nds .tabs{display:flex;background:#fff;border:1px solid var(--line);border-radius:9px;overflow:hidden;font-size:11.5px;font-weight:700}
+.nds .tabs span{padding:5px 12px}
+.nds .tabs .a{background:var(--navy);color:#fff}
+.nds .back{margin-left:auto;background:var(--gold,#FEBF0F);padding:7px 14px;border-radius:9px;font-weight:700;font-size:12px}
+.nds .chip.g{background:var(--gold,#FEBF0F);border-color:var(--gold,#FEBF0F)}
+.nds .cw{margin-left:auto;background:#fff;border:1px solid var(--gold,#FEBF0F);border-radius:999px;padding:5px 13px;font-weight:700;font-size:12px;display:flex;align-items:center;gap:6px}
+.nds .cw i{width:16px;height:16px;border-radius:50%;background:var(--navy);display:inline-block}
+.nds .cnt{font-size:11px;font-weight:500;color:var(--grey);margin:0 0 6px}
+.nds .d.t{border-color:var(--gold,#FEBF0F);background:linear-gradient(#FFF6D6,#fff)}
+.nds .td{display:inline-flex;width:20px;height:20px;border-radius:50%;background:var(--gold,#FEBF0F);align-items:center;justify-content:center;margin:-2px 0 0 -3px}
+.nds .pl{position:absolute;right:6px;top:5px;width:18px;height:18px;border-radius:50%;background:var(--navy);color:#FEBF0F;font-size:14px;font-weight:700;line-height:17px;text-align:center;transition:opacity .3s}
+.nds .pc .cb{position:absolute;top:-19px;right:0;width:16px;height:16px;border-radius:50%;background:#fff;border:1px solid var(--line);font-size:10px;line-height:14px;text-align:center}
+.nds .pc .th{width:26px;height:30px;background-size:cover;background-position:center}
+.nds .po{display:inline-flex;align-items:center;gap:5px;margin-left:10px;color:var(--navy);vertical-align:middle}
+.nds .po i,
+.nds .pc .dots i{display:inline-flex}
+.nds #dim{position:absolute;inset:0;background:rgba(0,31,64,.5);opacity:0;pointer-events:none;transition:opacity .35s}
+.nds #dim.show{opacity:1}
+.nds .modal{position:absolute;top:36px;background:#fff;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.3);opacity:0;transform:translateY(14px);transition:all .35s;pointer-events:none;overflow:hidden;display:flex;flex-direction:column}
+.nds .modal.show{opacity:1;transform:none}
+.nds #m1{left:250px;width:500px;height:528px}
+.nds #m2{left:300px;width:400px;height:528px}
+.nds .mh{padding:14px 18px;background:#003366;font-size:12px;line-height:1.5;color:#fff}
+.nds .mb{position:relative;flex:1;overflow:hidden;padding:14px 18px}
+.nds .mf{display:flex;justify-content:flex-end;align-items:center;gap:14px;padding:12px 18px;border-top:1px solid var(--line)}
+
+/* mock buttons: the global .btn adds a 2px transparent border, letter-spacing and pill padding,
+   so every value is stated here and the border is reset */
+.nds .btn{display:inline-block;padding:9px 18px;border:0;border-radius:9px;font-size:13px;font-weight:700;letter-spacing:0;text-decoration:none;transition:none}
+.nds .btn.g{background:var(--gold,#FEBF0F)}
+.nds .btn.n{background:var(--navy);color:#fff}
+.nds .btn.r{color:#B3261E;border:1px solid var(--line)}
+.nds .btn.o{border:1px solid var(--line)}
+
+.nds .lab{font-size:10.5px;letter-spacing:.14em;font-weight:700;color:var(--grey);margin:6px 0 8px;padding-top:6px}
+.nds .tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.nds .tile{border:1px solid var(--line);border-radius:10px;padding:9px 11px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:12px;transition:all .25s}
+.nds .tile small{display:block;font-weight:500;color:var(--grey);font-size:11px}
+.nds .tile small.c{color:#1F6B42}
+.nds .tile.sel{border-color:var(--gold,#FEBF0F);background:#FFF6D6}
+.nds .tile i{width:24px;height:24px;border-radius:6px;font-style:normal;font-size:11px;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.nds .slot{margin-top:8px;border:1px solid var(--line);background:#FFFBEF;border-radius:10px;padding:9px}
+.nds .slot div{display:flex;gap:6px;align-items:center}
+.nds .sel2{border:1px solid #CBD3E3;background:#fff;border-radius:7px;padding:6px 9px;font-size:12px;font-weight:500}
+.nds .add{display:inline-block;margin-top:10px;color:var(--navy);font-weight:700;font-size:12px;border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.nds .ta{border:1px solid #CBD3E3;border-radius:8px;padding:8px 10px;min-height:66px;font-size:12px;line-height:1.5;white-space:pre-line;color:#26344F}
+.nds .poster{margin:10px auto 0;width:240px;height:150px;border-radius:10px;background:linear-gradient(135deg,#003366,#1D4F8F);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:22px;line-height:1.1;text-align:center}
+.nds .poster small{font-weight:500;font-size:10px;color:#FEBF0F;margin-top:8px}
+.nds .ta.typing{border-color:var(--gold,#FEBF0F);box-shadow:0 0 0 3px rgba(254,191,15,.25)}
+.nds .ta.typing::after{content:"";display:inline-block;width:2px;height:14px;background:var(--navy);margin-left:1px;vertical-align:-2px;animation:nds-bl .8s steps(1) infinite}
+@keyframes nds-bl{50%{opacity:0}}
+.nds .chp{display:inline-block;background:#EFE6FF;color:#5A2FA8;font-size:10.5px;font-weight:700;border-radius:999px;padding:3px 10px}
+.nds #toast{position:absolute;left:50%;bottom:22px;transform:translate(-50%,16px);background:var(--navy);color:#fff;padding:10px 18px;border-radius:10px;font-weight:700;opacity:0;transition:all .3s;z-index:40}
+.nds #toast.show{opacity:1;transform:translate(-50%,0)}
+.nds #cur{position:absolute;left:760px;top:420px;width:24px;height:24px;z-index:60;pointer-events:none;transition:left .9s cubic-bezier(.45,.05,.25,1),top .9s cubic-bezier(.45,.05,.25,1),transform .15s;filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+.nds #cur.press{transform:scale(.8)}
+
+/* ============================================================
+   3. FAQ: uses the global .faq-section / .faq-container / .faq-item / .faq-question-row /
+   .faq-toggle-btn / .faq-answer rules from style.css (white band, --section-py padding,
+   gold + that turns into a minus when open). Only the alignment is set here, because
+   ".nds section" centres text.
+============================================================ */
+.nds .faq-section{background:var(--section-grey,#F8F9FB);border-top:1px solid var(--section-line,#E9ECF1)}
+.nds .faq-container{text-align:left}
+.nds .faq-cta-center .cta{margin-top:0}
+
+/* ============================================================
+   BAND ORDER: strictly alternating, starting with white
+   hero white > meet grey > demo white > FAQ grey > footer links white > site footer grey
+   (the footer sections sit outside .nds, so they are set here with !important to beat style.css)
+============================================================ */
+.footer-links-section{
+  background:var(--white,#fff) !important;
+  border-top:1px solid var(--section-line,#E9ECF1);
+}
+.site-footer{
+  background:var(--section-grey,#F8F9FB) !important;
+  border-top:1px solid var(--section-line,#E9ECF1);
+}
+
+/* ============================================================
+   PHONES + REDUCED MOTION
+============================================================ */
+@media (max-width:640px){
+  .nds .hero{min-height:auto;padding:40px 5% 32px;--hero-copy-size:18px}
+  .nds .ind{gap:18px 28px}
+  .nds .ind li{width:96px}
+  .nds .ind b{font-size:.85rem}
+  .nds .cta{width:100%;max-width:320px;min-height:54px;font-size:1.05rem}
+  .nds .meet-grid{grid-template-columns:1fr;margin-top:28px}
+  .nds .meet-card{padding:28px 22px 24px}
+  .nds .steps{margin-top:28px;gap:12px 20px}
+  .nds .steps li{font-size:16px}
+  .nds .steps li i{width:32px;height:32px;font-size:14px}
+  .nds .frame{margin-top:24px;border-radius:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .nds *{transition:none!important}
+  .nds .cta:hover{transform:none}
+}
+  </style>
+
+  <!-- TRACKING: paste the same analytics block you use in index.html's <head>
+       (Google Tag Manager, Meta Pixel, TikTok, X, gtag, LinkedIn, Hotjar, Leadsy). -->
+</head>
+
+<body>
+  <!-- TRACKING: paste the Google Tag Manager <noscript> block from index.html here -->
+
+  <!-- STICKY NAV (same as the home page) -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="https://ndovesha.ai/" aria-label="Ndovesha AI home"><img
+          src="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png"
+          class="logo-img" alt="Ndovesha AI"></a>
+      </div>
+      <ul class="nav-center">
+        <li>
+          <a href="https://ndovesha.ai/who">Who is it for <span class="nav-arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/owner">Business Owners</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/agency">Agencies</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/developer">Developers</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/marketers">Marketers</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://ndovesha.ai/capabilities">Capabilities <span class="nav-arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/software">Software Development</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/web">Websites</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/graphic">Graphic Design</a></li>
+            <li class="dropdown-divider"></li>
+             <li><a href="/social-media">Social Media Management</a></li>
+              <li class="dropdown-divider"></li>
+            <li><a href="/writing">Writing</a></li>
+          </ul>
+        </li>
+        <li><a href="/how-to-prompt">How to Prompt</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li>
+          <a href="https://ndovesha.ai/resources">Resources <span class="nav-arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/webinars">Webinars</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/workshop">Workshop</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/join-our-community">Join our Community</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank"
+                rel="noopener noreferrer">Tutorials</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/faq">FAQs</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="nav-right">
+        <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
+        <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get Started</a>
+      </div>
+      <div class="mobile-nav-trigger">
+        <a href="https://chat.ndovesha.ai/signup" class="mobile-get-started-btn">Get Started</a>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+      </div>
+      <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-section-title" data-fold="who">Who is it for <span class="nav-arrow">▼</span></div>
+        <div class="mobile-fold" id="fold-who">
+          <a href="/owner">Business Owners</a>
+          <a href="/agency">Agencies</a>
+          <a href="/developer">Developers</a>
+          <a href="/marketers">Marketers</a>
+        </div>
+        <div class="mobile-section-title" data-fold="capabilities">Capabilities <span class="nav-arrow">▼</span></div>
+        <div class="mobile-fold" id="fold-capabilities">
+          <a href="/software">Software Development</a>
+          <a href="/web">Websites</a>
+          <a href="/graphic">Graphic Design</a>
+          <a href="/writing">Writing</a>
+        </div>
+        <a href="/how-to-prompt">How to Prompt</a>
+        <a href="/pricing">Pricing</a>
+        <div class="mobile-section-title" data-fold="resources">Resources <span class="nav-arrow">▼</span></div>
+        <div class="mobile-fold" id="fold-resources">
+          <a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a>
+          <a href="/webinars">Webinars</a>
+          <a href="/workshop">Workshop</a>
+          <a href="/join-our-community">Join our Community</a>
+          <a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank"
+            rel="noopener noreferrer">Tutorials</a>
+          <a href="/faq">FAQs</a>
+        </div>
+        <a href="https://chat.ndovesha.ai/login" class="btn-login">Log In</a>
+        <a href="https://chat.ndovesha.ai/signup" class="btn-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       SOCIAL PAGE SECTIONS: 1) Hero
+       ============================================================ -->
+  <div class="nds" id="top">
+
+    <!-- 1) HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <h1>Tired of the Social Media <span>Struggle?</span></h1>
+
+        <p class="lead hero-copy">Keeping social media active means more than just posting. It means:</p>
+
+        <ul class="ind">
+          <li>
+            <span class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+            <b>Endless Planning</b>
+          </li>
+          <li>
+            <span class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span>
+            <b>Running Out of Ideas</b>
+          </li>
+          <li>
+            <span class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h12M6 22h12M7 2v4.5L12 12l-5 5.5V22M17 2v4.5L12 12l5 5.5V22"/></svg></span>
+            <b>Hours Creating Content</b>
+          </li>
+        </ul>
+
+        <p class="sol hero-copy">That's where Ndovesha AI steps in, helping you create better content and attract more customers with less effort.</p>
+
+        <a class="cta" href="https://chat.ndovesha.ai/signup">Get Started</a>
+      </div>
+    </section>
+
+    <!-- 1b) MEET THE COWORKER -->
+    <section class="meet" id="coworker">
+      <div class="wrap">
+        <h2>Meet Your <span>AI Social Media Coworker.</span></h2>
+        <p class="sub">Tell it what you want to promote. It designs the images, produces the videos and publishes them across Meta, X and LinkedIn.</p>
+
+        <div class="meet-grid">
+          <div class="meet-card">
+            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg></span>
+            <h3>Images that stop the scroll</h3>
+            <p>Designs on-brand posters and graphics, sized for each platform, without waiting on a designer.</p>
+          </div>
+          <div class="meet-card">
+            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></span>
+            <h3>Videos that hold attention</h3>
+            <p>Produces short videos and reels that earn more reach and keep people watching your business.</p>
+          </div>
+          <div class="meet-card">
+            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span>
+            <h3>Posts to the platforms that matter</h3>
+            <p>Publishes to Facebook, Instagram, X and LinkedIn, with captions written to suit each one.</p>
+            <span class="plat" aria-label="Facebook, Instagram, X and LinkedIn">
+              <i class="fa-brands fa-facebook" style="color:#1877F2" title="Facebook"></i>
+              <i class="fa-brands fa-instagram" style="color:#E4405F" title="Instagram"></i>
+              <svg viewBox="0 0 24 24" width="1em" height="1em" role="img" aria-label="X" fill="#000"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+              <i class="fa-brands fa-linkedin" style="color:#0A66C2" title="LinkedIn"></i>
+            </span>
+          </div>
+          <div class="meet-card">
+            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M17 11a3 3 0 1 0 0-6M19 14.5c1.7.8 3 2.6 3 5"/></svg></span>
+            <h3>Turns attention into leads</h3>
+            <p>Regular, engaging posts keep you in front of the people who buy, and give interested customers a way to reach you.</p>
+          </div>
+        </div>
+
+        <div class="meet-cta"><a class="cta" href="https://chat.ndovesha.ai/signup">Get Started</a></div>
+      </div>
+    </section>
+
+    <!-- 2) HOW IT WORKS: ANIMATED DEMO -->
+    <section class="demo" id="demo">
+      <div class="wrap">
+        <h2>How it <span>Works</span></h2>
+        <ol class="steps">
+          <li><i>1</i>Open your coworker</li>
+          <li><i>2</i>Set channels, schedule and brand</li>
+          <li><i>3</i>Fill the calendar</li>
+          <li><i>4</i>Approve or reject</li>
+        </ol>
+        <div class="frame" id="frame" aria-label="Animated demo of the Ndovesha Social Media Coworker">
+          <div class="stage" id="stage">
+            <div class="side">
+              <div class="logo"><b>&lsaquo;&rsaquo;</b>NDOVESHA</div>
+              <div class="nt">✎&nbsp; New Task</div>
+              <div class="it" id="cw">Coworkers <span>▾</span></div>
+              <div id="sub"><div id="smc">Social Media Coworker</div></div>
+              <div class="it">Planner</div>
+              <div class="it">Library</div>
+              <div class="rec">Recents<div>Honey poster</div><div>Survey website</div><div>LinkedIn launch post</div></div>
+            </div>
+            <div class="main">
+              <div class="home"><h3>Time to <span>create</span>!</h3><div class="prompt">Write an SEO blog post about…<i></i></div></div>
+              <div class="cal" id="cal">
+                <div class="rowa"><h4>Social Media Calendar</h4><span class="tabs"><span>Today</span><span>Week</span><span class="a">Month</span></span><span class="back">Back to chat</span></div>
+                <div class="bar"><span class="chip">‹</span><b style="font-size:15px">October 2026</b><span class="chip">›</span><span class="chip g">Today</span><span class="chip a">All</span><span class="chip">Drafts</span><span class="chip">Scheduled</span><span class="chip">Published</span><span class="chip">Failed</span><span class="cw"><i></i>Content coworker</span></div><div class="cnt" id="cnt">2 posts in this month.</div>
+                <div class="grid" id="grid"></div>
+              </div>
+            </div>
+            <div id="dim"></div>
+            <div class="modal" id="m1">
+              <div class="mh">Plans your calendar, generates on-brand images ahead of time, and emails you when drafts need a quick review.</div>
+              <div class="mb" id="mb">
+                <div class="lab" style="margin-top:0">CHANNELS</div>
+                <div class="tiles">
+                  <div class="tile" id="fb"><i data-ic="fb"></i><div>Facebook<small class="c">● Connected</small></div></div>
+                  <div class="tile" id="ig"><i data-ic="ig"></i><div>Instagram<small class="c">● Connected</small></div></div>
+                  <div class="tile"><i data-ic="x"></i><div>X<small class="c">● Connected</small></div></div>
+                  <div class="tile"><i data-ic="in"></i><div>LinkedIn<small class="c">● Connected</small></div></div>
+                </div>
+                <div class="lab" id="sch" style="margin-top:14px">POSTING SCHEDULE</div>
+                <div style="font-size:11.5px;color:var(--grey);line-height:1.5">Set your recurring days and times. Saving applies them to your calendar.</div>
+                <div class="slot"><div><span class="sel2">Wednesday</span><span class="sel2">09:00</span><span class="sel2">Image</span><span class="sel2" style="flex:1;color:#8A93A8">Topic hint (optional)</span></div></div>
+                <div class="slot" id="slot2" style="display:none"><div><span class="sel2">Monday</span><span class="sel2">09:00</span><span class="sel2">Image</span><span class="sel2" style="flex:1;color:#8A93A8">Topic hint (optional)</span></div></div>
+                <span class="add" id="add">+ Add posting slot</span>
+                <div class="lab" id="brand" style="margin-top:16px">BRAND &amp; TOPICS</div>
+                <div style="font-size:11px;font-weight:700;margin-bottom:4px">Topic ideas</div>
+                <div class="ta" id="t1"></div>
+                <div style="font-size:11px;font-weight:700;margin:10px 0 4px">Brand instructions</div>
+                <div class="ta" id="t2"></div>
+                <div style="height:30px"></div>
+              </div>
+              <div class="mf"><span style="font-weight:500;color:var(--grey)">Cancel</span><span class="btn g" id="save">Save &amp; fill calendar</span></div>
+            </div>
+            <div class="modal" id="m2">
+              <div class="mb" style="padding-top:18px">
+                <div id="m2t" style="font-weight:700;font-size:14px;background:#003366;color:#fff;margin:-18px -18px 0;padding:14px 18px"></div>
+                <div style="margin-top:8px"><span class="chp">Ready for approval</span></div>
+                <img id="pimg" alt="" style="display:block;margin:12px auto 0;width:200px;height:200px;object-fit:cover;border-radius:10px">
+                <div style="margin-top:14px;font-size:11px;font-weight:700;color:var(--grey)">POSTING TO &nbsp;<span class="po"><i data-ic="fb"></i>Facebook</span><span class="po"><i data-ic="ig"></i>Instagram</span></div>
+                <div class="lab" style="margin-top:12px">CAPTION</div>
+                <div class="ta" id="cap" style="min-height:58px"></div>
+              </div>
+              <div class="mf" style="justify-content:space-between"><span style="display:flex;gap:8px"><span class="btn n" id="appr">Approve &amp; schedule</span><span class="btn o">Close</span></span><span class="btn r" id="rej">Reject</span></div>
+            </div>
+            <div id="toast"></div>
+            <svg id="cur" viewBox="0 0 24 24"><path d="M4 2l15 9-6.5 1.6L9.5 19z" fill="#003366" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) FAQ -->
+    <section class="faq-section">
+      <div class="wrap">
+        <div class="faq-heading-wrap">
+          <h2>Frequently Asked <span>Questions</span></h2>
+        </div>
+
+      <div class="faq-container" id="faqList">
+        <div class="faq-item">
+          <div class="faq-question-row">
+            <h3 id="faq-q1">Which social media platforms can the coworker post to?</h3>
+            <button type="button" class="faq-toggle-btn" aria-expanded="false" aria-controls="faq-a1" aria-labelledby="faq-q1"></button>
+          </div>
+          <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
+            <p>Facebook, Instagram, X and LinkedIn. Connect the accounts you use, then choose which platforms each post goes to. Captions are written to suit the platform they are published on.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question-row">
+            <h3 id="faq-q2">Do I get to approve posts before they are published?</h3>
+            <button type="button" class="faq-toggle-btn" aria-expanded="false" aria-controls="faq-a2" aria-labelledby="faq-q2"></button>
+          </div>
+          <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+            <p>Yes. Posts land in your content calendar as drafts, and you are emailed when they need a quick review. You can open any draft, check the image and caption, then approve and schedule it or reject it.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question-row">
+            <h3 id="faq-q3">Can it create images and videos, or only captions?</h3>
+            <button type="button" class="faq-toggle-btn" aria-expanded="false" aria-controls="faq-a3" aria-labelledby="faq-q3"></button>
+          </div>
+          <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
+            <p>All three. Describe what you want to promote and the coworker writes the caption and designs the image or produces the video to go with it, following the brand instructions you provide.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question-row">
+            <h3 id="faq-q4">Can I choose when it posts and how it sounds?</h3>
+            <button type="button" class="faq-toggle-btn" aria-expanded="false" aria-controls="faq-a4" aria-labelledby="faq-q4"></button>
+          </div>
+          <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
+            <p>Yes. You set the days and times you want to post, add topic ideas, and give brand instructions such as your tone and style. The coworker uses these to fill your calendar with posts that sound like your business.</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="faq-cta-center"><a class="cta" href="https://chat.ndovesha.ai/signup">Get Started</a></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER LINKS — grey (same as the home page) -->
+  <section class="footer-links-section">
+    <div class="container">
+      <div class="footer-links-grid">
+        <div class="footer-links-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="https://chat.ndovesha.ai/signup" target="_blank" rel="noopener noreferrer">AI Agents</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://blog.ndovesha.ai/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            <li><a href="/webinars">Webinars</a></li>
+            <li><a href="/workshop">Workshop</a></li>
+            <li><a href="/comparison">Ndovesha vs ChatGPT vs Gemini</a></li>
+            <li><a href="/how-to-prompt">How to Prompt Ndovesha</a></li>
+            <li><a href="/lovable">Ndovesha vs Manus vs Lovable</a></li>
+            <li><a href="/join-our-community">Join community</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLqQOqIY48n5aideBvISdJPzxmcM1PCwbX" target="_blank"
+                rel="noopener noreferrer">Tutorials</a></li>
+            <li><a href="/faq">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Ask AI About Us</h4>
+          <ul>
+            <li><a href="https://chat.openai.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F"
+                target="_blank" rel="noopener noreferrer">ChatGPT</a></li>
+            <li><a href="https://claude.ai/new?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F"
+                target="_blank" rel="noopener noreferrer">Claude</a></li>
+            <li><a href="https://gemini.google.com/app?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F"
+                target="_blank" rel="noopener noreferrer">Gemini</a></li>
+            <li><a href="https://www.perplexity.ai/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F"
+                target="_blank" rel="noopener noreferrer">Perplexity</a></li>
+            <li><a href="https://copilot.microsoft.com/?q=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F"
+                target="_blank" rel="noopener noreferrer">Copilot</a></li>
+            <li><a href="https://x.com/i/grok?text=What%20is%20Ndovesha%20AI%20and%20how%20does%20it%20work%3F"
+                target="_blank" rel="noopener noreferrer">Grok</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Who Is It For</h4>
+          <ul>
+            <li><a href="/owner">Business Owners</a></li>
+            <li><a href="/agency">Agencies</a></li>
+            <li><a href="/developer">Developers</a></li>
+            <li><a href="/marketers">Marketers</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Capabilities</h4>
+          <ul>
+            <li><a href="/software">Software Development</a></li>
+            <li><a href="/web">Websites</a></li>
+            <li><a href="/graphic">Graphic design</a></li>
+            <li><a href="/writing">Writing</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/terms-of-service">Terms of service</a></li>
+            <li><a href="/privacy-policy">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITE FOOTER — white -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-social-row">
+        <a class="footer-social-btn" href="https://www.linkedin.com/company/ndovesha/" target="_blank"
+          rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.5 8.65 23 10.9 23 14.2V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.58-2.33 3.2V21h-4V9z" /></svg>
+        </a>
+        <a class="footer-social-btn" href="https://x.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.2 8.2L23 22h-6.8l-5.3-6.9L4.9 22H2l7.7-8.8L1.5 2h6.9l4.8 6.3L18.9 2z" /></svg>
+        </a>
+        <a class="footer-social-btn" href="https://www.youtube.com/@ndovesha" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7c-.2-.9-.9-1.6-1.8-1.8C19 5 12 5 12 5s-7 0-8.8.5c-.9.2-1.6.9-1.8 1.8C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.9.9 1.6 1.8 1.8C5 19 12 19 12 19s7 0 8.8-.5c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7zM10 15.5v-7l6 3.5-6 3.5z" /></svg>
+        </a>
+        <a class="footer-social-btn" href="https://www.instagram.com/ndovesha.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle>
+          </svg>
+        </a>
+        <a class="footer-social-btn" href="https://www.tiktok.com/@ndovesha.ai?lang=en" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.5 3c.3 2 1.7 3.4 3.5 3.7v2.9c-1.4-.1-2.6-.6-3.5-1.4v6.6a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3a2.3 2.3 0 1 0 1.6 2.2V3h2.8z" /></svg>
+        </a>
+        <a class="footer-social-btn" href="https://www.facebook.com/ndovesha" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.4c0-.9.3-1.5 1.6-1.5h1.5V4.2C15.9 4.1 14.8 4 13.6 4 11 4 9.5 5.6 9.5 8.2v2.3H7v3h2.5V21h4z" /></svg>
+        </a>
+        <a class="footer-social-btn" href="https://www.reddit.com/user/ndovesha/" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+          <svg class="icon-outline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="13" r="7"></circle>
+            <circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"></circle>
+            <circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"></circle>
+            <path d="M8.5 16.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"></path>
+            <circle cx="18.5" cy="8.5" r="1.3"></circle>
+            <path d="M12 10V6.5a1.3 1.3 0 1 1 2-1.1"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">&copy; 2026 Ndovesha. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=254112480181&text&type=phone_number&app_absent=0"
+    target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+    <span class="whatsapp-icon-part">
+      <svg viewBox="0 0 32 32"><path d="M16.001 3C9.106 3 3.5 8.606 3.5 15.5c0 2.53.744 4.885 2.024 6.86L3 29l6.822-2.463A12.44 12.44 0 0 0 16 28c6.895 0 12.5-5.606 12.5-12.5S22.896 3 16.001 3zm7.24 17.634c-.31.874-1.53 1.61-2.114 1.702-.54.084-1.222.12-1.972-.123-.455-.146-1.036-.34-1.782-.664-3.14-1.356-5.19-4.51-5.35-4.72-.16-.21-1.29-1.71-1.29-3.26 0-1.55.813-2.31 1.1-2.63.29-.32.63-.4.84-.4.21 0 .42.002.6.01.19.008.45-.072.702.535.26.63.885 2.166.965 2.324.08.16.133.347.027.556-.107.21-.16.34-.32.523-.16.183-.335.41-.478.55-.16.16-.327.334-.14.653.187.32.83 1.373 1.783 2.223 1.223 1.09 2.256 1.428 2.577 1.588.32.16.507.133.694-.08.187-.213.8-.933 1.014-1.253.213-.32.427-.267.72-.16.293.107 1.86.877 2.18 1.037.32.16.533.24.613.373.08.133.08.77-.23 1.646z" /></svg>
+    </span>
+    <span class="whatsapp-text-part">Chat with us</span>
+  </a>
+
+  <a class="scroll-top-btn" href="#top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+
+  <script>
+    /* Nav dropdowns (desktop) */
+    document.querySelectorAll('.nav-center > li').forEach(function (li) {
+      var menu = li.querySelector('.dropdown-menu');
+      var trigger = li.querySelector('a');
+      if (!menu || !trigger) return;
+      function closeAllExcept(exceptMenu) {
+        document.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
+          if (m !== exceptMenu) m.classList.remove('show');
+        });
+      }
+      function openMenu() { closeAllExcept(menu); menu.classList.add('show'); }
+      li.addEventListener('mouseenter', openMenu);
+      menu.addEventListener('mouseenter', openMenu);
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        var isOpen = menu.classList.contains('show');
+        closeAllExcept(menu);
+        menu.classList.toggle('show', !isOpen);
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav-center')) {
+        document.querySelectorAll('.dropdown-menu.show').forEach(function (m) { m.classList.remove('show'); });
+      }
+    });
+
+    /* Mobile menu */
+    var mobileBtn = document.getElementById('mobileMenuBtn');
+    var mobileNav = document.getElementById('mobileNav');
+    var navContainer = document.querySelector('.nav-container');
+    function setMobileMenuState(open) {
+      mobileNav.classList.toggle('active', open);
+      navContainer.classList.toggle('mobile-menu-open', open);
+    }
+    mobileBtn.addEventListener('click', function () { setMobileMenuState(!mobileNav.classList.contains('active')); });
+    document.addEventListener('click', function (e) {
+      if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) setMobileMenuState(false);
+    });
+    document.querySelectorAll('.mobile-section-title').forEach(function (title) {
+      title.addEventListener('click', function () {
+        var fold = document.getElementById('fold-' + title.dataset.fold);
+        var isOpen = fold.classList.contains('open');
+        document.querySelectorAll('.mobile-fold').forEach(function (f) { f.classList.remove('open'); });
+        if (!isOpen) fold.classList.add('open');
+      });
+    });
+  </script>
+
+  <script>
+    (function () {
+      /* Nav shadow once the page scrolls */
+      var nav = document.querySelector('.nav');
+      function navShadow() { if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 8); }
+      window.addEventListener('scroll', navShadow, { passive: true });
+      navShadow();
+
+      /* Back-to-top button: appears after 400px of scrolling */
+      var btn = document.querySelector('.scroll-top-btn');
+      if (btn) {
+        function update() { btn.classList.toggle('is-visible', window.scrollY > 400); }
+        window.addEventListener('scroll', update, { passive: true });
+        btn.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        update();
+      }
+    })();
+  </script>
+
+  <!-- FAQ: gold + opens the answer, click again to close -->
+  <script>
+    document.querySelectorAll('.nds .faq-question-row').forEach(function (row) {
+      row.addEventListener('click', function () {
+        var item = row.closest('.faq-item');
+        var open = !item.classList.contains('open');
+        item.classList.toggle('open', open);
+        row.querySelector('.faq-toggle-btn').setAttribute('aria-expanded', open);
+      });
+    });
+  </script>
+
+  <!-- Animated demo script -->
+  <script>
+(function(){
+/* DEMO IMAGES: the approval stage uses the Joy's Hive post (IMG1) and the rejection stage uses the Spatial post (IMG2).
+   Upload post-joyhive.jpg and post-spatial.jpg to the same folder as this page (or change the paths below). */
+function ph(a,b,t){return 'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+a+'"/><stop offset="1" stop-color="'+b+'"/></linearGradient></defs><rect width="400" height="400" fill="url(#g)"/><text x="200" y="215" font-size="48" font-family="Arial,sans-serif" font-weight="700" fill="#fff" text-anchor="middle">'+t+'</text></svg>')}
+var IMG1='post-joyhive.jpg',IMG2='post-spatial.jpg';
+var $=function(s){return document.querySelector(s)},sleep=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
+var stage=$('#stage'),cur=$('#cur'),frame=$('#frame'),mb=$('#mb'),grid=$('#grid');
+function fit(){var s=frame.clientWidth/1000;stage.style.transform='scale('+s+')';frame.style.height=(600*s)+'px'}
+addEventListener('resize',fit);fit();
+
+/* calendar: October 2026 starts on a Thursday */
+var h='';['SUN','MON','TUE','WED','THU','FRI','SAT'].forEach(function(d){h+='<div class="dh">'+d+'</div>'});
+function pcard(id){return '<div class="pc" id="'+id+'"><span class="cb">1</span><span class="th"></span>9:00 AM<small>Draft ready</small><span class="dots"><i data-ic="fb"></i><i data-ic="ig"></i></span></div>'}
+for(var i=0;i<35;i++){var n=i<4?27+i:i-3,m=i<4,post=!m&&(n===26||n===28),fut=!m&&n>=23;
+ h+='<div class="d'+(m?' m':'')+(n===23&&!m?' t':'')+'">'+(n===23&&!m?'<span class="td">23</span>':n)+(post?pcard(n===26?'c1':'c2'):'')+(fut?'<b class="pl"'+(post?' style="opacity:0"':'')+'>+</b>':'')+'</div>'}
+grid.innerHTML=h;$('#c1 .th').style.backgroundImage='url("'+IMG1+'")';$('#c2 .th').style.backgroundImage='url("'+IMG2+'")';
+
+var P={fb:'<path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>',x:'<path fill="#000" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>',in:'<path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>',ig:'<defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#F9CE34"/><stop offset=".5" stop-color="#EE2A7B"/><stop offset="1" stop-color="#6228D7"/></linearGradient></defs><rect width="24" height="24" rx="6" fill="url(#igg)"/><rect x="5" y="5" width="14" height="14" rx="4" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="12" cy="12" r="3.3" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="16.2" cy="7.8" r="1" fill="#fff"/>'};
+function ico(k,z){return '<svg width="'+z+'" height="'+z+'" viewBox="0 0 24 24" aria-hidden="true">'+P[k]+'</svg>'}
+function icons(){document.querySelectorAll('.nds [data-ic]').forEach(function(i){i.innerHTML=ico(i.getAttribute('data-ic'),i.closest('.dots')?11:(i.closest('.po')?15:24))})}
+icons();
+function step(n){document.querySelectorAll('.nds .steps li').forEach(function(li,i){li.classList.toggle('on',i===n-1)})}
+async function go(el){var r=el.getBoundingClientRect(),sr=stage.getBoundingClientRect(),s=sr.width/1000;
+ cur.style.left=((r.left-sr.left+r.width*.5)/s)+'px';cur.style.top=((r.top-sr.top+r.height*.5)/s)+'px';await sleep(1000)}
+async function click(){cur.classList.add('press');await sleep(150);cur.classList.remove('press');await sleep(250)}
+async function type(el,t){el.textContent='';el.classList.add('typing');await sleep(500);for(var i=0;i<t.length;i++){el.textContent+=t[i];await sleep(t[i]==='\n'?350:38)}await sleep(400);el.classList.remove('typing')}
+function pick(el){el.classList.add('sel');el.querySelector('small').textContent='Selected'}
+async function scrollTo(el){mb.scrollTo({top:el.offsetTop-10,behavior:'smooth'});await sleep(800)}
+async function toast(t){var e=$('#toast');e.textContent=t;e.classList.add('show');await sleep(1800);e.classList.remove('show')}
+function modal(id,on){$('#dim').classList.toggle('show',on);$(id).classList.toggle('show',on)}
+function reset(){
+ $('#sub').classList.remove('open');$('#cw').classList.remove('hot');
+ ['#fb','#ig'].forEach(function(s){var e=$(s);e.classList.remove('sel');e.querySelector('small').textContent='● Connected'});
+ $('#slot2').style.display='none';$('#t1').textContent='';$('#t2').textContent='';mb.scrollTop=0;
+ $('#cal').classList.remove('show');document.querySelectorAll('.nds .d .pl[style]').forEach(function(p){p.style.opacity=0});$('#cnt').textContent='2 posts in this month.';
+ ['#c1','#c2'].forEach(function(s){var e=$(s);e.className='pc';e.querySelector('small').textContent='Draft ready'});
+ cur.style.left='760px';cur.style.top='430px';step(1)}
+function final(){reset();$('#cal').classList.add('show');$('#c1').classList.add('show','sched');$('#c1 small').textContent='Scheduled';$('#c2').classList.add('show');step(4)}
+
+async function run(){
+ for(;;){
+  reset();await sleep(1000);
+  await go($('#cw'));await click();$('#cw').classList.add('hot');$('#sub').classList.add('open');await sleep(500);
+  await go($('#smc'));await click();modal('#m1',true);step(2);await sleep(900);
+  await go($('#fb'));await click();pick($('#fb'));
+  await go($('#ig'));await click();pick($('#ig'));
+  await scrollTo($('#sch'));
+  await go($('#add'));await click();$('#slot2').style.display='block';await sleep(500);
+  await scrollTo($('#brand'));
+  await go($('#t1'));await click();await type($('#t1'),'Quick marketing tips\nBehind the scenes\nCustomer stories');
+  await go($('#t2'));await click();await type($('#t2'),'Clean, friendly and professional. Keep every post simple and on brand.');
+  await sleep(500);await go($('#save'));await click();
+  modal('#m1',false);await sleep(500);$('#cal').classList.add('show');step(3);await sleep(900);
+  $('#c1').classList.add('show');await sleep(500);$('#c2').classList.add('show');await sleep(1400);
+  step(4);
+  await go($('#c1'));await click();$('#m2t').textContent='Monday, October 26, 2026 at 9:00 AM';$('#pimg').src=IMG1;$('#cap').textContent='Indulge in nature\'s sweet whisper. Pure honey crafted with love for your everyday delight. 🍯';modal('#m2',true);await sleep(1400);
+  await go($('#appr'));await click();modal('#m2',false);
+  $('#c1').classList.add('sched');$('#c1 small').textContent='Scheduled';await toast('Approved and scheduled for Mon 26 Oct, 9:00 AM');
+  await go($('#c2'));await click();$('#m2t').textContent='Wednesday, October 28, 2026 at 9:00 AM';$('#pimg').src=IMG2;$('#cap').textContent='Boundaries: secure your property! Ensure your land is accurately defined with our expert boundary surveys. 📍';modal('#m2',true);await sleep(1200);
+  await go($('#rej'));await click();modal('#m2',false);
+  $('#c2').classList.add('gone');$('#c2').parentNode.querySelector('.pl').style.opacity=1;$('#cnt').textContent='1 post in this month.';await toast('Draft rejected');await sleep(3000);
+ }
+}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){final();return}
+var started=false;
+new IntersectionObserver(function(e){if(e[0].isIntersecting&&!started){started=true;run()}},{threshold:.35}).observe(frame);
+})();
+  </script>
+</body>
+</html>
