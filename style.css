@@ -457,17 +457,25 @@ h3,
    ".ndl-typed::after" line in the reduced-motion block), then paste this in their place.
 ============================================================ */
 
-/* The three words share one grid cell, so the line is as wide as the widest word
-   and the rest of the title never moves. */
+/* The three words share one grid cell. The box is sized by the script to the
+   CURRENT word's width (inline width on #ndl-reel), so "done by your AI coworker."
+   always sits right next to the word, whichever one is showing.
+   grid-template-columns: minmax(0, 1fr) makes the column follow the box width
+   instead of the widest word. */
 .ndl-reel {
   display: inline-grid;
+  grid-template-columns: minmax(0, 1fr);
   vertical-align: baseline;
   text-align: left;
   margin-block: 0.55em;     /* room for the faded words above and below */
 }
+/* The width animation is switched on by the script after the first measurement,
+   so nothing animates on page load. Same timing as the word roll. */
+.ndl-reel.is-ready { transition: width 0.7s cubic-bezier(0.45, 0, 0.15, 1); }
 
 .ndl-rw {
   grid-area: 1 / 1;
+  justify-self: start;      /* each word keeps its own natural width */
   color: var(--gold);
   white-space: nowrap;
   opacity: 0;
@@ -489,6 +497,7 @@ h3,
 
 @media (prefers-reduced-motion: reduce) {
   .ndl-rw { transition: none; }
+  .ndl-reel.is-ready { transition: none; }
 }
 
 /* "10X the speed | 10X less the cost" stat row */
@@ -536,7 +545,11 @@ h3,
   display: flex; flex-direction: column; gap: 14px;
   background: #F9FAFC; border-right: 1px solid var(--line);
 }
-.ndl-side-logo { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 16px; letter-spacing: 0.02em; }
+/* Sidebar logo: the exact same image as the navigation bar.
+   The sidebar is 210px wide with 14px padding, so about 182px is available.
+   Change the 34px height to make it larger or smaller. */
+.ndl-side-logo { display: flex; align-items: center; }
+.ndl-side-logo-img { height: 34px; width: auto; max-width: 100%; object-fit: contain; }
 .ndl-newtask {
   display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-radius: 10px;
   background: var(--navy); color: #FFFFFF; font-size: 13px; font-weight: 700;
