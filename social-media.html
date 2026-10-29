@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-K2HTVGXV');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -9,22 +20,13 @@
     content="Social media managers are expensive, posting takes time from your business and results fall short. Meet the Ndovesha AI Social Media Manager.">
   <meta name="author" content="Ndovesha">
   <link rel="canonical" href="https://ndovesha.ai/social">
-  <!-- Open Graph / WhatsApp / Facebook Preview -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ndovesha.ai/social">
-  <meta property="og:title" content="AI Social Media Manager | Ndovesha AI">
-  <meta property="og:description"
-    content="Social media managers are expensive, posting takes time from your business and results fall short. Meet the Ndovesha AI Social Media Manager.">
-  <meta property="og:image" content="https://ndovesha.ai/image.png">
-  <meta property="og:site_name" content="Ndovesha">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI Social Media Manager | Ndovesha AI">
-  <meta name="twitter:image" content="https://ndovesha.ai/image.png">
+
+
 
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Global site styles (same file as the home page) -->
-  <link rel="stylesheet" href="style.css?v=31">
+  <link rel="stylesheet" href="style.css">
 
   <link rel="icon" type="image/png" href="favicon-32x32.png">
   <link rel="apple-touch-icon" href="favicon-32x32.png">
@@ -34,7 +36,7 @@
     .nav-container.mobile-menu-open .mobile-get-started-btn { display: none !important; }
   </style>
 
-  <!-- Social page sections (hero, animated demo, closing CTA). Scoped under .nds so nothing clashes with style.css.
+  <!-- Social page sections (hero, coworker, why choose, animated demo, FAQ). Scoped under .nds so nothing clashes with style.css.
        Aligned with the global rules: --heading-size / weight 800 headings, --section-py padding,
        --section-grey / --section-line bands, global card style, --text-light body copy. -->
   <style>
@@ -55,7 +57,7 @@
 .nds .wrap{width:100%;max-width:1152px;margin:0 auto;padding:0 24px}
 .nds section{text-align:center}
 
-/* Headings: global rule (--heading-size, weight 800), shared by hero, demo and closing */
+/* Headings: global rule (--heading-size, weight 800), shared by hero, coworker, why, demo and FAQ */
 .nds h1,
 .nds h2{
   font-family:'Ubuntu',sans-serif;
@@ -71,10 +73,18 @@
 .nds h2{margin:0 auto;max-width:900px;color:#003366}
 
 /* ============================================================
-   1. HERO
-   Spacing taken from the Websites page hero:
-   padding 40px 3% 30px | title +24px | statement +22px | icons (48px apart, 10px to label) +26px
-   | statement +22px | button (8px top margin)
+   BAND ORDER: strictly alternating white / light grey
+   1 Hero ............ white
+   2 Meet coworker ... grey
+   3 How it works .... white
+   4 Why choose ...... grey
+   5 FAQ ............. white
+   6 Footer links .... grey   (global style.css)
+   7 Site footer ..... white  (global style.css)
+============================================================ */
+
+/* ============================================================
+   1. HERO (white)
 ============================================================ */
 .nds .hero{
   display:flex;align-items:center;justify-content:center;
@@ -83,14 +93,11 @@
   padding:56px 3% 44px;
   background:var(--white,#fff);
 }
-
-/* Title: exactly the same size as every other section title (the global --heading-size, set above) */
 .nds .hero h1{margin:0 auto 34px}
 
-/* Opening and closing statements: ONE shared size variable, so the two paragraphs can never differ.
-   Fixed px values (no vw/clamp), applied to the paragraphs and anything inside them, with higher-specificity
-   selectors and !important so nothing in style.css can override them, plus text-size-adjust and the
-   max-height trick to stop phone browsers (Android Chrome / iOS Safari) from enlarging the longer paragraph. */
+/* Opening and closing statements: ONE shared size variable so the two paragraphs can never differ.
+   Fixed px values, high-specificity selectors and !important so nothing in style.css overrides them,
+   plus text-size-adjust and the max-height trick to stop phone browsers enlarging the longer paragraph. */
 .nds .hero{--hero-copy-size:20px}
 html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%}
 .nds .hero p.hero-copy,
@@ -152,16 +159,34 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
 .nds .cta.gold:hover{background:#FFCB3D;color:var(--primary,#003366)}
 
 /* ============================================================
-   1b. MEET THE COWORKER: grey band between the hero and the demo
-   Global card style (Deep Blue outline, 52px circle icons, gold hover) in a 2 x 2 grid
+   2. MEET THE COWORKER (grey): heading, short paragraph, button
 ============================================================ */
-.nds .meet{
+.nds .auto{
+  background:var(--section-grey,#F8F9FB);
+  border-top:1px solid var(--section-line,#E9ECF1);
+  padding:calc(var(--section-py,64px) + 16px) 0;
+}
+.nds .auto h2{max-width:900px}
+.nds .auto .sub{
+  max-width:760px;margin:28px auto 0;
+  font-size:clamp(1.08rem,1.9vw,1.28rem);font-weight:400;line-height:1.7;
+  color:var(--text-light,#6B7280);text-wrap:balance;
+}
+.nds .auto .sub b{font-weight:700;color:var(--primary,#003366)}
+.nds .auto .meet-cta{margin-top:36px}
+.nds .auto .meet-cta .cta{margin-top:0}
+.nds .auto .cta .arrow{font-size:1.2em;line-height:1}
+
+/* ============================================================
+   4. WHY CHOOSE (grey): global card style (Deep Blue outline, 52px circle icons, gold hover) in a 2 x 2 grid
+============================================================ */
+.nds .why{
   background:var(--section-grey,#F8F9FB);
   border-top:1px solid var(--section-line,#E9ECF1);
   padding:var(--section-py,64px) 0;
 }
-.nds .meet .sub{
-  max-width:760px;margin:16px auto 0;
+.nds .why .sub{
+  max-width:680px;margin:16px auto 0;
   font-size:clamp(1.08rem,1.9vw,1.28rem);font-weight:400;line-height:1.6;
   color:var(--text-light,#6B7280);
 }
@@ -192,14 +217,15 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
 .nds .meet-card:hover .meet-icon{background:var(--gold,#FEBF0F)}
 .nds .meet-card:hover .meet-icon svg{stroke:var(--primary,#003366)}
 .nds .meet-card h3{margin:0 0 12px;font-size:1.28rem;font-weight:800;line-height:1.3;color:var(--primary,#003366)}
-.nds .meet-card p{margin:0;flex:1;font-size:1.02rem;line-height:1.75;color:var(--text-light,#6B7280)}
+.nds .meet-card p{margin:0;font-size:1.02rem;line-height:1.75;color:var(--text-light,#6B7280)}
+.nds .meet-card p:not(:last-child){flex:0 0 auto}
 .nds .plat{display:flex;align-items:center;gap:16px;margin-top:18px;font-size:1.35rem;line-height:1}
 .nds .plat svg{display:block;flex:none}
 .nds .meet-cta{margin-top:44px}
 .nds .meet-cta .cta{margin-top:0}
 
 /* ============================================================
-   2. DEMO SECTION: white band (backgrounds alternate: hero white, meet grey, demo white, FAQ grey)
+   3. DEMO SECTION (white)
 ============================================================ */
 .nds .demo{
   background:var(--white,#fff);
@@ -207,7 +233,6 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
   padding:var(--section-py,64px) 0;
 }
 
-/* heading -> steps: 40px, the same gap the global heading wraps use */
 .nds .steps{
   list-style:none;margin:40px 0 0;padding:0;
   display:flex;justify-content:center;flex-wrap:wrap;gap:14px 36px;
@@ -228,7 +253,7 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
 .nds .steps li.on{color:var(--navy)}
 .nds .steps li.on i{background:var(--gold,#FEBF0F);border-color:var(--gold,#FEBF0F);color:var(--navy)}
 
-/* steps -> demo window: 32px. Global card style, centred at the stage's native 1000px so it draws at 1:1.
+/* Demo window: global card style, centred at the stage's native 1000px so it draws at 1:1.
    content-box keeps the height set by the script exact (no clipped bottom edge). */
 .nds .frame{
   position:relative;box-sizing:content-box;
@@ -241,8 +266,9 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
 /* ---------- Mock app (product UI keeps its own colours) ---------- */
 .nds .stage{position:absolute;left:0;top:0;width:1000px;height:600px;transform-origin:0 0;font-size:13px;color:var(--navy);background:#fff}
 .nds .side{position:absolute;left:0;top:0;bottom:0;width:200px;background:#F8F9FC;border-right:1px solid var(--line);padding:18px 14px}
-.nds .logo{font-weight:700;font-size:17px;letter-spacing:.02em;display:flex;align-items:center;gap:6px;margin:0 0 16px 4px}
-.nds .logo b{color:var(--gold,#FEBF0F);font-size:18px}
+/* Sidebar logo: exactly the same image as the navigation bar (172px available) */
+.nds .side-logo{display:flex;align-items:center;margin:0 0 16px 2px}
+.nds .side-logo img{height:34px;width:auto;max-width:100%;object-fit:contain}
 .nds .nt{background:var(--navy);color:#fff;border-radius:10px;padding:11px 14px;font-weight:700;margin-bottom:12px}
 .nds .it{padding:9px 12px;border-radius:8px;font-weight:700;display:flex;justify-content:space-between;transition:background .2s}
 .nds .it.hot{background:#FFF3CF}
@@ -337,28 +363,14 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
 .nds #cur.press{transform:scale(.8)}
 
 /* ============================================================
-   3. FAQ: uses the global .faq-section / .faq-container / .faq-item / .faq-question-row /
-   .faq-toggle-btn / .faq-answer rules from style.css (white band, --section-py padding,
-   gold + that turns into a minus when open). Only the alignment is set here, because
-   ".nds section" centres text.
+   5. FAQ (white): uses the global .faq-section / .faq-container / .faq-item /
+   .faq-question-row / .faq-toggle-btn / .faq-answer rules from style.css
+   (white band, gold + that turns into a minus when open).
+   Only the alignment is set here, because ".nds section" centres text.
+   The footer bands (links = grey, site footer = white) come straight from style.css.
 ============================================================ */
-.nds .faq-section{background:var(--section-grey,#F8F9FB);border-top:1px solid var(--section-line,#E9ECF1)}
 .nds .faq-container{text-align:left}
 .nds .faq-cta-center .cta{margin-top:0}
-
-/* ============================================================
-   BAND ORDER: strictly alternating, starting with white
-   hero white > meet grey > demo white > FAQ grey > footer links white > site footer grey
-   (the footer sections sit outside .nds, so they are set here with !important to beat style.css)
-============================================================ */
-.footer-links-section{
-  background:var(--white,#fff) !important;
-  border-top:1px solid var(--section-line,#E9ECF1);
-}
-.site-footer{
-  background:var(--section-grey,#F8F9FB) !important;
-  border-top:1px solid var(--section-line,#E9ECF1);
-}
 
 /* ============================================================
    PHONES + REDUCED MOTION
@@ -369,6 +381,8 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
   .nds .ind li{width:96px}
   .nds .ind b{font-size:.85rem}
   .nds .cta{width:100%;max-width:320px;min-height:54px;font-size:1.05rem}
+  .nds .auto .sub{margin-top:20px}
+  .nds .auto .meet-cta{margin-top:28px}
   .nds .meet-grid{grid-template-columns:1fr;margin-top:28px}
   .nds .meet-card{padding:28px 22px 24px}
   .nds .steps{margin-top:28px;gap:12px 20px}
@@ -382,12 +396,30 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
 }
   </style>
 
-  <!-- TRACKING: paste the same analytics block you use in index.html's <head>
-       (Google Tag Manager, Meta Pixel, TikTok, X, gtag, LinkedIn, Hotjar, Leadsy). -->
+  <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1120700146854777');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1120700146854777&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
-  <!-- TRACKING: paste the Google Tag Manager <noscript> block from index.html here -->
+  <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2HTVGXV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
   <!-- STICKY NAV (same as the home page) -->
   <nav class="nav">
@@ -417,8 +449,8 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
             <li class="dropdown-divider"></li>
             <li><a href="/web">Websites</a></li>
             <li class="dropdown-divider"></li>
-            <li><a href="/graphic">Graphic Design</a></li>
-            <li class="dropdown-divider"></li>
+           <li><a href="/graphic">Graphic Design</a></li>
+            <li class="dropdown-divider"></li>             
              <li><a href="/social-media">Social Media Management</a></li>
               <li class="dropdown-divider"></li>
             <li><a href="/writing">Writing</a></li>
@@ -465,6 +497,7 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
           <a href="/software">Software Development</a>
           <a href="/web">Websites</a>
           <a href="/graphic">Graphic Design</a>
+          <a href="/social-media">Social Media Management</a>
           <a href="/writing">Writing</a>
         </div>
         <a href="/how-to-prompt">How to Prompt</a>
@@ -485,12 +518,9 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
     </div>
   </nav>
 
-  <!-- ============================================================
-       SOCIAL PAGE SECTIONS: 1) Hero
-       ============================================================ -->
   <div class="nds" id="top">
 
-    <!-- 1) HERO -->
+    <!-- 1) HERO — white -->
     <section class="hero">
       <div class="wrap">
         <h1>Tired of the Social Media <span>Struggle?</span></h1>
@@ -518,46 +548,16 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
       </div>
     </section>
 
-    <!-- 1b) MEET THE COWORKER -->
-    <section class="meet" id="coworker">
+    <!-- 2) MEET THE COWORKER — grey. Heading, short paragraph, button -->
+    <section class="auto" id="coworker">
       <div class="wrap">
-        <h2>Meet Your <span>AI Social Media Coworker.</span></h2>
-        <p class="sub">Tell it what you want to promote. It designs the images, produces the videos and publishes them across Meta, X and LinkedIn.</p>
-
-        <div class="meet-grid">
-          <div class="meet-card">
-            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg></span>
-            <h3>Images that stop the scroll</h3>
-            <p>Designs on-brand posters and graphics, sized for each platform, without waiting on a designer.</p>
-          </div>
-          <div class="meet-card">
-            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></span>
-            <h3>Videos that hold attention</h3>
-            <p>Produces short videos and reels that earn more reach and keep people watching your business.</p>
-          </div>
-          <div class="meet-card">
-            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span>
-            <h3>Posts to the platforms that matter</h3>
-            <p>Publishes to Facebook, Instagram, X and LinkedIn, with captions written to suit each one.</p>
-            <span class="plat" aria-label="Facebook, Instagram, X and LinkedIn">
-              <i class="fa-brands fa-facebook" style="color:#1877F2" title="Facebook"></i>
-              <i class="fa-brands fa-instagram" style="color:#E4405F" title="Instagram"></i>
-              <svg viewBox="0 0 24 24" width="1em" height="1em" role="img" aria-label="X" fill="#000"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-              <i class="fa-brands fa-linkedin" style="color:#0A66C2" title="LinkedIn"></i>
-            </span>
-          </div>
-          <div class="meet-card">
-            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M17 11a3 3 0 1 0 0-6M19 14.5c1.7.8 3 2.6 3 5"/></svg></span>
-            <h3>Turns attention into leads</h3>
-            <p>Regular, engaging posts keep you in front of the people who buy, and give interested customers a way to reach you.</p>
-          </div>
-        </div>
-
-        <div class="meet-cta"><a class="cta" href="https://chat.ndovesha.ai/signup">Get Started</a></div>
+        <h2>Your Social Media, <br><span>On Autopilot</span></h2>
+        <p class="sub">Choose how long, from 2 weeks to a whole year. Your AI coworker fills the calendar, creates the images and videos, and posts to Meta, X and LinkedIn. <b>You just approve.</b></p>
+        <div class="meet-cta"><a class="cta" href="https://chat.ndovesha.ai/signup">Get Started <span class="arrow" aria-hidden="true">→</span></a></div>
       </div>
     </section>
 
-    <!-- 2) HOW IT WORKS: ANIMATED DEMO -->
+    <!-- 3) HOW IT WORKS: ANIMATED DEMO — white -->
     <section class="demo" id="demo">
       <div class="wrap">
         <h2>How it <span>Works</span></h2>
@@ -570,7 +570,10 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
         <div class="frame" id="frame" aria-label="Animated demo of the Ndovesha Social Media Coworker">
           <div class="stage" id="stage">
             <div class="side">
-              <div class="logo"><b>&lsaquo;&rsaquo;</b>NDOVESHA</div>
+              <!-- Logo: exactly the same image as the navigation bar -->
+              <div class="side-logo"><img
+                src="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png"
+                alt="Ndovesha AI"></div>
               <div class="nt">✎&nbsp; New Task</div>
               <div class="it" id="cw">Coworkers <span>▾</span></div>
               <div id="sub"><div id="smc">Social Media Coworker</div></div>
@@ -629,7 +632,43 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
       </div>
     </section>
 
-    <!-- 3) FAQ -->
+    <!-- 4) WHY CHOOSE NDOVESHA — grey (the four benefit cards, moved here unchanged) -->
+    <section class="why" id="why">
+      <div class="wrap">
+        <h2>Why Choose <span>Ndovesha</span></h2>
+
+        <div class="meet-grid">
+          <div class="meet-card">
+            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg></span>
+            <h3>Images that stop the scroll</h3>
+            <p>Designs on-brand posters and graphics, sized for each platform, without waiting on a designer.</p>
+          </div>
+          <div class="meet-card">
+            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></span>
+            <h3>Videos that hold attention</h3>
+            <p>Produces short videos that earn more reach and keep people watching your business.</p>
+          </div>
+          <div class="meet-card">
+            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span>
+            <h3>Posts to the platforms that matter</h3>
+            <p>Publishes to Facebook, Instagram, X and LinkedIn, with captions written to suit each one.</p>
+            <span class="plat" aria-label="Facebook, Instagram, X and LinkedIn">
+              <i class="fa-brands fa-facebook" style="color:#1877F2" title="Facebook"></i>
+              <i class="fa-brands fa-instagram" style="color:#E4405F" title="Instagram"></i>
+              <svg viewBox="0 0 24 24" width="1em" height="1em" role="img" aria-label="X" fill="#000"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+              <i class="fa-brands fa-linkedin" style="color:#0A66C2" title="LinkedIn"></i>
+            </span>
+          </div>
+          <div class="meet-card">
+            <span class="meet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M17 11a3 3 0 1 0 0-6M19 14.5c1.7.8 3 2.6 3 5"/></svg></span>
+            <h3>Turns attention into leads</h3>
+            <p>Regular, engaging posts keep you in front of the people who buy, and give interested customers a way to reach you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) FAQ — white -->
     <section class="faq-section">
       <div class="wrap">
         <div class="faq-heading-wrap">
@@ -683,7 +722,7 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
     </section>
   </div>
 
-  <!-- FOOTER LINKS — grey (same as the home page) -->
+  <!-- FOOTER LINKS — grey (global style.css) -->
   <section class="footer-links-section">
     <div class="container">
       <div class="footer-links-grid">
@@ -740,7 +779,8 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
           <ul>
             <li><a href="/software">Software Development</a></li>
             <li><a href="/web">Websites</a></li>
-            <li><a href="/graphic">Graphic design</a></li>
+            <li><a href="/graphic">Graphic Design</a></li>
+            <li><a href="/social-media">Social Media Management</a></li>
             <li><a href="/writing">Writing</a></li>
           </ul>
         </div>
@@ -756,7 +796,7 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
     </div>
   </section>
 
-  <!-- SITE FOOTER — white -->
+  <!-- SITE FOOTER — white (global style.css) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-social-row">
