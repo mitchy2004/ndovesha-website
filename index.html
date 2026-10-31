@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
   <!-- Cache-buster: bump the ?v= number whenever style.css changes so browsers fetch the new file -->
-  <link rel="stylesheet" href="style.css?v=33">
+  <link rel="stylesheet" href="style.css?v=34">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon-32x32.png">
@@ -343,80 +343,161 @@
       <span>Your AI team is online and ready to work</span>
     </div>
 
-    <!-- Mini version of the Ndovesha app -->
-    <div class="ndl-app">
+    <!-- Mini version of the Ndovesha app: replaces the whole old ndl-app block -->
+
+    <div class="ndl-app" id="ndl-app" data-view="home">
 
       <aside class="ndl-side">
-        <!-- Logo: exactly the same image as the navigation bar -->
-        <div class="ndl-side-logo">
+        <div class="ndl-side-top">
           <img
             src="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png"
             class="ndl-side-logo-img" alt="Ndovesha AI">
+          <span class="ndl-ico-btn" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
+          <span class="ndl-ico-btn" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18"/></svg></span>
         </div>
+
         <div class="ndl-newtask">
-          <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
           New Task
         </div>
-        <div class="ndl-side-menu"><span>Coworkers</span><span>Planner</span><span>Library</span></div>
-        <div class="ndl-side-label">Recents</div>
-        <div class="ndl-recents" role="group" aria-label="Sample tasks">
-          <button type="button" data-i="0">Honey poster</button>
-          <button type="button" data-i="1">Survey website</button>
-          <button type="button" data-i="2">LinkedIn launch post</button>
+
+        <div class="ndl-side-menu" aria-hidden="true">
+          <div class="ndl-mi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg><span>Social Media Coworker</span><b class="ndl-new">New</b></div>
+          <div class="ndl-mi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Calendar</span></div>
+          <div class="ndl-mi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Library</span></div>
+          <div class="ndl-mi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a6 6 0 0 1-12 0V8Z"/></svg><span>Integrations</span></div>
+          <div class="ndl-mi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg><span>Brand Settings</span></div>
         </div>
-        <div class="ndl-credits"><b>1,560</b> credits</div>
+
+        <div class="ndl-rec">
+          <div class="ndl-rec-head">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>
+            <span>Recents</span>
+            <svg class="ndl-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="ndl-recents" role="group" aria-label="Sample tasks">
+            <button type="button" data-i="0"><span>Honey poster</span><em>Poster</em></button>
+            <button type="button" data-i="1"><span>Survey website</span><em>Site</em></button>
+            <button type="button" data-i="2"><span>LinkedIn launch post</span><em>Post</em></button>
+          </div>
+          <span class="ndl-seeall">See all <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+
+        <div class="ndl-more" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+          Get More Credits
+        </div>
       </aside>
 
       <div class="ndl-main">
-        <div class="ndl-titlebar"><span id="ndl-title-text">New Task</span><em>Share</em></div>
 
-        <div class="ndl-chat" aria-live="polite">
-          <div class="ndl-greet" id="ndl-greet">What's on the bench, <span id="ndl-owner">Joy</span>?</div>
-          <div class="ndl-bubble" id="ndl-bubble"></div>
-          <div class="ndl-working" id="ndl-working"><span class="ndl-dot ndl-pulse"></span><span id="ndl-working-text">Designing your poster</span></div>
+        <!-- Phones only: compact top bar that replaces the sidebar -->
+        <div class="ndl-mtop" aria-hidden="true">
+          <img
+            src="https://ndovesha-main.fra1.cdn.digitaloceanspaces.com/uploads/logos/logo-d3ee4e1d-2e4b-41d0-b9fc-127da4f0f1c1-1782423207466.png"
+            alt="">
+          <span class="ndl-mtop-new"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>New Task</span>
+        </div>
 
-          <!-- Result 0: graphic design -->
-          <div class="ndl-result" data-result="0">
-            <div class="ndl-design">
-              <img src="post-joyhive.png" alt="Honey poster designed for Joy's Hive">
-              <div class="ndl-notes"><b>Instagram poster</b><span>1080 × 1080</span><span>Brand colours applied</span><span>Caption drafted</span></div>
+        <!-- VIEW 1: home (greeting, prompt box, pick up, templates) -->
+        <div class="ndl-home">
+          <div class="ndl-hello">Ready to <span>build</span>?</div>
+
+          <div class="ndl-input ndl-input-home">
+            <div class="ndl-input-text"><span class="ndl-typed" id="ndl-typed"></span><span class="ndl-caret" id="ndl-caret">|</span><span class="ndl-ph">Describe what you want your AI coworker to do...</span></div>
+            <div class="ndl-input-row">
+              <span class="ndl-sq" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+              <span class="ndl-improve"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4Z"/></svg>Improve prompt</span>
+              <span class="ndl-sq ndl-send" id="ndl-send" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></span>
             </div>
-            <div class="ndl-actions"><span class="a-navy">Post to socials</span><span>Save to Drive</span><span>Edit</span></div>
           </div>
 
-          <!-- Result 1: website -->
-          <div class="ndl-result" data-result="1">
-            <div class="ndl-site">
-              <div class="ndl-site-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>Spatial Group · Land Surveys</span></div>
-              <div class="ndl-site-hero">
-                <small>SURVEYING · MAPPING · PLANNING</small>
-                <b>Know the ground before you build</b>
-                <span>Topographic and land surveys across Kenya</span>
-                <div><em class="solid">Book a survey</em><em>Our projects</em></div>
+          <div class="ndl-sec"><i></i>Pick up where you left off</div>
+          <div class="ndl-pick">
+            <span class="ndl-pick-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/><path d="m3 17 5-5 3 3M18 2l.8 2.2L21 5l-2.2.8L18 8l-.8-2.2L15 5l2.2-.8Z"/></svg></span>
+            <b id="ndl-pick-name">Murclean LinkedIn Post</b>
+            <small id="ndl-pick-tag">Post</small>
+            <em>Resume <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></em>
+          </div>
+
+          <div class="ndl-sec"><i></i>Start from a template</div>
+          <div class="ndl-tpls" aria-hidden="true">
+            <div class="ndl-tpl" style="--c:#FFF1C7;--k:#C99A06">
+              <div class="ndl-tpl-top"><span class="ndl-tpl-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 18h18M7 9V6a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3"/></svg></span><span class="ndl-tpl-badge">WEB APP</span></div>
+              <b>Boutique Hotel</b><small>Rooms, guests, housekeeping</small>
+              <span class="ndl-tpl-strip"><i></i></span>
+            </div>
+            <div class="ndl-tpl" style="--c:#E7E0FA;--k:#6B4FC4">
+              <div class="ndl-tpl-top"><span class="ndl-tpl-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h20M4 18a8 8 0 0 1 16 0M12 6v4M8 10l1.5 2M16 10l-1.5 2"/></svg></span><span class="ndl-tpl-badge">WEB APP</span></div>
+              <b>Construction Jobs</b><small>Sites, subcontractors, milestones</small>
+              <span class="ndl-tpl-strip"><i></i></span>
+            </div>
+            <div class="ndl-tpl" style="--c:#DDF3E6;--k:#2E9A5E">
+              <div class="ndl-tpl-top"><span class="ndl-tpl-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2ZM22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7Z"/></svg></span><span class="ndl-tpl-badge">WEB APP</span></div>
+              <b>Tutoring Center</b><small>Sessions, tutors, student progress</small>
+              <span class="ndl-tpl-strip"><i></i></span>
+            </div>
+            <div class="ndl-tpl" style="--c:#F6E0F3;--k:#B5419F">
+              <div class="ndl-tpl-top"><span class="ndl-tpl-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></span><span class="ndl-tpl-badge">WEB APP</span></div>
+              <b>Podcast Network</b><small>Shows, guests, episode pipeline</small>
+              <span class="ndl-tpl-strip"><i></i></span>
+            </div>
+          </div>
+          <div class="ndl-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+
+        <!-- VIEW 2: task (chat with the coworker and the finished result) -->
+        <div class="ndl-task">
+          <div class="ndl-titlebar"><span id="ndl-title-text">New Task</span><em>Share</em></div>
+
+          <div class="ndl-chat" aria-live="polite">
+            <div class="ndl-bubble" id="ndl-bubble"></div>
+            <div class="ndl-working" id="ndl-working"><span class="ndl-dot ndl-pulse"></span><span id="ndl-working-text">Designing your poster</span></div>
+
+            <!-- Result 0: graphic design -->
+            <div class="ndl-result" data-result="0">
+              <div class="ndl-design">
+                <img src="post-joyhive.png" alt="Honey poster designed for Joy's Hive">
+                <div class="ndl-notes"><b>Instagram poster</b><span>1080 × 1080</span><span>Brand colours applied</span><span>Caption drafted</span></div>
               </div>
+              <div class="ndl-actions"><span class="a-navy">Post to socials</span><span>Save to Drive</span><span>Edit</span></div>
             </div>
-            <div class="ndl-actions"><span class="a-green">Published</span><span class="a-yellow">View</span><span>Analytics</span><span>Connect Domain</span></div>
+
+            <!-- Result 1: website -->
+            <div class="ndl-result" data-result="1">
+              <div class="ndl-site">
+                <div class="ndl-site-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>Spatial Group · Land Surveys</span></div>
+                <div class="ndl-site-hero">
+                  <small>SURVEYING · MAPPING · PLANNING</small>
+                  <b>Know the ground before you build</b>
+                  <span>Topographic and land surveys across Kenya</span>
+                  <div><em class="solid">Book a survey</em><em>Our projects</em></div>
+                </div>
+              </div>
+              <div class="ndl-actions"><span class="a-green">Published</span><span class="a-yellow">View</span><span>Analytics</span><span>Connect Domain</span></div>
+            </div>
+
+            <!-- Result 2: writing -->
+            <div class="ndl-result" data-result="2">
+              <div class="ndl-post">
+                <div class="ndl-post-head"><span>MS</span><div><b>Murclean Services</b><small>LinkedIn draft</small></div></div>
+                <p>Clean spaces build trust. This month we are rolling out our new professional range for hotels, gyms and offices: concentrated cleaners that do more with less, and gentle shower gels your guests will notice.</p>
+                <span class="ndl-tags">#Hospitality #FacilitiesManagement</span>
+              </div>
+              <div class="ndl-actions"><span class="a-navy">Post to socials</span><span>Edit</span></div>
+            </div>
           </div>
 
-          <!-- Result 2: writing -->
-          <div class="ndl-result" data-result="2">
-            <div class="ndl-post">
-              <div class="ndl-post-head"><span>MS</span><div><b>Murclean Services</b><small>LinkedIn draft</small></div></div>
-              <p>Clean spaces build trust. This month we are rolling out our new professional range for hotels, gyms and offices: concentrated cleaners that do more with less, and gentle shower gels your guests will notice.</p>
-              <span class="ndl-tags">#Hospitality #FacilitiesManagement</span>
+          <div class="ndl-input">
+            <div class="ndl-input-text"><span class="ndl-ph ndl-ph-on">Ask for changes or start something new...</span></div>
+            <div class="ndl-input-row">
+              <span class="ndl-sq" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+              <span class="ndl-improve"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4Z"/></svg>Improve prompt</span>
+              <span class="ndl-sq" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></span>
             </div>
-            <div class="ndl-actions"><span class="a-navy">Post to socials</span><span>Edit</span></div>
           </div>
         </div>
 
-        <div class="ndl-input">
-          <div class="ndl-input-text"><span id="ndl-typed"></span><span class="ndl-ph" id="ndl-ph"></span><span class="ndl-caret" id="ndl-caret">|</span></div>
-          <div class="ndl-input-row">
-            <span class="ndl-sq" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
-            <span class="ndl-improve"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4Z"/></svg>Improve prompt</span>
-            <span class="ndl-sq" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></span>
-          </div>
-        </div>
       </div><!-- /.ndl-main -->
 
     </div><!-- /.ndl-app -->
@@ -1321,36 +1402,37 @@ var dots = cards.map(function (card, k) {
    1. Landing hero app demo
    2. Social media showcase post stack */
 
-/* Ndovesha landing hero: a mini version of the app that types a prompt,
-   sends it, shows the coworker working, reveals the result and moves on.
+/* Ndovesha landing hero: a mini version of the app that types a prompt on the
+   home screen, presses send, switches to the task view where the coworker
+   works, reveals the result, then returns home with the next prompt.
    Plain JavaScript, no libraries. */
 (function () {
   'use strict';
 
   var TYPE_SPEED_MS = 35;      // time per typed character
+  var PRESS_MS = 260;          // send button "pressed" pause
   var THINK_MS = 900;          // "working" pause before the result shows
   var SHOW_RESULT_MS = 4200;   // how long each result stays up
-  var IDLE_PLACEHOLDER = 'Ask for changes or start something new...';
 
   var ITEMS = [
-    { title: 'Joy’s Hive Instagram Poster', owner: 'Joy', prompt: 'Design an Instagram poster for my honey brand, Joy’s Hive', done: 'Poster ready', working: 'Designing your poster' },
-    { title: 'Spatial Group Website', owner: 'Brian', prompt: 'Build a website for my survey company in Nairobi', done: 'Website published', working: 'Building your website' },
-    { title: 'Murclean LinkedIn Post', owner: 'Peter', prompt: 'Write a LinkedIn post launching our new cleaning range', done: 'Post drafted', working: 'Writing your post' }
+    { title: 'Joy’s Hive Instagram Poster', tag: 'Poster', prompt: 'Design an Instagram poster for my honey brand, Joy’s Hive', done: 'Poster ready', working: 'Designing your poster' },
+    { title: 'Spatial Group Website', tag: 'Website', prompt: 'Build a website for my survey company in Nairobi', done: 'Website published', working: 'Building your website' },
+    { title: 'Murclean LinkedIn Post', tag: 'Post', prompt: 'Write a LinkedIn post launching our new cleaning range', done: 'Post drafted', working: 'Writing your post' }
   ];
 
   var demo = document.getElementById('ndl-demo');
-  if (!demo) return;
+  var app = document.getElementById('ndl-app');
+  if (!demo || !app) return;
 
   var $ = function (id) { return document.getElementById(id); };
   var titleText = $('ndl-title-text');
-  var greet = $('ndl-greet');
-  var owner = $('ndl-owner');
   var bubble = $('ndl-bubble');
   var working = $('ndl-working');
   var workingText = $('ndl-working-text');
   var typed = $('ndl-typed');
-  var ph = $('ndl-ph');
-  var caret = $('ndl-caret');
+  var send = $('ndl-send');
+  var pickName = $('ndl-pick-name');
+  var pickTag = $('ndl-pick-tag');
   var doneEl = $('ndl-done');
   var recents = demo.querySelectorAll('.ndl-recents button');
   var results = demo.querySelectorAll('.ndl-result');
@@ -1360,6 +1442,7 @@ var dots = cards.map(function (card, k) {
   var timer = null;
 
   function on(el, yes) { el.classList.toggle('is-on', !!yes); }
+  function setView(v) { app.setAttribute('data-view', v); }
 
   // A timeout that waits while the visitor hovers or the tab is hidden
   function later(fn, ms) {
@@ -1378,24 +1461,28 @@ var dots = cards.map(function (card, k) {
     results.forEach(function (r) { on(r, Number(r.getAttribute('data-result')) === i); });
   }
 
-  // Stage 1: empty task, greeting, prompt typing in the box
+  // Stage 1: home screen, prompt typing in the box. "Pick up where you left off" shows the previous task.
   function stageTyping(i) {
-    var item = ITEMS[i];
-    setRecent(i);
-    titleText.textContent = 'New Task';
-    owner.textContent = item.owner;
-    on(greet, true); on(bubble, false); on(working, false); showResult(-1);
-    typed.textContent = ''; ph.textContent = ''; caret.classList.remove('is-off');
+    var last = ITEMS[(i + ITEMS.length - 1) % ITEMS.length];
+    setView('home');
+    setRecent(-1);
+    pickName.textContent = last.title;
+    pickTag.textContent = last.tag;
+    typed.textContent = '';
+    send.classList.remove('is-pressed');
+    on(bubble, false); on(working, false); showResult(-1);
   }
 
-  // Stage 2: prompt sent, shown as a chat bubble, coworker working
+  // Stage 2: prompt sent, task view with the prompt as a chat bubble, coworker working
   function stageSent(i) {
     var item = ITEMS[i];
+    send.classList.remove('is-pressed');
+    setView('task');
+    setRecent(i);
     titleText.textContent = item.title;
-    on(greet, false);
     bubble.textContent = item.prompt; on(bubble, true);
     workingText.textContent = item.working; on(working, true);
-    typed.textContent = ''; ph.textContent = IDLE_PLACEHOLDER; caret.classList.add('is-off');
+    showResult(-1);
   }
 
   // Stage 3: result in
@@ -1414,12 +1501,15 @@ var dots = cards.map(function (card, k) {
       typed.textContent = item.prompt.slice(0, n);
       if (n < item.prompt.length) { later(type, TYPE_SPEED_MS); return; }
       later(function () {
-        stageSent(i);
+        send.classList.add('is-pressed');
         later(function () {
-          stageDone(i);
-          later(function () { play((i + 1) % ITEMS.length); }, SHOW_RESULT_MS);
-        }, THINK_MS);
-      }, 350);
+          stageSent(i);
+          later(function () {
+            stageDone(i);
+            later(function () { play((i + 1) % ITEMS.length); }, SHOW_RESULT_MS);
+          }, THINK_MS);
+        }, PRESS_MS);
+      }, 450);
     }
     later(type, 500);
   }
@@ -1427,7 +1517,6 @@ var dots = cards.map(function (card, k) {
   // Jump straight to a finished task (clicks and reduced motion)
   function showInstant(i) {
     if (timer) clearTimeout(timer);
-    setRecent(i);
     stageSent(i);
     stageDone(i);
   }
@@ -1439,6 +1528,7 @@ var dots = cards.map(function (card, k) {
     });
   });
 
+  // Pause while the visitor hovers or focuses the demo (touch taps must not freeze it)
   demo.addEventListener('mouseenter', function () { paused = true; });
   demo.addEventListener('mouseleave', function () { paused = false; });
   demo.addEventListener('focusin', function () { paused = true; });
