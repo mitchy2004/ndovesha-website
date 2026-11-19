@@ -814,12 +814,14 @@ h3,
   .ndl-primary:hover { transform: none; }
 }
 /* ============================================================
-   1b. TRUSTED BRANDS: two horizontal marquees — white
+   1b. TRUSTED BRANDS: one continuous two-row loop — white
    (continues straight on from the hero)
-   Row 1 glides right to left, row 2 (.is-reverse) left to right.
-   Each row holds two identical lists; sliding by exactly one list
-   (-50%) loops seamlessly. Pauses on hover. Each logo sets its own
-   height with --h so they all look the same visual size.
+   Row 1 glides right to left; a logo that leaves on the left is moved
+   into row 2 on the left. Row 2 glides left to right; a logo that leaves
+   on the right is moved back into row 1 on the right. Each logo exists
+   once. The movement is done by the script at the bottom of index.html.
+   Each logo sets its own height with --h so they all look the same
+   visual size. Pauses on hover.
 ============================================================ */
 .trusted-section {
   padding: 0 0 var(--section-py);
@@ -837,7 +839,7 @@ h3,
 .trusted-rows {
   --gap: 72px;       /* space between logos */
   --scale: 1;        /* shrinks every logo on smaller screens */
-  --cell-h: 124px;   /* every logo is centred vertically in a band this tall */
+  --cell-h: 124px;   /* each row is a band this tall, logos centred vertically */
   display: flex;
   flex-direction: column;
   gap: 12px;         /* space between the two rows */
@@ -850,25 +852,35 @@ h3,
           mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
 }
 
-.trusted-track {
+/* Default (no JS / reduced motion): a centred, wrapped set of logos */
+.trusted-lane {
+  position: relative;
   display: flex;
-  width: max-content;
-  animation: trustedScroll 45s linear infinite;
-}
-.trusted-marquee.is-reverse .trusted-track { animation-direction: reverse; }
-.trusted-marquee:hover .trusted-track { animation-play-state: paused; }
-
-.trusted-group {
-  display: flex;
-  align-items: center;       /* logos share one vertical centre line */
-  height: var(--cell-h);
-  gap: var(--gap);
-  padding-right: var(--gap); /* keeps the gap between the two lists equal to the gap between logos */
-  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px var(--gap);
+  min-height: var(--cell-h);
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.trusted-group img {
+/* Looping mode (class added by the script): logos are positioned by the script */
+.trusted-rows.is-looping .trusted-lane {
+  display: block;
+  height: var(--cell-h);
+  min-height: 0;
+}
+.trusted-rows.is-looping .trusted-lane li {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate3d(-9999px, -50%, 0);  /* parked off screen until the script places it */
+  will-change: transform;
+}
+
+.trusted-lane img {
   display: block;
   height: calc(var(--h, 56px) * var(--scale));
   width: auto;
@@ -876,12 +888,7 @@ h3,
   opacity: 0.9;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
-.trusted-group img:hover { opacity: 1; transform: scale(1.06); }
-
-@keyframes trustedScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
+.trusted-lane img:hover { opacity: 1; transform: scale(1.06); }
 
 @media (max-width: 1100px) {
   .trusted-rows { --gap: 52px; --scale: 0.85; --cell-h: 108px; }
@@ -894,9 +901,6 @@ h3,
 
 /* Reduced motion: no scrolling, each row is a centred, wrapped set of logos */
 @media (prefers-reduced-motion: reduce) {
-  .trusted-track { animation: none; width: auto; justify-content: center; }
-  .trusted-group { flex-wrap: wrap; justify-content: center; height: auto; padding-right: 0; row-gap: 20px; }
-  .trusted-group[aria-hidden="true"] { display: none; }
   .trusted-marquee { -webkit-mask-image: none; mask-image: none; }
 }
 /* ============================================================

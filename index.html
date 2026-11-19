@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
   <!-- Cache-buster: bump the ?v= number whenever style.css changes so browsers fetch the new file -->
-  <link rel="stylesheet" href="style.css?v=38">
+  <link rel="stylesheet" href="style.css?v=39">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon-32x32.png">
@@ -505,54 +505,35 @@
 
 </section><!-- /.ndl hero -->
 
-<!-- 1b. TRUSTED BRANDS: two horizontal marquees (white).
-     Row 1 glides left, row 2 glides right (class "is-reverse").
-     Each list is repeated once so the loop never shows a gap. To add a logo, add an <li>
-     to BOTH lists of the row (the second list is the aria-hidden copy, with alt="").
-     Speed: change the animation time (45s) in style.css. -->
+<!-- 1b. TRUSTED BRANDS: one continuous loop across two rows (white).
+     Row 1 glides left; a logo that leaves on the left is moved into row 2 on the left.
+     Row 2 glides right; a logo that leaves on the right re-enters row 1 on the right.
+     Each logo appears once (the loop script is at the bottom of the page).
+     To add a logo, add an <li> to either row. Speed: see SPEED in the script. -->
 <section class="trusted-section" aria-label="Brands that trust Ndovesha">
   <div class="container">
     <p class="trusted-label">Trusted by growing businesses</p>
-    <div class="trusted-rows">
+    <div class="trusted-rows" id="trustedRows">
       <div class="trusted-marquee">
-        <div class="trusted-track">
-          <ul class="trusted-group">
-          <li><img src="logo-mambo-leo-v3.png" alt="Mambo Leo Graphix Media" style="--h:68px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-mcm-advocates-v2.png" alt="MCM Advocates LLP" style="--h:72px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-drip-masters-v2.png" alt="Drip Masters Engineering" style="--h:66px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-yourplot-v3.png" alt="Your Plot Plug 254" style="--h:60px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-joys-hive-v2.png" alt="Joy’s Hive" style="--h:66px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-marvelrise-v2.png" alt="Marvelrise Interior Decor" style="--h:78px" loading="lazy" decoding="async"></li>
-          </ul>
-          <ul class="trusted-group" aria-hidden="true">
-          <li><img src="logo-mambo-leo-v3.png" alt="" style="--h:68px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-mcm-advocates-v2.png" alt="" style="--h:72px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-drip-masters-v2.png" alt="" style="--h:66px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-yourplot-v3.png" alt="" style="--h:60px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-joys-hive-v2.png" alt="" style="--h:66px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-marvelrise-v2.png" alt="" style="--h:78px" loading="lazy" decoding="async"></li>
-          </ul>
-        </div>
+        <ul class="trusted-lane">
+          <li><img src="logo-mambo-leo-v3.png" alt="Mambo Leo Graphix Media" style="--h:68px" decoding="async"></li>
+          <li><img src="logo-mcm-advocates-v2.png" alt="MCM Advocates LLP" style="--h:72px" decoding="async"></li>
+          <li><img src="logo-drip-masters-v2.png" alt="Drip Masters Engineering" style="--h:66px" decoding="async"></li>
+          <li><img src="logo-yourplot-v3.png" alt="Your Plot Plug 254" style="--h:60px" decoding="async"></li>
+          <li><img src="logo-joys-hive-v2.png" alt="Joy’s Hive" style="--h:66px" decoding="async"></li>
+          <li><img src="logo-marvelrise-v2.png" alt="Marvelrise Interior Decor" style="--h:78px" decoding="async"></li>
+          <li><img src="logo-nyab-consult.jpeg" alt="Nyab Consult" style="--h:92px" decoding="async"></li>
+        </ul>
       </div>
-      <div class="trusted-marquee is-reverse">
-        <div class="trusted-track">
-          <ul class="trusted-group">
-          <li><img src="logo-murclean-v3.png" alt="Murclean Services" style="--h:68px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-wina-v2.png" alt="WINA Autospares" style="--h:64px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-spatial-v2.png" alt="Spatial Group Networks" style="--h:56px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-dignity-forensic.png" alt="Dignity Forensic Document Examiners" style="--h:60px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-theocare.png" alt="TheoCare Sports &amp; Physio" style="--h:112px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-speedway.png" alt="Speedway Nairobi Arusha Moshi Shuttle" style="--h:100px" loading="lazy" decoding="async"></li>
-          </ul>
-          <ul class="trusted-group" aria-hidden="true">
-          <li><img src="logo-murclean-v3.png" alt="" style="--h:68px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-wina-v2.png" alt="" style="--h:64px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-spatial-v2.png" alt="" style="--h:56px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-dignity-forensic.png" alt="" style="--h:60px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-theocare.png" alt="" style="--h:112px" loading="lazy" decoding="async"></li>
-          <li><img src="logo-speedway.png" alt="" style="--h:100px" loading="lazy" decoding="async"></li>
-          </ul>
-        </div>
+      <div class="trusted-marquee">
+        <ul class="trusted-lane">
+          <li><img src="logo-murclean-v3.png" alt="Murclean Services" style="--h:68px" decoding="async"></li>
+          <li><img src="logo-wina-v2.png" alt="WINA Autospares" style="--h:64px" decoding="async"></li>
+          <li><img src="logo-spatial-v2.png" alt="Spatial Group Networks" style="--h:56px" decoding="async"></li>
+          <li><img src="logo-dignity-forensic.png" alt="Dignity Forensic Document Examiners" style="--h:60px" decoding="async"></li>
+          <li><img src="logo-theocare.png" alt="TheoCare Sports &amp; Physio" style="--h:112px" decoding="async"></li>
+          <li><img src="logo-speedway.png" alt="Speedway Nairobi Arusha Moshi Shuttle" style="--h:100px" decoding="async"></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -742,10 +723,19 @@
               </span>
             </a>
 
+            <a class="built-card" href="https://marvelrisedecor.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Marvelrise Decor website">
+              <span class="built-card-image"><img src="built-marvelrise.png" alt="Marvelrise Decor website homepage" decoding="async"></span>
+              <span class="built-card-info">
+                <span class="built-card-name">Marvelrise Decor</span>
+                <span class="built-card-desc">A premium contemporary homeware label offering flooring, marble, wall panels, furniture and decor for beautifully composed homes.</span>
+                <span class="built-pill">Visit site <span aria-hidden="true">→</span></span>
+              </span>
+            </a>
+
           </div>
         </div>
 
-        <!-- One dot per page of 3 cards; the script fills this in -->
+        <!-- One dot per card; the script fills this in -->
         <div class="built-dots" id="builtDots"></div>
       </div>
 
@@ -1827,6 +1817,102 @@ var dots = cards.map(function (card, k) {
 
   
   </script>
+
+<script>
+/* Trusted logos: one continuous loop across two rows.
+   Row 1 glides left; a logo that leaves on the left is moved into row 2 on the left.
+   Row 2 glides right; a logo that leaves on the right is moved into row 1 on the right.
+   Speed: change the two numbers in SPEED. */
+(function () {
+  var rows = document.getElementById('trustedRows');
+  if (!rows) return;
+  var lanes = Array.prototype.slice.call(rows.querySelectorAll('.trusted-lane'));
+  if (lanes.length !== 2) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var items = [];
+  lanes.forEach(function (l) { Array.prototype.forEach.call(l.children, function (li) { items.push(li); }); });
+  var n = items.length;
+  if (n < 2) return;
+
+  var SPEED = { desktop: 50, phone: 36 };   /* pixels per second */
+  var widths = [], u0 = [], laneOf = [];
+  var W = 0, pad = 0, Ltot = 0, rowLen = 0;
+  var off = 0, last = null, raf = null, started = false;
+  var hovering = false, hidden = document.hidden, offscreen = false;
+
+  function setup() {
+    rows.classList.add('is-looping');
+    W = lanes[0].clientWidth;
+    var gap = parseFloat(getComputedStyle(rows).getPropertyValue('--gap')) || 60;
+    widths = items.map(function (li) { return li.offsetWidth; });
+    var maxW = Math.max.apply(null, widths);
+    pad = maxW / 2;
+
+    /* Total loop = both rows. It must be long enough that a logo is fully off screen
+       before it re-enters; if the logos alone are shorter, the spacing is widened evenly. */
+    var sum = widths.reduce(function (a, w) { return a + w + gap; }, 0);
+    var minL = 2 * (W + maxW), g = gap;
+    if (sum < minL) { g = gap + (minL - sum) / n; Ltot = minL; } else { Ltot = sum; }
+    rowLen = Ltot / 2;
+
+    /* Starting layout: first logo at the left of row 1, the rest following to the right */
+    var s = 0;
+    for (var k = 0; k < n; k++) {
+      s += (k === 0) ? widths[0] / 2 : widths[k - 1] / 2 + g + widths[k] / 2;
+      u0[k] = W + pad - s;
+      laneOf[k] = -1;
+    }
+    render();
+  }
+
+  function render() {
+    for (var k = 0; k < n; k++) {
+      var u = (((u0[k] + off) % Ltot) + Ltot) % Ltot;
+      var lane, cx;
+      if (u < rowLen) { lane = 0; cx = W + pad - u; }          /* row 1: right to left */
+      else            { lane = 1; cx = -pad + (u - rowLen); }  /* row 2: left to right */
+      if (laneOf[k] !== lane) { lanes[lane].appendChild(items[k]); laneOf[k] = lane; }
+      items[k].style.transform = 'translate3d(' + (cx - widths[k] / 2).toFixed(1) + 'px,-50%,0)';
+    }
+  }
+
+  function tick(t) {
+    raf = requestAnimationFrame(tick);
+    if (last === null) last = t;
+    var dt = Math.min(t - last, 60);
+    last = t;
+    if (!hovering) {
+      off += (window.innerWidth <= 600 ? SPEED.phone : SPEED.desktop) * dt / 1000;
+      render();
+    }
+  }
+  function sync() {
+    var run = started && !hidden && !offscreen;
+    if (run && !raf) { last = null; raf = requestAnimationFrame(tick); }
+    if (!run && raf) { cancelAnimationFrame(raf); raf = null; }
+  }
+
+  rows.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hovering = true; });
+  rows.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') hovering = false; });
+  document.addEventListener('visibilitychange', function () { hidden = document.hidden; sync(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { offscreen = !e[0].isIntersecting; sync(); }).observe(rows);
+  }
+
+  var rt = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () { if (started) setup(); }, 150);
+  });
+
+  /* Wait for the logos so their widths are known, then start */
+  var imgs = Array.prototype.slice.call(rows.querySelectorAll('img'));
+  Promise.all(imgs.map(function (img) {
+    return img.decode ? img.decode().catch(function () {}) : Promise.resolve();
+  })).then(function () { setup(); started = true; sync(); });
+})();
+</script>
 
   <script type="module"
     src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496"
